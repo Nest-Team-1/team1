@@ -22,9 +22,9 @@ body {
     background-color: aquamarine;
 }
 
-
-/* body::-webkit-scrollbar {
-    display: none; */
+body::-webkit-scrollbar {
+    display: none;
+}
 
 .navBar {
     width: 100%;
@@ -111,9 +111,9 @@ body {
     background-color: black;
 }
 
-.haha {
-    /* position: sticky; */
-    top: -30vh;
+.penCont {
+    position: sticky;
+    top: 50vh;
     margin-bottom: 10vh;
     display: flex;
     justify-content: center;

@@ -1,6 +1,6 @@
 const $blocks = document.querySelectorAll('.block');
 // const $sticky = document.querySelector('.sticky');
-const $haha = document.querySelector('.haha');
+const $penCont = document.querySelector('.penCont');
 
 const TOP_GAP = 250;
 const windowHeight = window.innerHeight;
@@ -17,19 +17,19 @@ window.onscroll = (e) => {
         }
     }
 
-    const fixedParentY = $haha.closest('.block').offsetTop;
+    const fixedParentY = $penCont.closest('.block').offsetTop;
     console.log('blockY:' + fixedParentY, 'windowScroll:' + window.scrollY, 'wH: ' + windowHeight);
     if (windowBottomY - windowHeight / 2 - window.scrollY) {;
         console.log(windowBottomY - windowHeight / 2 - window.scrollY);
         const a = windowBottomY - windowHeight / 2 - fixedParentY;
-        const $left = $haha.querySelector('.left');
-        const $right = $haha.querySelector('.right');
+        const $left = $penCont.querySelector('.left');
+        const $right = $penCont.querySelector('.right');
         $left.style.transform = `translateX(-${a}px)`;
         $right.style.transform = `translateX(${a}px)`;
-        if (window.scrollY > fixedParentY) {
-            $haha.classList.add('fixed');
-        } else {
-            $haha.classList.remove('fixed');
-        }
+        // if (window.scrollY > fixedParentY) {
+        //     $penCont.classList.add('fixed');
+        // } else {
+        //     $penCont.classList.remove('fixed');
+        // }
     }
 }
