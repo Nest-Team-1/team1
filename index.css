@@ -1,0 +1,141 @@
+body {
+    margin: 0;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+.white {
+    background-color: white;
+}
+
+.aquamarine {
+    background-color: aquamarine;
+}
+
+
+/* body::-webkit-scrollbar {
+    display: none; */
+
+.navBar {
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.logo {
+    margin: auto 30px;
+    height: 50px;
+    width: 50px;
+    background-color: aqua;
+    border-radius: 50%;
+}
+
+.space {
+    height: 100%;
+    width: 10%;
+}
+
+.navBut {
+    height: 100%;
+    width: 550px;
+    margin-right: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.navBut>button {
+    height: 25px;
+    width: 80px;
+    border-radius: 10px;
+}
+
+.homeBack {
+    width: 100%;
+    height: 100vh;
+    background-image: url(https://thumbs.dreamstime.com/b/math-formula-background-education-vector-illustration-137794030.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.firstWord {
+    height: 250px;
+    width: 50%;
+    font-size: 28px;
+}
+
+.homeBack>button {
+    height: 50px;
+    width: 150px;
+    background-color: cadetblue;
+}
+
+
+/* 
+.btn:nth-child(4) {
+    height: 25px;
+    width: 80px;
+    border-radius: 10px;
+    background-color: aquamarine;
+} */
+
+.left {
+    width: 300px;
+    height: 100px;
+    background-color: black;
+    z-index: 999;
+}
+
+.right {
+    width: 900px;
+    height: 100px;
+    background-color: black;
+}
+
+.haha {
+    /* position: sticky; */
+    top: -30vh;
+    margin-bottom: 10vh;
+    display: flex;
+    justify-content: center;
+}
+
+.fixed {
+    z-index: 10;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+}
+
+.block {
+    height: 100vh;
+    /* margin-top: 150px; */
+    opacity: 0;
+    transition: 1s;
+}
+
+.active {
+    margin-top: 0;
+    opacity: 1;
+}
