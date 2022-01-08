@@ -1,6 +1,7 @@
 const $blocks = document.querySelectorAll('.block');
 // const $sticky = document.querySelector('.sticky');
 const $penCont = document.querySelector('.penCont');
+const $ab = document.querySelector('.about');
 
 const TOP_GAP = 250;
 const windowHeight = window.innerHeight;
@@ -26,10 +27,11 @@ window.onscroll = (e) => {
         const $right = $penCont.querySelector('.right');
         $left.style.transform = `translateX(-${a}px)`;
         $right.style.transform = `translateX(${a}px)`;
-        // if (window.scrollY > fixedParentY) {
-        //     $penCont.classList.add('fixed');
-        // } else {
-        //     $penCont.classList.remove('fixed');
-        // }
+        $ab.style.fontSize = `${window.scrollY / 50}px`
+            // if (window.scrollY > fixedParentY) {
+            //     $penCont.classList.add('fixed');
+            // } else {
+            //     $penCont.classList.remove('fixed');
+            // }
     }
 }
