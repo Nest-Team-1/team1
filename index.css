@@ -89,18 +89,10 @@ body::-webkit-scrollbar {
     background-color: cadetblue;
 }
 
-
-/* 
-.btn:nth-child(4) {
-    height: 25px;
-    width: 80px;
-    border-radius: 10px;
-    background-color: aquamarine;
-} */
-
 .left {
     width: 300px;
     height: 100px;
+    margin-left: 30%;
     background-color: black;
     z-index: 999;
 }
@@ -135,7 +127,39 @@ body::-webkit-scrollbar {
     transition: 1s;
 }
 
+.block:nth-child(3) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about {
+    height: 100%;
+    width: 80%;
+    background-color: azure;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.footer {
+    height: 100px;
+    width: 100%;
+    background-color: whitesmoke;
+}
+
 .active {
     margin-top: 0;
     opacity: 1;
+}
+
+@media only screen and (max-width: 850px) {
+    .left {
+        width: 50%;
+    }
+    .right {
+        width: 30%;
+    }
 }
