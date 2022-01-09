@@ -25,6 +25,7 @@ window.onscroll = (e) => {
         const a = windowBottomY - windowHeight / 2 - fixedParentY;
         const $left = $penCont.querySelector('.left');
         const $right = $penCont.querySelector('.right');
+        // $left.style.transform = `rotateZ( -${a}deg)`
         $left.style.transform = `translateX(-${a}px)`;
         $right.style.transform = `translateX(${a}px)`;
         // $ab.style.fontSize = `${window.scrollY / 50}px`
