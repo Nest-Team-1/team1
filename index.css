@@ -101,7 +101,7 @@ body::-webkit-scrollbar {
 }
 
 .right {
-    width: 900px;
+    width: 800px;
     height: 100px;
     background-color: black;
     will-change: transform;
