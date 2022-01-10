@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    overflow-x: hidden;
 }
 
 .red {
@@ -101,20 +102,24 @@ body::-webkit-scrollbar {
 }
 
 .right {
-    width: 800px;
+    width: 900px;
     height: 100px;
     background-color: black;
     will-change: transform;
+    overflow: auto;
     /* transform: translate3d(0%, 0 px, 0 px) scale3d(1, 1, 1) rotateX( 0deg) rotateY( 0deg) rotateZ( 0deg) skew( 0deg, 0deg);
     transform-style: preserve-3d; */
 }
 
 .penCont {
+    display: flex;
+    justify-content: center;
     position: sticky;
     top: 50vh;
     margin-bottom: 10vh;
     display: flex;
     justify-content: center;
+ 
 }
 
 .fixed {
@@ -162,10 +167,13 @@ body::-webkit-scrollbar {
 }
 
 @media only screen and (max-width: 850px) {
-    .left {
+    /* .left {
         width: 50%;
     }
     .right {
         width: 30%;
+    } */
+    .navBut{
+        display: none;
     }
 }
