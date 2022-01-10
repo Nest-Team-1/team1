@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="./login.css">
+</head>
+<body>
+    <div class="login login-body flex just-center align-center">
+        <div class="login login-container flex column just-center align-center">
+            <h2>Нэвтрэх</h2>
+            <div class="top">
+                <form action="login.js">
+                    <div>
+                        <label for="e-mail">Enter your email:</label> <br>
+                        <input type="email" id="login-email" name="email" placeholder="email">
+                    </div>
+                    <div>
+                        <label for="password">Enter your password:</label><br>
+                        <input type="password" placeholder = "password" id="login-password">
+                    </div>
+                    <div>
+                        <input type="submit" value="Нэвтрэх" id="submit-btn" class="input-btn">
+                    </div> 
+                </form>
+            </div>
+           
+            <hr>
+            <div class="bottom">
+                <input type="button" value="Бүртгүүлэх" id="regist-btn" class="input-btn" >
+            </div>
+        </div>
+        <!-- SignUp Page -->
+        <div class="sign-up login-container flex column just-center align-center">
+            <h2>Бүртгүүлэх</h2>
+            <div class="top">
+                <form action="login.js">
+                    <div>
+                        <label for="uname">Enter your email:</label> <br>
+                        <input type="text" id="register-name" name="uname" placeholder="Username">
+                    </div>
+                    <div>
+                        <label for="e-mail">И-мейл</label><br>
+                        <input type="email" placeholder = "e-mail" id="register-email">
+                    </div>
+                    <div>
+                        <label for="password">Enter your password:</label><br>
+                        <input type="password" placeholder = "password" id="register-password">
+                    </div>
+                    <div>
+                        <div class="facebook"></div>
+                        <div class="google"></div>
+                        <div class="phone"></div>
+                    </div>
+                    <div>
+                        <input type="submit" value="Бүртгүүлэх" id="register-regist-btn" class="input-btn">
+                    </div> 
+                </form>
+            </div>
+        </div>
+
+        <!-- Phone signup page -->
+        <div class="phone-sign-up login-container flex column just-center align-center">
+            <h2>Утсаар бүртгүүлэх</h2>
+            <div class="top">
+                <form action="login.js">
+                    <div>
+                        <label for="phoneNumber">Phone number:</label> <br>
+                        <input type="number" id="phoneNumber-name" name="phonNumber" placeholder="PhoneNumber">
+                    </div>
+                    <div>
+                        <label for="e-mail">И-мейл</label><br>
+                        <input type="email" placeholder = "e-mail" id="register-email">
+                    </div>
+                    <div>
+                        <label for="password">Enter your password:</label><br>
+                        <input type="password" placeholder = "password" id="register-password">
+                    </div>
+                    <div>
+                        <div class="facebook"></div>
+                        <div class="google"></div>
+                        <div class="phone"></div>
+                    </div>
+                    <div>
+                        <input type="submit" value="Бүртгүүлэх" id="register-regist-btn" class="input-btn">
+                    </div> 
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="./login.js"></script>
+</body>
+</html>
