@@ -52,3 +52,30 @@
   .sign-up{
       display: none;
   }
+  .phone-sign-in{
+    display: none;
+  }
+  .facebook{
+    background-image: url('https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 40px;
+    width: 40px;
+    margin: 10px;
+  }
+  .google{
+    background-image: url('https://freesvg.org/img/1534129544.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 40px;
+    width: 40px;
+    margin: 10px;
+  }
+  .phone{
+    background-image: url('https://www.vhv.rs/dpng/d/52-524161_black-phone-icon-png-transparent-png.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 40px;
+    width: 40px;
+    margin: 10px;
+  }

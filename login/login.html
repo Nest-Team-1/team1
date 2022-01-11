@@ -8,25 +8,31 @@
     <link rel="stylesheet" href="./login.css">
 </head>
 <body>
-    <div class="login login-body flex just-center align-center">
+    <!-- Sign-in login -->
+    <div class="login-body flex just-center align-center">
         <div class="login login-container flex column just-center align-center">
             <h2>Нэвтрэх</h2>
             <div class="top">
                 <form action="login.js">
                     <div>
                         <label for="e-mail">Enter your email:</label> <br>
-                        <input type="email" id="login-email" name="email" placeholder="email">
+                        <input type="email" id="login-email" name="email" placeholder="email" aria-required="true">
                     </div>
                     <div>
                         <label for="password">Enter your password:</label><br>
-                        <input type="password" placeholder = "password" id="login-password">
+                        <input type="password" placeholder = "password" id="login-password" aria-required="true">
                     </div>
                     <div>
                         <input type="submit" value="Нэвтрэх" id="submit-btn" class="input-btn">
                     </div> 
                 </form>
             </div>
-           
+            <div class="middle flex">
+                <div class="facebook"></div>
+                <div class="google"></div>
+                <div class="phone"></div>
+            </div>
+            <br>
             <hr>
             <div class="bottom">
                 <input type="button" value="Бүртгүүлэх" id="regist-btn" class="input-btn" >
@@ -38,58 +44,58 @@
             <div class="top">
                 <form action="login.js">
                     <div>
-                        <label for="uname">Enter your email:</label> <br>
-                        <input type="text" id="register-name" name="uname" placeholder="Username">
+                        <label for="uname">Enter your Username:</label> <br>
+                        <input type="text" id="register-name" name="uname" placeholder="Username" aria-required="true">
                     </div>
                     <div>
                         <label for="e-mail">И-мейл</label><br>
-                        <input type="email" placeholder = "e-mail" id="register-email">
+                        <input type="email" placeholder = "e-mail" id="register-email" aria-required="true">
                     </div>
                     <div>
                         <label for="password">Enter your password:</label><br>
-                        <input type="password" placeholder = "password" id="register-password">
+                        <input type="password" placeholder = "password" id="register-password" aria-required="true" minlength="8" maxlength="32">
                     </div>
-                    <div>
-                        <div class="facebook"></div>
-                        <div class="google"></div>
-                        <div class="phone"></div>
-                    </div>
-                    <div>
-                        <input type="submit" value="Бүртгүүлэх" id="register-regist-btn" class="input-btn">
-                    </div> 
                 </form>
             </div>
+
+            <div class="bottom">
+                <input type="submit" value="Бүртгүүлэх" id="register-regist-btn" class="input-btn">
+            </div> 
         </div>
 
-        <!-- Phone signup page -->
-        <div class="phone-sign-up login-container flex column just-center align-center">
-            <h2>Утсаар бүртгүүлэх</h2>
-            <div class="top">
-                <form action="login.js">
-                    <div>
-                        <label for="phoneNumber">Phone number:</label> <br>
-                        <input type="number" id="phoneNumber-name" name="phonNumber" placeholder="PhoneNumber">
-                    </div>
-                    <div>
-                        <label for="e-mail">И-мейл</label><br>
-                        <input type="email" placeholder = "e-mail" id="register-email">
-                    </div>
-                    <div>
-                        <label for="password">Enter your password:</label><br>
-                        <input type="password" placeholder = "password" id="register-password">
-                    </div>
-                    <div>
-                        <div class="facebook"></div>
-                        <div class="google"></div>
-                        <div class="phone"></div>
-                    </div>
-                    <div>
-                        <input type="submit" value="Бүртгүүлэх" id="register-regist-btn" class="input-btn">
-                    </div> 
-                </form>
+        <!-- Phone sign-in page -->
+        <div class="phone-sign-in login-container flex column just-center align-center">
+            <h2>Утсаар Нэвтрэх</h2>
+            <div class="top">          
+                <div>
+                    <label for="phoneNumber">Phone number:</label> <br>
+                    <input type="number" id="phoneNumber-name" name="phonNumber" placeholder="Phone Number">
+                </div>
+                <div>
+                    <input type="submit" value="Send" id="send-btn" class="input-btn"> <br>
+                </div>      
+                <div>
+                    <label for="verication">Verication Code:</label><br>
+                    <input type="number" name="verication" placeholder = "Verication Code" id="send-verication">
+                </div>
+                <div>
+                    <button id="phone-login-btn" class="input-btn">Login</button>
+                </div>  
             </div>
         </div>
     </div>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script>
+        firebase.initializeApp({
+            apiKey: "AIzaSyCFcmVCuv88VCnm-2ksXRng90c5g_9eVT8",
+            authDomain: "team1-math-login.firebaseapp.com",
+            projectId: "team1-math-login",
+            storageBucket: "team1-math-login.appspot.com",
+            messagingSenderId: "372419094094",
+            appId: "1:372419094094:web:2c5d6f0bc8a876316b051f"
+        });
+    </script>
     <script src="./login.js"></script>
 </body>
 </html>
