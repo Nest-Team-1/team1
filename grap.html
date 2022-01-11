@@ -105,7 +105,7 @@
 
         // constants
         this.axisColor = "#000";
-        this.font = "8pt Calibri";
+        this.font = "10pt Calibri";
         this.tickSize = 20;
 
         // relationships
@@ -328,6 +328,12 @@
           3
         );
       }
+      $d.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        drawBtn();
+    }
+});
     </script>
     <script>
       "use strict";
