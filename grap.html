@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+      
+
+      .container {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: row;
+      }
+      .che{
+        width: 250px;
+        height: 100%;
+        background-color: aqua;
+      }
+      .math{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 600px;
+        height: 100%;
+      }
+
+      .calculator {
+        display: flex;
+        flex-direction: column;
+      }
+      .hand > input {
+        width: 25px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="che"></div>
+      <div class="math">
+        <canvas id="myCanvas" width="578" height="578"></canvas>
+        <div class="calculator">
+          <input id="a" type="range" min="-10" max="10" />
+          <input id="b" type="range" min="-10" max="10" />
+          <input id="c" type="range" min="-10" max="10" />
+          <div class="hand">
+            <!-- <input id="a1" />x^2+<input id="a2" />x+<input id="a3"/>=0 -->
+            <input id="a1" />sinx=0
+            <button id="btn" onclick="drawBtn()">draw</button>
+          </div>
+        </div>
+      </div>
+      <div class="theory"></div>
+    </div>
+    <script>
+      let $a = document.querySelector("#a");
+      let $b = document.getElementById("b");
+      let $c = document.getElementById("c");
+      let $d = document.querySelector("#a1");
+      let $d1 = document.querySelector("#a2");
+      let $d2 = document.querySelector("#a3");
+      let $btn = document.getElementById("btn");
+      let ab;
+
+      let a = 0;
+      let b = 0;
+      let c = 0;
+      document.querySelector("#a").onchange = (e) => {
+        // const $range = e.target.value;
+        // ab = $range;
+        // console.log(ab);
+        a = e.target.value;
+        rangenChange();
+      };
+
+      document.querySelector("#b").onchange = (e) => {
+        // const $range = e.target.value;
+        // ab = $range;
+        // console.log(ab);
+
+        b = e.target.value;
+        rangenChange();
+      };
+
+      document.querySelector("#c").onchange = (e) => {
+        // const $range = e.target.value;
+        // ab = $range;
+        // console.log(ab);
+
+        c = e.target.value;
+        rangenChange();
+      };
+      function Graph(config) {
+        // user defined properties
+        this.canvas = document.getElementById(config.canvasId);
+        this.minX = config.minX;
+        this.minY = config.minY;
+        this.maxX = config.maxX;
+        this.maxY = config.maxY;
+        this.unitsPerTick = config.unitsPerTick;
+
+        // constants
+        this.axisColor = "#000";
+        this.font = "8pt Calibri";
+        this.tickSize = 20;
+
+        // relationships
+        this.context = this.canvas.getContext("2d");
+        this.rangeX = this.maxX - this.minX;
+        this.rangeY = this.maxY - this.minY;
+        this.unitX = this.canvas.width / this.rangeX;
+        this.unitY = this.canvas.height / this.rangeY;
+        this.centerY = Math.round(
+          Math.abs(this.minY / this.rangeY) * this.canvas.height
+        );
+        this.centerX = Math.round(
+          Math.abs(this.minX / this.rangeX) * this.canvas.width
+        );
+        this.iteration = (this.maxX - this.minX) / 1000;
+        this.scaleX = this.canvas.width / this.rangeX;
+        this.scaleY = this.canvas.height / this.rangeY;
+
+        // draw x and y axis
+        this.drawXAxis();
+        this.drawYAxis();
+      }
+
+      Graph.prototype.drawXAxis = function () {
+        let context = this.context;
+        context.save();
+        context.beginPath();
+        context.moveTo(0, this.centerY);
+        context.lineTo(this.canvas.width, this.centerY);
+        context.strokeStyle = this.axisColor;
+        context.lineWidth = 2;
+        context.stroke();
+
+        // draw tick marks
+        let xPosIncrement = this.unitsPerTick * this.unitX;
+        let xPos, unit;
+        context.font = this.font;
+        context.textAlign = "center";
+        context.textBaseline = "top";
+
+        // draw left tick marks
+        xPos = this.centerX - xPosIncrement;
+        unit = -1 * this.unitsPerTick;
+        while (xPos > 0) {
+          context.moveTo(xPos, this.centerY - this.tickSize / 2);
+          context.lineTo(xPos, this.centerY + this.tickSize / 2);
+          context.stroke();
+          context.fillText(unit, xPos, this.centerY + this.tickSize / 2 + 3);
+          unit -= this.unitsPerTick;
+          xPos = Math.round(xPos - xPosIncrement);
+        }
+
+        // draw right tick marks
+        xPos = this.centerX + xPosIncrement;
+        unit = this.unitsPerTick;
+        while (xPos < this.canvas.width) {
+          context.moveTo(xPos, this.centerY - this.tickSize / 2);
+          context.lineTo(xPos, this.centerY + this.tickSize / 2);
+          context.stroke();
+          context.fillText(unit, xPos, this.centerY + this.tickSize / 2 + 3);
+          unit += this.unitsPerTick;
+          xPos = Math.round(xPos + xPosIncrement);
+        }
+        context.restore();
+      };
+
+      Graph.prototype.drawYAxis = function () {
+        let context = this.context;
+        context.save();
+        context.beginPath();
+        context.moveTo(this.centerX, 0);
+        context.lineTo(this.centerX, this.canvas.height);
+        context.strokeStyle = this.axisColor;
+        context.lineWidth = 2;
+        context.stroke();
+
+        // draw tick marks
+        let yPosIncrement = this.unitsPerTick * this.unitY;
+        let yPos, unit;
+        context.font = this.font;
+        context.textAlign = "right";
+        context.textBaseline = "middle";
+
+        // draw top tick marks
+        yPos = this.centerY - yPosIncrement;
+        unit = this.unitsPerTick;
+        while (yPos > 0) {
+          context.moveTo(this.centerX - this.tickSize / 2, yPos);
+          context.lineTo(this.centerX + this.tickSize / 2, yPos);
+          context.stroke();
+          context.fillText(unit, this.centerX - this.tickSize / 2 - 3, yPos);
+          unit += this.unitsPerTick;
+          yPos = Math.round(yPos - yPosIncrement);
+        }
+
+        // draw bottom tick marks
+        yPos = this.centerY + yPosIncrement;
+        unit = -1 * this.unitsPerTick;
+        while (yPos < this.canvas.height) {
+          context.moveTo(this.centerX - this.tickSize / 2, yPos);
+          context.lineTo(this.centerX + this.tickSize / 2, yPos);
+          context.stroke();
+          context.fillText(unit, this.centerX - this.tickSize / 2 - 3, yPos);
+          unit -= this.unitsPerTick;
+          yPos = Math.round(yPos + yPosIncrement);
+        }
+        context.restore();
+      };
+
+      Graph.prototype.drawEquation = function (equation, color, thickness) {
+        let context = this.context;
+        context.save();
+        context.save();
+        this.transformContext();
+
+        context.beginPath();
+        context.moveTo(this.minX, equation(this.minX));
+
+        for (
+          let x = this.minX + this.iteration;
+          x <= this.maxX;
+          x += this.iteration
+        ) {
+          context.lineTo(x, equation(x));
+        }
+
+        context.restore();
+        context.lineJoin = "round";
+        context.lineWidth = thickness;
+        context.strokeStyle = color;
+        context.stroke();
+        context.restore();
+      };
+
+      Graph.prototype.transformContext = function () {
+        let context = this.context;
+
+        // move context to center of canvas
+        this.context.translate(this.centerX, this.centerY);
+
+        /*
+         * stretch grid to fit the canvas window, and
+         * invert the y scale so that that increments
+         * as you move upwards
+         */
+        context.scale(this.scaleX, -this.scaleY);
+      };
+
+      const myGraph = new Graph({
+        canvasId: "myCanvas",
+        minX: -10,
+        minY: -10,
+        maxX: 10,
+        maxY: 10,
+        unitsPerTick: 1,
+      });
+
+      const rangenChange = (value) => {
+        const canva = document.getElementById("myCanvas");
+        const context = canva.getContext("2d");
+        context.clearRect(0, 0, canva.width, canva.height);
+        myGraph.drawXAxis();
+        myGraph.drawYAxis();
+        myGraph.drawEquation(
+          function (x) {
+            return parseInt($d.value) * Math.sin(x);
+            // parseInt($d.value) * x * x + parseInt($d1.value) * x + parseInt($d2.value);
+          },
+          "blue",
+          3
+        );
+        console.log(a, b, c);
+        myGraph.drawEquation(
+          (x) => {
+            return (
+              parseInt($a.value) * x * x * x+
+              parseInt($b.value) * x * x +
+              parseInt($c.value)
+            );
+          },
+          "green",
+          3
+        );
+
+
+        // myGraph.drawEquation(
+        //   function (x) {
+        //     return 2 * x;
+        //   },
+        //   "red",
+        //   3
+        // );
+        
+      };
+      const dra = drawBtn = () => {
+        console.log('h');
+        const canva = document.getElementById("myCanvas");
+        const context = canva.getContext("2d");
+        context.clearRect(0, 0, canva.width, canva.height);
+        myGraph.drawXAxis();
+        myGraph.drawYAxis();
+        myGraph.drawEquation(
+          (x) => {
+            return (
+              parseInt($a.value) * x * x * x+
+              parseInt($b.value) * x * x +
+              parseInt($c.value)
+            );
+          },
+          "green",
+          3
+        );
+        //console.log($d.value, $d1.value, $d2.value);
+        myGraph.drawEquation(
+          function (x) {
+            return parseInt($d.value) * Math.sin(x);
+            // parseInt($d.value) * x * x + parseInt($d1.value) * x + parseInt($d2.value);
+          },
+          "blue",
+          3
+        );
+      }
+    </script>
+    <script>
+      "use strict";
+      let wprRemoveCPCSS = function wprRemoveCPCSS() {
+        let elem;
+        document.querySelector('link[data-rocket-async="style"][rel="preload"]')
+          ? setTimeout(wprRemoveCPCSS, 200)
+          : (elem = document.getElementById("rocket-critical-css")) &&
+            "remove" in elem &&
+            elem.remove();
+      };
+      window.addEventListener
+        ? window.addEventListener("load", wprRemoveCPCSS)
+        : window.attachEvent && window.attachEvent("onload", wprRemoveCPCSS);
+    </script>
+    <script type="text/javascript">
+      window._taboola = window._taboola || [];
+      _taboola.push({
+        article: "auto",
+      });
+      !(function (e, f, u, i) {
+        if (!document.getElementById(i)) {
+          e.async = 1;
+          e.src = u;
+          e.id = i;
+          f.parentNode.insertBefore(e, f);
+        }
+      })(
+        document.createElement("script"),
+        document.getElementsByTagName("script")[0],
+        "//cdn.taboola.com/libtrc/pythoncentral/loader.js",
+        "tb_loader_script"
+      );
+      if (window.performance && typeof window.performance.mark == "function") {
+        window.performance.mark("tbl_ic");
+      }
+    </script>
+    <script type="text/javascript">
+      window._taboola = window._taboola || [];
+      _taboola.push({
+        mode: "thumbnails-b",
+        container: "taboola-below-article-thumbnails",
+        placement: "Below Article Thumbnails",
+        target_type: "mix",
+      });
+    </script>
+    <script type="text/javascript">
+      window._taboola = window._taboola || [];
+      _taboola.push({
+        flush: true,
+      });
+    </script>
+    <noscript
+      ><link
+        data-avlabs-exclude-css="1"
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=PT%20Sans%7CLato%3A400%2C700%2C400italic%2C700italic%7COswald%3A400%2C700&display=swap" /><link
+        data-avlabs-exclude-css="1"
+        rel="stylesheet"
+        href="https://www.html5canvastutorials.com/wp-content/cache/min/1/fa413723b02e39d2a577bc52daa608cb.css"
+        media="all"
+        data-minify="1" /><link
+        data-avlabs-exclude-css="1"
+        rel="stylesheet"
+        href="/libraries/codeMirror/lib/codemirror.css"
+    /></noscript>
+  </body>
+</html>
