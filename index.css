@@ -1,0 +1,140 @@
+body {
+  margin: 0;
+}
+.flex {
+  display: flex;
+}
+.nav {
+  justify-content: space-between;
+  height: 60px;
+  /* border: 1px solid black; */
+  align-items: center;
+}
+.btn {
+  border: none;
+  color: #2a313a;
+  font-size: 20px;
+  background-color: white;
+  cursor: pointer;
+  margin-right: 30px;
+}
+.btn1 {
+  font-size: 20px;
+  background-color: #2a313a;
+  color: white;
+  width: 113px;
+  border: none;
+  border-radius: 5px;
+  height: 38px;
+  cursor: pointer;
+}
+.btn-container {
+  margin-right: 50px;
+}
+.logo {
+  margin-left: 70px;
+}
+.j-center {
+  justify-content: space-evenly;
+  width: 80vw;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.header {
+  background-image: url(./500_F_297071826_W4Jv8lgKJ338d9grf68ocN3AaNjohkZ3\ 1.png);
+  height: 600px;
+  width: 100vw;
+  flex-direction: column;
+}
+.text {
+  font-size: 60px;
+  width: 40%;
+  color: white;
+  text-align: center;
+}
+.start {
+  border-radius: 5px;
+  color: 2a313a;
+  background-color: white;
+  outline: none;
+  width: 300px;
+  height: 50px;
+  border: none;
+  margin-top: 50px;
+  cursor: pointer;
+}
+.center {
+  justify-content: center;
+  font-size: 50px;
+  color: #2a313a;
+}
+.svg {
+  background-image: url(./right\ arrow.svg);
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+}
+.center1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.border {
+  width: 200px;
+  border-radius: 5px;
+  height: 60px;
+  border: 1px solid black;
+  text-align: center;
+}
+.intro {
+  margin-top: 50px;
+  flex-direction: column;
+}
+.column {
+  flex-direction: column;
+  margin: 0 auto;
+}
+h1 {
+  margin: 0 auto;
+  font-size: 60px;
+  color: 2a313a;
+}
+p {
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+}
+.footer {
+  height: 150px;
+  width: 100vw;
+  background-color: #2a313a;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.purpose {
+  margin-top: 40px;
+}
+.about {
+  margin-top: 20px;
+}
+.flex1 {
+  flex: 2;
+}
+.flex4 {
+  flex: 4;
+  flex-direction: column;
+  display: flex;
+  margin: auto;
+}
+.p {
+  font-size: 20px;
+  width: 300px;
+  color: white;
+}
+.margin-bot {
+  margin-bottom: 10px;
+}
+.mid {
+  margin-top: 50px;
+}
