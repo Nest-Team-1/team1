@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    scroll-behavior: inherit;
+}
+.null{
+    height: 100vh;
+    background-color:  black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+}
+.container{
+    transform: translateY(50px);
+    height: 1000px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+}
+.box1{
+    height: 300px;
+    width: 300px;
+    background-color: gray;
+    transition-duration: 500;
+}
+.box2{
+    height: 300px;
+    width: 300px;
+    background-color: gray;
+    transition-duration: 500;
+}
+.active{
+    transform: translateY(-150px);
+}
