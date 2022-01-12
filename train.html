@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .aquamarine {
+            background-color: aquamarine;
+        }
+        
+        .container {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .navBar {
+            width: 99.85;
+            height: 60px;
+            border: 1px solid black;
+            background-color: white;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            position: sticky;
+        }
+        
+        .logo {
+            margin: auto 30px;
+            height: 50px;
+            width: 50px;
+            background-color: aqua;
+            border-radius: 50%;
+        }
+        
+        .space {
+            height: 100%;
+            width: 10%;
+        }
+        
+        .navBut {
+            height: 100%;
+            width: 550px;
+            margin-right: 50px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            justify-content: space-around;
+        }
+        
+        .navBut>button {
+            height: 25px;
+            width: 80px;
+            border-radius: 10px;
+        }
+        
+        .screen {
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+            width: 100%;
+        }
+        
+        .che {
+            display: flex;
+            flex-direction: column;
+            width: 250px;
+            height: 100%;
+            background-color: rgb(0, 89, 255);
+            position: sticky;
+            /* background-image: linear-gradient(to right, rgb(38, 0, 255), rgb(0, 174, 255), white, rgb(0, 174, 255), rgb(38, 0, 255)); */
+            /* background-image: linear-gradient(to right, rgba(38, 0, 255, 0.116), rgb(4, 33, 46), white, rgb(0, 174, 255), rgb(38, 0, 255)); */
+        }
+        
+        .math {
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+            flex-direction: column;
+            width: 600px;
+            height: 100%;
+        }
+        
+        .calculator {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .hand {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .hand>input {
+            width: 30px;
+        }
+        
+        .theory {
+            height: 100%;
+            width: 65vw;
+            word-wrap: break-word;
+            font-size: 20px;
+            background-color: whitesmoke;
+        }
+        
+        .theory>p {
+            margin-left: 15px;
+        }
+        
+        .paint-canvas {
+            border: 1px black solid;
+            display: block;
+            margin: 1rem;
+        }
+        
+        .color-picker {
+            margin: 1rem 1rem 0 1rem;
+        }
+        
+        @media only screen and (max-width: 920px) {
+            canvas {
+                height: 500;
+                width: 300;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navBar">
+            <div class="logo"></div>
+            <div class="space"></div>
+            <div class="navBut">
+                <button class="btn">Study</button>
+                <button class="btn">Formulas</button>
+                <button class="btn">Forum</button>
+                <button class="btn aquamarine">Sign in</button>
+                <button class="btn aquamarine">Sign up</button>
+            </div>
+        </div>
+        <div class="screen">
+            <div class="che"></div>
+            <div class="math">
+                <form class="hand" onsubmit="drawBtn();return false">
+                    <input id="a1" type="number" required />
+                    <select id="types">
+                <option value="x">x</option>
+              <option value="sin">sin</option>
+              <option value="cos">cos</option>
+              <option value="tan">tan</option>
+              <option value="cot">cot</option>
+            </select>x^2
+                    <input id="a2" type="number" required />cosx+<input id="a3" type="number" required />
+                    <!-- <input id="a1" />cosx^2=0 -->
+                    <button id="btn" type="submit">draw</button>
+                </form>
+                <canvas id="myCanvas" width="600" height="600" style="margin-top: 0px"></canvas>
+                <div class="calculator">
+                    <input id="a" type="range" min="-10" max="10" />
+                    <label class="function-range1">1</label>
+                    <input id="b" type="range" min="-10" max="10" />
+                    <label class="function-range2">1</label>
+                    <input id="c" type="range" min="-10" max="10" />
+                    <label class="function-range3">1</label>
+                </div>
+            </div>
+            <div class="theory">
+                <p>
+                    1.This relationship is commonly symbolized as y = f(x)—which is said “f of x”—and y and x are related such that for every x, there is a unique value of y. That is, f(x) can not have more than one value for the same x. To use the language of set theory,
+                    a function relates an element x to an element f(x) in another set. The set of values of x is called the domain of the function, and the set of values of f(x) generated by the values in the domain is called the range of the function.
+                    In addition to f(x), other abbreviated symbols such as g(x) and P(x) are often used to represent functions of the independent variable x, especially when the nature of the function is unknown or unspecified.
+                </p>
+                <p>
+                    2.This relationship is commonly symbolized as y = f(x)—which is said “f of x”—and y and x are related such that for every x, there is a unique value of y. That is, f(x) can not have more than one value for the same x. To use the language of set theory,
+                    a function relates an element x to an element f(x) in another set. The set of values of x is called the domain of the function, and the set of values of f(x) generated by the values in the domain is called the range of the function.
+                    In addition to f(x), other abbreviated symbols such as g(x) and P(x) are often used to represent functions of the independent variable x, especially when the nature of the function is unknown or unspecified.
+                </p>
+            </div>
+        </div>
+        <div>
+            <input type="color" class="js-color-picker color-picker" />
+            <input type="range" class="js-line-range" min="1" max="72" value="1" />
+            <label class="js-range-value">1</label>Px
+            <button onclick="clearBtn()">clear</button>
+            <canvas id="paint-canvas" class="js-paint paint-canvas" width="1200" height="600"></canvas>
+        </div>
+    </div>
+    <script>
+        let $a = document.querySelector("#a");
+        let $b = document.getElementById("b");
+        let $c = document.getElementById("c");
+        let $d = document.querySelector("#a1");
+        let $d1 = document.querySelector("#a2");
+        let $d2 = document.querySelector("#a3");
+        let $btn = document.getElementById("btn");
+        let $range = document.querySelector(".function-range1");
+        let $range1 = document.querySelector(".function-range2");
+        let $range2 = document.querySelector(".function-range3");
+        $range.innerText = "0";
+        $range1.innerText = "0";
+        $range2.innerText = "0";
+        let $type = document.getElementById('types');
+        let a = 0;
+        let b = 0;
+        let c = 0;
+        document.querySelector("#a").onchange = (e) => {
+            a = e.target.value;
+            $range.innerText = $a.value;
+            rangenChange();
+        };
+
+        document.querySelector("#b").onchange = (e) => {
+            b = e.target.value;
+            $range1.innerText = $b.value;
+            rangenChange();
+        };
+
+        document.querySelector("#c").onchange = (e) => {
+            c = e.target.value;
+            $range2.innerText = $c.value;
+            rangenChange();
+        };
+
+        function Graph(config) {
+            // user defined properties
+            this.canvas = document.getElementById(config.canvasId);
+            this.minX = config.minX;
+            this.minY = config.minY;
+            this.maxX = config.maxX;
+            this.maxY = config.maxY;
+            this.unitsPerTick = config.unitsPerTick;
+
+            // constants
+            this.axisColor = "#000";
+            this.font = "10pt Calibri";
+            this.tickSize = 20;
+
+            // relationships
+            this.context = this.canvas.getContext("2d");
+            this.rangeX = this.maxX - this.minX;
+            this.rangeY = this.maxY - this.minY;
+            this.unitX = this.canvas.width / this.rangeX;
+            this.unitY = this.canvas.height / this.rangeY;
+            this.centerY = Math.round(
+                Math.abs(this.minY / this.rangeY) * this.canvas.height
+            );
+            this.centerX = Math.round(
+                Math.abs(this.minX / this.rangeX) * this.canvas.width
+            );
+            this.iteration = (this.maxX - this.minX) / 1000;
+            this.scaleX = this.canvas.width / this.rangeX;
+            this.scaleY = this.canvas.height / this.rangeY;
+
+            // draw x and y axis
+            this.drawXAxis();
+            this.drawYAxis();
+        }
+
+        Graph.prototype.drawXAxis = function() {
+            let context = this.context;
+            context.save();
+            context.beginPath();
+            context.moveTo(0, this.centerY);
+            context.lineTo(this.canvas.width, this.centerY);
+            context.strokeStyle = this.axisColor;
+            context.lineWidth = 2;
+            context.stroke();
+
+            // draw tick marks
+            let xPosIncrement = this.unitsPerTick * this.unitX;
+            let xPos, unit;
+            context.font = this.font;
+            context.textAlign = "center";
+            context.textBaseline = "top";
+
+            // draw left tick marks
+            xPos = this.centerX - xPosIncrement;
+            unit = -1 * this.unitsPerTick;
+            while (xPos > 0) {
+                context.moveTo(xPos, this.centerY - this.tickSize / 2);
+                context.lineTo(xPos, this.centerY + this.tickSize / 2);
+                context.stroke();
+                context.fillText(unit, xPos, this.centerY + this.tickSize / 2 + 3);
+                unit -= this.unitsPerTick;
+                xPos = Math.round(xPos - xPosIncrement);
+            }
+
+            // draw right tick marks
+            xPos = this.centerX + xPosIncrement;
+            unit = this.unitsPerTick;
+            while (xPos < this.canvas.width) {
+                context.moveTo(xPos, this.centerY - this.tickSize / 2);
+                context.lineTo(xPos, this.centerY + this.tickSize / 2);
+                context.stroke();
+                context.fillText(unit, xPos, this.centerY + this.tickSize / 2 + 3);
+                unit += this.unitsPerTick;
+                xPos = Math.round(xPos + xPosIncrement);
+            }
+            context.restore();
+        };
+
+        Graph.prototype.drawYAxis = function() {
+            let context = this.context;
+            context.save();
+            context.beginPath();
+            context.moveTo(this.centerX, 0);
+            context.lineTo(this.centerX, this.canvas.height);
+            context.strokeStyle = this.axisColor;
+            context.lineWidth = 2;
+            context.stroke();
+
+            // draw tick marks
+            let yPosIncrement = this.unitsPerTick * this.unitY;
+            let yPos, unit;
+            context.font = this.font;
+            context.textAlign = "right";
+            context.textBaseline = "middle";
+
+            // draw top tick marks
+            yPos = this.centerY - yPosIncrement;
+            unit = this.unitsPerTick;
+            while (yPos > 0) {
+                context.moveTo(this.centerX - this.tickSize / 2, yPos);
+                context.lineTo(this.centerX + this.tickSize / 2, yPos);
+                context.stroke();
+                context.fillText(unit, this.centerX - this.tickSize / 2 - 3, yPos);
+                unit += this.unitsPerTick;
+                yPos = Math.round(yPos - yPosIncrement);
+            }
+
+            // draw bottom tick marks
+            yPos = this.centerY + yPosIncrement;
+            unit = -1 * this.unitsPerTick;
+            while (yPos < this.canvas.height) {
+                context.moveTo(this.centerX - this.tickSize / 2, yPos);
+                context.lineTo(this.centerX + this.tickSize / 2, yPos);
+                context.stroke();
+                context.fillText(unit, this.centerX - this.tickSize / 2 - 3, yPos);
+                unit -= this.unitsPerTick;
+                yPos = Math.round(yPos + yPosIncrement);
+            }
+            context.restore();
+        };
+
+        Graph.prototype.drawEquation = function(equation, color, thickness) {
+            let context = this.context;
+            context.save();
+            context.save();
+            this.transformContext();
+
+            context.beginPath();
+            context.moveTo(this.minX, equation(this.minX));
+
+            for (
+                let x = this.minX + this.iteration; x <= this.maxX; x += this.iteration
+            ) {
+                context.lineTo(x, equation(x));
+            }
+
+            context.restore();
+            context.lineJoin = "round";
+            context.lineWidth = thickness;
+            context.strokeStyle = color;
+            context.stroke();
+            context.restore();
+        };
+
+        Graph.prototype.transformContext = function() {
+            let context = this.context;
+
+            // move context to center of canvas
+            this.context.translate(this.centerX, this.centerY);
+            // this.context.translate(105, 0);
+
+            /*
+             * stretch grid to fit the canvas window, and
+             * invert the y scale so that that increments
+             * as you move upwards
+             */
+            context.scale(this.scaleX, -this.scaleY);
+        };
+
+        const myGraph = new Graph({
+            canvasId: "myCanvas",
+            minX: -10,
+            minY: -10,
+            maxX: 10,
+            maxY: 10,
+            unitsPerTick: 1,
+        });
+
+        const rangenChange = (value) => {
+            const canva = document.getElementById("myCanvas");
+            const context = canva.getContext("2d");
+            context.clearRect(0, 0, canva.width, canva.height);
+            myGraph.drawXAxis();
+            myGraph.drawYAxis();
+            myGraph.drawEquation(
+                function(x) {
+                    return (
+                        parseInt($d.value) * Math.sin(x) * Math.sin(x) +
+                        parseInt($d1.value) * Math.cos(x) +
+                        parseInt($d2.value)
+                    );
+                    // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+                },
+                "blue",
+                3
+            );
+            // $a.value = $d.value;
+            console.log(a, b, c);
+            myGraph.drawEquation(
+                (x) => {
+                    return (
+                        parseInt($a.value) * x * x +
+                        parseInt($b.value) * x +
+                        parseInt($c.value)
+                    );
+                },
+                "green",
+                3
+            );
+
+            // myGraph.drawEquation(
+            //   function (x) {
+            //     return 2 * x;
+            //   },
+            //   "red",
+            //   3
+            // );
+        };
+        const dra = (drawBtn = () => {
+            if ($type.value === 'sin') {
+
+                console.log($d.value, $d1.value, $d2.value);
+                const canva = document.getElementById("myCanvas");
+                const context = canva.getContext("2d");
+                context.clearRect(0, 0, canva.width, canva.height);
+                myGraph.drawXAxis();
+                myGraph.drawYAxis();
+                myGraph.drawEquation(
+                    (x) => {
+                        return (
+                            parseInt($a.value) * x * x +
+                            parseInt($b.value) * x +
+                            parseInt($c.value)
+                        );
+                    },
+                    "green",
+                    3
+                );
+                myGraph.drawEquation(
+                    function(x) {
+                        // console.log($d.value, $d1.value, $d2.value);
+                        return (
+                            parseInt($d.value) * Math.sin(x) * Math.sin(x) +
+                            parseInt($d1.value) * Math.cos(x) +
+                            parseInt($d2.value)
+                        );
+                    },
+                    "blue",
+                    3
+                );
+            } else if ($type.value === 'cos') {
+                console.log($d.value, $d1.value, $d2.value);
+                const canva = document.getElementById("myCanvas");
+                const context = canva.getContext("2d");
+                context.clearRect(0, 0, canva.width, canva.height);
+                myGraph.drawXAxis();
+                myGraph.drawYAxis();
+                myGraph.drawEquation(
+                    (x) => {
+                        return (
+                            parseInt($a.value) * x * x +
+                            parseInt($b.value) * x +
+                            parseInt($c.value)
+                        );
+                    },
+                    "green",
+                    3
+                );
+                myGraph.drawEquation(
+                    function(x) {
+                        // console.log($d.value, $d1.value, $d2.value);
+                        return (
+                            parseInt($d.value) * Math.cos(x) * Math.cos(x) +
+                            parseInt($d1.value) * Math.cos(x) +
+                            parseInt($d2.value)
+                        );
+                    },
+                    "blue",
+                    3
+                );
+            }
+        });
+        // $d.$d1.$d2.addEventListener("keyup", function(event) {
+        //     if (event.keyCode === 13) {
+        //         event.preventDefault();
+        //         drawBtn();
+        //     }
+        // });
+    </script>
+    <script>
+        "use strict";
+        let wprRemoveCPCSS = function wprRemoveCPCSS() {
+            let elem;
+            document.querySelector('link[data-rocket-async="style"][rel="preload"]') ?
+                setTimeout(wprRemoveCPCSS, 200) :
+                (elem = document.getElementById("rocket-critical-css")) &&
+                "remove" in elem &&
+                elem.remove();
+        };
+        window.addEventListener ?
+            window.addEventListener("load", wprRemoveCPCSS) :
+            window.attachEvent && window.attachEvent("onload", wprRemoveCPCSS);
+    </script>
+    <script type="text/javascript">
+        window._taboola = window._taboola || [];
+        _taboola.push({
+            article: "auto",
+        });
+        !(function(e, f, u, i) {
+            if (!document.getElementById(i)) {
+                e.async = 1;
+                e.src = u;
+                e.id = i;
+                f.parentNode.insertBefore(e, f);
+            }
+        })(
+            document.createElement("script"),
+            document.getElementsByTagName("script")[0],
+            "//cdn.taboola.com/libtrc/pythoncentral/loader.js",
+            "tb_loader_script"
+        );
+        if (window.performance && typeof window.performance.mark == "function") {
+            window.performance.mark("tbl_ic");
+        }
+    </script>
+    <script type="text/javascript">
+        window._taboola = window._taboola || [];
+        _taboola.push({
+            mode: "thumbnails-b",
+            container: "taboola-below-article-thumbnails",
+            placement: "Below Article Thumbnails",
+            target_type: "mix",
+        });
+    </script>
+    <script type="text/javascript">
+        window._taboola = window._taboola || [];
+        _taboola.push({
+            flush: true,
+        });
+    </script>
+    <noscript><link
+        data-avlabs-exclude-css="1"
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=PT%20Sans%7CLato%3A400%2C700%2C400italic%2C700italic%7COswald%3A400%2C700&display=swap" /><link
+        data-avlabs-exclude-css="1"
+        rel="stylesheet"
+        href="https://www.html5canvastutorials.com/wp-content/cache/min/1/fa413723b02e39d2a577bc52daa608cb.css"
+        media="all"
+        data-minify="1" /><link
+        data-avlabs-exclude-css="1"
+        rel="stylesheet"
+        href="/libraries/codeMirror/lib/codemirror.css"
+    /></noscript>
+    <script>
+        const paintCanvas = document.querySelector(".js-paint");
+        const context = paintCanvas.getContext("2d");
+        context.lineCap = "round";
+
+        const colorPicker = document.querySelector(".js-color-picker");
+
+        colorPicker.addEventListener("change", (event) => {
+            context.strokeStyle = event.target.value;
+        });
+
+        const lineWidthRange = document.querySelector(".js-line-range");
+        const lineWidthLabel = document.querySelector(".js-range-value");
+
+        lineWidthRange.addEventListener("input", (event) => {
+            const width = event.target.value;
+            lineWidthLabel.innerHTML = width;
+            context.lineWidth = width;
+        });
+
+        let x = 0,
+            y = 0;
+        let isMouseDown = false;
+
+        const stopDrawing = () => {
+            isMouseDown = false;
+        };
+
+        const getMousePositionOnCanvas = (event) => {
+            const clientX = event.clientX || event.touches[0].clientX;
+            const clientY = event.clientY || event.touches[0].clientY;
+            const {
+                offsetLeft,
+                offsetTop
+            } = event.target;
+
+            const viewportOffset = event.target.getBoundingClientRect();
+            const top = viewportOffset.top;
+            const left = viewportOffset.left;
+
+            const canvasX = clientX - left;
+            const canvasY = clientY - top;
+
+            return {
+                x: canvasX,
+                y: canvasY,
+            };
+        };
+
+        const startDrawing = (event) => {
+            isMouseDown = true;
+            const pos = getMousePositionOnCanvas(event);
+            x = pos.x;
+            y = pos.y;
+            // [(x, y)] = [event.offsetX, event.offsetY];
+        };
+        const drawLine = (event) => {
+            event.preventDefault();
+            if (isMouseDown) {
+                const pos = getMousePositionOnCanvas(event);
+                console.log("h", pos);
+
+                const newX = pos.x;
+                const newY = pos.y;
+
+                context.beginPath();
+                context.moveTo(x, y);
+                context.lineTo(newX, newY);
+                context.stroke();
+                // //[x, y] = [newX, newY];
+                x = newX;
+                y = newY;
+            }
+        };
+
+        paintCanvas.addEventListener("mousedown", startDrawing);
+        paintCanvas.addEventListener("mousemove", drawLine);
+        paintCanvas.addEventListener("mouseup", stopDrawing);
+        paintCanvas.addEventListener("mouseout", stopDrawing);
+
+        paintCanvas.addEventListener("touchstart", startDrawing);
+        paintCanvas.addEventListener("touchmove", drawLine);
+        paintCanvas.addEventListener("touchend", stopDrawing);
+        paintCanvas.addEventListener("touchcancel", stopDrawing);
+        const clr = (clearBtn = () => {
+            const $canva = document.getElementById("paint-canvas");
+            const context = $canva.getContext("2d");
+            context.clearRect(0, 0, $canva.width, $canva.height);
+        });
+    </script>
+</body>
+
+</html>
