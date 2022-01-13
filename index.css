@@ -124,7 +124,7 @@ body::-webkit-scrollbar {
 
 .fixed {
     z-index: 10;
-    top: 50vh;
+    /* top: 50vh; */
     left: 0;
     bottom: 0;
     right: 0;
