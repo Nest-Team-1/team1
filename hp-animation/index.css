@@ -3,9 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    scroll-behavior: inherit;
-}
 .null{
     height: 100vh;
     background-color:  black;
@@ -16,26 +13,28 @@ body{
     font-size: 3em;
 }
 .container{
-    transform: translateY(50px);
     height: 1000px;
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
     transition: 1s;
 }
 .box1{
     height: 300px;
     width: 300px;
-    background-color: gray;
-    transition-duration: 500;
+    background-color: grey;
+    transition-duration: 300;
 }
 .box2{
     height: 300px;
     width: 300px;
     background-color: gray;
-    transition-duration: 500;
+    transition-duration: 300;
 }
-.active{
-    transform: translateY(-150px);
+
+.fixed{
+    position: fixed;
+}
+#box-container{
+    display: flex;
 }
