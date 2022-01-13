@@ -1,159 +1,160 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <style>
-      body {
-        margin: 0px;
-        padding: 0px;
-      }
-
-      body::-webkit-scrollbar {
-        display: none;
-      }
-
-      .aquamarine {
-        background-color: aquamarine;
-      }
-
-      .container {
-        height: 100vh;
-        width: 100vw;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .navBar {
-        width: 99.85;
-        height: 60px;
-        border: 1px solid black;
-        background-color: white;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        position: sticky;
-      }
-
-      .logo {
-        margin: auto 30px;
-        height: 50px;
-        width: 50px;
-        background-color: aqua;
-        border-radius: 50%;
-      }
-
-      .space {
-        height: 100%;
-        width: 10%;
-      }
-
-      .navBut {
-        height: 100%;
-        width: 550px;
-        margin-right: 50px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        justify-content: space-around;
-      }
-
-      .navBut > button {
-        height: 25px;
-        width: 80px;
-        border-radius: 10px;
-      }
-
-      .screen {
-        display: flex;
-        flex-direction: row;
-        height: 100vh;
-        width: 100%;
-      }
-
-      .che {
-        display: flex;
-        flex-direction: column;
-        width: 250px;
-        height: 100%;
-        background-color: rgb(0, 89, 255);
-        position: sticky;
-        /* background-image: linear-gradient(to right, rgb(38, 0, 255), rgb(0, 174, 255), white, rgb(0, 174, 255), rgb(38, 0, 255)); */
-        /* background-image: linear-gradient(to right, rgba(38, 0, 255, 0.116), rgb(4, 33, 46), white, rgb(0, 174, 255), rgb(38, 0, 255)); */
-      }
-
-      .math {
-        display: flex;
-        /* justify-content: center; */
-        align-items: center;
-        flex-direction: column;
-        width: 600px;
-        height: 100%;
-      }
-
-      .calculator {
-        display: flex;
-        flex-direction: row;
-      }
-
-      .hand {
-        display: flex;
-        flex-direction: row;
-      }
-
-      .hand > input {
-        width: 30px;
-      }
-
-      .theory {
-        height: 100%;
-        width: 65vw;
-        word-wrap: break-word;
-        font-size: 20px;
-        background-color: whitesmoke;
-      }
-
-      .theory > p {
-        margin-left: 15px;
-      }
-
-      .paint-canvas {
-        border: 1px black solid;
-        display: block;
-        margin: 1rem;
-      }
-
-      .color-picker {
-        margin: 1rem 1rem 0 1rem;
-      }
-
-      @media only screen and (max-width: 920px) {
-        canvas {
-          height: 500;
-          width: 300;
+        body {
+            margin: 0px;
+            padding: 0px;
         }
-      }
+        
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .aquamarine {
+            background-color: aquamarine;
+        }
+        
+        .container {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .navBar {
+            width: 99.85;
+            height: 60px;
+            border: 1px solid black;
+            background-color: white;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            position: sticky;
+        }
+        
+        .logo {
+            margin: auto 30px;
+            height: 50px;
+            width: 50px;
+            background-color: aqua;
+            border-radius: 50%;
+        }
+        
+        .space {
+            height: 100%;
+            width: 10%;
+        }
+        
+        .navBut {
+            height: 100%;
+            width: 550px;
+            margin-right: 50px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            justify-content: space-around;
+        }
+        
+        .navBut>button {
+            height: 25px;
+            width: 80px;
+            border-radius: 10px;
+        }
+        
+        .screen {
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+            width: 100%;
+        }
+        
+        .che {
+            display: flex;
+            flex-direction: column;
+            width: 250px;
+            height: 100%;
+            background-color: rgb(0, 89, 255);
+            position: sticky;
+            /* background-image: linear-gradient(to right, rgb(38, 0, 255), rgb(0, 174, 255), white, rgb(0, 174, 255), rgb(38, 0, 255)); */
+            /* background-image: linear-gradient(to right, rgba(38, 0, 255, 0.116), rgb(4, 33, 46), white, rgb(0, 174, 255), rgb(38, 0, 255)); */
+        }
+        
+        .math {
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+            flex-direction: column;
+            width: 600px;
+            height: 100%;
+        }
+        
+        .calculator {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .hand {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .hand>input {
+            width: 30px;
+        }
+        
+        .theory {
+            height: 100%;
+            width: 65vw;
+            word-wrap: break-word;
+            font-size: 20px;
+            background-color: whitesmoke;
+        }
+        
+        .theory>p {
+            margin-left: 15px;
+        }
+        
+        .paint-canvas {
+            border: 1px black solid;
+            display: block;
+            margin: 1rem;
+        }
+        
+        .color-picker {
+            margin: 1rem 1rem 0 1rem;
+        }
+        
+        @media only screen and (max-width: 920px) {
+            canvas {
+                height: 500;
+                width: 300;
+            }
+        }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="container">
-      <div class="navBar">
-        <div class="logo"></div>
-        <div class="space"></div>
-        <div class="navBut">
-          <button class="btn">Study</button>
-          <button class="btn">Formulas</button>
-          <button class="btn">Forum</button>
-          <button class="btn aquamarine">Sign in</button>
-          <button class="btn aquamarine">Sign up</button>
+        <div class="navBar">
+            <div class="logo"></div>
+            <div class="space"></div>
+            <div class="navBut">
+                <button class="btn">Study</button>
+                <button class="btn">Formulas</button>
+                <button class="btn">Forum</button>
+                <button class="btn aquamarine">Sign in</button>
+                <button class="btn aquamarine">Sign up</button>
+            </div>
         </div>
-      </div>
-      <div class="screen">
-        <div class="che"></div>
-        <div class="math">
-          <form class="hand" onsubmit="drawBtn();return false">
-            <input id="a1" type="number" required />
-            <select id="types">
+        <div class="screen">
+            <div class="che"></div>
+            <div class="math">
+                <form class="hand" onsubmit="drawBtn();return false">
+                    <input id="a1" type="number" required />
+                    <select id="types">
               <option value="x">x</option>
               <option value="sin">sin</option>
               <option value="cos">cos</option>
@@ -458,29 +459,34 @@
         context.clearRect(0, 0, canva.width, canva.height);
         myGraph.drawXAxis();
         myGraph.drawYAxis();
-        myGraph.drawEquation(
-          function (x) {
-            return (
-              parseInt($d.value) * Math.sin(x) * Math.sin(x) +
-              parseInt($d1.value) * Math.cos(x) +
-              parseInt($d2.value)
-            );
-            // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
-          },
-          "blue",
-          3
-        );
-        // $a.value = $d.value;
+        if($type.value === "sin") {
+          myGraph.drawEquation(
+            function (x) {
+              return (
+                parseInt($d.value) * Math.sin(x) * Math.sin(x) +
+                parseInt($d1.value) * Math.cos(x) +
+                parseInt($d2.value)
+              );
+              // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+            },
+            "blue",
+            3
+          );
+        }else if($type.value === "cos"){
+          myGraph.drawEquation(
+            function (x) {
+              return (
+                parseInt($d.value) * Math.cos(x) * Math.cos(x) +
+                parseInt($d1.value) * Math.cos(x) +
+                parseInt($d2.value)
+              );
+              // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+            },
+            "blue",
+            3
+          );
+        }
         console.log(a, b, c);
-        // $a.value = $d.value;
-        // $b.value = $d1.value;
-        // $c.value = $d2.value;
-        // $d.value = $a.value;
-        // $d1.value = $b.value;
-        // $d2.value = $c.value;
-        // $range.innerText = $d.value;
-        // $range1.innerText = $d1.value;
-        // $range2.innerText = $d2.value;
         // myGraph.drawEquation(
         //     (x) => {
         //         return (
@@ -510,12 +516,6 @@
           myGraph.drawXAxis();
           myGraph.drawYAxis();
           console.log(a, b, c);
-          //   $a.value = $d.value;
-          //   $b.value = $d1.value;
-          //   $c.value = $d2.value;
-          //   $range.innerText = $d.value;
-          //   $range1.innerText = $d1.value;
-          //   $range2.innerText = $d2.value;
           // myGraph.drawEquation(
           //     (x) => {
           //         return (
@@ -546,17 +546,17 @@
           context.clearRect(0, 0, canva.width, canva.height);
           myGraph.drawXAxis();
           myGraph.drawYAxis();
-          myGraph.drawEquation(
-            (x) => {
-              return (
-                parseInt($a.value) * x * x +
-                parseInt($b.value) * x +
-                parseInt($c.value)
-              );
-            },
-            "green",
-            3
-          );
+          // myGraph.drawEquation(
+          //   (x) => {
+          //     return (
+          //       parseInt($a.value) * x * x +
+          //       parseInt($b.value) * x +
+          //       parseInt($c.value)
+          //     );
+          //   },
+          //   "green",
+          //   3
+          // );
           myGraph.drawEquation(
             function (x) {
               // console.log($d.value, $d1.value, $d2.value);
