@@ -21,10 +21,10 @@ window.onscroll = (e) => {
             $box1.style.opacity = `1`;
             $box2.style.opacity = `1`;
         }
-    } else if(windowBottomY < $null.offsetHeight) {
-        $box1.style.opacity = `0`;
-        $box2.style.opacity = `0`;
-    }
+        } else if(windowBottomY < $null.offsetHeight) {
+            $box1.style.opacity = `0`;
+            $box2.style.opacity = `0`;
+        }
     
     const fixedY = windowHeight + windowHeight/2 + $box1.offsetHeight/2
     if(windowBottomY > fixedY){
