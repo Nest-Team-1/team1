@@ -58,7 +58,6 @@
                     <div>
                         <!-- <div class="regist-img"></div> -->
                         <input type="file" class="regist-upload-img" accept="image/png" placeholder="Зураг аа оруулна уу ?">
-                        <input class="profile-username-input" placeholder="Username" type="text">
                     </div>
                 </form>
             </div>
@@ -91,6 +90,7 @@
     </div>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <script>
         firebase.initializeApp({
             apiKey: "AIzaSyCFcmVCuv88VCnm-2ksXRng90c5g_9eVT8",
@@ -100,6 +100,8 @@
             messagingSenderId: "372419094094",
             appId: "1:372419094094:web:2c5d6f0bc8a876316b051f"
         });
+        const storage = firebase.storage();
+        const storageRef = storage.ref();
     </script>
     <script src="./login.js"></script>
 </body>
