@@ -31,10 +31,10 @@ window.onscroll = (e) => {
         $left.style.transform = `translateX(-${a}px)`;
         $right.style.transform = `translateX(${a}px)`;
         // $ab.style.fontSize = `${window.scrollY / 50}px`
-        if (windowBottomY - windowHeight / 2 - fixedParentY < windowWidth * 0.4) {
-            $penCont.classList.add('fixed');
-        } else {
-            $penCont.classList.remove('fixed');
-        }
+        // if (windowBottomY - windowHeight / 2 - fixedParentY < windowWidth * 0.4) {
+        //     $penCont.classList.add('fixed');
+        // } else {
+        //     $penCont.classList.remove('fixed');
+        // }
     }
 }
