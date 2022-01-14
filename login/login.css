@@ -53,7 +53,7 @@
 .sign-up {
   display: none;
 }
-.phone-sign-in {
+.google-sign-in {
   display: none;
 }
 .facebook {
@@ -71,6 +71,7 @@
   height: 40px;
   width: 40px;
   margin: 10px;
+  cursor: pointer;
 }
 .phone {
   background-image: url('https://www.vhv.rs/dpng/d/52-524161_black-phone-icon-png-transparent-png.png');

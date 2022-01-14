@@ -3,8 +3,8 @@ const $loginBtn = document.getElementById('submit-btn');
 const $registBtn = document.getElementById('regist-btn');
 const $loginField = document.querySelector('.login');
 const $signUpField = document.querySelector('.sign-up');
-const $phoneSigInField = document.querySelector('phone-sign-in');
-const $registRegisterBtn = document.getElementById('');
+const $googleSigInField = document.querySelector('.google-sign-in');
+const $registRegisterBtn = document.getElementById('.registRegisterBtn');
 const $registEmail = document.getElementById('register-email');
 const $registPassword = document.getElementById('register-password');
 const $registUsername = document.getElementById('register-name');
@@ -20,11 +20,10 @@ $registBtn.addEventListener('click', () => {
 
 // Google-eer newtreh
 $google.addEventListener('click', () => {
+  $loginField.style.display = 'none';
+  $googleSigInField.style.display = 'flex';
   console.log('google...');
   const provider = new firebase.auth.GoogleAuthProvider();
-  provider.setCustomParameters({
-    'login_hint': 'user@example.com'
-  });
   firebase.auth()
   .signInWithPopup(provider)
   .then((result) => {

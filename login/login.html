@@ -49,7 +49,7 @@
                     </div>
                     <div>
                         <label for="e-mail">И-мейл</label><br>
-                        <input type="email" placeholder = "e-mail" id="register-email" aria-required="true">
+                        <input type="email" placeholder = "e-mail" id="register-email" aria-required="true" name="e-mail">
                     </div>
                     <div>
                         <label for="password">Enter your password:</label><br>
@@ -67,23 +67,20 @@
             </div> 
         </div>
 
-        <!-- Phone sign-in page -->
-        <div class="phone-sign-in login-container flex column just-center align-center">
-            <h2>Утсаар Нэвтрэх</h2>
+        <!-- Google sign-in page -->
+        <div class="google-sign-in login-container flex column just-center align-center">
+            <h2>Google Нэвтрэх</h2>
             <div class="top">          
                 <div>
-                    <label for="phoneNumber">Phone number:</label> <br>
-                    <input type="number" id="phoneNumber-name" name="phonNumber" placeholder="Phone Number">
+                    <label for="gmail">Enter your gmail:</label> <br>
+                    <input type="e-mail" id="gmail-email" name="gmail" placeholder="gmail">
+                </div>    
+                <div>
+                    <label for="gmailPassword">Password:</label><br>
+                    <input type="text" name="gmailPassword" placeholder = "password" id="gmail-password" aria-required="true" minlength="8" maxlength="32">
                 </div>
                 <div>
-                    <input type="submit" value="Send" id="send-btn" class="input-btn"> <br>
-                </div>      
-                <div>
-                    <label for="verication">Verication Code:</label><br>
-                    <input type="number" name="verication" placeholder = "Verication Code" id="send-verication">
-                </div>
-                <div>
-                    <button id="phone-login-btn" class="input-btn">Login</button>
+                    <button id="google-login-btn" class="input-btn">Login</button>
                 </div>  
             </div>
         </div>
