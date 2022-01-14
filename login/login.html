@@ -15,8 +15,8 @@
             <div class="top">
                 <form action="login.js">
                     <div>
-                        <label for="e-mail">Enter your email:</label> <br>
-                        <input type="email" id="login-email" name="email" placeholder="email" aria-required="true">
+                        <label for="e-mail">Enter your email</label> <br>
+                        <input type="email" id="login-email" name="email" placeholder="phone number email username" aria-required="true">
                     </div>
                     <div>
                         <label for="password">Enter your password:</label><br>
@@ -44,41 +44,36 @@
             <div class="top">
                 <form action="login.js">
                     <div>
-                        <label for="uname">Enter your Username:</label> <br>
-                        <input type="text" id="register-name" name="uname" placeholder="Username" aria-required="true">
-                    </div>
-                    <div>
                         <label for="e-mail">И-мейл</label><br>
                         <input type="email" placeholder = "e-mail" id="register-email" aria-required="true" name="e-mail">
                     </div>
-                    <div>
-                        <label for="password">Enter your password:</label><br>
-                        <input type="password" placeholder = "password" id="register-password" aria-required="true" minlength="8" maxlength="32">
-                    </div>
-                    <div>
-                        <!-- <div class="regist-img"></div> -->
-                        <input type="file" class="regist-upload-img" accept="image/png" placeholder="Зураг аа оруулна уу ?">
-                    </div>
+                    <div class="verication-code-container">
+                        <label for="Verication">Enter your verication code:</label> <br>
+                        <input type="number" id="verication-code" name="gmail" placeholder="gmail">
+                    </div>    
+                    
                 </form>
             </div>
 
             <div class="bottom">
-                <input type="submit" value="Бүртгүүлэх" id="register-regist-btn" class="input-btn">
+                <div>
+                    <input type="submit" value="Бүртгүүлэх" id="register-regist-btn" class="input-btn">
+                </div>
+                
+                <div>
+                    <button id="vercation-submit-btn" class="input-btn">Login</button>
+                </div>  
             </div> 
         </div>
 
         <!-- Google sign-in page -->
         <div class="google-sign-in login-container flex column just-center align-center">
-            <h2>Google Нэвтрэх</h2>
+            <h2>Verication Code</h2>
             <div class="top">          
                 <div>
-                    <label for="gmail">Enter your gmail:</label> <br>
-                    <input type="e-mail" id="gmail-email" name="gmail" placeholder="gmail">
+                    <label for="Verication">Enter your verication code:</label> <br>
+                    <input type="number" id="verication-code" name="gmail" placeholder="gmail">
                 </div>    
-                <div>
-                    <label for="gmailPassword">Password:</label><br>
-                    <input type="text" name="gmailPassword" placeholder = "password" id="gmail-password" aria-required="true" minlength="8" maxlength="32">
-                </div>
                 <div>
                     <button id="google-login-btn" class="input-btn">Login</button>
                 </div>  

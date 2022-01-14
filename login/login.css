@@ -36,18 +36,18 @@
 }
 .top div {
   margin: 30px;
-  width: 170px;
+  width: 200px;
 }
 .top div label {
   margin-bottom: 10px;
 }
 .top div input {
   height: 30px;
-  width: 170px;
+  width: 200px;
 }
 .input-btn {
   height: 30px;
-  width: 170px;
+  width: 200px;
   background-color: rgb(43, 226, 67);
 }
 .sign-up {
@@ -62,7 +62,7 @@
   background-size: contain;
   height: 40px;
   width: 40px;
-  margin: 10px;
+  margin: 20px;
 }
 .google {
   background-image: url('https://freesvg.org/img/1534129544.png');
@@ -70,7 +70,7 @@
   background-size: contain;
   height: 40px;
   width: 40px;
-  margin: 10px;
+  margin: 20px;
   cursor: pointer;
 }
 .phone {
@@ -79,7 +79,13 @@
   background-size: contain;
   height: 40px;
   width: 40px;
-  margin: 10px;
+  margin: 20px;
+}
+.verication-code-container{
+  display: none;
+}
+#vercation-submit-btn{
+  display: none;
 }
 /* .regist-img {
   width: 100px;
