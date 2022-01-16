@@ -151,7 +151,7 @@
                     <select id="types1">
                 <option value="1">1</option>
                 <option value="2">2</option>
-                <option value="3">3</option></select>
+                <option value="3">3</option></select>+
                     <div class="hide"></div>
                     <input id="a2" type="number" required />
                     <select id="types2">
@@ -159,7 +159,7 @@
                 <option value="sin">sin</option>
                 <option value="cos">cos</option>
                 <option value="tan">tan</option>
-                <option value="cot">cot</option></select>
+                <option value="cot">cot</option></select>+
                     <input id="a3" type="number" required />
                     <!-- <input id="a1" />cosx^2=0 -->
                     <button id="btn" type="submit">draw</button>
@@ -215,10 +215,21 @@
         const $hide = document.querySelector('.hide')
         document.getElementById("types1").onchange = (e) => {
             if ($type1.value === '3') {
-                console.log('hello');
+                const $span0 = document.createElement('span');
                 const $input = document.createElement('input');
-                $input.style.width = '30px'
-                $hide.append($input)
+                const $select = document.createElement('select')
+                const $option = document.createElement('option')
+                const $option1 = document.createElement('option')
+                const $option2 = document.createElement('option')
+                const $option3 = document.createElement('option')
+                const $option4 = document.createElement('option')
+                const $span = document.createElement('span');
+                $span0.innerText = '+'
+                $option.innerText = 'sin'
+                $span.innerText = 'x^2';
+                $input.style.width = '30px';
+                $select.append($option, $option1)
+                $hide.append($input, $select, $span, $span0)
             }
         }
         let a = 0;
@@ -439,48 +450,233 @@
             context.clearRect(0, 0, canva.width, canva.height);
             myGraph.drawXAxis();
             myGraph.drawYAxis();
-            if (($type.value === 'x') && ($type1.value === '2') && ($type2.value === "x")) {
-                //($type.value === "cos") && ($type1.value === "2") && ($type2.value === "cos") 
-                console.log('hello');
-                myGraph.drawEquation(
-                    function(x) {
-                        return (
-                            parseInt($d.value) * x * x +
-                            parseInt($d1.value) * x +
-                            parseInt($d2.value)
-                        );
-                        // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
-                    },
-                    "blue",
-                    3
-                );
-            } else if (($type.value === "sin") && ($type1.value === "2") && ($type2.value === "cos")) {
-                myGraph.drawEquation(
-                    function(x) {
-                        return (
-                            parseInt($d.value) * Math.sin(x) * Math.sin(x) +
-                            parseInt($d1.value) * Math.cos(x) +
-                            parseInt($d2.value)
-                        );
-                        // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
-                    },
-                    "blue",
-                    3
-                );
-            } else if (($type.value === "cos") && ($type1.value === "2") && ($type2.value === "cos")) {
-                myGraph.drawEquation(
-                    function(x) {
-                        return (
-                            parseInt($d.value) * Math.cos(x) * Math.cos(x) +
-                            parseInt($d1.value) * Math.cos(x) +
-                            parseInt($d2.value)
-                        );
-                        // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
-                    },
-                    "blue",
-                    3
-                );
+            //2 zereg.........
+            if ($type1.value === '2') {
+                if (($type.value === 'x') && ($type2.value === "x")) {
+                    myGraph.drawEquation(
+                        function(x) {
+                            return (
+                                parseInt($d.value) * x * x +
+                                parseInt($d1.value) * x +
+                                parseInt($d2.value)
+                            );
+                            // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "sin") && ($type2.value === "cos")) {
+                    myGraph.drawEquation(
+                        function(x) {
+                            return (
+                                parseInt($d.value) * Math.sin(x) * Math.sin(x) +
+                                parseInt($d1.value) * Math.cos(x) +
+                                parseInt($d2.value)
+                            );
+                            // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "sin") && ($type2.value === "sin")) {
+                    myGraph.drawEquation(
+                        function(x) {
+                            return (
+                                parseInt($d.value) * Math.sin(x) * Math.sin(x) +
+                                parseInt($d1.value) * Math.sin(x) +
+                                parseInt($d2.value)
+                            );
+                            // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "sin") && ($type2.value === "tan")) {
+                    myGraph.drawEquation(
+                        function(x) {
+                            return (
+                                parseInt($d.value) * Math.sin(x) * Math.sin(x) +
+                                parseInt($d1.value) * Math.tan(x) +
+                                parseInt($d2.value)
+                            );
+                            // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "sin") && ($type2.value === "cot")) {
+                    myGraph.drawEquation(
+                        function(x) {
+                            return (
+                                parseInt($d.value) * Math.sin(x) * Math.sin(x) +
+                                parseInt($d1.value) * Math.cos(x) / Math.sin(x) +
+                                parseInt($d2.value)
+                            );
+                            // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "cos") && ($type2.value === "sin")) {
+                    myGraph.drawEquation(
+                        function(x) {
+                            return (
+                                parseInt($d.value) * Math.cos(x) * Math.cos(x) +
+                                parseInt($d1.value) * Math.sin(x) +
+                                parseInt($d2.value)
+                            );
+                            // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "cos") && ($type2.value === "tan")) {
+                    myGraph.drawEquation(
+                        function(x) {
+                            return (
+                                parseInt($d.value) * Math.cos(x) * Math.cos(x) +
+                                parseInt($d1.value) * Math.tan(x) +
+                                parseInt($d2.value)
+                            );
+                            // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "cos") && ($type2.value === "cot")) {
+                    myGraph.drawEquation(
+                        function(x) {
+                            return (
+                                parseInt($d.value) * Math.cos(x) * Math.cos(x) +
+                                parseInt($d1.value) * Math.cos(x) / Math.sin(x) +
+                                parseInt($d2.value)
+                            );
+                            // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "cos") && ($type2.value === "cos")) {
+                    myGraph.drawEquation(
+                        function(x) {
+                            return (
+                                parseInt($d.value) * Math.cos(x) * Math.cos(x) +
+                                parseInt($d1.value) * Math.cos(x) +
+                                parseInt($d2.value)
+                            );
+                            // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "tan") && ($type2.value === "sin")) {
+                    myGraph.drawEquation(
+                        function(x) {
+                            return (
+                                parseInt($d.value) * Math.tan(x) * Math.tan(x) +
+                                parseInt($d1.value) * Math.sin(x) +
+                                parseInt($d2.value)
+                            );
+                            // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "tan") && ($type2.value === "cos")) {
+                    myGraph.drawEquation(
+                        function(x) {
+                            return (
+                                parseInt($d.value) * Math.tan(x) * Math.tan(x) +
+                                parseInt($d1.value) * Math.cos(x) +
+                                parseInt($d2.value)
+                            );
+                            // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "tan") && ($type2.value === "tan")) {
+                    myGraph.drawEquation(
+                        function(x) {
+                            return (
+                                parseInt($d.value) * Math.tan(x) * Math.tan(x) +
+                                parseInt($d1.value) * Math.tan(x) +
+                                parseInt($d2.value)
+                            );
+                            // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "tan") && ($type2.value === "cot")) {
+                    myGraph.drawEquation(
+                        function(x) {
+                            return (
+                                parseInt($d.value) * Math.tan(x) * Math.tan(x) +
+                                parseInt($d1.value) * Math.cos(x) / Math.sin(x) +
+                                parseInt($d2.value)
+                            );
+                            // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "cot") && ($type2.value === "cot")) {
+                    myGraph.drawEquation(
+                        function(x) {
+                            return (
+                                parseInt($d.value) * Math.cos(x) / Math.sin(x) * Math.cos(x) / Math.sin(x) +
+                                parseInt($d1.value) * Math.cos(x) / Math.sin(x) +
+                                parseInt($d2.value)
+                            );
+                            // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "cot") && ($type2.value === "sin")) {
+                    myGraph.drawEquation(
+                        function(x) {
+                            return (
+                                parseInt($d.value) * Math.cos(x) / Math.sin(x) * Math.cos(x) / Math.sin(x) +
+                                parseInt($d1.value) * Math.sin(x) +
+                                parseInt($d2.value)
+                            );
+                            // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "cot") && ($type2.value === "cos")) {
+                    myGraph.drawEquation(
+                        function(x) {
+                            return (
+                                parseInt($d.value) * Math.cos(x) / Math.sin(x) * Math.cos(x) / Math.sin(x) +
+                                parseInt($d1.value) * Math.cos(x) +
+                                parseInt($d2.value)
+                            );
+                            // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "cot") && ($type2.value === "tan")) {
+                    myGraph.drawEquation(
+                        function(x) {
+                            return (
+                                parseInt($d.value) * Math.cos(x) / Math.sin(x) * Math.cos(x) / Math.sin(x) +
+                                parseInt($d1.value) * Math.tan(x) +
+                                parseInt($d2.value)
+                            );
+                            // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+                        },
+                        "blue",
+                        3
+                    );
+                }
+
             }
+            //nemegdene!@#$%^&
             //console.log(a, b, c);
             // myGraph.drawEquation(
             //     (x) => {
@@ -503,65 +699,337 @@
             // );
         };
         const dra = (drawBtn = () => {
-            if (($type.value === "x") && ($type1.value === "2") && ($type2.value === "x")) {
-                console.log('ds');
-                const canva = document.getElementById("myCanvas");
-                const context = canva.getContext("2d");
-                context.clearRect(0, 0, canva.width, canva.height);
-                myGraph.drawXAxis();
-                myGraph.drawYAxis();
-                console.log(a, b, c);
-                myGraph.drawEquation(
-                    function(x) {
-                        // console.log($d.value, $d1.value, $d2.value);
-                        return (
-                            parseInt($d.value) * x * x +
-                            parseInt($d1.value) * x +
-                            parseInt($d2.value)
-                        );
-                    },
-                    "blue",
-                    3
-                );
-            } else if (($type.value === "sin") && ($type1.value === "2") && ($type2.value === "cos")) {
-                console.log('sin');
-                const canva = document.getElementById("myCanvas");
-                const context = canva.getContext("2d");
-                context.clearRect(0, 0, canva.width, canva.height);
-                myGraph.drawXAxis();
-                myGraph.drawYAxis();
-                console.log(a, b, c);
-                myGraph.drawEquation(
-                    function(x) {
-                        // console.log($d.value, $d1.value, $d2.value);
-                        return (
-                            parseInt($d.value) * Math.sin(x) * Math.sin(x) +
-                            parseInt($d1.value) * Math.cos(x) +
-                            parseInt($d2.value)
-                        );
-                    },
-                    "blue",
-                    3
-                );
-            } else if (($type.value === "cos") && ($type1.value === "2") && ($type2.value === "cos")) {
-                console.log($d.value, $d1.value, $d2.value);
-                const canva = document.getElementById("myCanvas");
-                const context = canva.getContext("2d");
-                context.clearRect(0, 0, canva.width, canva.height);
-                myGraph.drawXAxis();
-                myGraph.drawYAxis();
-                myGraph.drawEquation(
-                    function(x) {
-                        // console.log($d.value, $d1.value, $d2.value);
-                        return (
-                            parseInt($d.value) * Math.cos(x) * Math.cos(x) +
-                            parseInt($d1.value) * Math.cos(x) +
-                            parseInt($d2.value)
-                        );
-                    },
-                    "blue",
-                    3
-                );
+            if ($type1.value === '2') {
+                if (($type.value === "x") && ($type2.value === "x")) {
+                    console.log('ds');
+                    const canva = document.getElementById("myCanvas");
+                    const context = canva.getContext("2d");
+                    context.clearRect(0, 0, canva.width, canva.height);
+                    myGraph.drawXAxis();
+                    myGraph.drawYAxis();
+                    console.log(a, b, c);
+                    myGraph.drawEquation(
+                        function(x) {
+                            // console.log($d.value, $d1.value, $d2.value);
+                            return (
+                                parseInt($d.value) * x * x +
+                                parseInt($d1.value) * x +
+                                parseInt($d2.value)
+                            );
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "sin") && ($type2.value === "cos")) {
+                    console.log('sin');
+                    const canva = document.getElementById("myCanvas");
+                    const context = canva.getContext("2d");
+                    context.clearRect(0, 0, canva.width, canva.height);
+                    myGraph.drawXAxis();
+                    myGraph.drawYAxis();
+                    console.log(a, b, c);
+                    myGraph.drawEquation(
+                        function(x) {
+                            // console.log($d.value, $d1.value, $d2.value);
+                            return (
+                                parseInt($d.value) * Math.sin(x) * Math.sin(x) +
+                                parseInt($d1.value) * Math.cos(x) +
+                                parseInt($d2.value)
+                            );
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "sin") && ($type2.value === "sin")) {
+                    console.log($d.value, $d1.value, $d2.value);
+                    const canva = document.getElementById("myCanvas");
+                    const context = canva.getContext("2d");
+                    context.clearRect(0, 0, canva.width, canva.height);
+                    myGraph.drawXAxis();
+                    myGraph.drawYAxis();
+                    myGraph.drawEquation(
+                        function(x) {
+                            // console.log($d.value, $d1.value, $d2.value);
+                            return (
+                                parseInt($d.value) * Math.sin(x) * Math.sin(x) +
+                                parseInt($d1.value) * Math.sin(x) +
+                                parseInt($d2.value)
+                            );
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "sin") && ($type2.value === "tan")) {
+                    console.log($d.value, $d1.value, $d2.value);
+                    const canva = document.getElementById("myCanvas");
+                    const context = canva.getContext("2d");
+                    context.clearRect(0, 0, canva.width, canva.height);
+                    myGraph.drawXAxis();
+                    myGraph.drawYAxis();
+                    myGraph.drawEquation(
+                        function(x) {
+                            // console.log($d.value, $d1.value, $d2.value);
+                            return (
+                                parseInt($d.value) * Math.sin(x) * Math.sin(x) +
+                                parseInt($d1.value) * Math.tan(x) +
+                                parseInt($d2.value)
+                            );
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "sin") && ($type2.value === "cot")) {
+                    console.log($d.value, $d1.value, $d2.value);
+                    const canva = document.getElementById("myCanvas");
+                    const context = canva.getContext("2d");
+                    context.clearRect(0, 0, canva.width, canva.height);
+                    myGraph.drawXAxis();
+                    myGraph.drawYAxis();
+                    myGraph.drawEquation(
+                        function(x) {
+                            // console.log($d.value, $d1.value, $d2.value);
+                            return (
+                                parseInt($d.value) * Math.sin(x) * Math.sin(x) +
+                                parseInt($d1.value) * Math.cos(x) / Math.sin(x) +
+                                parseInt($d2.value)
+                            );
+                        },
+                        "blue",
+                        3
+                    );
+                } //cos 
+                else if (($type.value === "cos") && ($type2.value === "cos")) {
+                    console.log($d.value, $d1.value, $d2.value);
+                    const canva = document.getElementById("myCanvas");
+                    const context = canva.getContext("2d");
+                    context.clearRect(0, 0, canva.width, canva.height);
+                    myGraph.drawXAxis();
+                    myGraph.drawYAxis();
+                    myGraph.drawEquation(
+                        function(x) {
+                            // console.log($d.value, $d1.value, $d2.value);
+                            return (
+                                parseInt($d.value) * Math.cos(x) * Math.cos(x) +
+                                parseInt($d1.value) * Math.cos(x) +
+                                parseInt($d2.value)
+                            );
+                        },
+                        "blue",
+                        3
+                    );
+                    //nemegdej bn 
+                } else if (($type.value === "cos") && ($type2.value === "sin")) {
+                    console.log($d.value, $d1.value, $d2.value);
+                    const canva = document.getElementById("myCanvas");
+                    const context = canva.getContext("2d");
+                    context.clearRect(0, 0, canva.width, canva.height);
+                    myGraph.drawXAxis();
+                    myGraph.drawYAxis();
+                    myGraph.drawEquation(
+                        function(x) {
+                            // console.log($d.value, $d1.value, $d2.value);
+                            return (
+                                parseInt($d.value) * Math.cos(x) * Math.cos(x) +
+                                parseInt($d1.value) * Math.sin(x) +
+                                parseInt($d2.value)
+                            );
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "cos") && ($type2.value === "tan")) {
+                    console.log($d.value, $d1.value, $d2.value);
+                    const canva = document.getElementById("myCanvas");
+                    const context = canva.getContext("2d");
+                    context.clearRect(0, 0, canva.width, canva.height);
+                    myGraph.drawXAxis();
+                    myGraph.drawYAxis();
+                    myGraph.drawEquation(
+                        function(x) {
+                            // console.log($d.value, $d1.value, $d2.value);
+                            return (
+                                parseInt($d.value) * Math.cos(x) * Math.cos(x) +
+                                parseInt($d1.value) * Math.tan(x) +
+                                parseInt($d2.value)
+                            );
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "cos") && ($type2.value === "cot")) {
+                    console.log($d.value, $d1.value, $d2.value);
+                    const canva = document.getElementById("myCanvas");
+                    const context = canva.getContext("2d");
+                    context.clearRect(0, 0, canva.width, canva.height);
+                    myGraph.drawXAxis();
+                    myGraph.drawYAxis();
+                    myGraph.drawEquation(
+                        function(x) {
+                            // console.log($d.value, $d1.value, $d2.value);
+                            return (
+                                parseInt($d.value) * Math.cos(x) * Math.cos(x) +
+                                parseInt($d1.value) * Math.cos(x) / Math.sin(x) +
+                                parseInt($d2.value)
+                            );
+                        },
+                        "blue",
+                        3
+                    );
+                }
+                //tan
+                else if (($type.value === "tan") && ($type2.value === "sin")) {
+                    console.log($d.value, $d1.value, $d2.value);
+                    const canva = document.getElementById("myCanvas");
+                    const context = canva.getContext("2d");
+                    context.clearRect(0, 0, canva.width, canva.height);
+                    myGraph.drawXAxis();
+                    myGraph.drawYAxis();
+                    myGraph.drawEquation(
+                        function(x) {
+                            // console.log($d.value, $d1.value, $d2.value);
+                            return (
+                                parseInt($d.value) * Math.tan(x) * Math.tan(x) +
+                                parseInt($d1.value) * Math.sin(x) +
+                                parseInt($d2.value)
+                            );
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "tan") && ($type2.value === "cos")) {
+                    console.log($d.value, $d1.value, $d2.value);
+                    const canva = document.getElementById("myCanvas");
+                    const context = canva.getContext("2d");
+                    context.clearRect(0, 0, canva.width, canva.height);
+                    myGraph.drawXAxis();
+                    myGraph.drawYAxis();
+                    myGraph.drawEquation(
+                        function(x) {
+                            // console.log($d.value, $d1.value, $d2.value);
+                            return (
+                                parseInt($d.value) * Math.tan(x) * Math.tan(x) +
+                                parseInt($d1.value) * Math.cos(x) +
+                                parseInt($d2.value)
+                            );
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "tan") && ($type2.value === "tan")) {
+                    console.log($d.value, $d1.value, $d2.value);
+                    const canva = document.getElementById("myCanvas");
+                    const context = canva.getContext("2d");
+                    context.clearRect(0, 0, canva.width, canva.height);
+                    myGraph.drawXAxis();
+                    myGraph.drawYAxis();
+                    myGraph.drawEquation(
+                        function(x) {
+                            // console.log($d.value, $d1.value, $d2.value);
+                            return (
+                                parseInt($d.value) * Math.tan(x) * Math.tan(x) +
+                                parseInt($d1.value) * Math.tan(x) +
+                                parseInt($d2.value)
+                            );
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "tan") && ($type2.value === "cot")) {
+                    console.log($d.value, $d1.value, $d2.value);
+                    const canva = document.getElementById("myCanvas");
+                    const context = canva.getContext("2d");
+                    context.clearRect(0, 0, canva.width, canva.height);
+                    myGraph.drawXAxis();
+                    myGraph.drawYAxis();
+                    myGraph.drawEquation(
+                        function(x) {
+                            // console.log($d.value, $d1.value, $d2.value);
+                            return (
+                                parseInt($d.value) * Math.cos(x) * Math.cos(x) +
+                                parseInt($d1.value) * Math.cos(x) / Math.sin(x) +
+                                parseInt($d2.value)
+                            );
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "cot") && ($type2.value === "cot")) {
+                    console.log($d.value, $d1.value, $d2.value);
+                    const canva = document.getElementById("myCanvas");
+                    const context = canva.getContext("2d");
+                    context.clearRect(0, 0, canva.width, canva.height);
+                    myGraph.drawXAxis();
+                    myGraph.drawYAxis();
+                    myGraph.drawEquation(
+                        function(x) {
+                            // console.log($d.value, $d1.value, $d2.value);
+                            return (
+                                parseInt($d.value) * Math.pow((Math.cos(x) / Math.sin(x)), 2) +
+                                parseInt($d1.value) * Math.cos(x) / Math.sin(x) +
+                                parseInt($d2.value)
+                            );
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "cot") && ($type2.value === "sin")) {
+                    console.log($d.value, $d1.value, $d2.value);
+                    const canva = document.getElementById("myCanvas");
+                    const context = canva.getContext("2d");
+                    context.clearRect(0, 0, canva.width, canva.height);
+                    myGraph.drawXAxis();
+                    myGraph.drawYAxis();
+                    myGraph.drawEquation(
+                        function(x) {
+                            // console.log($d.value, $d1.value, $d2.value);
+                            return (
+                                parseInt($d.value) * Math.cos(x) / Math.sin(x) * Math.cos(x) / Math.sin(x) +
+                                parseInt($d1.value) * Math.sin(x) +
+                                parseInt($d2.value)
+                            );
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "cot") && ($type2.value === "cos")) {
+                    console.log($d.value, $d1.value, $d2.value);
+                    const canva = document.getElementById("myCanvas");
+                    const context = canva.getContext("2d");
+                    context.clearRect(0, 0, canva.width, canva.height);
+                    myGraph.drawXAxis();
+                    myGraph.drawYAxis();
+                    myGraph.drawEquation(
+                        function(x) {
+                            // console.log($d.value, $d1.value, $d2.value);
+                            return (
+                                parseInt($d.value) * Math.cos(x) / Math.sin(x) * Math.cos(x) / Math.sin(x) +
+                                parseInt($d1.value) * Math.cos(x) +
+                                parseInt($d2.value)
+                            );
+                        },
+                        "blue",
+                        3
+                    );
+                } else if (($type.value === "cot") && ($type2.value === "tan")) {
+                    console.log($d.value, $d1.value, $d2.value);
+                    const canva = document.getElementById("myCanvas");
+                    const context = canva.getContext("2d");
+                    context.clearRect(0, 0, canva.width, canva.height);
+                    myGraph.drawXAxis();
+                    myGraph.drawYAxis();
+                    myGraph.drawEquation(
+                        function(x) {
+                            // console.log($d.value, $d1.value, $d2.value);
+                            return (
+                                parseInt($d.value) * Math.cos(x) / Math.sin(x) * Math.cos(x) / Math.sin(x) +
+                                parseInt($d1.value) * Math.tan(x) +
+                                parseInt($d2.value)
+                            );
+                        },
+                        "blue",
+                        3
+                    );
+                }
             }
         });
     </script>
