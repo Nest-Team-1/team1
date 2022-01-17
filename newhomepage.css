@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+}
+
+.header {
+  position: fixed;
+  width: 99vw;
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  color: white;
+  padding: 10px;
+}
+
+h2 {
+  color: black;
+  
+}
+
+h3 {
+  color: #646464;
+  width: 600px;
+  height: 300px;
+  font-family: Pridi;
+font-style: normal;
+font-weight: 500;
+font-size: 50px;
+line-height: 77px;
+}
+
+h4 {
+
+font-family: Pridi;
+font-style: normal;
+font-weight: 500;
+font-size: 25px;
+line-height: 39px;
+
+color: #000000; 
+margin-top: -100px;
+}
+
+h5 {
+    font-family: Roboto;
+font-style: normal;
+font-weight: 100;
+font-size: 20px;
+line-height: 23px;
+
+color: #000000;
+border-style: ridge;
+border-width: 150px;
+}
+
+.son2 {
+  display: flex;
+  padding-top: 88px;
+  justify-content: space-around;
+}
+
+.btn {
+    color: blue;
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 16px;
+    transition: 0.3s;
+    width: 130px;
+    height: 60px;
+    border-radius: 10px;
+    margin-left: 30px;
+    background-color: white;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 35px;
+    margin-top: 0;
+    border-style: none;
+  }
+
+  .btn:hover {
+    background-color: blue;
+    color: white;
+  }
+
+  .btng {
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: white;
+    background-color: blue;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+  }
+  
+  .btng:hover {background-color: blue}
+  
+  .btng:active {
+    background-color: #92E3A9;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+ img {
+     width: 800px;
+     height: 750px;
+ }
+
+ .flex {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     margin-right: 70px;
+ }
+
+ .header2 {
+     background-color: #F7F5F4;
+ }
+
+ .title {
+     display: flex;
+     justify-content: center;
+ }
+
+ .writing {
+     display: flex;
+
+ }
