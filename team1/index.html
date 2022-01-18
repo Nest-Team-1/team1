@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aleo:wght@700&family=Roboto:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="center">
+      <div class="comcolor">
+        <div class="comphoto"></div>
+        <div class="coms">
+          <div class="flex compp">
+            <div class="userphoto"></div>
+            <div class="pname">username</div>
+          </div>
+          <div class="cont">
+            <input class="cominp" placeholder="Add a comment..." />
+            <button class="pbut">Post</button>
+          </div>
+          <div class="comsize"></div>
+        </div>
+      </div>
+      <div class="comments"></div>
+    </div>
+    <div class="loading-area" id="loader">
+      <span class="loader">Loading...</span>
+      <span class="load_anim1"></span>
+      <span class="load_anim2"></span>
+    </div>
+    <div class="photoscrn">
+      <img class="img" />
+      <div class="bg"></div>
+    </div>
+    <div class="comphotoscrn">
+      <img class="comimg" />
+      <div class="bg1"></div>
+    </div>
+    <div class="header">
+      <div class="headerbtn">
+        <div class="logo">logo</div>
+        <button class="regbtn">Register</button>
+        <button class="logbtn">Login</button>
+      </div>
+    </div>
+
+    <div class="nav">
+      <h4>What do you want to ask?</h4>
+      <div class="container">
+        <div>
+          <input class="myinput" placeholder="#" />
+          <div class="btncontainer">
+            <button class="inpbtn">
+              Attachment
+              <input class="fileinput" type="file" />
+            </button>
+            <button class="postbtn">Post</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="postsection" style="min-width: fit-content;"></div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyDUJVxmXnh_2CiOQBkIBb4oEXGI0JHlYFU",
+        authDomain: "fir-ceca3.firebaseapp.com",
+        projectId: "fir-ceca3",
+        storageBucket: "fir-ceca3.appspot.com",
+        messagingSenderId: "407005495880",
+        appId: "1:407005495880:web:c3ae272292bff514498e7d",
+      };
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+    </script>
+    <script src="./index.js"></script>
+  </body>
+</html>
