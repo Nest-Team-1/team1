@@ -89,50 +89,45 @@ function draw(doc) {
     db.collection("forum")
       .doc(doc.id)
       .collection("comment")
-      .orderBy("like", "desc")
+      .orderBy("date", "desc")
       .onSnapshot((snapshot) => {
         $comment.innerHTML = "";
         for (let comDoc of snapshot.docs) {
           let $comments = document.createElement("div");
           let $compic = document.createElement("div");
           let containerdiv = document.createElement("div");
-          let $numberoflike = document.createElement("div");
+         
           let comname = document.createElement("div");
           comname.classList.add("comname");
           comname.innerText = "name1"; //user.name
           let $apart = document.createElement("div");
           $apart.classList.add("apart");
-          $numberoflike.innerText = comDoc.data().like;
+        
           containerdiv.classList.add("flex");
           containerdiv.classList.add("comclass");
-          let likebtn = document.createElement("button");
-          likebtn.classList.add("combtn");
-          likebtn.textContent = "+";
-          likebtn.style.width = "20px";
-          likebtn.style.height = "20px";
-          $apart.append($comments, likebtn, $numberoflike);
+          $apart.append($comments,);
           containerdiv.append(comname, $apart);
-          likebtn.onclick = () => {
-            if (!$like[comDoc.id]) {
-              $like[comDoc.id] = true;
-              db.collection("forum")
-                .doc(doc.id)
-                .collection("comment")
-                .doc(comDoc.id)
-                .update({
-                  like: firebase.firestore.FieldValue.increment(1),
-                });
-            } else {
-              $like[comDoc.id] = false;
-              db.collection("forum")
-                .doc(doc.id)
-                .collection("comment")
-                .doc(comDoc.id)
-                .update({
-                  like: firebase.firestore.FieldValue.increment(-1),
-                });
-            }
-          };
+          // likebtn.onclick = () => {
+          //   if (!$like[comDoc.id]) {
+          //     $like[comDoc.id] = true;
+          //     db.collection("forum")
+          //       .doc(doc.id)
+          //       .collection("comment")
+          //       .doc(comDoc.id)
+          //       .update({
+          //         like: firebase.firestore.FieldValue.increment(1),
+          //       });
+          //   } else {
+          //     $like[comDoc.id] = false;
+          //     db.collection("forum")
+          //       .doc(doc.id)
+          //       .collection("comment")
+          //       .doc(comDoc.id)
+          //       .update({
+          //         like: firebase.firestore.FieldValue.increment(-1),
+          //       });
+          //   }
+          // };
           $comments.innerText = comDoc.data().text;
           $comment.append(containerdiv);
           if (comDoc.data().comphoto) {
