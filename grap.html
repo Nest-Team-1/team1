@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>graph</title>
+  </head>
     <style>
       body {
         margin: 0px;
@@ -19,11 +24,14 @@
         height: 100vh;
         width: 100vw;
         display: flex;
+        background-color: #F7F5F4;
         flex-direction: column;
+        text-align: center;
+        /* align-items: center; */
       }
 
       .navBar {
-        width: 99.85;
+        width: 100%;
         height: 60px;
         border: 1px solid black;
         background-color: white;
@@ -35,10 +43,8 @@
 
       .logo {
         margin: auto 30px;
-        height: 50px;
-        width: 50px;
-        background-color: aqua;
-        border-radius: 50%;
+        height: 60px;
+        width: 80px;
       }
 
       .space {
@@ -57,8 +63,9 @@
         justify-content: space-around;
       }
 
-      .navBut > button {
+      .navBut > p {
         height: 25px;
+        color: rgb(0, 102, 255) !important;
         width: 80px;
         border-radius: 10px;
       }
@@ -70,24 +77,21 @@
         width: 100%;
       }
 
-      .che {
-        display: flex;
-        flex-direction: column;
-        width: 250px;
-        height: 100%;
-        background-color: rgb(0, 89, 255);
-        position: sticky;
-        /* background-image: linear-gradient(to right, rgb(38, 0, 255), rgb(0, 174, 255), white, rgb(0, 174, 255), rgb(38, 0, 255)); */
-        /* background-image: linear-gradient(to right, rgba(38, 0, 255, 0.116), rgb(4, 33, 46), white, rgb(0, 174, 255), rgb(38, 0, 255)); */
-      }
-
       .math {
         display: flex;
+        margin: auto;
         /* justify-content: center; */
         align-items: center;
         flex-direction: column;
-        width: 600px;
+        width: 900px;
         height: 100%;
+       
+      }
+      .canva{
+        margin-top: 30px;
+        width: 900px;
+        height: 100%;
+        background-color: white;
       }
 
       .calculator {
@@ -103,13 +107,21 @@
       .hand > input {
         width: 30px;
       }
+      .instruction{
+        margin: auto;
+        width: 900px;
+        background-color: white;
+      }
 
       .theory {
-        height: 100%;
-        width: 65vw;
+        margin:auto;
+        height: 80%;
+        margin-top: 0;
+        width: 35vw;
+        font-weight: bold;
         word-wrap: break-word;
         font-size: 20px;
-        background-color: whitesmoke;
+        background-color: white;
       }
 
       .theory > p {
@@ -132,39 +144,45 @@
         }
       }
     </style>
-  </head>
 
-  <body>
+<body>
     <div class="container">
       <div class="navBar">
-        <div class="logo"></div>
+        <div class="logo">
+          <img src="./logo.png" height="100%" width="100%" />
+        </div>
         <div class="space"></div>
         <div class="navBut">
-          <button class="btn">Study</button>
-          <button class="btn">Formulas</button>
-          <button class="btn">Forum</button>
-          <button class="btn aquamarine">Sign in</button>
-          <button class="btn aquamarine">Sign up</button>
+          <p class="btn">Courses</p>
+          <p class="btn">Formulas</p>
+          <p class="btn">Forum</p>
+          <p class="btn">Username</p>
         </div>
       </div>
+      <h1>Квадрат функц</h1>
       <div class="screen">
-        <div class="che"></div>
         <div class="math">
+          <div class="instruction">
+            <p>・Функц y = ax^2 + bx + c-н хувьд a , b , c-ийн утгыг солино.</p>
+            <p>・Утга бүр дээрхи өөрчлөлтийг сайтар ажиглаж тунгаагаарай</p>
+          </div>
           <form class="hand" onsubmit="drawBtn();return false">
-            <input id="a1" type="number" required />sinx^2+<input
-              id="a2"
-              type="number"
-              required
-            />cosx+<input id="a3" type="number" required />
-            <!-- <input id="a1" />cosx^2=0 -->
+            <input id="a1" type="number" required />
+            x^2
+            +
+            <input id="a2" type="number" required />x
+            <span class="span0">+</span>
+            <input id="a3" type="number" />
             <button id="btn" type="submit">draw</button>
           </form>
-          <canvas
-            id="myCanvas"
-            width="600"
-            height="600"
-            style="margin-top: 0px"
-          ></canvas>
+          <div class="canva">
+            <canvas
+              id="myCanvas"
+              width="900"
+              height="600"
+              style="margin-top: 0px">
+            </canvas>
+          </div>
           <div class="calculator">
             <input id="a" type="range" min="-10" max="10" />
             <label class="function-range1">1</label>
@@ -176,31 +194,18 @@
         </div>
         <div class="theory">
           <p>
-            1.This relationship is commonly symbolized as y = f(x)—which is said
-            “f of x”—and y and x are related such that for every x, there is a
-            unique value of y. That is, f(x) can not have more than one value
-            for the same x. To use the language of set theory, a function
-            relates an element x to an element f(x) in another set. The set of
-            values of x is called the domain of the function, and the set of
-            values of f(x) generated by the values in the domain is called the
-            range of the function. In addition to f(x), other abbreviated
-            symbols such as g(x) and P(x) are often used to represent functions
-            of the independent variable x, especially when the nature of the
-            function is unknown or unspecified.
+            Квадрат функц нь
+            f(x)=ax^2+bx+c хэлбэрээр илэрхийлэгдэх функц болно.  Үүний графикийг xy-координатын хавтгайд дүрсэлбэл парабол хэлбэртэй байна.
           </p>
           <p>
-            2.This relationship is commonly symbolized as y = f(x)—which is said
-            “f of x”—and y and x are related such that for every x, there is a
-            unique value of y. That is, f(x) can not have more than one value
-            for the same x. To use the language of set theory, a function
-            relates an element x to an element f(x) in another set. The set of
-            values of x is called the domain of the function, and the set of
-            values of f(x) generated by the values in the domain is called the
-            range of the function. In addition to f(x), other abbreviated
-            symbols such as g(x) and P(x) are often used to represent functions
-            of the independent variable x, especially when the nature of the
-            function is unknown or unspecified.
+            x^2-ийн өмнөх бодит тоо болох а нь параболийг дээш эсвэл доошоо харах чиглэлийг тодорхойлно.
+            a < 0 үед , дээш
+            a > 0 үед , доош харсан байрлалтай байна.
+            Мөн a -ийн утга ихсэх тусам график тэлж, багасгахад график агшина.  / улаан хэсэг /
           </p>
+          <p>Параболын оройн цэгийн х координатыг олоход  x=(-b)/2a гэж олдог.
+            Үүнээс үзвэл а нь тогтмол үед , b-гийн утгаас хамааран парабол х тэнхлэгийн хувьд шилжиж байна.
+            Өөрөөр хэлбэл , а-гийн утгыг өөрчлөлгүйгээр b-гийн утга-ийг 2 дахин ихэсгэхэд, парабол х тэнхлэгийн дагуу 2 дахин зөөгдөнө. / ногоон хэсэг /</p>
         </div>
       </div>
       <div>
@@ -216,6 +221,7 @@
         ></canvas>
       </div>
     </div>
+  </body>
     <script>
       let $a = document.querySelector("#a");
       let $b = document.getElementById("b");
@@ -227,27 +233,55 @@
       let $range = document.querySelector(".function-range1");
       let $range1 = document.querySelector(".function-range2");
       let $range2 = document.querySelector(".function-range3");
-      $range.innerText = "0";
-      $range1.innerText = "0";
-      $range2.innerText = "0";
+      $range.innerText = "1";
+      $range1.innerText = "1";
+      $range2.innerText = "1";
+      $d.value = 1;
+      $d1.value = 1;
+      $d2.value = 1;
+      $a.value = 1;
+      $b.value = 1;
+      $c.value = 1;
 
-      let a = 0;
-      let b = 0;
-      let c = 0;
+      let a = 1;
+      let b = 1;
+      let c = 1;
       document.querySelector("#a").onchange = (e) => {
         a = e.target.value;
+        $d.value = e.target.value;
+        $range.innerText = $a.value;
+        rangenChange();
+      };
+
+      document.querySelector("#a1").onchange = (e) => {
+        a = e.target.value;
+        $a.value = e.target.value;
         $range.innerText = $a.value;
         rangenChange();
       };
 
       document.querySelector("#b").onchange = (e) => {
         b = e.target.value;
+        $d1.value = e.target.value;
+        $range1.innerText = $b.value;
+        rangenChange();
+      };
+      document.querySelector("#a2").onchange = (e) => {
+        b = e.target.value;
+        $b.value = e.target.value;
         $range1.innerText = $b.value;
         rangenChange();
       };
 
       document.querySelector("#c").onchange = (e) => {
         c = e.target.value;
+        $d2.value = e.target.value;
+        $range2.innerText = $c.value;
+        rangenChange();
+      };
+      document.querySelector("#a3").onchange = (e) => {
+        c = e.target.value;
+        $c.value = e.target.value;
         $range2.innerText = $c.value;
         rangenChange();
       };
@@ -421,46 +455,34 @@
         maxY: 10,
         unitsPerTick: 1,
       });
-
+      myGraph.drawEquation(
+        function (x) {
+          return parseInt($d.value) * x * x +
+              parseInt($d1.value) * x +
+              parseInt($d2.value)
+        },
+        "green",
+        3
+      );
       const rangenChange = (value) => {
         const canva = document.getElementById("myCanvas");
         const context = canva.getContext("2d");
         context.clearRect(0, 0, canva.width, canva.height);
         myGraph.drawXAxis();
         myGraph.drawYAxis();
-        myGraph.drawEquation(
-          function (x) {
-            return (
-              parseInt($d.value) * Math.sin(x) * Math.sin(x) +
-              parseInt($d1.value) * Math.cos(x) +
-              parseInt($d2.value)
-            );
-            // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
-          },
-          "blue",
-          3
-        );
-        // $a.value = $d.value;
         console.log(a, b, c);
         myGraph.drawEquation(
           (x) => {
             return (
-              parseInt($a.value) * x * x +
-              parseInt($b.value) * x +
-              parseInt($c.value)
+              parseInt($d.value) * x * x +
+              parseInt($d1.value) * x +
+              parseInt($d2.value)
             );
           },
           "green",
           3
         );
 
-        // myGraph.drawEquation(
-        //   function (x) {
-        //     return 2 * x;
-        //   },
-        //   "red",
-        //   3
-        // );
       };
       const dra = (drawBtn = () => {
         console.log($d.value, $d1.value, $d2.value);
@@ -472,26 +494,26 @@
         myGraph.drawEquation(
           (x) => {
             return (
-              parseInt($a.value) * x * x +
-              parseInt($b.value) * x +
-              parseInt($c.value)
+              parseInt($d.value) * x * x +
+              parseInt($d1.value) * x +
+              parseInt($d2.value)
             );
           },
           "green",
           3
         );
-        myGraph.drawEquation(
-          function (x) {
-            // console.log($d.value, $d1.value, $d2.value);
-            return (
-              parseInt($d.value) * Math.sin(x) * Math.sin(x) +
-              parseInt($d1.value) * Math.cos(x) +
-              parseInt($d2.value)
-            );
-          },
-          "blue",
-          3
-        );
+        // myGraph.drawEquation(
+        //   function (x) {
+        //     // console.log($d.value, $d1.value, $d2.value);
+        //     return (
+        //       parseInt($d.value) * Math.sin(x) * Math.sin(x) +
+        //       parseInt($d1.value) * Math.cos(x) +
+        //       parseInt($d2.value)
+        //     );
+        //   },
+        //   "blue",
+        //   3
+        // );
       });
       // $d.$d1.$d2.addEventListener("keyup", function(event) {
       //     if (event.keyCode === 13) {
@@ -649,5 +671,4 @@
         context.clearRect(0, 0, $canva.width, $canva.height);
       });
     </script>
-  </body>
 </html>
