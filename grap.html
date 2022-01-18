@@ -470,6 +470,7 @@
         "green",
         3
       );
+      //end range oorchlohod zurah bga
       const rangenChange = (value) => {
         const canva = document.getElementById("myCanvas");
         const context = canva.getContext("2d");
@@ -490,6 +491,7 @@
         );
 
       };
+      //btn darahad zurna
       const dra = (drawBtn = () => {
         console.log($d.value, $d1.value, $d2.value);
         const canva = document.getElementById("myCanvas");
@@ -521,13 +523,14 @@
         //     3
         // );
 
-        // myGraph.drawEquation(
-        //   function (x) {
-        //     return 2 * x;
-        //   },
-        //   "red",
-        //   3
-        // );
+        myGraph.drawEquation(
+          function (x) {
+            
+            return 2 * x;
+          },
+          "red",
+          3
+        );
       });
     </script>
     <script>
