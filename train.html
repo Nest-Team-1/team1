@@ -1,169 +1,170 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>graph</title>
-  </head>
-  <head>
+</head>
+
+<head>
     <style>
-      body {
-        margin: 0px;
-        padding: 0px;
-      }
-
-      body::-webkit-scrollbar {
-        display: none;
-      }
-
-      .container {
-        height: 100vh;
-        width: 100vw;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .navBar {
-        width: 99.85;
-        height: 60px;
-        border: 1px solid black;
-        background-color: white;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        position: sticky;
-      }
-
-      .logo {
-        margin: auto 30px;
-        height: 60px;
-        width: 80px;
-      }
-
-      .space {
-        height: 100%;
-        width: 10%;
-      }
-
-      .navBut {
-        height: 100%;
-        width: 550px;
-        margin-right: 50px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        justify-content: space-around;
-      }
-
-      .navBut > p {
-        height: 25px;
-        color: rgb(0, 102, 255) !important;
-        width: 80px;
-        border-radius: 10px;
-      }
-
-      .screen {
-        display: flex;
-        flex-direction: row;
-        height: 100vh;
-        width: 100%;
-      }
-
-      .math {
-        display: flex;
-        /* justify-content: center; */
-        align-items: center;
-        flex-direction: column;
-        width: 600px;
-        height: 100%;
-      }
-
-      .calculator {
-        display: flex;
-        flex-direction: row;
-      }
-
-      .hand {
-        display: flex;
-        flex-direction: row;
-      }
-
-      .hand > input {
-        width: 30px;
-      }
-
-      .theory {
-        height: 100%;
-        width: 65vw;
-        word-wrap: break-word;
-        font-size: 20px;
-        background-color: whitesmoke;
-      }
-
-      .theory > p {
-        margin-left: 15px;
-      }
-
-      .paint-canvas {
-        border: 1px black solid;
-        display: block;
-        margin: 1rem;
-      }
-
-      .color-picker {
-        margin: 1rem 1rem 0 1rem;
-      }
-
-      @media only screen and (max-width: 920px) {
-        canvas {
-          height: 500;
-          width: 300;
+        body {
+            margin: 0px;
+            padding: 0px;
         }
-      }
+        
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .container {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .navBar {
+            width: 99.85;
+            height: 60px;
+            border: 1px solid black;
+            background-color: white;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            position: sticky;
+        }
+        
+        .logo {
+            margin: auto 30px;
+            height: 60px;
+            width: 80px;
+        }
+        
+        .space {
+            height: 100%;
+            width: 10%;
+        }
+        
+        .navBut {
+            height: 100%;
+            width: 550px;
+            margin-right: 50px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            justify-content: space-around;
+        }
+        
+        .navBut>p {
+            height: 25px;
+            color: rgb(0, 102, 255) !important;
+            width: 80px;
+            border-radius: 10px;
+        }
+        
+        .screen {
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+            width: 100%;
+        }
+        
+        .math {
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+            flex-direction: column;
+            width: 600px;
+            height: 100%;
+        }
+        
+        .calculator {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .hand {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .hand>input {
+            width: 30px;
+        }
+        
+        .theory {
+            height: 100%;
+            width: 65vw;
+            word-wrap: break-word;
+            font-size: 20px;
+            background-color: whitesmoke;
+        }
+        
+        .theory>p {
+            margin-left: 15px;
+        }
+        
+        .paint-canvas {
+            border: 1px black solid;
+            display: block;
+            margin: 1rem;
+        }
+        
+        .color-picker {
+            margin: 1rem 1rem 0 1rem;
+        }
+        
+        @media only screen and (max-width: 920px) {
+            canvas {
+                height: 500;
+                width: 300;
+            }
+        }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="container">
-      <div class="navBar">
-        <div class="logo">
-          <img src="./logo.png" height="100%" width="100%" />
+        <div class="navBar">
+            <div class="logo">
+                <img src="./logo.png" height="100%" width="100%" />
+            </div>
+            <div class="space"></div>
+            <div class="navBut">
+                <p class="btn">Courses</p>
+                <p class="btn">Formulas</p>
+                <p class="btn">Forum</p>
+                <p class="btn">Username</p>
+            </div>
         </div>
-        <div class="space"></div>
-        <div class="navBut">
-          <p class="btn">Courses</p>
-          <p class="btn">Formulas</p>
-          <p class="btn">Forum</p>
-          <p class="btn">Username</p>
-        </div>
-      </div>
-      <div class="screen">
-        <div class="math">
-          <form class="hand" onsubmit="drawBtn();return false">
-            <input id="a1" type="number" required />
-            <select id="types">
+        <div class="screen">
+            <div class="math">
+                <form class="hand" onsubmit="drawBtn();return false">
+                    <input id="a1" type="number" required />
+                    <select id="types">
               <option value="x">x</option>
               <option value="sin">sin</option>
               <option value="cos">cos</option>
               <option value="tan">tan</option>
-            </select>
-            x^
-            <select id="types1">
+            </select> x^
+                    <select id="types1">
               <option value="1">1</option>
               <option value="2">2</option></select
-            >+
+            ><span class="span0">+</span>
             <!-- <div class="hide"></div> -->
-            <input id="a2" type="number" required />
+            <input id="a2" type="number"/>
             <select id="types2">
               <option value="x">x</option>
               <option value="sin">sin</option>
               <option value="cos">cos</option>
               <option value="tan">tan</option>
               <option value="cot">cot</option></select
-            ><span class="span0">+</span>
-            <input id="a3" type="number" />
+            >+
+            <input id="a3" type="number" required/>
             <button id="btn" type="submit">draw</button>
           </form>
           <canvas
@@ -240,22 +241,37 @@
       let $type = document.getElementById("types");
       let $type1 = document.getElementById("types1");
       let $type2 = document.getElementById("types2");
-      document.querySelector("#a3").style.opacity = "0";
-      document.getElementById("c").style.opacity = "0";
-      document.querySelector(".function-range3").style.opacity = "0";
-      document.querySelector(".span0").style.opacity = "0";
+      // document.querySelector("#a3").style.opacity = "0";
+      // document.getElementById("c").style.opacity = "0";
+      // document.querySelector(".function-range3").style.opacity = "0";
+      // document.querySelector(".span0").style.opacity = "0";
+      document.querySelector("#a2").style.display = "none";
+      document.getElementById("b").style.display = "none";
+      document.querySelector(".function-range2").style.display = "none";
+      document.getElementById("types2").style.display = "none";
+      document.querySelector(".span0").style.display = "none";
       document.getElementById("types1").onchange = (e) => {
         if ($type1.value === "1") {
-          document.querySelector("#a3").style.opacity = "0";
-          document.getElementById("c").style.opacity = "0";
-          document.querySelector(".function-range3").style.opacity = "0";
-          document.querySelector(".span0").style.opacity = "0";
+          // document.querySelector("#a3").style.opacity = "0";
+          // document.getElementById("c").style.opacity = "0";
+          // document.querySelector(".function-range3").style.opacity = "0";
+          // document.querySelector(".span0").style.opacity = "0";
+          document.querySelector("#a2").style.display = "none";
+      document.getElementById("b").style.display = "none";
+      document.querySelector(".function-range2").style.display = "none";
+      document.getElementById("types2").style.display = "none";
+      document.querySelector(".span0").style.display = "none";
         } else if ($type1.value === "2") {
-          document.querySelector("#a3").style.opacity = "1";
-          document.getElementById("c").style.opacity = "1";
-          document.querySelector(".function-range3").style.opacity = "1";
-          document.querySelector(".span0").style.opacity = "1";
-          document.querySelector("#a3").required = true;
+          // document.querySelector("#a3").style.opacity = "1";
+          // document.getElementById("c").style.opacity = "1";
+          // document.querySelector(".function-range3").style.opacity = "1";
+          // document.querySelector(".span0").style.opacity = "1";
+          document.querySelector("#a2").style.display = "flex";
+      document.getElementById("b").style.display = "flex";
+      document.querySelector(".function-range2").style.display = "flex";
+      document.getElementById("types2").style.display = "flex";
+      document.querySelector(".span0").style.display = "flex";
+          document.querySelector("#a2").required = true;
           //   $type2.remove(x.selectedIndex);
         }
       };
@@ -739,14 +755,46 @@
             );
           }
         } else if ($type1.value === "1") {
-          if ($type.value === "sin" && $type2.value === "cos") {
+          if ($type.value === "sin") {
             myGraph.drawEquation(
               function (x) {
                 return (
                   parseInt($d.value) * Math.sin(x) +
-                  parseInt($d1.value) * Math.cos(x)
+                  parseInt($d2.value)
                 );
-                // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+              },
+              "blue",
+              3
+            );
+          }else if ($type.value === "cos") {
+            myGraph.drawEquation(
+              function (x) {
+                return (
+                  parseInt($d.value) * Math.cos(x) +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+          }else if ($type.value === "tan") {
+            myGraph.drawEquation(
+              function (x) {
+                return (
+                  parseInt($d.value) * Math.tan(x) +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+          }else if ($type.value === "x") {
+            myGraph.drawEquation(
+              function (x) {
+                return (
+                  parseInt($d.value) * x +
+                  parseInt($d2.value)
+                );
               },
               "blue",
               3
@@ -769,6 +817,7 @@
 
         // myGraph.drawEquation(
         //   function (x) {
+          
         //     return 2 * x;
         //   },
         //   "red",
@@ -778,7 +827,7 @@
       const dra = (drawBtn = () => {
         if ($type1.value === "1") {
           console.log("lol");
-          if ($type.value === "sin" && $type2.value === "cos") {
+          if ($type.value === "sin") {
             const canva = document.getElementById("myCanvas");
             const context = canva.getContext("2d");
             context.clearRect(0, 0, canva.width, canva.height);
@@ -788,14 +837,13 @@
               function (x) {
                 return (
                   parseInt($d.value) * Math.sin(x) +
-                  parseInt($d1.value) * Math.cos(x)
+                  parseInt($d2.value)
                 );
               },
               "blue",
               3
             );
-          } else if ($type.value === "cos" && $type2.value === "tan") {
-            console.log("lol1");
+          } else if ($type.value === "cos") {
             const canva = document.getElementById("myCanvas");
             const context = canva.getContext("2d");
             context.clearRect(0, 0, canva.width, canva.height);
@@ -805,13 +853,13 @@
               function (x) {
                 return (
                   parseInt($d.value) * Math.cos(x) +
-                  parseInt($d1.value) * Math.tan(x)
+                  parseInt($d2.value)
                 );
               },
               "blue",
               3
             );
-          } else if ($type.value === "cos" && $type2.value === "sin") {
+          } else if ($type.value === "tan") {
             const canva = document.getElementById("myCanvas");
             const context = canva.getContext("2d");
             context.clearRect(0, 0, canva.width, canva.height);
@@ -820,14 +868,14 @@
             myGraph.drawEquation(
               function (x) {
                 return (
-                  parseInt($d.value) * Math.cos(x) +
-                  parseInt($d1.value) * Math.sin(x)
+                  parseInt($d.value) * Math.tan(x) +
+                  parseInt($d2.value)
                 );
               },
               "blue",
               3
             );
-          } else if ($type.value === "sin" && $type2.value === "cot") {
+          } else if ($type.value === "x") {
             const canva = document.getElementById("myCanvas");
             const context = canva.getContext("2d");
             context.clearRect(0, 0, canva.width, canva.height);
@@ -836,91 +884,14 @@
             myGraph.drawEquation(
               function (x) {
                 return (
-                  parseInt($d.value) * Math.sin(x) +
-                  parseInt($d1.value) * (1 / Math.tan(x))
+                  parseInt($d.value) * x +
+                  parseInt($d2.value)
                 );
               },
               "blue",
               3
             );
-          } else if ($type.value === "cos" && $type2.value === "cot") {
-            const canva = document.getElementById("myCanvas");
-            const context = canva.getContext("2d");
-            context.clearRect(0, 0, canva.width, canva.height);
-            myGraph.drawXAxis();
-            myGraph.drawYAxis();
-            myGraph.drawEquation(
-              function (x) {
-                return (
-                  parseInt($d.value) * Math.cos(x) +
-                  parseInt($d1.value) * (Math.cos(x) / Math.sin(x))
-                );
-              },
-              "blue",
-              3
-            );
-          } else if ($type.value === "x" && $type2.value === "cos") {
-            const canva = document.getElementById("myCanvas");
-            const context = canva.getContext("2d");
-            context.clearRect(0, 0, canva.width, canva.height);
-            myGraph.drawXAxis();
-            myGraph.drawYAxis();
-            myGraph.drawEquation(
-              function (x) {
-                x =4
-                // console.log(x);
-                // parseInt($d.value) * x +
-                // parseInt($d1.value) * Math.cos(x)
-              },
-              "blue",
-              3
-            );
-          }else if ($type.value === "x" && $type2.value === "sin") {
-            const canva = document.getElementById("myCanvas");
-            const context = canva.getContext("2d");
-            context.clearRect(0, 0, canva.width, canva.height);
-            myGraph.drawXAxis();
-            myGraph.drawYAxis();
-            myGraph.drawEquation(
-              function (x) {
-                console.log(x);
-                parseInt($d.value) * x +
-                parseInt($d1.value) * Math.sin(x)
-              },
-              "blue",
-              3
-            );
-          }else if ($type.value === "x" && $type2.value === "tan") {
-            const canva = document.getElementById("myCanvas");
-            const context = canva.getContext("2d");
-            context.clearRect(0, 0, canva.width, canva.height);
-            myGraph.drawXAxis();
-            myGraph.drawYAxis();
-            myGraph.drawEquation(
-              function (x) {
-                console.log(x);
-                parseInt($d.value) * x +
-                parseInt($d1.value) * Math.tan(x)
-              },
-              "blue",
-              3
-            );
-          }else if ($type.value === "x" && $type2.value === "cot") {
-            const canva = document.getElementById("myCanvas");
-            const context = canva.getContext("2d");
-            context.clearRect(0, 0, canva.width, canva.height);
-            myGraph.drawXAxis();
-            myGraph.drawYAxis();
-            myGraph.drawEquation(
-              function (x) {
-                console.log(x);
-                parseInt($d.value) * x +
-                parseInt($d1.value) * (Math.cos(x) / Math.sin(x))
-              },
-              "blue",
-              3
-            );
-          }
+          } 
         } else if ($type1.value === "2") {
           if ($type.value === "x" && $type2.value === "x") {
             const canva = document.getElementById("myCanvas");
