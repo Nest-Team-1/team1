@@ -16,7 +16,7 @@ window.onscroll = (e) => {
         opacity = windowBottomY - ($null.offsetHeight + gap/2);
         $box1.style.opacity = `0.${opacity}`;
         $box2.style.opacity = `0.${opacity}`;
-        console.log(opacity);
+        
         if(opacity > 90){
             $box1.style.opacity = `1`;
             $box2.style.opacity = `1`;
@@ -29,14 +29,14 @@ window.onscroll = (e) => {
     const fixedY = windowHeight + windowHeight/2 + $box1.offsetHeight/2
     if(windowBottomY > fixedY){
         $boxContainer.style.position = 'fixed';
-        $boxContainer.style.top = '30vh';
+        $boxContainer.style.top = '35vh';
     }else{
         $boxContainer.style.position = 'inherit';
     }
     const boxMover = () => {
         if(windowBottomY > $box1.offsetHeight + $null.offsetHeight + gap && windowBottomY < $container.offsetWidth){
-            $box1.style.transform = `translateX(-${x}px)`;
-            $box2.style.transform = `translateX(${x}px)`;
+            $box1.style.transform = `translateX(-${x*(window.innerWidth/window.innerHeight )}px)`;
+            $box2.style.transform = `translateX(${x*(window.innerWidth/window.innerHeight )}px)`;
         }     
         if(windowBottomY < $box1.offsetHeight + $null.offsetHeight + gap){
             $box1.style.transform = `translateX(0px)`;

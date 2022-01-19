@@ -6,7 +6,7 @@ const observer = new IntersectionObserver(entries => {
        entry.target.classList.toggle("show" , entry.isIntersecting)
    });
 },{
-    threshold: .4,
+    threshold: .1,
     
 });
 
