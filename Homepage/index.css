@@ -255,7 +255,8 @@ body{
     font-size: 50px;
     color: #646464;
     font-family: 'Roboto', sans-serif;
-    transform: translateX(80px);
+    text-align: center;
+    background-color: #f0f4fb;
 }
 .footer{
     background-color: #808080;
