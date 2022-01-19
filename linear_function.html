@@ -9,8 +9,7 @@
     <title>Шугаман функц</title>
     <link rel="shortcut icon" href="./logo.png">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async
-            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
 </head>
 <style>
@@ -47,17 +46,20 @@
         justify-content: space-between;
         position: sticky;
     }
-    .header{
+    
+    .header {
         width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
-    .header :nth-child(1){
+    
+    .header :nth-child(1) {
         margin-left: 100px;
         margin-top: 30px;
     }
-    .header :nth-child(3){
+    
+    .header :nth-child(3) {
         margin-right: 100px;
         margin-top: 30px;
     }
@@ -99,7 +101,8 @@
         width: 100%;
         justify-content: center;
     }
-    .mini{
+    
+    .mini {
         width: 100vw;
         display: flex;
         justify-content: center;
@@ -121,8 +124,23 @@
     }
     
     .calculator {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 900px;
+        background-color: white;
+    }
+    
+    .range {
         display: flex;
         flex-direction: row;
+        /* text-align: center; */
+    }
+    
+    .calculator>input {
+        width: 300px;
     }
     
     .hand {
@@ -136,7 +154,27 @@
     
     .instruction {
         width: 900px;
+        text-align: center;
         background-color: white;
+    }
+    
+    .instruction>p {
+        font-size: 18px;
+        font-weight: bold;
+    }
+    
+    .bord {
+        border: 1px solid whitesmoke;
+        font-size: 18px;
+        word-spacing: 1rem;
+        line-height: .7cm;
+    }
+    
+    .bold1 {
+        font-size: 18px;
+        font-weight: bold;
+        word-spacing: 1rem;
+        line-height: .7cm;
     }
     
     .theory {
@@ -165,7 +203,7 @@
     
     .see {
         margin-top: 30px;
-        height: 80px;
+        height: 100px;
         width: 900px;
         background-color: white;
         display: flex;
@@ -176,15 +214,34 @@
     .color-picker {
         margin: 1rem 1rem 0 1rem;
     }
+    
+    .btn1 {
+        top: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    
+    .btn1>button {
+        height: 40px;
+        width: 80%;
+        color: #fff;
+        border-radius: 10px;
+        background-color: #1865F1;
+    }
+    
     .a {
         height: 25px;
         -webkit-appearance: none;
         margin: 10px 0;
         width: 100%;
     }
+    
     .a:focus {
         outline: none;
     }
+    
     .a::-webkit-slider-runnable-track {
         width: 100%;
         height: 5px;
@@ -195,6 +252,7 @@
         border-radius: 1px;
         border: 0px solid #000000;
     }
+    
     .a::-webkit-slider-thumb {
         box-shadow: 0px 0px 0px #000000;
         border: 1px solid red;
@@ -206,9 +264,11 @@
         -webkit-appearance: none;
         margin-top: -7px;
     }
+    
     .a:focus::-webkit-slider-runnable-track {
         background: red;
     }
+    
     .a::-moz-range-track {
         width: 100%;
         height: 5px;
@@ -219,6 +279,7 @@
         border-radius: 1px;
         border: 0px solid #000000;
     }
+    
     .a::-moz-range-thumb {
         box-shadow: 0px 0px 0px #000000;
         border: 1px solid #2497E3;
@@ -228,6 +289,7 @@
         background: red;
         cursor: pointer;
     }
+    
     .a::-ms-track {
         width: 100%;
         height: 5px;
@@ -237,18 +299,21 @@
         border-color: transparent;
         color: transparent;
     }
+    
     .a::-ms-fill-lower {
         background: red;
         border: 0px solid #000000;
         border-radius: 2px;
         box-shadow: 0px 0px 0px #000000;
     }
+    
     .a::-ms-fill-upper {
         background: red;
         border: 0px solid #000000;
         border-radius: 2px;
         box-shadow: 0px 0px 0px #000000;
     }
+    
     .a::-ms-thumb {
         margin-top: 1px;
         box-shadow: 0px 0px 0px #000000;
@@ -259,21 +324,26 @@
         background: red;
         cursor: pointer;
     }
+    
     .a:focus::-ms-fill-lower {
         background: red;
     }
+    
     .a:focus::-ms-fill-upper {
         background: red;
     }
+    
     .b {
         height: 25px;
         -webkit-appearance: none;
         margin: 10px 0;
         width: 100%;
     }
+    
     .b:focus {
         outline: none;
     }
+    
     .b::-webkit-slider-runnable-track {
         width: 100%;
         height: 5px;
@@ -284,6 +354,7 @@
         border-radius: 1px;
         border: 0px solid #000000;
     }
+    
     .b::-webkit-slider-thumb {
         box-shadow: 0px 0px 0px #000000;
         border: 1px solid green;
@@ -295,9 +366,11 @@
         -webkit-appearance: none;
         margin-top: -7px;
     }
+    
     .b:focus::-webkit-slider-runnable-track {
         background: green;
     }
+    
     .b::-moz-range-track {
         width: 100%;
         height: 5px;
@@ -308,6 +381,7 @@
         border-radius: 1px;
         border: 0px solid #000000;
     }
+    
     .b::-moz-range-thumb {
         box-shadow: 0px 0px 0px #000000;
         border: 1px solid #2497E3;
@@ -317,6 +391,7 @@
         background: green;
         cursor: pointer;
     }
+    
     .b::-ms-track {
         width: 100%;
         height: 5px;
@@ -326,18 +401,21 @@
         border-color: transparent;
         color: transparent;
     }
+    
     .b::-ms-fill-lower {
         background: green;
         border: 0px solid #000000;
         border-radius: 2px;
         box-shadow: 0px 0px 0px #000000;
     }
+    
     .b::-ms-fill-upper {
         background: green;
         border: 0px solid #000000;
         border-radius: 2px;
         box-shadow: 0px 0px 0px #000000;
     }
+    
     .b::-ms-thumb {
         margin-top: 1px;
         box-shadow: 0px 0px 0px #000000;
@@ -348,9 +426,11 @@
         background: green;
         cursor: pointer;
     }
+    
     .b:focus::-ms-fill-lower {
         background: green;
     }
+    
     .b:focus::-ms-fill-upper {
         background: green;
     }
@@ -384,15 +464,16 @@
             </div>
         </div>
         <div class="header">
-            <p>  < &nbsp &nbsp &nbsp Өмнөх сэдэв</p>
-            <h1>Шугаман функц</h1>
-            <p>Дараах сэдэв &nbsp &nbsp &nbsp ></p>
+            <p>
+                < &nbsp &nbsp &nbsp Өмнөх сэдэв</p>
+                    <h1>Шугаман функц</h1>
+                    <p>Дараах сэдэв &nbsp &nbsp &nbsp ></p>
         </div>
         <div class="screen">
             <div class="mini">
                 <div class="math">
                     <div class="instruction">
-                        <p>・Шугаман функц нь \(y = kx + b\) гэж илэрхийлэгдэнэ.</p>
+                        <p>・Шугаман функц нь \(y = kx + b\) гэж илэрхийлэгдэнэ.&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</p>
                         <p>・Утга бүр дээрхи өөрчлөлтийг сайтар ажиглаж тунгаагаарай.</p>
                     </div>
                     <div class="see">
@@ -410,25 +491,34 @@
                 </canvas>
                     </div>
                     <div class="calculator">
+                        <!-- <div class="range"> -->
                         <input class="a" id="a" type="range" min="-10" max="10" style="color: red;" />
-                        <label class="function-range1">1</label>
+                        <!-- <label class="function-range1">1</label> -->
+                        <!-- </div> -->
+                        <!-- <div class="range"> -->
                         <input class="b" id="b" type="range" min="-10" max="10" />
-                        <label class="function-range2">1</label>
+                        <!-- <label class="function-range2">1</label> -->
+                        <!-- </div> -->
                         <!-- <input id="c" type="range" min="-10" max="10" />
                             <label class="function-range3">1</label> -->
                     </div>
                 </div>
                 <div class="theory">
-                    <p>
-                        Шулуун функц y = kx + b -н графикийг ху-координатын хавтгайд дүрсэлбэл шулуун хэлбэртэй байна.
-                    </p>
-                    <p>
-                        y = kx + b функцийн k-г налуугийн коеффицент гэж нэрлэдэг. ху-координатын хавтгайд үүсэх шулуун ба х тэнхлэгийн хоорон дахь өнцөг нь налуугийн коеффицент к-тай шууд хамааралтай байна. k нь ихсэх үед өнцөг нь ихсэнэ k багасах үед өнцөг нь багасна k
-                        < 0 үед өнцөг нь мөн адил сөрөг утгатай байна / улаан хэсэг / </p>
-                            <p>Параболын оройн цэгийн х координатыг олоход x=(-b)/2a гэж олдог. Үүнээс үзвэл а нь тогтмол үед , b-гийн утгаас хамааран парабол х тэнхлэгийн хувьд шилжиж байна. Өөрөөр хэлбэл , а-гийн утгыг өөрчлөлгүйгээр b-гийн утга-ийг 2 дахин
-                                ихэсгэхэд, парабол х тэнхлэгийн дагуу 2 дахин зөөгдөнө. / ногоон хэсэг /</p>
-                            <p>Бодит тоо болох b нь ямар нэгэн хувьсагчаас хамааралгүй ба математикт сул гишүүн гэж нэрлэгддэг. Харин одоо х-ийн оронд 0-ийг орлуулж үзвэл y = c гарж байна. Үүнээс үзвэл, сул гишүүн нь парабол у тэнхлэгийг огтлох цэгийг тодорхойлно.
-                                / ногоон хэсэг /</p>
+                    <div class="bord">
+                        <p class="bold1">
+                            Шулуун функц \(y = kx + b\) -н графикийг \(ху\)-координатын хавтгайд дүрсэлбэл шулуун хэлбэртэй байна.
+                        </p>
+                    </div>
+                    <div class="bord">
+                        <p>
+                            \(y = kx + b\) функцийн k-г налуугийн коеффицент гэж нэрлэдэг. ху-координатын хавтгайд үүсэх шулуун ба х тэнхлэгийн хоорон дахь өнцөг нь налуугийн коеффицент к-тай шууд хамааралтай байна. k нь ихсэх үед өнцөг нь ихсэнэ k багасах үед өнцөг нь багасна \(k
+                            < 0\) үед өнцөг нь мөн адил сөрөг утгатай байна / улаан хэсэг / </p>
+                    </div>
+                    <div class="bord">
+                        <p>Бодит тоо болох \(b\) нь ямар нэгэн хувьсагчаас хамааралгүй ба математикт сул гишүүн гэж нэрлэгддэг. Харин одоо \(х\)-ийн оронд 0-ийг орлуулж үзвэл \(y = c\) гарж байна. Үүнээс үзвэл, сул гишүүн нь парабол \(у\) тэнхлэгийг огтлох
+                            цэгийг тодорхойлно. / ногоон хэсэг /</p>
+                    </div>
+                    <div class="btn1"><button>Өөрийгөө сорьё</button></div>
                 </div>
             </div>
         </div>
@@ -454,11 +544,11 @@
     let $d1 = document.querySelector("#a2");
     // let $d2 = document.querySelector("#a3");
     let $btn = document.getElementById("btn");
-    let $range = document.querySelector(".function-range1");
-    let $range1 = document.querySelector(".function-range2");
+    // let $range = document.querySelector(".function-range1");
+    // let $range1 = document.querySelector(".function-range2");
     // let $range2 = document.querySelector(".function-range3");
-    $range.innerText = "1";
-    $range1.innerText = "1";
+    // $range.innerText = "1";
+    // $range1.innerText = "1";
     // $range2.innerText = "1";
     $d.innerText = "1";
     $d1.innerText = "1";
@@ -473,7 +563,7 @@
     document.querySelector("#a").onchange = (e) => {
         a = e.target.value;
         $d.innerText = e.target.value;
-        $range.innerText = $a.value;
+        // $range.innerText = $a.value;
         rangenChange();
     };
 
@@ -487,7 +577,7 @@
     document.querySelector("#b").onchange = (e) => {
         b = e.target.value;
         $d1.innerText = e.target.value;
-        $range1.innerText = $b.value;
+        // $range1.innerText = $b.value;
         rangenChange();
     };
     // document.querySelector("#a2").onchange = (e) => {
