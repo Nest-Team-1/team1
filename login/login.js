@@ -1,5 +1,7 @@
 // DOM-ын хэсэг
 const $loginBtn = document.getElementById('submit-btn');
+const $loginNameInput = document.getElementById('login-email');
+const $loginPasswordInput = document.getElementById('login-password');
 const $registBtn = document.getElementById('regist-btn');
 const $loginField = document.querySelector('.login');
 const $signUpField = document.querySelector('.sign-up');
@@ -11,27 +13,50 @@ const $registUsername = document.getElementById('register-name');
 const $registerRegistBtn = document.getElementById('register-regist-btn');
 const $inputImg = document.querySelector('.regist-upload-img'); 
 const $google = document.querySelector('.google');
-// const $googleLoginBtn = document.getElementById('google-login-btn'); 
-// const $gmailEmail = document.getElementById('gmail-email');
-// const $gmailPassword = document.getElementById('gmail-password');
 const $facebook = document.querySelector('.facebook');
 let registerEmail;
+
+// Login email, username or password
+$loginBtn.addEventListener('click', () => {
+  const userName = $loginNameInput.value;
+  const userPassword = $loginPasswordInput.value;
+  if(userName && userPassword){
+    userName``
+    db.collection('users').onSnapshot((snapshot) => {
+      console.log('lenght:123', snapshot.docs.length);
+      for(let i=0; i<snapshot.docs.length; i++){
+
+      }
+  });
+  }
+})
+//////////////////////////////////////////////////////////////////////////
+
+searchName = () => {
+  
+}
+
+searchEmail
+
+//////////////////////////////////////////////////////////////////////////
 // Login page бүртгүүлэх button
 $registBtn.addEventListener('click', () => {
     $loginField.style.display = 'none';
     $signUpField.style.display = 'flex';
 });
 
+//////////////////////////////////////////////////////////////////////////
 // Email link Authentication
+
 var actionCodeSettings = {
   // URL you want to redirect back to. The domain (www.example.com) for this
   // URL must be in the authorized domains list in the Firebase Console.
-  url: 'http://localhost:5500/team1/login/home.html',
+  url: 'http://localhost:5500/team1/register/register.html',
   // This must be true.
   handleCodeInApp: true,
 };
 
-vericationEmail = (email, password, uName, profileImg ) =>{
+vericationEmail = (email) =>{
   firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
   .then(() => {
     // The link was successfully sent. Inform the user.
@@ -40,8 +65,7 @@ vericationEmail = (email, password, uName, profileImg ) =>{
     window.localStorage.setItem('emailForSignIn', email);
     // createEmail(email, password, uName, profileImg);
     // ...
-    console.log('successful');
-
+    alert('И-мейл хаяг руу бүртгүүлэх линкийг илгээлээ.');
     // Confirm the link is a sign-in with email link.
 if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
   // Additional state parameters can also be passed via URL.
@@ -79,9 +103,8 @@ if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
     console.log(errorCode, errorMessage);
     // ...
   });
-
 }
-
+//////////////////////////////////////////////////////////////////////////
 // Google-eer newtreh
 let googleProvider = new firebase.auth.GoogleAuthProvider();
 $google.addEventListener('click', () => {
@@ -110,7 +133,7 @@ $google.addEventListener('click', () => {
     console.log(errorCode, errorMessage, email, credential);
   });
 });
-
+//////////////////////////////////////////////////////////////////////////
 // Facebook-eer nevtreh
 let facebookProvider = new firebase.auth.FacebookAuthProvider();
 $facebook.addEventListener('click', () => {
@@ -139,21 +162,8 @@ $facebook.addEventListener('click', () => {
     console.log(errorCode, errorMessage, email, credential);
   });
 });
-// Register page submit button (before)
-// $registerRegistBtn.addEventListener('click', ()=> {
-//     const email = $registEmail.value;
-//     const password = $registPassword.value;
-//     const uName = $registUsername.value;
-//     const profileImg = $inputImg.files[0];
-//     if(email && password && uName){
-//       vericationEmail(email, password, uName, profileImg);
-//     }
-//     else{
-//       alert('Email, password, username zaaval oruulna uu ');
-//     }
-// });
-
-//Sign in email authentication 
+//////////////////////////////////////////////////////////////////////////
+//Sign up email authentication 
 $registerRegistBtn.addEventListener('click', ()=> {
   const email = $registEmail.value;
   // const password = $registPassword.value;
@@ -166,7 +176,7 @@ $registerRegistBtn.addEventListener('click', ()=> {
     alert('Email zaaval oruulna uu ');
   }
 });
-
+//////////////////////////////////////////////////////////////////////////
 // Create Email
 createEmail = (email, password, uName, profileImg) => {
   firebase.auth().createUserWithEmailAndPassword(email, password)
