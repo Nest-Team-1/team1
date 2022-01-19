@@ -19,7 +19,6 @@ let pbut = document.querySelector(".pbut");
 inpbtn.onclick = function () {
   $fileinput.click();
 };
-
 // comment bichih
 $postbtn.onclick = function () {
   console.log($myinput.value);
@@ -107,27 +106,6 @@ function draw(doc) {
           containerdiv.classList.add("comclass");
           $apart.append($comments,);
           containerdiv.append(comname, $apart);
-          // likebtn.onclick = () => {
-          //   if (!$like[comDoc.id]) {
-          //     $like[comDoc.id] = true;
-          //     db.collection("forum")
-          //       .doc(doc.id)
-          //       .collection("comment")
-          //       .doc(comDoc.id)
-          //       .update({
-          //         like: firebase.firestore.FieldValue.increment(1),
-          //       });
-          //   } else {
-          //     $like[comDoc.id] = false;
-          //     db.collection("forum")
-          //       .doc(doc.id)
-          //       .collection("comment")
-          //       .doc(comDoc.id)
-          //       .update({
-          //         like: firebase.firestore.FieldValue.increment(-1),
-          //       });
-          //   }
-          // };
           $comments.innerText = comDoc.data().text;
           $comment.append(containerdiv);
           if (comDoc.data().comphoto) {
