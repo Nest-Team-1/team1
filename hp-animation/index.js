@@ -5,7 +5,7 @@ const $null = document.querySelector('.null');
 const $boxContainer = document.getElementById('box-container');
 
 
-const gap = 250;
+const gap = $container.offsetHeight/3;
 $box1.style.opacity = `0`
 $box2.style.opacity = `0`
 window.onscroll = (e) => {
