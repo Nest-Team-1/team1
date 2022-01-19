@@ -13,17 +13,17 @@
         <div class="login login-container flex column just-center align-center">
             <h2>Нэвтрэх</h2>
             <div class="top">
-                <form action="login.js">
+                <form id="login-form" action="/" method="GET" >
                     <div>
                         <label for="e-mail">Enter your email</label> <br>
-                        <input type="email" id="login-email" name="email" placeholder="phone number email username" aria-required="true">
+                        <input type="text" id="login-email" name="email" placeholder="phone number email username" required>
                     </div>
                     <div>
                         <label for="password">Enter your password:</label><br>
-                        <input type="password" placeholder = "password" id="login-password" aria-required="true">
+                        <input type="password" placeholder = "password" id="login-password" required>
                     </div>
                     <div>
-                        <input type="submit" value="Нэвтрэх" id="submit-btn" class="input-btn">
+                        <input type="submit" value="Нэвтрэх" class="input-btn">
                     </div> 
                 </form>
             </div>

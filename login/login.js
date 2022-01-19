@@ -1,5 +1,5 @@
 // DOM-ын хэсэг
-const $loginBtn = document.getElementById('submit-btn');
+const $loginForm = document.getElementById('login-form');
 const $loginNameInput = document.getElementById('login-email');
 const $loginPasswordInput = document.getElementById('login-password');
 const $registBtn = document.getElementById('regist-btn');
@@ -17,26 +17,60 @@ const $facebook = document.querySelector('.facebook');
 let registerEmail;
 
 // Login email, username or password
-$loginBtn.addEventListener('click', () => {
-  const userName = $loginNameInput.value;
+$loginForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  console.log('clicked...');
+  const inputValue = $loginNameInput.value;
   const userPassword = $loginPasswordInput.value;
-  if(userName && userPassword){
-    userName``
-    db.collection('users').onSnapshot((snapshot) => {
-      console.log('lenght:123', snapshot.docs.length);
-      for(let i=0; i<snapshot.docs.length; i++){
-
+  if(inputValue && userPassword){
+    const arrStr = inputValue.split('');
+    const inputValueType = checkValue(arrStr);
+    console.log(inputValueType);
+    db.collection('users').where(inputValueType, '==', inputValue).get().then((querySnapshot) => {
+      // const done = false;
+      // for(let i=0; i<snapshot.docs.length; i++){
+      //   console.log(snapshot.docs[i][inputValueType], snapshot.docs[i].password);
+      //   if(snapshot.docs[i][inputValueType] === inputValue && snapshot.docs[i].password === userPassword){
+      //     signInEmail(snapshot.docs[i].email, snapshot.docs[i].password);
+      //     done = true;
+      //     break;
+      //   }  
+      // }
+      // if(!done){
+      //   console.log(`Username or password wrong...`);
+      // }
+      const data = querySnapshot.docs[0].data();
+      console.log(data);
+      if(data.password === userPassword){
+        signInEmail(data.email, data.password); 
       }
+      else{
+        alert(`username or password wrong....`);
+      }
+      
+      
+  }).catch((err) => {
+    console.log("Login error database: ", err);
   });
   }
 })
 //////////////////////////////////////////////////////////////////////////
 
-searchName = () => {
-  
+checkValue = (arrString) => {
+  let flag = 'phone';
+  for(const i of arrString){
+    const code = i.charCodeAt();
+    console.log(code);
+    if(code === 64){
+      return 'email';
+    }
+    else if((code > 64 && code < 91) || (code > 96 && code < 123)){
+      flag = 'name';
+    }
+  }
+  return flag;
 }
 
-searchEmail
 
 //////////////////////////////////////////////////////////////////////////
 // Login page бүртгүүлэх button
@@ -104,6 +138,24 @@ if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
     // ...
   });
 }
+
+//////////////////////////////////////////////////////////////////////////
+// Sign in email account
+signInEmail = (email, password) =>{
+  console.log("sign in function......", email);
+  firebase.auth().signInWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+    // Signed in
+    var user = userCredential.user;
+    // ...
+    console.log(user);
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorCode, errorMessage);
+  });
+}
 //////////////////////////////////////////////////////////////////////////
 // Google-eer newtreh
 let googleProvider = new firebase.auth.GoogleAuthProvider();
@@ -166,9 +218,6 @@ $facebook.addEventListener('click', () => {
 //Sign up email authentication 
 $registerRegistBtn.addEventListener('click', ()=> {
   const email = $registEmail.value;
-  // const password = $registPassword.value;
-  // const uName = $registUsername.value;
-  // const profileImg = $inputImg.files[0];
   if(email){
     vericationEmail(email);
   }
