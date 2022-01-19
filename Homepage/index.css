@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&family=Mea+Culpa&family=Roboto&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.flex{display: flex}
+.space-around{justify-content: space-around}
+.space-between{justify-content: space-between}
+body{
+    display: flex;
+    justify-content: center;
+}
+.container{
+    width: 80vw;
+}
+.top-navigation{
+    height: 60px;
+    border-bottom: #E0E0E0 1px solid;
+    align-items: center;
+}
+.top-navigation-left{
+    width: 50%;
+}
+.logo{
+    height: 59px;
+    width: 84px;
+    background-image: url(../pictures/logo.svg);
+   
+}
+.nav{
+    margin: 0 30px;
+    color: #1865F2;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+}
+.top-navigation-left-left{
+    transform: translateX(-100px);
+}
+.top-navigation-left-left > .nav{
+    margin: 0 60px; 
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+.study{
+    height: 70vh;
+    width: 100%;
+
+}
+.study-left{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    transform: translateY(-10px);
+}
+.study-left-top{
+    font-size: 48px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    transform: translateX(60px);
+}
+.study-left-bottom{
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    margin: 30px 0px;
+    transform: translateX(60px);
+}
+.study-right{
+    width: 60%;
+    height: 100%;
+    background-image: url(../pictures/topPicture.png);
+    background-repeat: no-repeat;
+    /* background-size: 950px 740px; */
+    background-position: center;
+    position: relative;
+}
+.start{
+    color: white;
+    background-color: #1865F1;
+    width: 133px;
+    height: 55px;
+    border-radius: 10px;
+    margin: 30px auto;
+    border: none;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+.usage{
+    width: 100%;
+    background-color: #f0f4fb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.line{
+    height: 10px;
+    width: 80px;
+    background-color: #1865F2;
+    border-radius: 10px;
+    margin: 60px 0;
+}
+.usage-title{
+    font-size: 36px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+.usage-inner{
+    width: 100%;
+    margin: 80px 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.usage-inner-inner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.border{
+    height: 150px;
+    width: 150px;
+    border: 2px black dashed;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0px;
+}
+.file-picture{
+    background-size: center;
+    height: 84px;
+    width: 72px;
+    background-image: url(../pictures/file.png);
+    background-repeat: no-repeat;
+}
+.usage-inner-inner-bottom{
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    width: 70%;
+    text-align: center;
+}
+.study-right-2{
+    width: 60%;
+    height: 100%;
+    background-image: url(../pictures/Startup\ life-pana\ \(1\)\ 1.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+.purpose{
+    width: 100%;
+    background-color: #f0f4fb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.line-green{
+    height: 10px;
+    width: 80px;
+    background-color: #92E3A9;
+    border-radius: 10px;
+    margin: 60px 0;
+}
+.purpose-title{
+    font-size: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+.purpose-grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    margin: 60px 0px;
+}
+
+.image{
+    height: 176px;
+    background-image: url(../pictures/Exams-bro\ 1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.image2{
+    height: 176px;
+    background-image: url(../pictures/Mathematics-bro\ 1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.image3{
+    height: 176px;
+    background-image: url(../pictures/Education-bro\ 1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.purpose-inner-title{
+    color: #646464;
+    font-size: 32px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    margin: 30px;
+}
+.purpose-inner-text{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    width: 50%;
+    margin: 10px auto;
+}
+.formula{
+    height: 80vh;
+    width: 100%;
+}
+.formulas-left{
+    width: 60%;
+    background-image: url(../pictures/Creative\ team-bro\ 1.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+.formulas-right{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.formulas-right-top{
+    color: #646464;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    margin: 30px 0px;
+}
+.formulas-right-bottom{
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 30px 0px;
+}
+.aphorizm{
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    color: #646464;
+    font-family: 'Roboto', sans-serif;
+    transform: translateX(80px);
+}
+.footer{
+    background-color: #808080;
+    display: flex;
+    align-items: center;
+}
+
+.border2{
+    height: 180px;
+    width: 180px;
+    border: 1px solid black;
+    border-radius: 50%;
+    background-color: white;
+    overflow: hidden;
+    transform: translateX(50px);
+}
+.logo2{
+    height: 180px;
+    width: 180px;
+    border-radius: 100%;
+    background-image: url(../pictures/logo.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 150px 150px;
+}
+.about-us{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transform: translateX(50px);
+}
+.about-us-title{
+    font-size: 50px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    margin: 30px;
+}
+.about-us-text{
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    color: white;
+    margin: 30px;
+}
