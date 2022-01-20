@@ -220,6 +220,16 @@ line-height: 21px; */
         justify-content: center;
     }
     
+    .exam {
+        height: 80vh;
+        width: 50vw;
+        z-index: 99;
+        position: absolute;
+        background-color: #1865f1;
+        margin: 20vh 50vh;
+        display: none;
+    }
+    
     .a {
         height: 25px;
         -webkit-appearance: none;
@@ -438,6 +448,7 @@ line-height: 21px; */
 </style>
 
 <body>
+    <div class="exam"></div>
     <div class="nav flex space-between">
         <div class="logo"></div>
         <div class="flex margin-right">
@@ -500,7 +511,7 @@ line-height: 21px; */
                     </div>
                 </div>
                 <div class="btnborder">
-                    <button>Бодлого бодъёо</button>
+                    <button onclick="examBtn()">Бодлого бодъёо</button>
                 </div>
 
 
@@ -508,15 +519,6 @@ line-height: 21px; */
 
         </div>
     </div>
-    <!-- <div class="bord">
-        <p>
-        \(y = kx + b\) функцийн k-г налуугийн коеффицент гэж нэрлэдэг. ху-координатын хавтгайд үүсэх шулуун ба х тэнхлэгийн хоорон дахь өнцөг нь налуугийн коеффицент к-тай шууд хамааралтай байна. k нь ихсэх үед өнцөг нь ихсэнэ k багасах үед өнцөг нь багасна \(k 
-                            < 0\) үед өнцөг нь мөн адил сөрөг утгатай байна / улаан хэсэг / </p>
-                    </div>
-                    <div class="bord">
-                        <p>Бодит тоо болох \(b\) нь ямар нэгэн хувьсагчаас хамааралгүй ба математикт сул гишүүн гэж нэрлэгддэг. Харин одоо \(х\)-ийн оронд 0-ийг орлуулж үзвэл \(y = c\) гарж байна. Үүнээс үзвэл, сул гишүүн нь парабол \(у\) тэнхлэгийг огтлох
-                            цэгийг тодорхойлно. / ногоон хэсэг /</p>
-                    </div> -->
 
 </body>
 <script>
@@ -528,6 +530,7 @@ line-height: 21px; */
     // let $d2 = document.querySelector("#a3");
     let $btn = document.getElementById("btn");
     let canva = document.querySelector('#myCanvas');
+    let $exam = document.querySelector('.exam');
     canva.width = window.innerWidth / 2.4;
     canva.height = window.innerHeight / 1.5;
     $d.innerText = "1";
@@ -579,6 +582,10 @@ line-height: 21px; */
     //     $range2.innerText = $c.value;
     //     rangenChange();
     // };
+    const exam = examBtn = () => {
+        console.log('hello');
+        $exam.style.display = "flex"
+    }
 
     function Graph(config) {
         // user defined properties
