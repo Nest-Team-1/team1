@@ -10,8 +10,8 @@
 
 <head>
     <style>
-       html, body {
-         
+        html,
+        body {
             margin: 0px;
             padding: 0px;
         }
@@ -103,13 +103,12 @@
             word-wrap: break-word;
             font-size: 20px;
             background-color: whitesmoke;
-         
-          }
-          .js-paint{
+        }
+        
+        .js-paint {
             background-image: url(https://5.imimg.com/data5/SP/PQ/SV/SELLER-40115805/green-school-boards-500x500.jpg);
             background-size: 100% 100%;
             background-repeat: no-repeat;
-          
         }
         
         .theory>p {
@@ -120,7 +119,7 @@
             border: 1px black solid;
             display: block;
             margin: 1rem;
-            cursor: url("./download.cur"),auto;
+            cursor: url("./download.cur"), auto;
         }
         
         .color-picker {
@@ -245,6 +244,10 @@
       document.querySelector(".function-range2").style.display = "none";
       document.getElementById("types2").style.display = "none";
       document.querySelector(".span0").style.display = "none";
+      let board = document.querySelector('#paint-canvas');
+      
+    board.width = window.innerWidth / 2.4;
+    board.height = window.innerHeight / 1.5;
       document.getElementById("types1").onchange = (e) => {
         if ($type1.value === "1") {
           // document.querySelector("#a3").style.opacity = "0";
