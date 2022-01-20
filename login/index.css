@@ -29,6 +29,9 @@ body {
 .column {
   flex-direction: column;
 }
+.align-center{
+  align-items: center;
+}
 .logo {
   background-image: url(../images/960d5ad1f54145d5856ebfcc51c44b38\ 1.svg);
   width: 84px;
@@ -114,6 +117,11 @@ input {
 }
 .center2 {
   align-items: center;
+  margin-top: 80px;
+}
+.center3 {
+  display: none;
+  align-items: center;
   margin-top: 117px;
 }
 .text {
@@ -126,10 +134,11 @@ input {
   margin-bottom: 5px;
   font-size: 16px;
 }
-/* .margin-top {
-  margin-top: 30px;
-} */
+.margin-top {
+  margin-top: 20px;
+}
 .create {
   color: #1865f2;
   margin-top: 20px;
+  cursor: pointer;
 }

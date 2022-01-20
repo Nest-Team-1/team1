@@ -36,16 +36,36 @@
           </div> -->
 
           <div class="flex column center2">
+            <form action="/" method="GET" id="register-form"></form>
             <div class="text">Username</div>
-            <input class="margin-top" />
+            <input class="margin-top" id="register-username" />
             <div class="text">Email</div>
-            <input class="margin-top" />
+            <input class="margin-top" id="register-email" />
             <div class="text">Password</div>
-            <input class="margin-top" />
-            <button class="margin-top loginbtn">Sign up</button>
+            <input class="margin-top" id="register-password"/>
+            <button class="margin-top loginbtn" id="registRegisterBtn">Sign up</button>
           </div>
+          
         </div>
       </div>
     </div>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script>
+        firebase.initializeApp({
+            apiKey: "AIzaSyCFcmVCuv88VCnm-2ksXRng90c5g_9eVT8",
+            authDomain: "team1-math-login.firebaseapp.com",
+            projectId: "team1-math-login",
+            storageBucket: "team1-math-login.appspot.com",
+            messagingSenderId: "372419094094",
+            appId: "1:372419094094:web:2c5d6f0bc8a876316b051f"
+        });
+        const storage = firebase.storage();
+        const storageRef = storage.ref();
+        const db = firebase.firestore();
+    </script>
+    <script src="../login/login.js"></script>
   </body>
 </html>

@@ -1,19 +1,27 @@
-// DOM-ын хэсэг
+// DOM-ын хэсэг Login
 const $loginForm = document.getElementById('login-form');
 const $loginNameInput = document.getElementById('login-email');
 const $loginPasswordInput = document.getElementById('login-password');
 const $registBtn = document.getElementById('regist-btn');
-const $loginField = document.querySelector('.login');
-const $signUpField = document.querySelector('.sign-up');
-const $googleSigInField = document.querySelector('.google-sign-in');
-const $registRegisterBtn = document.getElementById('.registRegisterBtn');
-const $registEmail = document.getElementById('register-email');
-const $registPassword = document.getElementById('register-password');
-const $registUsername = document.getElementById('register-name');
-const $registerRegistBtn = document.getElementById('register-regist-btn');
-const $inputImg = document.querySelector('.regist-upload-img'); 
+
+
+const $center2 = document.querySelector('.center2');
+const $center3 = document.querySelector('.center3')
+// const $loginField = document.querySelector('.login');
+// const $signUpField = document.querySelector('.sign-up');
+// const $googleSigInField = document.querySelector('.google-sign-in');
 const $google = document.querySelector('.google');
 const $facebook = document.querySelector('.facebook');
+
+// DOM-ын verication email
+const $vericationEmail = document.getElementById('verication-email');
+const $vericationForm = document.getElementById('verication-form');
+
+
+
+// Profile page
+const $inputImg = document.querySelector('.regist-upload-img'); 
+
 let registerEmail;
 
 // Login email, username or password
@@ -55,7 +63,7 @@ $loginForm.addEventListener('submit', (e) => {
   }
 })
 //////////////////////////////////////////////////////////////////////////
-
+// Inpuiin utgiig email phone or username Shalgana
 checkValue = (arrString) => {
   let flag = 'phone';
   for(const i of arrString){
@@ -73,24 +81,24 @@ checkValue = (arrString) => {
 
 
 //////////////////////////////////////////////////////////////////////////
-// Login page бүртгүүлэх button
+// Login page register button show to verication email screen 
 $registBtn.addEventListener('click', () => {
-    $loginField.style.display = 'none';
-    $signUpField.style.display = 'flex';
+    $center2.style.display = 'none';
+    $center3.style.display = 'block';
 });
 
 //////////////////////////////////////////////////////////////////////////
-// Email link Authentication
 
+// Email link Authentication
 var actionCodeSettings = {
   // URL you want to redirect back to. The domain (www.example.com) for this
   // URL must be in the authorized domains list in the Firebase Console.
-  url: 'http://localhost:5500/team1/register/register.html',
+  url: 'http://localhost:5500/team1/register/index.html',
   // This must be true.
   handleCodeInApp: true,
 };
 
-vericationEmail = (email) =>{
+const vericationEmail = (email) =>{
   firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
   .then(() => {
     // The link was successfully sent. Inform the user.
@@ -139,6 +147,19 @@ if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
   });
 }
 
+//Sign up email authentication 
+$vericationForm.addEventListener('submit', ()=> {
+  e.preventDefault();
+  const email = $vericationEmail.value;
+  db.collection()
+  if(email){
+    vericationEmail(email);
+  }
+  else{
+    alert('Email zaaval oruulna uu ');
+  }
+});
+
 //////////////////////////////////////////////////////////////////////////
 // Sign in email account
 signInEmail = (email, password) =>{
@@ -149,6 +170,7 @@ signInEmail = (email, password) =>{
     var user = userCredential.user;
     // ...
     console.log(user);
+    location.replace('./home.html')
   })
   .catch((error) => {
     var errorCode = error.code;
@@ -173,6 +195,7 @@ $google.addEventListener('click', () => {
     var user = result.user;
     // ...
     console.log(user);
+    location.replace('./home.html');
   }).catch((error) => {
     // Handle Errors here.
     var errorCode = error.code;
@@ -201,6 +224,7 @@ $facebook.addEventListener('click', () => {
     // The signed-in user info.
     var user = result.user;
     // ...
+    location.replace('./home.html');
     console.log(user);
   }).catch((error) => {
     // Handle Errors here.
@@ -214,100 +238,3 @@ $facebook.addEventListener('click', () => {
     console.log(errorCode, errorMessage, email, credential);
   });
 });
-//////////////////////////////////////////////////////////////////////////
-//Sign up email authentication 
-$registerRegistBtn.addEventListener('click', ()=> {
-  const email = $registEmail.value;
-  if(email){
-    vericationEmail(email);
-  }
-  else{
-    alert('Email zaaval oruulna uu ');
-  }
-});
-//////////////////////////////////////////////////////////////////////////
-// Create Email
-createEmail = (email, password, uName, profileImg) => {
-  firebase.auth().createUserWithEmailAndPassword(email, password)
-.then((userCredential) => {
-  const user = userCredential.user;
-  console.log(user);
-  // Signed in 
-  if(profileImg){
-    console.log('if');
-    const profileRef = storageRef.child(`images/profile${user.uid}`);
-    const uploadTask = profileRef.put(profileImg);
-    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
-  (snapshot) => {
-    // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-    var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-    console.log('Upload is ' + progress + '% done');
-    switch (snapshot.state) {
-      case firebase.storage.TaskState.PAUSED: // or 'paused'
-        console.log('Upload is paused');
-        break;
-      case firebase.storage.TaskState.RUNNING: // or 'running'
-        console.log('Upload is running');
-        break;
-    }
-  }, 
-  (error) => {
-    console.log(err, 'asddd');
-    // A full list of error codes is available at
-    // https://firebase.google.com/docs/storage/web/handle-errors
-    switch (error.code) {
-      case 'storage/unauthorized':
-        // User doesn't have permission to access the object
-        break;
-      case 'storage/canceled':
-        // User canceled the upload
-        break;
-
-      // ...
-
-      case 'storage/unknown':
-        // Unknown error occurred, inspect error.serverResponse
-        break;
-    }
-  }, 
-    () => {
-        // Upload completed successfully, now we can get the download URL
-        uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-        console.log('File available at', downloadURL);
-        console.log(user);
-        user.updateProfile({
-          displayName: uName,
-          photoURL: downloadURL
-        }).then(() => {
-            console.log('Update data...');
-        }).catch((err) => {
-            console.log(`Error:${err}`);
-        })
-        // ...
-        });
-    }
-  );
-  }
-  else{
-    console.log('else...')
-    const pathReference = storageRef.child(`images/defaultProfile.png`).getDownloadURL().then((url) => {
-      user.updateProfile({
-        displayName: uName,
-        photoURL: url
-      }).then(() => {
-          console.log('Update data...');
-      }).catch((err) => {
-          console.log(`Error:${err}`);
-      })
-    }).catch((err) => {
-      console.log(err);
-    })
-}
-
-})
-.catch((error) => {
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // ..
-});
-}
