@@ -115,6 +115,9 @@ line-height: 21px; */
   width: 90%;
   margin: 0 auto;
 }
+.red{
+  color: red;
+}
 .margin-left {
   margin-left: 10px;
 }
@@ -129,7 +132,7 @@ line-height: 21px; */
 .theory {
   width: 42.5vw;
   border-bottom: none;
-  height: 670px;
+  height: 667px;
   position: relative;
   display: flex;
   flex-direction: column;
