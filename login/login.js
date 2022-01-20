@@ -4,12 +4,9 @@ const $loginNameInput = document.getElementById('login-email');
 const $loginPasswordInput = document.getElementById('login-password');
 const $registBtn = document.getElementById('regist-btn');
 
-
 const $center2 = document.querySelector('.center2');
 const $center3 = document.querySelector('.center3')
-// const $loginField = document.querySelector('.login');
-// const $signUpField = document.querySelector('.sign-up');
-// const $googleSigInField = document.querySelector('.google-sign-in');
+
 const $google = document.querySelector('.google');
 const $facebook = document.querySelector('.facebook');
 
@@ -35,18 +32,6 @@ $loginForm.addEventListener('submit', (e) => {
     const inputValueType = checkValue(arrStr);
     console.log(inputValueType);
     db.collection('users').where(inputValueType, '==', inputValue).get().then((querySnapshot) => {
-      // const done = false;
-      // for(let i=0; i<snapshot.docs.length; i++){
-      //   console.log(snapshot.docs[i][inputValueType], snapshot.docs[i].password);
-      //   if(snapshot.docs[i][inputValueType] === inputValue && snapshot.docs[i].password === userPassword){
-      //     signInEmail(snapshot.docs[i].email, snapshot.docs[i].password);
-      //     done = true;
-      //     break;
-      //   }  
-      // }
-      // if(!done){
-      //   console.log(`Username or password wrong...`);
-      // }
       const data = querySnapshot.docs[0].data();
       console.log(data);
       if(data.password === userPassword){
@@ -55,8 +40,6 @@ $loginForm.addEventListener('submit', (e) => {
       else{
         alert(`username or password wrong....`);
       }
-      
-      
   }).catch((err) => {
     console.log("Login error database: ", err);
   });
@@ -105,39 +88,8 @@ const vericationEmail = (email) =>{
     // Save the email locally so you don't need to ask the user for it again
     // if they open the link on the same device.
     window.localStorage.setItem('emailForSignIn', email);
-    // createEmail(email, password, uName, profileImg);
-    // ...
     alert('И-мейл хаяг руу бүртгүүлэх линкийг илгээлээ.');
     // Confirm the link is a sign-in with email link.
-if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
-  // Additional state parameters can also be passed via URL.
-  // This can be used to continue the user's intended action before triggering
-  // the sign-in operation.
-  // Get the email if available. This should be available if the user completes
-  // the flow on the same device where they started it.
-  var email = window.localStorage.getItem('emailForSignIn');
-  if (!email) {
-    // User opened the link on a different device. To prevent session fixation
-    // attacks, ask the user to provide the associated email again. For example:
-    email = window.prompt('Please provide your email for confirmation');
-  }
-  // The client SDK will parse the code from the link for you.
-  firebase.auth().signInWithEmailLink(email, window.location.href)
-    .then((result) => {
-      // Clear email from storage.
-      window.localStorage.removeItem('emailForSignIn');
-      // You can access the new user via result.user
-      // Additional user info profile not available via:
-      // result.additionalUserInfo.profile == null
-      // You can check if the user is new or existing:
-      // result.additionalUserInfo.isNewUser
-    })
-    .catch((error) => {
-      // Some error occurred, you can inspect the code: error.code
-      // Common errors could be invalid email and invalid or expired OTPs.
-    });
-}
-
   })
   .catch((error) => {
     var errorCode = error.code;
@@ -148,10 +100,9 @@ if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
 }
 
 //Sign up email authentication 
-$vericationForm.addEventListener('submit', ()=> {
+$vericationForm.addEventListener('submit', (e)=> {
   e.preventDefault();
   const email = $vericationEmail.value;
-  db.collection()
   if(email){
     vericationEmail(email);
   }

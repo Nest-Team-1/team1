@@ -75,6 +75,7 @@ body {
   font-weight: normal;
   font-size: 25px;
   color: white;
+  margin-top: 30px;
 }
 .btnlogo {
   background-repeat: no-repeat;
@@ -89,12 +90,12 @@ body {
   height: 687px;
   background-color: white;
 }
-button {
+.button {
   width: 368px;
   height: 48px;
-  margin-top: 25px;
-  position: relative;
-  background-color: white;
+  margin-top: 30px;
+  /* position: relative; */
+  /* background-color: white; */
   border: 1px solid;
   border-radius: 4px;
 }
@@ -105,7 +106,13 @@ input {
   outline: none;
   border: 1px solid;
   border-radius: 4px;
+  padding: 10px;
 }
+input:disabled {
+  background-color: white;
+  color: black;
+}
+
 .center1 {
   align-items: center;
   margin-top: 50px;
@@ -123,4 +130,7 @@ input {
   margin-bottom: 1px;
   font-size: 16px;
   margin-top: 3px;
+}
+.margin-top {
+  margin-top: 20px;
 }

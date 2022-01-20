@@ -6,23 +6,59 @@ const $registRegisterBtn = document.getElementById('registRegisterBtn');
 const $registerForm = document.getElementById('register-form');
 
 //////////////////////////////////////////////////////////////////////////
-$registerForm.addEventListener('submit', () => {
-const $registUsername = document.getElementById('register-username');
-    const userName = $registUsername.value;
-    const email = $registEmail.value;
-    const password = $registPassword.value;
-    createEmail($registEmail, $registPassword, $registUsername);
+
+if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
+  // Additional state parameters can also be passed via URL.
+  // This can be used to continue the user's intended action before triggering
+  // the sign-in operation.
+  // Get the email if available. This should be available if the user completes
+  // the flow on the same device where they started it.
+  var email = window.localStorage.getItem('emailForSignIn');
+  if (!email) {
+    // User opened the link on a different device. To prevent session fixation
+    // attacks, ask the user to provide the associated email again. For example:
+    email = window.prompt('Please provide your email for confirmation');
+  }
+  else{
+    $registEmail.value = email;
+    $registEmail.disabled = true;
+  }
+  // The client SDK will parse the code from the link for you.
+  firebase.auth().signInWithEmailLink(email, window.location.href)
+    .then((result) => {
+      // Clear email from storage.
+      window.localStorage.removeItem('emailForSignIn');
+      // You can access the new user via result.user
+      // Additional user info profile not available via:
+      // result.additionalUserInfo.profile == null
+      // You can check if the user is new or existing:
+      // result.additionalUserInfo.isNewUser
+      console.log(result);
+    })
+    .catch((error) => {
+      // Some error occurred, you can inspect the code: error.code
+      // Common errors could be invalid email and invalid or expired OTPs.
+      console.log(error);
+    });
+}
+//////////////////////////////////////////////////////////////////////////
+$registerForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const userName = $registUsername.value;
+  const password = $registPassword.value;
+  const email = $registEmail.value;
+  createEmail(email, password, userName);
 })
 // Create Email
   createEmail = (email, password, uName) => {
+    console.log(email, password, uName);
     firebase.auth().createUserWithEmailAndPassword(email, password)
   .then((userCredential) => {
     const user = userCredential.user;
     console.log(user);
     // Signed in 
         user.updateProfile({
-          displayName: uName,
-          email
+          displayName: uName
         }).then(() => {
             console.log('Update data...');
             createUserFireStore(user, password);
@@ -33,6 +69,7 @@ const $registUsername = document.getElementById('register-username');
   .catch((error) => {
     var errorCode = error.code;
     var errorMessage = error.message;
+    console.log(errorMessage, errorCode );
     // ..
   });
   }
@@ -45,82 +82,8 @@ createUserFireStore = (user, password) => {
         email: user.email
     }).then(() => {
         console.log('successfull save data in firestore');
+        location.replace('../profile/index.html');
     }).catch((err) => {
         console.log('failed save data error:', err);
-    })
-}
-
-
-
-
-////Profile zurag uplaod hiih
-  if(profileImg){
-    console.log('if');
-    const profileRef = storageRef.child(`images/profile${user.uid}`);
-    const uploadTask = profileRef.put(profileImg);
-    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
-  (snapshot) => {
-    // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-    var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-    console.log('Upload is ' + progress + '% done');
-    switch (snapshot.state) {
-      case firebase.storage.TaskState.PAUSED: // or 'paused'
-        console.log('Upload is paused');
-        break;
-      case firebase.storage.TaskState.RUNNING: // or 'running'
-        console.log('Upload is running');
-        break;
-    }
-  }, 
-  (error) => {
-    console.log(err, 'asddd');
-    // A full list of error codes is available at
-    // https://firebase.google.com/docs/storage/web/handle-errors
-    switch (error.code) {
-      case 'storage/unauthorized':
-        // User doesn't have permission to access the object
-        break;
-      case 'storage/canceled':
-        // User canceled the upload
-        break;
-
-      // ...
-
-      case 'storage/unknown':
-        // Unknown error occurred, inspect error.serverResponse
-        break;
-    }
-  }, 
-    () => {
-        // Upload completed successfully, now we can get the download URL
-        uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-        console.log('File available at', downloadURL);
-        console.log(user);
-        user.updateProfile({
-          displayName: uName,
-          photoURL: downloadURL
-        }).then(() => {
-            console.log('Update data...');
-        }).catch((err) => {
-            console.log(`Error:${err}`);
-        })
-        // ...
-        });
-    }
-  );
-  }
-  else{
-    console.log('else...')
-    const pathReference = storageRef.child(`images/defaultProfile.png`).getDownloadURL().then((url) => {
-      user.updateProfile({
-        displayName: uName,
-        photoURL: url
-      }).then(() => {
-          console.log('Update data...');
-      }).catch((err) => {
-          console.log(`Error:${err}`);
-      })
-    }).catch((err) => {
-      console.log(err);
     })
 }
