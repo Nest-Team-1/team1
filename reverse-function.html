@@ -220,9 +220,22 @@ line-height: 21px; */
         height: 114px;
         border: 1px solid black;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        flex-direction: row;
+    }
+    .ranges{
+      width: 65%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .saw{
+      width: 35%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
     .a {
@@ -470,8 +483,13 @@ line-height: 21px; */
             <!-- width="640" height="480" -->
             <div class="graphic margin-top"><canvas id="myCanvas" style="margin-top: 0px"></canvas></div>
             <div class="graphset margin-top">
+              <div class="ranges">
                 <input class="a" id="a" type="range" min="-10" max="10" style="color: red;" />
                 <input class="b" id="b" type="range" min="-10" max="10" />
+              </div>
+              <div class="saw">
+                <button onclick="sawBtn()">урвуу функц харах</button>
+              </div>
             </div>
         </div>
         <div>
@@ -601,7 +619,7 @@ line-height: 21px; */
     $b.value = 1;
     // $c.value = 1;
     canva.width = window.innerWidth / 2.4;
-    canva.height = window.innerHeight / 1.5;
+    canva.height = window.innerHeight / 1.86;
 
     let a = 1;
     let b = 1;
@@ -812,24 +830,34 @@ line-height: 21px; */
 
     };
     //btn darahad zurna
-    // const dra = (drawBtn = () => {
-    //     console.log($d.value, $d1.value, $d2.value);
-    //     const canva = document.getElementById("myCanvas");
-    //     const context = canva.getContext("2d");
-    //     context.clearRect(0, 0, canva.width, canva.height);
-    //     myGraph.drawXAxis();
-    //     myGraph.drawYAxis();
-    //     myGraph.drawEquation(
-    //         (x) => {
-    //             return (
-    //                 parseInt($d.value) * x * x +
-    //                 parseInt($d1.value) * x +
-    //                 parseInt($d2.value)
-    //             );
-    //         },
-    //         "green",
-    //         3
-    //     );
+    const dra = (sawBtn = () => {
+         console.log($a.value, $b.value);
+        const canva = document.getElementById("myCanvas");
+        const context = canva.getContext("2d");
+        // context.clearRect(0, 0, canva.width, canva.height);
+        myGraph.drawXAxis();
+        myGraph.drawYAxis();
+        if($b.value >= 0){
+          myGraph.drawEquation(
+              (x) => {
+                  return (
+                    (x - parseInt($b.value))/parseInt($a.value)
+                  );
+              },
+              "blue",
+              3
+          );
+        }else{
+          myGraph.drawEquation(
+              (x) => {
+                  return (
+                    (x + (-1) * parseInt($b.value))/parseInt($a.value)
+                  );
+              },
+              "blue",
+              3
+          );
+        }
     //     //#########oor grap zurj bolno
     //     // myGraph.drawEquation(
     //     //     (x) => {
@@ -851,7 +879,7 @@ line-height: 21px; */
     //         "red",
     //         3
     //     );
-    // });
+    });
 </script>
 </script>
 
