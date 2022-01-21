@@ -14,6 +14,7 @@
         body {
             margin: 0px;
             padding: 0px;
+            overflow-x: hidden;
         }
         
         body::-webkit-scrollbar {
@@ -28,7 +29,7 @@
         }
         
         .navBar {
-            width: 99.85;
+            width: 100vw;
             height: 60px;
             border: 1px solid black;
             background-color: white;
@@ -79,7 +80,7 @@
             /* justify-content: center; */
             align-items: center;
             flex-direction: column;
-            width: 600px;
+            width: 40vw;
             height: 100%;
         }
         
@@ -98,7 +99,7 @@
         }
         
         .theory {
-            height: 80%;
+            height: 100%;
             width: 60vw;
             word-wrap: break-word;
             font-size: 20px;
@@ -106,8 +107,8 @@
         }
         
         .js-paint {
-          /* background-image: url(); */
-            background-image: url(https://5.imimg.com/data5/SP/PQ/SV/SELLER-40115805/green-school-boards-500x500.jpg);
+            background-image: url(https://library.kissclipart.com/20180904/zq/kissclipart-picture-frame-clipart-document-dry-erase-boards-in-3a8a6bd08e3dd544.png);
+            /* background-image: url(https://5.imimg.com/data5/SP/PQ/SV/SELLER-40115805/green-school-boards-500x500.jpg); */
             background-size: 100% 100%;
             background-repeat: no-repeat;
         }
@@ -261,17 +262,12 @@
       document.getElementById("types2").style.display = "none";
       document.querySelector(".span0").style.display = "none";
         } else if ($type1.value === "2") {
-          // document.querySelector("#a3").style.opacity = "1";
-          // document.getElementById("c").style.opacity = "1";
-          // document.querySelector(".function-range3").style.opacity = "1";
-          // document.querySelector(".span0").style.opacity = "1";
           document.querySelector("#a2").style.display = "flex";
       document.getElementById("b").style.display = "flex";
       document.querySelector(".function-range2").style.display = "flex";
       document.getElementById("types2").style.display = "flex";
       document.querySelector(".span0").style.display = "flex";
           document.querySelector("#a2").required = true;
-          //   $type2.remove(x.selectedIndex);
         }
       };
       let a = 0;
