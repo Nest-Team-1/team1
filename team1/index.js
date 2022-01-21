@@ -194,8 +194,8 @@ function draw(doc) {
       let $photodiv = document.createElement("div");
       $photodiv.classList.add("photo");
       $photodiv.style.background = `url(${doc.data().photo})`;
-      $photodiv.style.backgroundSize = "contain";
-      $photodiv.style.backgroundRepeat = "no-repeat";
+      $photodiv.style.backgroundSize = "100%";
+      // $photodiv.style.backgroundRepeat = "no-repeat";
       $photodiv.onclick = () => {
         $photoscrn.style.display = "flex";
         $img.src = doc.data().photo;
