@@ -177,8 +177,9 @@ line-height: 21px; */
         width: 42.5vw;
         border: 1px solid black;
         height: 483px;
+        overflow: hidden;
     }
-    
+
     .showfunc {
         height: 50px;
         width: 42.5vw;
@@ -531,8 +532,8 @@ line-height: 21px; */
     let $btn = document.getElementById("btn");
     let canva = document.querySelector('#myCanvas');
     let $exam = document.querySelector('.exam');
-    canva.width = window.innerWidth / 2.4;
-    canva.height = window.innerHeight / 1.86;
+    canva.width = document.querySelector('.graphic').offsetWidth;
+    canva.height = document.querySelector('.graphic').offsetHeight;
     $d.innerText = "1";
     $d1.innerText = "1";
     // $d2.value = 1;
@@ -550,12 +551,7 @@ line-height: 21px; */
         rangenChange();
     };
 
-    // document.querySelector("#a1").onchange = (e) => {
-    //     a = e.target.value;
-    //     $a.value = e.target.value;
-    //     $range.innerText = $a.value;
-    //     rangenChange();
-    // };
+   
 
     document.querySelector("#b").onchange = (e) => {
         b = e.target.value;
@@ -563,25 +559,9 @@ line-height: 21px; */
         // $range1.innerText = $b.value;
         rangenChange();
     };
-    // document.querySelector("#a2").onchange = (e) => {
-    //     b = e.target.value;
-    //     $b.value = e.target.value;
-    //     $range1.innerText = $b.value;
-    //     rangenChange();
-    // };
+  
 
-    // document.querySelector("#c").onchange = (e) => {
-    //     c = e.target.value;
-    //     $d2.value = e.target.value;
-    //     $range2.innerText = $c.value;
-    //     rangenChange();
-    // };
-    // document.querySelector("#a3").onchange = (e) => {
-    //     c = e.target.value;
-    //     $c.value = e.target.value;
-    //     $range2.innerText = $c.value;
-    //     rangenChange();
-    // };
+   
     const exam = examBtn = () => {
         console.log('hello');
         $exam.style.display = "flex"

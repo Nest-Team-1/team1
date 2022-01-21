@@ -627,8 +627,8 @@ line-height: 21px; */
     let $d2 = document.querySelector("#a3");
     let $btn = document.getElementById("btn");
     let canva = document.querySelector('#myCanvas');
-    canva.width = window.innerWidth / 2.4;
-    canva.height = window.innerHeight / 1.86;
+    canva.width = document.querySelector('.graphic').offsetWidth;
+    canva.height = document.querySelector('.graphic').offsetHeight;
     $d.innerText = "1";
     $d1.innerText = "1";
     $d2.innerText = "1";
@@ -646,39 +646,20 @@ line-height: 21px; */
         rangenChange();
     };
 
-    // document.querySelector("#a1").onchange = (e) => {
-    //     a = e.target.value;
-    //     $a.value = e.target.value;
-    //     $range.innerText = $a.value;
-    //     rangenChange();
-    // };
-
     document.querySelector("#b").onchange = (e) => {
         b = e.target.value;
         $d1.innerText = e.target.value;
         // $range1.innerText = $b.value;
         rangenChange();
     };
-    // document.querySelector("#a2").onchange = (e) => {
-    //     b = e.target.value;
-    //     $b.value = e.target.value;
-    //     $range1.innerText = $b.value;
-    //     rangenChange();
-    // };
-
+    
     document.querySelector("#c").onchange = (e) => {
         c = e.target.value;
         $d2.innerText = e.target.value;
         // $range2.innerText = $c.value;
         rangenChange();
     };
-    // document.querySelector("#a3").onchange = (e) => {
-    //     c = e.target.value;
-    //     $c.value = e.target.value;
-    //     $range2.innerText = $c.value;
-    //     rangenChange();
-    // };
-
+    
     function Graph(config) {
         // user defined properties
         this.canvas = document.getElementById(config.canvasId);
