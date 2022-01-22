@@ -210,45 +210,127 @@ body{
 .study-right-2{
     width: 60%;
     height: 100%;
-    background-image: url(../pictures/Startup\ life-pana\ \(1\)\ 1.png);
+    background-image: url(../pictures/new/Startup\ life-pana\ \(1\)\ 1.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     position: relative;
 }
-.plant{
-    width: 300px;
-    height: 250px;
-    background-image: url(../pictures/plant.png);
+.spin1{
+    width: 45px;
+    height: 45px;
+    background-image: url(../pictures/new/spin1.png);
     background-position: center;
     background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 52%;
+    left: 35%;
+}
+.spin2{
+    width: 32px;
+    height: 32px;
+    background-image: url(../pictures/new/spin2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
     position: absolute;
     top: 57%;
-    left: 10%;
-    z-index: -3;
+    left: 32%;
 }
-.rocket{
-    width: 300px;
-    height: 250px;
-    background-image: url(../pictures/rocket.png);
+.spin3{
+    width: 47px;
+    height: 47px;
+    background-image: url(../pictures/new/spin3.png);
     background-position: center;
     background-repeat: no-repeat;
+    background-size: contain;
     position: absolute;
-    top: 1.3%;
-    left: 40%;
-    z-index: 2;
+    top: 60%;
+    left: 36%;
+    z-index: -1;
 }
-.spin{
-    width: 300px;
-    height: 250px;
-    background-image: url(../pictures/Group\ 61.png);
+.spin4{
+    width: 47px;
+    height: 47px;
+    background-image: url(../pictures/new/spin4.png);
     background-position: center;
     background-repeat: no-repeat;
+    background-size: contain;
     position: absolute;
-    top: 40%;
+    top: 25%;
+    left: 70%;
+    z-index: -1;
+} 
+.file1{
+    width: 200px;
+    height: 90px;
+    background-image: url(../pictures/new/file1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 38%;
     left: 20%;
-    z-index: 2;
+    z-index: -2;
 }
+.file2{
+    width: 250px;
+    height: 137px;
+    background-image: url(../pictures/new/file2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 35%;
+    left: 60%;
+    z-index: -1;
+}
+.vector1{
+    width: 15px;
+    height: 45px;
+    background-image: url(../pictures/new/Vector.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 58%;
+    left: 71%;
+} 
+.vector2{
+    width: 15px;
+    height: 55px;
+    background-image: url(../pictures/new/Vector1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 56.3%;
+    left: 73%;
+} 
+.vector3{
+    width: 15px;
+    height: 60px;
+    background-image: url(../pictures/new/Vector2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 55.7%;
+    left: 75%;
+} 
+.vector4{
+    width: 15px;
+    height: 75px;
+    background-image: url(../pictures/new/Vector3.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 53.5%;
+    left: 77%;
+} 
+
 .purpose{
     width: 100%;
     background-color: #f0f4fb;
