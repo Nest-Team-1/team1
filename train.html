@@ -137,13 +137,12 @@ line-height: 21px; */
             flex-direction: column;
             justify-content: space-between;
         }
-        
-        .minibrd {
+        /* .minibrd {
             height: 100%;
             width: 100%;
             display: flex;
             flex-direction: column;
-        }
+        } */
         
         .theory::-webkit-scrollbar {
             display: none;
@@ -555,7 +554,7 @@ line-height: 21px; */
     </div>
     <div class="container flex space-around">
         <div class="graphsec">
-            <div class="showfunc design margin-top">
+            <div class="showfunc design">
                 <form class="hand" onsubmit="drawBtn();return false">
                     <input id="a1" type="number" required />
                     <select id="types">
@@ -637,8 +636,8 @@ line-height: 21px; */
       canva.width = document.querySelector(".graphic").offsetWidth;
       canva.height = document.querySelector(".graphic").offsetHeight;
 
-      board.width = document.querySelector('.minibrd').offsetWidth;
-      board.height = document.querySelector('.minibrd').offsetHeight;
+      board.width = document.querySelector('.theory').offsetWidth;
+      board.height = document.querySelector('.theory').offsetHeight;
       document.getElementById("types1").onchange = (e) => {
         if ($type1.value === "1") {
           document.querySelector("#a2").style.display = "none";
