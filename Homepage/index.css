@@ -145,6 +145,9 @@ body{
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
 }
+.start:hover{
+    cursor: pointer;
+}
 .width-all-2{
     width: 80%;
     display: flex;
@@ -403,6 +406,18 @@ body{
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
+}
+.yellow-bulb{
+    width: 212px;
+    height: 180px;
+    background-image: url(../pictures/bulb.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    left: 40.5%;
+    top: 29%;
+    opacity: 0;
 }
 .formulas-right{
     width: 40%;

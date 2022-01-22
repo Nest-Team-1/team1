@@ -4,6 +4,7 @@ const $pen = document.querySelector('.pen');
 const $lamp = document.querySelector('.lamp');
 const $book = document.querySelector('.book');
 const $usage = document.querySelector('.usage');
+const $purpose = document.querySelector('.purpose')
 const $study = document.querySelector('.study');
 const $spin1 = document.querySelector('.spin1');
 const $spin2 = document.querySelector('.spin2');
@@ -15,6 +16,7 @@ const $vector1 = document.querySelector('.vector1');
 const $vector2 = document.querySelector('.vector2');
 const $vector3 = document.querySelector('.vector3');
 const $vector4 = document.querySelector('.vector4');
+const $bulb = document.querySelector('.yellow-bulb');
 
 const gap = 250;
 
@@ -29,7 +31,6 @@ window.onscroll = (e) => {
     }    
     if(window.scrollY > $study.offsetHeight + $nav.offsetHeight){
         x = window.scrollY - ($study.offsetHeight + $nav.offsetHeight);  
-        console.log(x);
 
         $spin1.style.transform = `rotate(${x}deg)`;
         $spin2.style.transform = `rotate(${-x}deg)`;
@@ -41,23 +42,30 @@ window.onscroll = (e) => {
         $file1.style.transform = `translateX(${y}px)`;
         $file2.style.transform = `translateX(${-y}px)`;
     }
-   
-        if(window.scrollY > $study.offsetHeight + $nav.offsetHeight + $usage.offsetHeight + 30 && window.scrollY < $study.offsetHeight + $nav.offsetHeight + $usage.offsetHeight + $study.offsetHeight*2/7){
-            z = window.scrollY - ($study.offsetHeight + $nav.offsetHeight + $usage.offsetHeight + 30);
-            $vector1.style.transform = `translateY(${z}px)`;
+
+    if(window.scrollY > $study.offsetHeight + $nav.offsetHeight + $usage.offsetHeight + 30 && window.scrollY < $study.offsetHeight + $nav.offsetHeight + $usage.offsetHeight + $study.offsetHeight*2/7){
+        z = window.scrollY - ($study.offsetHeight + $nav.offsetHeight + $usage.offsetHeight + 30);
+        $vector1.style.transform = `translateY(${z}px)`;
+    }
+    if(window.scrollY > $study.offsetHeight + $nav.offsetHeight + $usage.offsetHeight + 60 && window.scrollY < $study.offsetHeight + $nav.offsetHeight + $usage.offsetHeight + $study.offsetHeight*2/7 + 30){
+        q = window.scrollY - ($study.offsetHeight + $nav.offsetHeight + $usage.offsetHeight + 60);
+        $vector2.style.transform = `translateY(${q}px)`;
+    }
+    if(window.scrollY > $study.offsetHeight + $nav.offsetHeight + $usage.offsetHeight + 90 && window.scrollY < $study.offsetHeight + $nav.offsetHeight + $usage.offsetHeight + $study.offsetHeight*2/7 + 60){
+        w = window.scrollY - ($study.offsetHeight + $nav.offsetHeight + $usage.offsetHeight + 90);
+        $vector3.style.transform = `translateY(${w}px)`;
+    }
+    if(window.scrollY > $study.offsetHeight + $nav.offsetHeight + $usage.offsetHeight + 120 && window.scrollY < $study.offsetHeight + $nav.offsetHeight + $usage.offsetHeight + $study.offsetHeight*2/7 + 90){
+        e = window.scrollY - ($study.offsetHeight + $nav.offsetHeight + $usage.offsetHeight + 120);
+        $vector4.style.transform = `translateY(${e}px)`;
+    }
+    if(window.scrollY > $study.offsetHeight*2 + $nav.offsetHeight + $usage.offsetHeight + $purpose.offsetHeight/3){
+        r = window.scrollY - ($study.offsetHeight*2 + $nav.offsetHeight + $usage.offsetHeight + $purpose.offsetHeight/3);
+        console.log(r/8);
+        $bulb.style.opacity = `0.${r/12}`;
+        if($bulb.style.opacity > 0.9){
+            console.log(`hello`);
         }
-        if(window.scrollY > $study.offsetHeight + $nav.offsetHeight + $usage.offsetHeight + 60 && window.scrollY < $study.offsetHeight + $nav.offsetHeight + $usage.offsetHeight + $study.offsetHeight*2/7 + 30){
-            q = window.scrollY - ($study.offsetHeight + $nav.offsetHeight + $usage.offsetHeight + 60);
-            console.log(q);
-            $vector2.style.transform = `translateY(${q}px)`;
-        }
-        if(window.scrollY > $study.offsetHeight + $nav.offsetHeight + $usage.offsetHeight + 90 && window.scrollY < $study.offsetHeight + $nav.offsetHeight + $usage.offsetHeight + $study.offsetHeight*2/7 + 60){
-            w = window.scrollY - ($study.offsetHeight + $nav.offsetHeight + $usage.offsetHeight + 90);
-            $vector3.style.transform = `translateY(${w}px)`;
-        }
-        if(window.scrollY > $study.offsetHeight + $nav.offsetHeight + $usage.offsetHeight + 120 && window.scrollY < $study.offsetHeight + $nav.offsetHeight + $usage.offsetHeight + $study.offsetHeight*2/7 + 90){
-            e = window.scrollY - ($study.offsetHeight + $nav.offsetHeight + $usage.offsetHeight + 120);
-            $vector4.style.transform = `translateY(${e}px)`;
-        }
+    }
 
 }
