@@ -186,9 +186,20 @@ line-height: 21px; */
             filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         }
         
+        .hand {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            flex-direction: row;
+        }
+        
         .hand>input {
             width: 30px;
         }
+        /* .hand>button{
+          
+        } */
         
         .graphset {
             width: 42.5vw;
@@ -525,6 +536,26 @@ line-height: 21px; */
         /* .color-picker {
             margin: 1rem 1rem 0 1rem;
         } */
+        
+        @media only screen and (max-width: 960px) {
+            .container {
+                display: flex;
+                flex-direction: column;
+            }
+            .showfunc {
+                width: 90vw;
+            }
+            .graphic {
+                width: 90vw;
+            }
+            .graphset {
+                width: 90vw;
+            }
+            .theory {
+                top: 30px;
+                width: 90vw;
+            }
+        }
     </style>
 </head>
 
@@ -636,8 +667,8 @@ line-height: 21px; */
       canva.width = document.querySelector(".graphic").offsetWidth;
       canva.height = document.querySelector(".graphic").offsetHeight;
 
-      board.width = document.querySelector('.theory').offsetWidth;
-      board.height = document.querySelector('.theory').offsetHeight;
+      board.width = document.querySelector('.theory').offsetWidth - 30;
+      board.height = document.querySelector('.theory').offsetHeight - 65;
       document.getElementById("types1").onchange = (e) => {
         if ($type1.value === "1") {
           document.querySelector("#a2").style.display = "none";
@@ -1748,7 +1779,6 @@ line-height: 21px; */
         event.preventDefault();
         if (isMouseDown) {
           const pos = getMousePositionOnCanvas(event);
-          console.log("h", pos);
 
           const newX = pos.x;
           const newY = pos.y;

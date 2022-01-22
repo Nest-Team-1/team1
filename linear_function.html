@@ -179,7 +179,7 @@ line-height: 21px; */
         height: 483px;
         overflow: hidden;
     }
-
+    
     .showfunc {
         height: 50px;
         width: 42.5vw;
@@ -435,10 +435,35 @@ line-height: 21px; */
         background: green;
     }
     
-    @media only screen and (max-width: 920px) {
-        canvas {
-            height: 500;
-            width: 300;
+    @media only screen and (max-width: 960px) {
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+        .showfunc {
+            width: 90vw;
+        }
+        .graphic {
+            width: 90vw;
+        }
+        .graphset {
+            width: 90vw;
+        }
+        .explanation {
+            width: 90vw;
+        }
+        .btnborder {
+            width: 90vw;
+        }
+        .theory {
+            top: 30px;
+            width: 90vw;
+        }
+    }
+    
+    @media only screen and (max-width: 525px) {
+        .explanation {
+            height: 150px;
         }
     }
     /* #a {
@@ -506,13 +531,14 @@ line-height: 21px; */
                         </div>
                         <div class="bord">
                             <p>
-                                2. \(y = kx + b\) функцийн k-г налуугийн коеффицент гэж нэрлэдэг. ху-координатын хавтгайд үүсэх шулуун ба х тэнхлэгийн хоорон дахь өнцөг нь налуугийн коеффицент к-тай шууд хамааралтай байна. k нь ихсэх үед өнцөг нь ихсэнэ k багасах үед өнцөг нь багасна \(k
+                                2. \(y = kx + b\) функцийн k-г налуугийн коеффицент гэж нэрлэдэг. ху-координатын хавтгайд үүсэх шулуун ба х тэнхлэгийн хоорон дахь өнцөг нь налуугийн коеффицент к-тай шууд хамааралтай байна. k нь ихсэх үед өнцөг нь ихсэнэ k багасах үед өнцөг нь багасна
+                                \(k
                                 < 0\) үед өнцөг нь мөн адил сөрөг утгатай байна / улаан хэсэг / </p>
                         </div>
                     </div>
                 </div>
-                
-                
+
+
             </div>
             <div class="btnborder">
                 <button onclick="examBtn()">Бодлого бодъёо</button>
@@ -551,7 +577,7 @@ line-height: 21px; */
         rangenChange();
     };
 
-   
+
 
     document.querySelector("#b").onchange = (e) => {
         b = e.target.value;
@@ -559,9 +585,9 @@ line-height: 21px; */
         // $range1.innerText = $b.value;
         rangenChange();
     };
-  
 
-   
+
+
     const exam = examBtn = () => {
         console.log('hello');
         $exam.style.display = "flex"

@@ -222,20 +222,22 @@ line-height: 21px; */
         display: flex;
         flex-direction: row;
     }
-    .ranges{
-      width: 65%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    
+    .ranges {
+        width: 65%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
-    .saw{
-      width: 35%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    
+    .saw {
+        width: 35%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .a {
@@ -441,10 +443,38 @@ line-height: 21px; */
     .b:focus::-ms-fill-upper {
         background: green;
     }
-    /* canvas {
-        width: 42.5vw;
-        height: 400px;
-    } */
+    
+    @media only screen and (max-width: 960px) {
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+        .showfunc {
+            width: 90vw;
+        }
+        .graphic {
+            width: 90vw;
+        }
+        .graphset {
+            width: 90vw;
+        }
+        .explanation {
+            width: 90vw;
+        }
+        .btnborder {
+            width: 90vw;
+        }
+        .theory {
+            top: 30px;
+            width: 90vw;
+        }
+    }
+    
+    @media only screen and (max-width: 525px) {
+        .explanation {
+            height: 150px;
+        }
+    }
 </style>
 
 <body>
@@ -483,13 +513,13 @@ line-height: 21px; */
             <!-- width="640" height="480" -->
             <div class="graphic margin-top"><canvas id="myCanvas" style="margin-top: 0px"></canvas></div>
             <div class="graphset margin-top">
-              <div class="ranges">
-                <input class="a" id="a" type="range" min="-10" max="10" style="color: red;" />
-                <input class="b" id="b" type="range" min="-10" max="10" />
-              </div>
-              <div class="saw">
-                <button onclick="sawBtn()">урвуу функц харах</button>
-              </div>
+                <div class="ranges">
+                    <input class="a" id="a" type="range" min="-10" max="10" style="color: red;" />
+                    <input class="b" id="b" type="range" min="-10" max="10" />
+                </div>
+                <div class="saw">
+                    <button onclick="sawBtn()">урвуу функц харах</button>
+                </div>
             </div>
         </div>
         <div>
@@ -831,54 +861,54 @@ line-height: 21px; */
     };
     //btn darahad zurna
     const dra = (sawBtn = () => {
-         console.log($a.value, $b.value);
+        console.log($a.value, $b.value);
         const canva = document.getElementById("myCanvas");
         const context = canva.getContext("2d");
         // context.clearRect(0, 0, canva.width, canva.height);
         myGraph.drawXAxis();
         myGraph.drawYAxis();
-        if($b.value >= 0){
-          myGraph.drawEquation(
-              (x) => {
-                  return (
-                    (x - parseInt($b.value))/parseInt($a.value)
-                  );
-              },
-              "blue",
-              3
-          );
-        }else{
-          myGraph.drawEquation(
-              (x) => {
-                  return (
-                    (x + (-1) * parseInt($b.value))/parseInt($a.value)
-                  );
-              },
-              "blue",
-              3
-          );
+        if ($b.value >= 0) {
+            myGraph.drawEquation(
+                (x) => {
+                    return (
+                        (x - parseInt($b.value)) / parseInt($a.value)
+                    );
+                },
+                "blue",
+                3
+            );
+        } else {
+            myGraph.drawEquation(
+                (x) => {
+                    return (
+                        (x + (-1) * parseInt($b.value)) / parseInt($a.value)
+                    );
+                },
+                "blue",
+                3
+            );
         }
-    //     //#########oor grap zurj bolno
-    //     // myGraph.drawEquation(
-    //     //     (x) => {
-    //     //         return (
-    //     //             parseInt($a.value) * x * x +
-    //     //             parseInt($b.value) * x +
-    //     //             parseInt($c.value)
-    //     //         );
-    //     //     },
-    //     //     "green",
-    //     //     3
-    //     // );
+        //     //#########oor grap zurj bolno
+        //     // myGraph.drawEquation(
+        //     //     (x) => {
+        //     //         return (
+        //     //             parseInt($a.value) * x * x +
+        //     //             parseInt($b.value) * x +
+        //     //             parseInt($c.value)
+        //     //         );
+        //     //     },
+        //     //     "green",
+        //     //     3
+        //     // );
 
-    //     myGraph.drawEquation(
-    //         function(x) {
+        //     myGraph.drawEquation(
+        //         function(x) {
 
-    //             return 2 * x;
-    //         },
-    //         "red",
-    //         3
-    //     );
+        //             return 2 * x;
+        //         },
+        //         "red",
+        //         3
+        //     );
     });
 </script>
 </script>

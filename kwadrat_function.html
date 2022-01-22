@@ -526,17 +526,37 @@ line-height: 21px; */
         background: #2497E3;
     }
     
-    @media only screen and (max-width: 920px) {
-        canvas {
-            height: 500;
-            width: 300;
+    @media only screen and (max-width: 960px) {
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+        .showfunc {
+            width: 90vw;
+        }
+        .graphic {
+            width: 90vw;
+        }
+        .graphset {
+            width: 90vw;
+        }
+        .explanation {
+            width: 90vw;
+        }
+        .btnborder {
+            width: 90vw;
+        }
+        .theory {
+            top: 30px;
+            width: 90vw;
         }
     }
-    /* #a {
-  background: red;
-  color: #000;
-  -webkit-appearance: none;
-} */
+    
+    @media only screen and (max-width: 525px) {
+        .explanation {
+            height: 150px;
+        }
+    }
 </style>
 
 <body>
@@ -608,8 +628,8 @@ line-height: 21px; */
                         </div>
                     </div>
                 </div>
-                
-                
+
+
             </div>
             <div class="btnborder">
                 <button>Бодлого бодъёо</button>
@@ -652,14 +672,14 @@ line-height: 21px; */
         // $range1.innerText = $b.value;
         rangenChange();
     };
-    
+
     document.querySelector("#c").onchange = (e) => {
         c = e.target.value;
         $d2.innerText = e.target.value;
         // $range2.innerText = $c.value;
         rangenChange();
     };
-    
+
     function Graph(config) {
         // user defined properties
         this.canvas = document.getElementById(config.canvasId);
