@@ -55,14 +55,6 @@
         height: 50px;
     }
     
-    p {
-        /* font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 21px; */
-    }
-    
     .ellipse {
         background: #6bb6ff;
         width: 12px;
@@ -227,8 +219,16 @@ line-height: 21px; */
         z-index: 99;
         position: absolute;
         background-color: #1865f1;
-        margin: 20vh 50vh;
-        display: none;
+        top: 50%;
+        left: 25%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .close {
+        position: sticky;
+        margin-left: 95%;
+        font-size: 20px;
     }
     
     .a {
@@ -474,7 +474,9 @@ line-height: 21px; */
 </style>
 
 <body>
-    <div class="exam"></div>
+    <div class="exam">
+        <div class="close" onclick="closeBtn()">x</div>
+    </div>
     <div class="nav flex space-between">
         <div class="logo"></div>
         <div class="flex margin-right">
@@ -569,7 +571,8 @@ line-height: 21px; */
 
     let a = 1;
     let b = 1;
-    // let c = 1;
+    $exam.style.display = "none"
+        // let c = 1;
     document.querySelector("#a").onchange = (e) => {
         a = e.target.value;
         $d.innerText = e.target.value;
@@ -590,7 +593,10 @@ line-height: 21px; */
 
     const exam = examBtn = () => {
         console.log('hello');
-        $exam.style.display = "flex"
+        $exam.style.display = "flex";
+    }
+    const clo = closeBtn = () => {
+        $exam.style.display = "none";
     }
 
     function Graph(config) {
