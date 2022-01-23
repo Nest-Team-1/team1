@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Profile</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,30 +23,76 @@
       </div>
     </div>
     <div class="container">
-      <div class="flex center">
+      <div class="content-container flex center">
         <div class="bluebg">
           <div class="loginmar">Profile</div>
         </div>
-        <div class="login">
+        <div class="login-field login">
             <div class="flex">
-                 <img
-            src="../images/Profile-PNG-File-removebg-preview 1.svg"
-            class="profilep"
-          />
-          <div class="margin">
-            <button class="upload">Upload
-                <input type="file" class="fileinp">
-            </button>
-            <button class="remove">Remove</button>
-          </div>
+              <div class="profilep"></div>
+              <div class="margin flex just-center">
+                <form action="/" method="GET" id="profile-form" class="flex column just-even">
+                  <div>
+                    <label for="profile-img" class="upload flex just-center align-center">Upload Image</label>
+                    <input name="" id="profile-img" type="file" accept="image/png image/jpeg" style="display: none; visibility: none;">
+                  </div>
+                  <div>
+                    <input class="upload" type="submit" value="Save Image">
+                  </div>                
+                  
+                </form>
+              </div>
             </div>
           <div class="flex column center2">
-            <div class="text">Username</div>
-            <input class="margin-top" id='username' />
-            <div class="text">Email</div>
-            <input class="margin-top" id='emailinp' />
-            <button class="margin-top loginbtn">Save changes</button>
+            <ul class="ul-tag">
+              <li class="li1 flex space-between align-center">
+                  <div class="liDiv flex space-between align-center">
+                    <p>Username:</p>
+                    <p class="profile-username">Name</p>
+                  </div>
+                  <div class="edit">edit</div>
+              </li>
+              <li class="li2 flex space-between align-center">
+                <div class="liDiv flex space-between align-center">
+                  <p>Email:</p>
+                  <p class="profile-email">Email</p>
+                </div>
+                <div class="edit">edit</div>
+              </li>
+              <li class="li3 flex space-between align-center">
+                <div class="liDiv flex space-between align-center">
+                  <p>Phone Number:</p>
+                  <p class="profile-phone-number">No number</p>
+                </div>
+                <div class="edit">edit</div>
+              </li>
+              <li class="li4 flex space-between align-center">
+                <div class="liDiv flex space-between align-center">
+                  <p>Password:</p>
+                  <p class="profile-password">* * * * * * *</p>
+                </div>
+                <div class="edit">edit</div>
+              </li>
+            </ul>
           </div>
+        </div>
+        <!-- <div class="changed-field-phone column flex just-center align-center">
+            <div class="big-text">
+              <label for="usernamechange">New username:</label>
+              <input type="text" name="usernamechange" id="changeDataInput">
+            </div>
+            <div>
+              <button class="changeBtn" id="changeDataSave">Send Code</button>
+            </div>
+            <div class="big-text">
+              <label for="verication-code">Verication code</label>
+              <input type="text" name="verication-code" id="changeDataInput">
+            </div>
+            <div>
+              <button class="changeBtn" id="vericationSubmit">Submit</button>
+              <button class="changeBtn" id="cancel">Cancel</button>
+            </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -68,9 +114,6 @@
       const storageRef = storage.ref();
       const db = firebase.firestore();
   </script>
-
-      <script src="./index.js"></script>
+      <script src="./profile.js"></script>
   </body>
-
-
 </html>

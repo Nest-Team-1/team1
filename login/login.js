@@ -30,18 +30,18 @@ $loginForm.addEventListener('submit', (e) => {
   if(inputValue && userPassword){
     const arrStr = inputValue.split('');
     const inputValueType = checkValue(arrStr);
-    console.log(inputValueType);
     db.collection('users').where(inputValueType, '==', inputValue).get().then((querySnapshot) => {
       const data = querySnapshot.docs[0].data();
-      console.log(data);
+      console.log(data.password);
       if(data.password === userPassword){
         signInEmail(data.email, data.password); 
       }
       else{
-        alert(`username or password wrong....`);
-      }
-  }).catch((err) => {
-    console.log("Login error database: ", err);
+        alert(`username or password wrong....1`);
+      }  
+  }).catch((err) => { 
+    console.log(err);
+    alert(`username or password wrong....2`);
   });
   }
 })
@@ -121,7 +121,7 @@ signInEmail = (email, password) =>{
     var user = userCredential.user;
     // ...
     console.log(user);
-    location.replace('./home.html')
+    location.replace('../profile/index.html')
   })
   .catch((error) => {
     var errorCode = error.code;

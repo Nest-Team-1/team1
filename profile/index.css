@@ -13,25 +13,44 @@ body {
 .flex {
   display: flex;
 }
-.fileinp {
-  display: none;
+
+.content-container {
+  position: relative;
 }
+
+/* .fileinp {
+  display: none;
+} */
 .profilep {
-  margin-left: 50px;
+  margin-left: 40px;
   margin-top: 20px;
-  width: 234px;
-  height: 215px;
-  border-radius: 500px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-image: url('../images/Profile-PNG-File-removebg-preview 1.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: 1px solid black;
+  padding: 0;
 }
 .upload {
   width: 153px;
+  height: 48px;
   background-color: #c4c4c4;
   border: none;
   outline: none;
+  margin: 0;
+  padding: 0;
+}
+label {
+  display: block;
+  width: 153px;
+  height: 48px;
 }
 .margin {
-  margin-top: 50px;
-  margin-left: 40px;
+  margin-top: 20px;
+  margin-left: 30px;
 }
 .remove {
   width: 153px;
@@ -41,6 +60,15 @@ body {
 }
 .space-between {
   justify-content: space-between;
+}
+.just-center {
+  justify-content: center;
+}
+.just-even {
+  justify-content: space-evenly;
+}
+.align-center {
+  align-items: center;
 }
 .container {
   background-image: url(../images/Rectangle\ 59\ copy.svg);
@@ -101,6 +129,7 @@ body {
   font-weight: normal;
   font-size: 25px;
   color: white;
+  margin-top: 30px;
 }
 .btnlogo {
   background-repeat: no-repeat;
@@ -124,19 +153,43 @@ button {
   border: 1px solid;
   border-radius: 4px;
 }
-input {
-  width: 368px;
-  height: 48px;
+ul {
+  margin-top: 50px;
+  width: 440px;
+  height: 300px;
+  justify-content: center;
+  padding: 0;
+}
+li {
+  /* margin-top: 20px; */
+  width: 400 px;
+  height: 80px;
   box-sizing: border-box;
   outline: none;
-  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
-  border-radius: 4px;
-  /* border: none; */
-  border: 1px solid;
+  border-top: 1px black solid;
+  list-style: none;
+  font-size: 18px;
+}
+li:last-child {
+  border-bottom: 1px black solid;
+}
+.liDiv {
+  width: 320px;
+  height: 48px;
+  padding: 10px;
+}
+.edit {
+  text-align: center;
+  color: #1865f2;
+  width: calc(368px - 300px);
+  text-decoration: underline;
+  cursor: pointer;
 }
 .center2 {
   align-items: center;
-  margin-top: 117px;
+}
+.margin-top:first-child {
+  margin-top: 0;
 }
 .text {
   width: 368px;
@@ -147,4 +200,48 @@ input {
   font-weight: normal;
   margin-bottom: 5px;
   font-size: 16px;
+}
+.margin-top {
+  margin-top: 20px;
+}
+.changed-field {
+  position: absolute;
+  top: auto;
+  left: auto;
+  height: 300px;
+  width: 500px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid black;
+  z-index: 999;
+  padding: auto;
+}
+
+.changed-field-phone {
+  position: absolute;
+  top: auto;
+  left: auto;
+  height: 500px;
+  width: 700px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid black;
+  z-index: 999;
+  padding: auto;
+}
+
+.big-text {
+  font-size: 30px;
+}
+.big-text label {
+  width: 100%;
+}
+
+.big-text input {
+  width: 368px;
+  height: 48px;
+}
+.changeBtn {
+  height: 48px;
+  width: 150px;
+  margin: 30px 20px;
+  background-color: aliceblue;
 }
