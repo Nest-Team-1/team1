@@ -70,14 +70,17 @@ var xx;
 // calculate function y = x^2 from x = -3 to x = 3
 for (i=0;i<=width+1;i++)
 {
-x[i] =xCenter - i;
+x[i] = canvas.width/2 - i;
 xx=x[i]/xScale;
 y[i] = -yScale*Math.pow(xx,2); 
+//console.log(x, xx, y)
 }
+console.log(x);
+
 ctx.strokeStyle = "red";
 ctx.beginPath();
 ctx.lineWidth = 2;
-for (i=0;i<=600;i++)
+for (i=0;i<=canvas.width;i++)
 {
 ctx.moveTo(x[i],y[i]);
 ctx.lineTo(x[i+1],y[i+1]);

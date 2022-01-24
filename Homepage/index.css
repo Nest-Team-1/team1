@@ -220,19 +220,19 @@ body{
     position: relative;
 }
 .spin1{
-    width: 45px;
-    height: 45px;
+    width: 5%;
+    height: 15%;
     background-image: url(../pictures/new/spin1.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
-    top: 52%;
+    top: 48%;
     left: 35%;
 }
 .spin2{
-    width: 32px;
-    height: 32px;
+    width: 3%;
+    height: 5%;
     background-image: url(../pictures/new/spin2.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -242,8 +242,8 @@ body{
     left: 32%;
 }
 .spin3{
-    width: 47px;
-    height: 47px;
+    width: 5%;
+    height: 7%;
     background-image: url(../pictures/new/spin3.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -254,20 +254,20 @@ body{
     z-index: -1;
 }
 .spin4{
-    width: 47px;
-    height: 47px;
+    width: 9%;
+    height: 8%;
     background-image: url(../pictures/new/spin4.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
-    top: 25%;
-    left: 70%;
-    z-index: -1;
+    top: 23.5%;
+    left: 72%;
+    z-index: 2;
 } 
 .file1{
-    width: 200px;
-    height: 90px;
+    width: 20%;
+    height: 10%;
     background-image: url(../pictures/new/file1.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -278,8 +278,8 @@ body{
     z-index: -2;
 }
 .file2{
-    width: 250px;
-    height: 137px;
+    width: 30%;
+    height: 18%;
     background-image: url(../pictures/new/file2.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -290,47 +290,47 @@ body{
     z-index: -1;
 }
 .vector1{
-    width: 15px;
-    height: 45px;
+    width: 3%;
+    height: 5%;
     background-image: url(../pictures/new/Vector.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
-    top: 58%;
+    top: 59.3%;
     left: 71%;
 } 
 .vector2{
-    width: 15px;
-    height: 55px;
+    width: 3%;
+    height: 6%;
     background-image: url(../pictures/new/Vector1.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
-    top: 56.3%;
+    top: 58.3%;
     left: 73%;
 } 
 .vector3{
-    width: 15px;
-    height: 60px;
+    width: 3%;
+    height: 7%;
     background-image: url(../pictures/new/Vector2.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
-    top: 55.7%;
+    top: 56.9%;
     left: 75%;
 } 
 .vector4{
-    width: 15px;
-    height: 75px;
+    width: 3%;
+    height: 8%;
     background-image: url(../pictures/new/Vector3.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
-    top: 53.5%;
+    top: 55.5%;
     left: 77%;
 } 
 
@@ -401,26 +401,27 @@ body{
     justify-content: center;
 }
 .formulas-left{
-    width: 60%;
+    width: 40%;
     background-image: url(../pictures/Creative\ team-bro\ 1.png);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
     position: relative;
 }
 .yellow-bulb{
-    width: 212px;
-    height: 180px;
+    width: 33%;
+    height: 33%;
     background-image: url(../pictures/bulb.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     position: absolute;
-    left: 40.5%;
-    top: 29%;
+    left: 36%;
+    top: 25%;
     opacity: 0;
 }
 .formulas-right{
-    width: 40%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: center;

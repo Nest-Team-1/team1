@@ -61,10 +61,10 @@ window.onscroll = (e) => {
     }
     if(window.scrollY > $study.offsetHeight*2 + $nav.offsetHeight + $usage.offsetHeight + $purpose.offsetHeight/3){
         r = window.scrollY - ($study.offsetHeight*2 + $nav.offsetHeight + $usage.offsetHeight + $purpose.offsetHeight/3);
-        console.log(r/8);
-        $bulb.style.opacity = `0.${r/12}`;
+        console.log(parseInt(r/12 + 10));
+        $bulb.style.opacity = `0.${parseInt(r/12 + 10)}`;
         if($bulb.style.opacity > 0.9){
-            console.log(`hello`);
+            console.log(`bye`);
         }
     }
 
