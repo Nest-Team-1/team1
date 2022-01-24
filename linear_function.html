@@ -186,7 +186,7 @@
     
     .container {
         width: 90vw;
-        height: calc(100vh - 160px);
+        /* height: calc(100vh - 160px); */
         margin: 0 auto;
     }
     
@@ -437,8 +437,8 @@
     
     @media only screen and (max-width: 960px) {
         .container {
-            display: flex;
-            flex-direction: column;
+            /* display: flex; */
+            flex-direction: column-reverse;
         }
         .showfunc {
             width: 90vw;
@@ -466,11 +466,6 @@
             height: 150px;
         }
     }
-    /* #a {
-  background: red;
-  color: #000;
-  -webkit-appearance: none;
-} */
 </style>
 
 <body>
@@ -792,47 +787,6 @@
         );
 
     };
-    //btn darahad zurna
-    // const dra = (drawBtn = () => {
-    //     console.log($d.value, $d1.value, $d2.value);
-    //     const canva = document.getElementById("myCanvas");
-    //     const context = canva.getContext("2d");
-    //     context.clearRect(0, 0, canva.width, canva.height);
-    //     myGraph.drawXAxis();
-    //     myGraph.drawYAxis();
-    //     myGraph.drawEquation(
-    //         (x) => {
-    //             return (
-    //                 parseInt($d.value) * x * x +
-    //                 parseInt($d1.value) * x +
-    //                 parseInt($d2.value)
-    //             );
-    //         },
-    //         "green",
-    //         3
-    //     );
-    //     //#########oor grap zurj bolno
-    //     // myGraph.drawEquation(
-    //     //     (x) => {
-    //     //         return (
-    //     //             parseInt($a.value) * x * x +
-    //     //             parseInt($b.value) * x +
-    //     //             parseInt($c.value)
-    //     //         );
-    //     //     },
-    //     //     "green",
-    //     //     3
-    //     // );
-
-    //     myGraph.drawEquation(
-    //         function(x) {
-
-    //             return 2 * x;
-    //         },
-    //         "red",
-    //         3
-    //     );
-    // });
 </script>
 
 </html>
