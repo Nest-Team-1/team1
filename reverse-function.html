@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Урвуу функц</title>
+    <link rel="shortcut icon" href="./logo.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<style>
+    body {
+        margin: 0;
+    }
+    
+    body::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .nav {
+        height: 60px;
+        color: rgb(24, 101, 242);
+        align-items: center;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+    }
+    
+    button {
+        display: flex;
+        margin: 0 auto;
+        width: 80%;
+        height: 63px;
+        border-radius: 10px;
+        background-color: #1865f1;
+        outline: none;
+        border: none;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+    
+    .btn {
+        width: 100%;
+        height: 50px;
+    }
+    
+    .ellipse {
+        background: #6bb6ff;
+        width: 12px;
+        height: 12px;
+        border-radius: 50px;
+        margin-top: 3px;
+    }
+    
+    .pos {
+        margin-left: -3.7px;
+        color: #808080;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: center;
+    }
+    
+    .flex {
+        display: flex;
+    }
+    
+    .design {
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    
+    .bordertxt {
+        width: 35vw;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+    
+    .space-between {
+        justify-content: space-between;
+        border-bottom: 1px solid black;
+    }
+    
+    .qwe {
+        border-left: 3px solid #e5e5e5;
+        width: 90%;
+    }
+    
+    .logo {
+        background-image: url(./960d5ad1f54145d5856ebfcc51c44b38\ 1\ 2.svg);
+        width: 84px;
+        height: 53px;
+        margin-left: 40px;
+    }
+    
+    .margin-right {
+        margin-right: 50px;
+    }
+    
+    .title {
+        height: 100px;
+        justify-content: space-between;
+        align-items: center;
+        width: 90vw;
+        margin: 0 auto;
+    }
+    
+    .margin-top {
+        margin-top: 10px;
+    }
+    
+    .graphsec {
+        width: 42.5vw;
+    }
+    
+    .text-align {
+        text-align: center;
+    }
+    
+    .btnborder {
+        width: 42.5vw;
+        height: 83px;
+        border-top: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #ffffff;
+        margin-top: 37px;
+    }
+    
+    .width {
+        width: 90%;
+        margin: 0 auto;
+    }
+    
+    .red {
+        color: red;
+    }
+    
+    .margin-left {
+        margin-left: 10px;
+    }
+    
+    .border {
+        border: 1px solid black;
+        width: 38vw;
+        /* height: 101px; */
+        word-break: break-word;
+        box-sizing: border-box;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        margin: 0 auto;
+    }
+    
+    .theory {
+        width: 42.5vw;
+        border-bottom: none;
+        height: 667px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: scroll;
+    }
+    
+    .theory::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .graphic {
+        width: 42.5vw;
+        border: 1px solid black;
+        height: 483px;
+    }
+    
+    .showfunc {
+        height: 50px;
+        width: 42.5vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .space-around {
+        justify-content: space-between;
+    }
+    
+    .container {
+        width: 90vw;
+        height: calc(100vh - 160px);
+        margin: 0 auto;
+    }
+    
+    .explanation {
+        width: 42.5vw;
+        height: 112px;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+    
+    .graphset {
+        width: 42.5vw;
+        height: 114px;
+        border: 1px solid black;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .ranges {
+        width: 65%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .saw {
+        width: 35%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .a {
+        height: 25px;
+        -webkit-appearance: none;
+        margin: 10px 0;
+        width: 50%;
+    }
+    
+    .a:focus {
+        outline: none;
+    }
+    
+    .a::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 5px;
+        cursor: pointer;
+        animation: 0.2s;
+        box-shadow: 0px 0px 0px #000000;
+        background: red;
+        border-radius: 1px;
+        border: 0px solid #000000;
+    }
+    
+    .a::-webkit-slider-thumb {
+        box-shadow: 0px 0px 0px #000000;
+        border: 1px solid red;
+        height: 18px;
+        width: 18px;
+        border-radius: 25px;
+        background: red;
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -7px;
+    }
+    
+    .a:focus::-webkit-slider-runnable-track {
+        background: red;
+    }
+    
+    .a::-moz-range-track {
+        width: 100%;
+        height: 5px;
+        cursor: pointer;
+        animation: 0.2s;
+        box-shadow: 0px 0px 0px #000000;
+        background: red;
+        border-radius: 1px;
+        border: 0px solid #000000;
+    }
+    
+    .a::-moz-range-thumb {
+        box-shadow: 0px 0px 0px #000000;
+        border: 1px solid #2497E3;
+        height: 18px;
+        width: 18px;
+        border-radius: 25px;
+        background: red;
+        cursor: pointer;
+    }
+    
+    .a::-ms-track {
+        width: 100%;
+        height: 5px;
+        cursor: pointer;
+        animation: 0.2s;
+        background: transparent;
+        border-color: transparent;
+        color: transparent;
+    }
+    
+    .a::-ms-fill-lower {
+        background: red;
+        border: 0px solid #000000;
+        border-radius: 2px;
+        box-shadow: 0px 0px 0px #000000;
+    }
+    
+    .a::-ms-fill-upper {
+        background: red;
+        border: 0px solid #000000;
+        border-radius: 2px;
+        box-shadow: 0px 0px 0px #000000;
+    }
+    
+    .a::-ms-thumb {
+        margin-top: 1px;
+        box-shadow: 0px 0px 0px #000000;
+        border: 1px solid #2497E3;
+        height: 18px;
+        width: 18px;
+        border-radius: 25px;
+        background: red;
+        cursor: pointer;
+    }
+    
+    .a:focus::-ms-fill-lower {
+        background: red;
+    }
+    
+    .a:focus::-ms-fill-upper {
+        background: red;
+    }
+    
+    .b {
+        height: 25px;
+        -webkit-appearance: none;
+        margin: 10px 0;
+        width: 50%;
+    }
+    
+    .b:focus {
+        outline: none;
+    }
+    
+    .b::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 5px;
+        cursor: pointer;
+        animation: 0.2s;
+        box-shadow: 0px 0px 0px #000000;
+        background: green;
+        border-radius: 1px;
+        border: 0px solid #000000;
+    }
+    
+    .b::-webkit-slider-thumb {
+        box-shadow: 0px 0px 0px #000000;
+        border: 1px solid green;
+        height: 18px;
+        width: 18px;
+        border-radius: 25px;
+        background: green;
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -7px;
+    }
+    
+    .b:focus::-webkit-slider-runnable-track {
+        background: green;
+    }
+    
+    .b::-moz-range-track {
+        width: 100%;
+        height: 5px;
+        cursor: pointer;
+        animation: 0.2s;
+        box-shadow: 0px 0px 0px #000000;
+        background: green;
+        border-radius: 1px;
+        border: 0px solid #000000;
+    }
+    
+    .b::-moz-range-thumb {
+        box-shadow: 0px 0px 0px #000000;
+        border: 1px solid #2497E3;
+        height: 18px;
+        width: 18px;
+        border-radius: 25px;
+        background: green;
+        cursor: pointer;
+    }
+    
+    .b::-ms-track {
+        width: 100%;
+        height: 5px;
+        cursor: pointer;
+        animation: 0.2s;
+        background: transparent;
+        border-color: transparent;
+        color: transparent;
+    }
+    
+    .b::-ms-fill-lower {
+        background: green;
+        border: 0px solid #000000;
+        border-radius: 2px;
+        box-shadow: 0px 0px 0px #000000;
+    }
+    
+    .b::-ms-fill-upper {
+        background: green;
+        border: 0px solid #000000;
+        border-radius: 2px;
+        box-shadow: 0px 0px 0px #000000;
+    }
+    
+    .b::-ms-thumb {
+        margin-top: 1px;
+        box-shadow: 0px 0px 0px #000000;
+        border: 1px solid #2497E3;
+        height: 18px;
+        width: 18px;
+        border-radius: 25px;
+        background: green;
+        cursor: pointer;
+    }
+    
+    .b:focus::-ms-fill-lower {
+        background: green;
+    }
+    
+    .b:focus::-ms-fill-upper {
+        background: green;
+    }
+    
+    @media only screen and (max-width: 960px) {
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+        .showfunc {
+            width: 90vw;
+        }
+        .graphic {
+            width: 90vw;
+        }
+        .graphset {
+            width: 90vw;
+        }
+        .explanation {
+            width: 90vw;
+        }
+        .btnborder {
+            width: 90vw;
+        }
+        .theory {
+            top: 30px;
+            width: 90vw;
+        }
+    }
+    
+    @media only screen and (max-width: 525px) {
+        .explanation {
+            height: 150px;
+        }
+    }
+</style>
+
+<body>
+    <div class="nav flex space-between">
+        <div class="logo"></div>
+        <div class="flex margin-right">
+            <div class="margin-right">Courses</div>
+            <div class="margin-right">Login</div>
+            <div class="margin-right">Sign up</div>
+        </div>
+    </div>
+    <div class="title flex">
+        <div class="flex">
+            <img src="./right_arrow_copy.svg">
+            <div>Өмнөх сэдэв</div>
+        </div>
+        <div class="flex">
+            <img src="./Frame.svg">
+            <h1> Урвуу функц</h1>
+        </div>
+
+        <div class="flex">
+            <div>Дараах бодлого</div>
+            <img src="./right_arrow.svg">
+        </div>
+    </div>
+    <div class="container flex space-around">
+        <div class="graphsec">
+            <div class="explanation design">
+                <p>・Урвуу функц гэдэг нь ямарваа функцийн ‘анхны’ функцийг хэлнэ.</p>
+                <p>・Утга бүр дээрхи өөрчлөлтийг сайтар ажиглаж тунгаагаарай.</p>
+            </div>
+            <div class="showfunc design margin-top">
+                \(y=\)<span id="a1"></span>\(x+\)<span id="a2"></span>
+            </div>
+            <!-- width="640" height="480" -->
+            <div class="graphic margin-top"><canvas id="myCanvas" style="margin-top: 0px"></canvas></div>
+            <div class="graphset margin-top">
+                <div class="ranges">
+                    <input class="a" id="a" type="range" min="-10" max="10" style="color: red;" />
+                    <input class="b" id="b" type="range" min="-10" max="10" />
+                </div>
+                <div class="saw">
+                    <button onclick="sawBtn()">урвуу функц харах</button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="theory design">
+                <div class="width">
+                    <div>
+                        <p>
+                            <b>
+                             \(x\) хувьсагчтай функц болох \(y = f(x)\) -ийн хувьд, \(у\)-ийн харгалзах утганд
+          зөвхөн 1 утга байх үед, мөн \(х\) нь \(у\)-ийн функц болж \(x = g(y)\) гэж
+          илэрхийлэгдэж байгаа нөхцөлд, х у хувьсагчийг сольсон   \(y = g(x) \) нь \(y =
+          f(x)\) -ийн урвуу функц гэж нэрлэгдэх бөгөөд, 
+          \(f^{-1}(x)\)
+        гэж
+          илэрхийлэгдэнэ.
+                   </b>
+
+                        </p>
+                    </div>
+
+                    <div class="border">
+                        <p class="bordertxt">
+                            Нэмэлт <br> Бүх функц нь урвуу функцтай байж чадахгүй бөгөөд , 1 утганд зөвхөн ганц л утга харгалздаг функцууд урвуу функцтай байна.
+                        </p>
+                    </div>
+                    <div class="margin-top">
+                        <div class="text-align"> Урвуу функцийн шинж чанарууд </div>
+                        <p>\(f(x)\) -ийн урвуу \(f^{-1}(x)\)-ийн хувьд доорхийг хангана.</p>
+                        <p>(1) \(b = f(a)\) => \(a = f^{-1}(b)\)</p>
+                        <p>(2) \(f(x)\) болон \(f^{-1}(x)\) дээр, харгалзах утга болон утгын муж өөрчлөгдөнө.</p>
+                        <P>(3) \(f(x)\) болон \(f^{-1}(x)\) -ийн график нь, \(у=x\) шулууны хувьд тэгш хэмтэй байна.</P>
+                    </div>
+                    <div class="border">
+                        <p class="bordertxt">
+                            Нэмэлт <br>Урвуу функцийн урвуу нь анхны функц өөрөө байна. Хөзөрийг эргүүлээд, дахин эргүүлж байгаатай л адил гэсэн үг.
+                        </p>
+                    </div>
+                </div>
+                <div class="width">
+                    <div>
+                        <p class="text-align">
+                            <b>
+                Бодлого бодох арга [Жишээ бодлого]
+              </b></p>
+                        <p>Нэгэн функцийн хувьд урвуу функцийг нь олох арга-ийг жишээ бодлого ашиглан тайлбарлая.</p>
+                    </div>
+                    <div class="flex pos">
+                        <div class="ellipse"></div>
+                        <div> &nbsp;Эхний алхам</div>
+                    </div>
+                    <div class="qwe">
+                        <div class="margin-left">
+
+
+
+                            <b>Анхны функц \(y = f(x)\) -ийн мужийг шалгах</b>
+                            <p>Эхлээд тухайн функцийн мужийг тодорхойлно. Муж нь, урвуу функцийн утгын мужийн харгалзан утга болох учир заавал шалгаарай.</p>
+                            <div class="border">
+                                <div class="margin-left">\(y\) = \(3 \over x\) + 2(\( x > 0\) ) -ийн муж нь \(y > 2\)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex pos">
+                        <div class="ellipse"></div>
+                        <div> &nbsp;2 дахь алхам</div>
+                    </div>
+
+                    <div class="qwe">
+                        <div class="margin-left">
+
+                            <b>\(y = f(x) -ийг x = g(x)\) хэлбэрт хувиргах</b>
+                            <p>Дараагаар нь анхны функцээ \(「x = ～」\)хэлбэр лүү хувиргаж бичнэ. </p>
+                            <div class="border">
+                                <div class="margin-left">\(y\) =\( 3 \over x\) + 2 -ийн \(x\) -г ялгавал <br> \(3 \over x \)= \(y - 2\) <br> \(1 \over x \)= \((y - 2) \over 3\) <br> \(x\) = \(3 \over (у - 2)\)</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="flex pos">
+                        <div class="ellipse"></div>
+                        <div> Сүүлийн алхам</div>
+                    </div>
+                    <div class="qwe">
+                        <div class="margin-left">
+                            <b>\(х\) болон \(у\)-г сольж, \(y = g(x)\) болгох</b>
+                            <p>Эцэст нь \(х\) болон \(у\)-ийн байрыг солибол урвуу функц маань бэлэн болно. <br>Эхний алхам дээр олсон мужийнхаа \(х,у\)-н байрыг нь сольж , утгын муж гэж үзээрэй. </p>
+                            <div class="border">
+                                <div class="margin-left">Манай урвуу функц маань <br>
+                                    <div class="red"> \(y\) = \(3 \over x - 2\) \(( x > 2 )\) </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="flex pos">
+                        <div class="ellipse"></div>
+                        <div> Дуусав</div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="btnborder">
+                <button>Бодлого бодъёо</button>
+            </div>
+
+
+        </div>
+
+    </div>
+    </div>
+</body>
+<script>
+    let $a = document.querySelector("#a");
+    let $b = document.getElementById("b");
+    // let $c = document.getElementById("c");
+    let $d = document.querySelector("#a1");
+    let $d1 = document.querySelector("#a2");
+    // let $d2 = document.querySelector("#a3");
+    let $btn = document.getElementById("btn");
+    let canva = document.querySelector('#myCanvas');
+    $d.innerText = "1";
+    $d1.innerText = "1";
+    // $d2.value = 1;
+    $a.value = 1;
+    $b.value = 1;
+    // $c.value = 1;
+    canva.width = document.querySelector('.graphic').offsetWidth;
+    canva.height = document.querySelector('.graphic').offsetHeight;
+
+    let a = 1;
+    let b = 1;
+    document.querySelector("#a").onchange = (e) => {
+        a = e.target.value;
+        $d.innerText = e.target.value;
+        // $range.innerText = $a.value;
+        rangenChange();
+    };
+    document.querySelector("#b").onchange = (e) => {
+        b = e.target.value;
+        $d1.innerText = e.target.value;
+        // $range1.innerText = $b.value;
+        rangenChange();
+    };
+
+    function Graph(config) {
+        // user defined properties
+        this.canvas = document.getElementById(config.canvasId);
+        this.minX = config.minX;
+        this.minY = config.minY;
+        this.maxX = config.maxX;
+        this.maxY = config.maxY;
+        this.unitsPerTick = config.unitsPerTick;
+
+        // constants
+        this.axisColor = "#000";
+        this.font = "10pt Calibri";
+        this.tickSize = 20;
+
+        // relationships
+        this.context = this.canvas.getContext("2d");
+        this.rangeX = this.maxX - this.minX;
+        this.rangeY = this.maxY - this.minY;
+        this.unitX = this.canvas.width / this.rangeX;
+        this.unitY = this.canvas.height / this.rangeY;
+        this.centerY = Math.round(
+            Math.abs(this.minY / this.rangeY) * this.canvas.height
+        );
+        this.centerX = Math.round(
+            Math.abs(this.minX / this.rangeX) * this.canvas.width
+        );
+        this.iteration = (this.maxX - this.minX) / 1000;
+        this.scaleX = this.canvas.width / this.rangeX;
+        this.scaleY = this.canvas.height / this.rangeY;
+
+        // draw x and y axis
+        this.drawXAxis();
+        this.drawYAxis();
+    }
+
+    Graph.prototype.drawXAxis = function() {
+        let context = this.context;
+        context.save();
+        context.beginPath();
+        context.moveTo(0, this.centerY);
+        context.lineTo(this.canvas.width, this.centerY);
+        context.strokeStyle = this.axisColor;
+        context.lineWidth = 2;
+        context.stroke();
+
+        // draw tick marks
+        let xPosIncrement = this.unitsPerTick * this.unitX;
+        let xPos, unit;
+        context.font = this.font;
+        context.textAlign = "center";
+        context.textBaseline = "top";
+
+        // draw left tick marks
+        xPos = this.centerX - xPosIncrement;
+        unit = -1 * this.unitsPerTick;
+        while (xPos > 0) {
+            context.moveTo(xPos, this.centerY - this.tickSize / 2);
+            context.lineTo(xPos, this.centerY + this.tickSize / 2);
+            context.stroke();
+            context.fillText(unit, xPos, this.centerY + this.tickSize / 2 + 3);
+            unit -= this.unitsPerTick;
+            xPos = Math.round(xPos - xPosIncrement);
+        }
+
+        // draw right tick marks
+        xPos = this.centerX + xPosIncrement;
+        unit = this.unitsPerTick;
+        while (xPos < this.canvas.width) {
+            context.moveTo(xPos, this.centerY - this.tickSize / 2);
+            context.lineTo(xPos, this.centerY + this.tickSize / 2);
+            context.stroke();
+            context.fillText(unit, xPos, this.centerY + this.tickSize / 2 + 3);
+            unit += this.unitsPerTick;
+            xPos = Math.round(xPos + xPosIncrement);
+        }
+        context.restore();
+    };
+
+    Graph.prototype.drawYAxis = function() {
+        let context = this.context;
+        context.save();
+        context.beginPath();
+        context.moveTo(this.centerX, 0);
+        context.lineTo(this.centerX, this.canvas.height);
+        context.strokeStyle = this.axisColor;
+        context.lineWidth = 2;
+        context.stroke();
+
+        // draw tick marks
+        let yPosIncrement = this.unitsPerTick * this.unitY;
+        let yPos, unit;
+        context.font = this.font;
+        context.textAlign = "right";
+        context.textBaseline = "middle";
+
+        // draw top tick marks
+        yPos = this.centerY - yPosIncrement;
+        unit = this.unitsPerTick;
+        while (yPos > 0) {
+            context.moveTo(this.centerX - this.tickSize / 2, yPos);
+            context.lineTo(this.centerX + this.tickSize / 2, yPos);
+            context.stroke();
+            context.fillText(unit, this.centerX - this.tickSize / 2 - 3, yPos);
+            unit += this.unitsPerTick;
+            yPos = Math.round(yPos - yPosIncrement);
+        }
+
+        // draw bottom tick marks
+        yPos = this.centerY + yPosIncrement;
+        unit = -1 * this.unitsPerTick;
+        while (yPos < this.canvas.height) {
+            context.moveTo(this.centerX - this.tickSize / 2, yPos);
+            context.lineTo(this.centerX + this.tickSize / 2, yPos);
+            context.stroke();
+            context.fillText(unit, this.centerX - this.tickSize / 2 - 3, yPos);
+            unit -= this.unitsPerTick;
+            yPos = Math.round(yPos + yPosIncrement);
+        }
+        context.restore();
+    };
+
+    Graph.prototype.drawEquation = function(equation, color, thickness) {
+        let context = this.context;
+        context.save();
+        context.save();
+        this.transformContext();
+
+        context.beginPath();
+        context.moveTo(this.minX, equation(this.minX));
+
+        for (
+            let x = this.minX + this.iteration; x <= this.maxX; x += this.iteration
+        ) {
+            context.lineTo(x, equation(x));
+        }
+
+        context.restore();
+        context.lineJoin = "round";
+        context.lineWidth = thickness;
+        context.strokeStyle = color;
+        context.stroke();
+        context.restore();
+    };
+
+    Graph.prototype.transformContext = function() {
+        let context = this.context;
+
+        // move context to center of canvas
+        this.context.translate(this.centerX, this.centerY);
+        // this.context.translate(105, 0);
+
+        /*
+         * stretch grid to fit the canvas window, and
+         * invert the y scale so that that increments
+         * as you move upwards
+         */
+        context.scale(this.scaleX, -this.scaleY);
+    };
+
+    const myGraph = new Graph({
+        canvasId: "myCanvas",
+        minX: -10,
+        minY: -10,
+        maxX: 10,
+        maxY: 10,
+        unitsPerTick: 1,
+    });
+    myGraph.drawEquation(
+        function(x) {
+            return parseInt($a.value) * x + parseInt($b.value);
+            // (parseInt($a.value) * x + 1)/3; 
+        },
+        "black",
+        3
+    );
+    //end range oorchlohod zurah bga
+    const rangenChange = (value) => {
+        const canva = document.getElementById("myCanvas");
+        const context = canva.getContext("2d");
+        context.clearRect(0, 0, canva.width, canva.height);
+        myGraph.drawXAxis();
+        myGraph.drawYAxis();
+        myGraph.drawEquation(
+            (x) => {
+                return (
+                    parseInt($a.value) * x + parseInt($b.value)
+                );
+            },
+            "black",
+            3
+        );
+
+    };
+    //btn darahad zurna
+    const dra = (sawBtn = () => {
+        console.log($a.value, $b.value);
+        const canva = document.getElementById("myCanvas");
+        const context = canva.getContext("2d");
+        // context.clearRect(0, 0, canva.width, canva.height);
+        myGraph.drawXAxis();
+        myGraph.drawYAxis();
+        if ($b.value >= 0) {
+            myGraph.drawEquation(
+                (x) => {
+                    return (
+                        (x - parseInt($b.value)) / parseInt($a.value)
+                    );
+                },
+                "blue",
+                3
+            );
+        } else {
+            myGraph.drawEquation(
+                (x) => {
+                    return (
+                        (x + (-1) * parseInt($b.value)) / parseInt($a.value)
+                    );
+                },
+                "blue",
+                3
+            );
+        }
+        //     //#########oor grap zurj bolno
+        //     // myGraph.drawEquation(
+        //     //     (x) => {
+        //     //         return (
+        //     //             parseInt($a.value) * x * x +
+        //     //             parseInt($b.value) * x +
+        //     //             parseInt($c.value)
+        //     //         );
+        //     //     },
+        //     //     "green",
+        //     //     3
+        //     // );
+
+        //     myGraph.drawEquation(
+        //         function(x) {
+
+        //             return 2 * x;
+        //         },
+        //         "red",
+        //         3
+        //     );
+    });
+</script>
+</script>
+
+</html>

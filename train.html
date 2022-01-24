@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Функц зурах</title>
+    <link rel="shortcut icon" href="./logo.png">
+</head>
+
+<head>
+    <style>
+        html,
+        body {
+            margin: 0px;
+            padding: 0px;
+            overflow-x: hidden;
+        }
+        
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .nav {
+            height: 60px;
+            color: rgb(24, 101, 242);
+            align-items: center;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .ellipse {
+            background: #6bb6ff;
+            width: 12px;
+            height: 12px;
+            border-radius: 50px;
+            margin-top: 3px;
+        }
+        
+        .pos {
+            margin-left: -3.7px;
+            color: #808080;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 20px;
+            text-align: center;
+        }
+        
+        .flex {
+            display: flex;
+        }
+        
+        .design {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+        
+        .bordertxt {
+            width: 35vw;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+        
+        .space-between {
+            justify-content: space-between;
+            border-bottom: 1px solid black;
+        }
+        
+        .qwe {
+            border-left: 3px solid #e5e5e5;
+            width: 90%;
+        }
+        
+        .logo {
+            background-image: url(./960d5ad1f54145d5856ebfcc51c44b38\ 1\ 2.svg);
+            width: 84px;
+            height: 53px;
+            margin-left: 40px;
+        }
+        
+        .margin-right {
+            margin-right: 50px;
+        }
+        
+        .title {
+            height: 100px;
+            justify-content: space-between;
+            align-items: center;
+            width: 90vw;
+            margin: 0 auto;
+        }
+        
+        .margin-top {
+            margin-top: 10px;
+        }
+        
+        .graphsec {
+            width: 42.5vw;
+        }
+        
+        .text-align {
+            text-align: center;
+        }
+        
+        .red {
+            color: red;
+        }
+        
+        .margin-left {
+            margin-left: 10px;
+        }
+        
+        .theory {
+            width: 42.5vw;
+            border-bottom: none;
+            height: 667px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        /* .minibrd {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        } */
+        
+        .theory::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .graphic {
+            width: 42.5vw;
+            border: 1px solid black;
+            height: 483px;
+        }
+        
+        .showfunc {
+            height: 50px;
+            width: 42.5vw;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .space-around {
+            justify-content: space-between;
+        }
+        
+        .container {
+            width: 90vw;
+            height: calc(100vh - 160px);
+            margin: 0 auto;
+        }
+        
+        .bord {
+            border: 1px solid whitesmoke;
+            /* font-size: 18px; */
+            word-spacing: 1rem;
+            line-height: 0.7cm;
+        }
+        
+        .explanation {
+            width: 42.5vw;
+            height: 112px;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+        
+        .hand {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            flex-direction: row;
+        }
+        
+        .hand>input {
+            width: 30px;
+        }
+        /* .hand>button{
+          
+        } */
+        
+        .graphset {
+            width: 42.5vw;
+            height: 114px;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .a {
+            height: 25px;
+            -webkit-appearance: none;
+            margin: 10px 0;
+            width: 50%;
+        }
+        
+        .a:focus {
+            outline: none;
+        }
+        
+        .a::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 5px;
+            cursor: pointer;
+            animation: 0.2s;
+            box-shadow: 0px 0px 0px #000000;
+            background: red;
+            border-radius: 1px;
+            border: 0px solid #000000;
+        }
+        
+        .a::-webkit-slider-thumb {
+            box-shadow: 0px 0px 0px #000000;
+            border: 1px solid red;
+            height: 18px;
+            width: 18px;
+            border-radius: 25px;
+            background: red;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -7px;
+        }
+        
+        .a:focus::-webkit-slider-runnable-track {
+            background: red;
+        }
+        
+        .a::-moz-range-track {
+            width: 100%;
+            height: 5px;
+            cursor: pointer;
+            animation: 0.2s;
+            box-shadow: 0px 0px 0px #000000;
+            background: red;
+            border-radius: 1px;
+            border: 0px solid #000000;
+        }
+        
+        .a::-moz-range-thumb {
+            box-shadow: 0px 0px 0px #000000;
+            border: 1px solid #2497e3;
+            height: 18px;
+            width: 18px;
+            border-radius: 25px;
+            background: red;
+            cursor: pointer;
+        }
+        
+        .a::-ms-track {
+            width: 100%;
+            height: 5px;
+            cursor: pointer;
+            animation: 0.2s;
+            background: transparent;
+            border-color: transparent;
+            color: transparent;
+        }
+        
+        .a::-ms-fill-lower {
+            background: red;
+            border: 0px solid #000000;
+            border-radius: 2px;
+            box-shadow: 0px 0px 0px #000000;
+        }
+        
+        .a::-ms-fill-upper {
+            background: red;
+            border: 0px solid #000000;
+            border-radius: 2px;
+            box-shadow: 0px 0px 0px #000000;
+        }
+        
+        .a::-ms-thumb {
+            margin-top: 1px;
+            box-shadow: 0px 0px 0px #000000;
+            border: 1px solid #2497e3;
+            height: 18px;
+            width: 18px;
+            border-radius: 25px;
+            background: red;
+            cursor: pointer;
+        }
+        
+        .a:focus::-ms-fill-lower {
+            background: red;
+        }
+        
+        .a:focus::-ms-fill-upper {
+            background: red;
+        }
+        
+        .b {
+            height: 25px;
+            -webkit-appearance: none;
+            margin: 10px 0;
+            width: 50%;
+        }
+        
+        .b:focus {
+            outline: none;
+        }
+        
+        .b::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 5px;
+            cursor: pointer;
+            animation: 0.2s;
+            box-shadow: 0px 0px 0px #000000;
+            background: green;
+            border-radius: 1px;
+            border: 0px solid #000000;
+        }
+        
+        .b::-webkit-slider-thumb {
+            box-shadow: 0px 0px 0px #000000;
+            border: 1px solid green;
+            height: 18px;
+            width: 18px;
+            border-radius: 25px;
+            background: green;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -7px;
+        }
+        
+        .b:focus::-webkit-slider-runnable-track {
+            background: green;
+        }
+        
+        .b::-moz-range-track {
+            width: 100%;
+            height: 5px;
+            cursor: pointer;
+            animation: 0.2s;
+            box-shadow: 0px 0px 0px #000000;
+            background: green;
+            border-radius: 1px;
+            border: 0px solid #000000;
+        }
+        
+        .b::-moz-range-thumb {
+            box-shadow: 0px 0px 0px #000000;
+            border: 1px solid #2497e3;
+            height: 18px;
+            width: 18px;
+            border-radius: 25px;
+            background: green;
+            cursor: pointer;
+        }
+        
+        .b::-ms-track {
+            width: 100%;
+            height: 5px;
+            cursor: pointer;
+            animation: 0.2s;
+            background: transparent;
+            border-color: transparent;
+            color: transparent;
+        }
+        
+        .b::-ms-fill-lower {
+            background: green;
+            border: 0px solid #000000;
+            border-radius: 2px;
+            box-shadow: 0px 0px 0px #000000;
+        }
+        
+        .b::-ms-fill-upper {
+            background: green;
+            border: 0px solid #000000;
+            border-radius: 2px;
+            box-shadow: 0px 0px 0px #000000;
+        }
+        
+        .b::-ms-thumb {
+            margin-top: 1px;
+            box-shadow: 0px 0px 0px #000000;
+            border: 1px solid #2497e3;
+            height: 18px;
+            width: 18px;
+            border-radius: 25px;
+            background: green;
+            cursor: pointer;
+        }
+        
+        .b:focus::-ms-fill-lower {
+            background: green;
+        }
+        
+        .b:focus::-ms-fill-upper {
+            background: green;
+        }
+        
+        .c {
+            height: 25px;
+            -webkit-appearance: none;
+            margin: 10px 0;
+            width: 50%;
+        }
+        
+        .c:focus {
+            outline: none;
+        }
+        
+        .c::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 5px;
+            cursor: pointer;
+            animation: 0.2s;
+            box-shadow: 0px 0px 0px #000000;
+            background: #2497e3;
+            border-radius: 1px;
+            border: 0px solid #000000;
+        }
+        
+        .c::-webkit-slider-thumb {
+            box-shadow: 0px 0px 0px #000000;
+            border: 1px solid #2497e3;
+            height: 18px;
+            width: 18px;
+            border-radius: 25px;
+            background: #2497e3;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -7px;
+        }
+        
+        .c:focus::-webkit-slider-runnable-track {
+            background: #2497e3;
+        }
+        
+        .c::-moz-range-track {
+            width: 100%;
+            height: 5px;
+            cursor: pointer;
+            animation: 0.2s;
+            box-shadow: 0px 0px 0px #000000;
+            background: #2497e3;
+            border-radius: 1px;
+            border: 0px solid #000000;
+        }
+        
+        .c::-moz-range-thumb {
+            box-shadow: 0px 0px 0px #000000;
+            border: 1px solid #2497e3;
+            height: 18px;
+            width: 18px;
+            border-radius: 25px;
+            background: #2497e3;
+            cursor: pointer;
+        }
+        
+        .c::-ms-track {
+            width: 100%;
+            height: 5px;
+            cursor: pointer;
+            animation: 0.2s;
+            background: transparent;
+            border-color: transparent;
+            color: transparent;
+        }
+        
+        .c::-ms-fill-lower {
+            background: #2497e3;
+            border: 0px solid #000000;
+            border-radius: 2px;
+            box-shadow: 0px 0px 0px #000000;
+        }
+        
+        .c::-ms-fill-upper {
+            background: #2497e3;
+            border: 0px solid #000000;
+            border-radius: 2px;
+            box-shadow: 0px 0px 0px #000000;
+        }
+        
+        .c::-ms-thumb {
+            margin-top: 1px;
+            box-shadow: 0px 0px 0px #000000;
+            border: 1px solid #2497e3;
+            height: 18px;
+            width: 18px;
+            border-radius: 25px;
+            background: #2497e3;
+            cursor: pointer;
+        }
+        
+        .c:focus::-ms-fill-lower {
+            background: #2497e3;
+        }
+        
+        .c:focus::-ms-fill-upper {
+            background: #2497e3;
+        }
+        
+        .js-paint {
+            background-image: url(https://library.kissclipart.com/20180904/zq/kissclipart-picture-frame-clipart-document-dry-erase-boards-in-3a8a6bd08e3dd544.png);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+        
+        .paint-canvas {
+            border: 1px black solid;
+            display: block;
+            margin: 1rem;
+            cursor: url("./Batman\ Pen.cur"), auto;
+        }
+        /* .hand>button {
+            height: 20px;
+            width: 30px;
+        } */
+        /* .color-picker {
+            margin: 1rem 1rem 0 1rem;
+        } */
+        
+        @media only screen and (max-width: 960px) {
+            .container {
+                display: flex;
+                flex-direction: column;
+            }
+            .showfunc {
+                width: 90vw;
+            }
+            .graphic {
+                width: 90vw;
+            }
+            .graphset {
+                width: 90vw;
+            }
+            .theory {
+                top: 30px;
+                width: 90vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav flex space-between">
+        <div class="logo"></div>
+        <div class="flex margin-right">
+            <div class="margin-right">Courses</div>
+            <div class="margin-right">Login</div>
+            <div class="margin-right">Sign up</div>
+        </div>
+    </div>
+    <div class="title flex">
+        <div class="flex">
+            <img src="./right_arrow_copy.svg" />
+            <div>Өмнөх сэдэв</div>
+        </div>
+        <div class="flex">
+            <img src="./Frame.svg" />
+            <h1>Функц зурах</h1>
+        </div>
+
+        <div class="flex">
+            <div>Дараах бодлого</div>
+            <img src="./right_arrow.svg" />
+        </div>
+    </div>
+    <div class="container flex space-around">
+        <div class="graphsec">
+            <div class="showfunc design">
+                <form class="hand" onsubmit="drawBtn();return false">
+                    <input id="a1" type="number" required />
+                    <select id="types">
+              <option value="x">x</option>
+              <option value="sin">sin</option>
+              <option value="cos">cos</option>
+              <option value="tan">tan</option>
+            </select> x^
+                    <select id="types1">
+              <option value="1">1</option>
+              <option value="2">2</option></select
+            ><span class="span0">+</span>
+            <input id="a2" type="number" />
+            <select id="types2">
+              <option value="x">x</option>
+              <option value="sin">sin</option>
+              <option value="cos">cos</option>
+              <option value="tan">tan</option>
+              <option value="cot">cot</option></select
+            >+
+            <input id="a3" type="number" required />
+            <button id="btn" type="submit">draw</button>
+          </form>
+        </div>
+        <div class="graphic margin-top">
+          <canvas
+            id="myCanvas"
+            width="600"
+            height="600"
+            style="margin-top: 0px"
+          ></canvas>
+        </div>
+        <div class="graphset margin-top">
+          <input class="a" id="a" type="range" min="-10" max="10" />
+          <input class="b" id="b" type="range" min="-10" max="10" />
+          <input class="c" id="c" type="range" min="-10" max="10" />
+        </div>
+      </div>
+      <div>
+        <div class="theory design">
+          <div class="minibrd">
+            <input type="color" class="js-color-picker color-picker" />
+            <input
+              type="range"
+              class="js-line-range"
+              min="1"
+              max="72"
+              value="1"
+            />
+            <label class="js-range-value">1</label>Px
+            <button onclick="clearBtn()">clear</button>
+            <canvas
+              id="paint-canvas"
+              class="js-paint paint-canvas"
+              width="1200"
+              height="600"
+            ></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let $a = document.querySelector("#a");
+      let $b = document.getElementById("b");
+      let $c = document.getElementById("c");
+      let $d = document.querySelector("#a1");
+      let $d1 = document.querySelector("#a2");
+      let $d2 = document.querySelector("#a3");
+      let $btn = document.getElementById("btn");
+      let $type = document.getElementById("types");
+      let $type1 = document.getElementById("types1");
+      let $type2 = document.getElementById("types2");
+      document.querySelector("#a2").style.display = "none";
+      document.getElementById("b").style.display = "none";
+      document.getElementById("types2").style.display = "none";
+      document.querySelector(".span0").style.display = "none";
+      let board = document.querySelector("#paint-canvas");
+      let canva = document.querySelector("#myCanvas");
+      canva.width = document.querySelector(".graphic").offsetWidth;
+      canva.height = document.querySelector(".graphic").offsetHeight;
+
+      board.width = document.querySelector('.theory').offsetWidth - 30;
+      board.height = document.querySelector('.theory').offsetHeight - 65;
+      document.getElementById("types1").onchange = (e) => {
+        if ($type1.value === "1") {
+          document.querySelector("#a2").style.display = "none";
+          document.getElementById("b").style.display = "none";
+          document.getElementById("types2").style.display = "none";
+          document.querySelector(".span0").style.display = "none";
+        } else if ($type1.value === "2") {
+          document.querySelector("#a2").style.display = "flex";
+          document.getElementById("b").style.display = "flex";
+          document.getElementById("types2").style.display = "flex";
+          document.querySelector(".span0").style.display = "flex";
+          document.querySelector("#a2").required = true;
+        }
+      };
+      let a = 0;
+      let b = 0;
+      let c = 0;
+      document.querySelector("#a").onchange = (e) => {
+        a = e.target.value;
+        $d.value = e.target.value;
+        rangenChange();
+      };
+
+      document.querySelector("#a1").onchange = (e) => {
+        a = e.target.value;
+        $a.value = e.target.value;
+        rangenChange();
+      };
+
+      document.querySelector("#b").onchange = (e) => {
+        b = e.target.value;
+        $d1.value = e.target.value;
+        rangenChange();
+      };
+      document.querySelector("#a2").onchange = (e) => {
+        b = e.target.value;
+        $b.value = e.target.value;
+        rangenChange();
+      };
+
+      document.querySelector("#c").onchange = (e) => {
+        c = e.target.value;
+        $d2.value = e.target.value;
+        rangenChange();
+      };
+      document.querySelector("#a3").onchange = (e) => {
+        c = e.target.value;
+        $c.value = e.target.value;
+        rangenChange();
+      };
+
+      function Graph(config) {
+        // user defined properties
+        this.canvas = document.getElementById(config.canvasId);
+        this.minX = config.minX;
+        this.minY = config.minY;
+        this.maxX = config.maxX;
+        this.maxY = config.maxY;
+        this.unitsPerTick = config.unitsPerTick;
+
+        // constants
+        this.axisColor = "#000";
+        this.font = "10pt Calibri";
+        this.tickSize = 20;
+
+        // relationships
+        this.context = this.canvas.getContext("2d");
+        this.rangeX = this.maxX - this.minX;
+        this.rangeY = this.maxY - this.minY;
+        this.unitX = this.canvas.width / this.rangeX;
+        this.unitY = this.canvas.height / this.rangeY;
+        this.centerY = Math.round(
+          Math.abs(this.minY / this.rangeY) * this.canvas.height
+        );
+        this.centerX = Math.round(
+          Math.abs(this.minX / this.rangeX) * this.canvas.width
+        );
+        this.iteration = (this.maxX - this.minX) / 1000;
+        this.scaleX = this.canvas.width / this.rangeX;
+        this.scaleY = this.canvas.height / this.rangeY;
+
+        // draw x and y axis
+        this.drawXAxis();
+        this.drawYAxis();
+      }
+
+      Graph.prototype.drawXAxis = function () {
+        let context = this.context;
+        context.save();
+        context.beginPath();
+        context.moveTo(0, this.centerY);
+        context.lineTo(this.canvas.width, this.centerY);
+        context.strokeStyle = this.axisColor;
+        context.lineWidth = 2;
+        context.stroke();
+
+        // draw tick marks
+        let xPosIncrement = this.unitsPerTick * this.unitX;
+        let xPos, unit;
+        context.font = this.font;
+        context.textAlign = "center";
+        context.textBaseline = "top";
+
+        // draw left tick marks
+        xPos = this.centerX - xPosIncrement;
+        unit = -1 * this.unitsPerTick;
+        while (xPos > 0) {
+          context.moveTo(xPos, this.centerY - this.tickSize / 2);
+          context.lineTo(xPos, this.centerY + this.tickSize / 2);
+          context.stroke();
+          context.fillText(unit, xPos, this.centerY + this.tickSize / 2 + 3);
+          unit -= this.unitsPerTick;
+          xPos = Math.round(xPos - xPosIncrement);
+        }
+
+        // draw right tick marks
+        xPos = this.centerX + xPosIncrement;
+        unit = this.unitsPerTick;
+        while (xPos < this.canvas.width) {
+          context.moveTo(xPos, this.centerY - this.tickSize / 2);
+          context.lineTo(xPos, this.centerY + this.tickSize / 2);
+          context.stroke();
+          context.fillText(unit, xPos, this.centerY + this.tickSize / 2 + 3);
+          unit += this.unitsPerTick;
+          xPos = Math.round(xPos + xPosIncrement);
+        }
+        context.restore();
+      };
+
+      Graph.prototype.drawYAxis = function () {
+        let context = this.context;
+        context.save();
+        context.beginPath();
+        context.moveTo(this.centerX, 0);
+        context.lineTo(this.centerX, this.canvas.height);
+        context.strokeStyle = this.axisColor;
+        context.lineWidth = 2;
+        context.stroke();
+
+        // draw tick marks
+        let yPosIncrement = this.unitsPerTick * this.unitY;
+        let yPos, unit;
+        context.font = this.font;
+        context.textAlign = "right";
+        context.textBaseline = "middle";
+
+        // draw top tick marks
+        yPos = this.centerY - yPosIncrement;
+        unit = this.unitsPerTick;
+        while (yPos > 0) {
+          context.moveTo(this.centerX - this.tickSize / 2, yPos);
+          context.lineTo(this.centerX + this.tickSize / 2, yPos);
+          context.stroke();
+          context.fillText(unit, this.centerX - this.tickSize / 2 - 3, yPos);
+          unit += this.unitsPerTick;
+          yPos = Math.round(yPos - yPosIncrement);
+        }
+
+        // draw bottom tick marks
+        yPos = this.centerY + yPosIncrement;
+        unit = -1 * this.unitsPerTick;
+        while (yPos < this.canvas.height) {
+          context.moveTo(this.centerX - this.tickSize / 2, yPos);
+          context.lineTo(this.centerX + this.tickSize / 2, yPos);
+          context.stroke();
+          context.fillText(unit, this.centerX - this.tickSize / 2 - 3, yPos);
+          unit -= this.unitsPerTick;
+          yPos = Math.round(yPos + yPosIncrement);
+        }
+        context.restore();
+      };
+
+      Graph.prototype.drawEquation = function (equation, color, thickness) {
+        let context = this.context;
+        context.save();
+        context.save();
+        this.transformContext();
+
+        context.beginPath();
+        context.moveTo(this.minX, equation(this.minX));
+
+        for (
+          let x = this.minX + this.iteration;
+          x <= this.maxX;
+          x += this.iteration
+        ) {
+          context.lineTo(x, equation(x));
+        }
+
+        context.restore();
+        context.lineJoin = "round";
+        context.lineWidth = thickness;
+        context.strokeStyle = color;
+        context.stroke();
+        context.restore();
+      };
+
+      Graph.prototype.transformContext = function () {
+        let context = this.context;
+
+        // move context to center of canvas
+        this.context.translate(this.centerX, this.centerY);
+        // this.context.translate(105, 0);
+
+        /*
+         * stretch grid to fit the canvas window, and
+         * invert the y scale so that that increments
+         * as you move upwards
+         */
+        context.scale(this.scaleX, -this.scaleY);
+      };
+
+      const myGraph = new Graph({
+        canvasId: "myCanvas",
+        minX: -10,
+        minY: -10,
+        maxX: 10,
+        maxY: 10,
+        unitsPerTick: 1,
+      });
+
+      //zurj baigaa tegshitgeliin heseg
+      const rangenChange = (value) => {
+        const canva = document.getElementById("myCanvas");
+        const context = canva.getContext("2d");
+        context.clearRect(0, 0, canva.width, canva.height);
+        myGraph.drawXAxis();
+        myGraph.drawYAxis();
+        //2 zereg.........
+        if ($type1.value === "2") {
+          if ($type.value === "x" && $type2.value === "x") {
+            myGraph.drawEquation(
+              function (x) {
+                return (
+                  parseInt($d.value) * x * x +
+                  parseInt($d1.value) * x +
+                  parseInt($d2.value)
+                );
+                // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "sin" && $type2.value === "cos") {
+            myGraph.drawEquation(
+              function (x) {
+                return (
+                  parseInt($d.value) * Math.sin(x) * Math.sin(x) +
+                  parseInt($d1.value) * Math.cos(x) +
+                  parseInt($d2.value)
+                );
+                // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "sin" && $type2.value === "sin") {
+            myGraph.drawEquation(
+              function (x) {
+                return (
+                  parseInt($d.value) * Math.sin(x) * Math.sin(x) +
+                  parseInt($d1.value) * Math.sin(x) +
+                  parseInt($d2.value)
+                );
+                // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "sin" && $type2.value === "tan") {
+            myGraph.drawEquation(
+              function (x) {
+                return (
+                  parseInt($d.value) * Math.sin(x) * Math.sin(x) +
+                  parseInt($d1.value) * Math.tan(x) +
+                  parseInt($d2.value)
+                );
+                // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "sin" && $type2.value === "cot") {
+            myGraph.drawEquation(
+              function (x) {
+                return (
+                  parseInt($d.value) * Math.sin(x) * Math.sin(x) +
+                  (parseInt($d1.value) * Math.cos(x)) / Math.sin(x) +
+                  parseInt($d2.value)
+                );
+                // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "sin" && $type2.value === "x") {
+            myGraph.drawEquation(
+              function (x) {
+                return (
+                  parseInt($d.value) * Math.sin(x) * Math.sin(x) +
+                  parseInt($d1.value) * x +
+                  parseInt($d2.value)
+                );
+                //return ;
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "cos" && $type2.value === "sin") {
+            myGraph.drawEquation(
+              function (x) {
+                return (
+                  parseInt($d.value) * Math.cos(x) * Math.cos(x) +
+                  parseInt($d1.value) * Math.sin(x) +
+                  parseInt($d2.value)
+                );
+                // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "cos" && $type2.value === "tan") {
+            myGraph.drawEquation(
+              function (x) {
+                return (
+                  parseInt($d.value) * Math.cos(x) * Math.cos(x) +
+                  parseInt($d1.value) * Math.tan(x) +
+                  parseInt($d2.value)
+                );
+                // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "cos" && $type2.value === "cot") {
+            myGraph.drawEquation(
+              function (x) {
+                return (
+                  parseInt($d.value) * Math.cos(x) * Math.cos(x) +
+                  (parseInt($d1.value) * Math.cos(x)) / Math.sin(x) +
+                  parseInt($d2.value)
+                );
+                // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "cos" && $type2.value === "cos") {
+            myGraph.drawEquation(
+              function (x) {
+                return (
+                  parseInt($d.value) * Math.cos(x) * Math.cos(x) +
+                  parseInt($d1.value) * Math.cos(x) +
+                  parseInt($d2.value)
+                );
+                // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "cos" && $type2.value === "x") {
+            myGraph.drawEquation(
+              function (x) {
+                return (
+                  parseInt($d.value) * Math.cos(x) * Math.cos(x) +
+                  parseInt($d1.value) * x +
+                  parseInt($d2.value)
+                );
+                //return ;
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "tan" && $type2.value === "sin") {
+            myGraph.drawEquation(
+              function (x) {
+                return (
+                  parseInt($d.value) * Math.tan(x) * Math.tan(x) +
+                  parseInt($d1.value) * Math.sin(x) +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "tan" && $type2.value === "cos") {
+            myGraph.drawEquation(
+              function (x) {
+                return (
+                  parseInt($d.value) * Math.tan(x) * Math.tan(x) +
+                  parseInt($d1.value) * Math.cos(x) +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "tan" && $type2.value === "tan") {
+            myGraph.drawEquation(
+              function (x) {
+                return (
+                  parseInt($d.value) * Math.tan(x) * Math.tan(x) +
+                  parseInt($d1.value) * Math.tan(x) +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "tan" && $type2.value === "cot") {
+            myGraph.drawEquation(
+              function (x) {
+                return (
+                  parseInt($d.value) * Math.tan(x) * Math.tan(x) +
+                  (parseInt($d1.value) * Math.cos(x)) / Math.sin(x) +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "tan" && $type2.value === "x") {
+            myGraph.drawEquation(
+              function (x) {
+                return (
+                  parseInt($d.value) * Math.tan(x) * Math.tan(x) +
+                  parseInt($d1.value) * x +
+                  parseInt($d2.value)
+                );
+                //return ;
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "x" && $type2.value === "cot") {
+            myGraph.drawEquation(
+              function (x) {
+                return (
+                  parseInt($d.value) * x * x +
+                  (parseInt($d1.value) * Math.cos(x)) / Math.sin(x) +
+                  parseInt($d2.value)
+                );
+                //return ;
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "x" && $type2.value === "sin") {
+            myGraph.drawEquation(
+              function (x) {
+                return (
+                  parseInt($d.value) * x * x +
+                  parseInt($d1.value) * Math.sin(x) +
+                  parseInt($d2.value)
+                );
+                // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "x" && $type2.value === "cos") {
+            myGraph.drawEquation(
+              function (x) {
+                return (
+                  parseInt($d.value) * x * x +
+                  parseInt($d1.value) * Math.cos(x) +
+                  parseInt($d2.value)
+                );
+                // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "x" && $type2.value === "tan") {
+            myGraph.drawEquation(
+              function (x) {
+                return (
+                  parseInt($d.value) * x * x +
+                  parseInt($d1.value) * Math.tan(x) +
+                  parseInt($d2.value)
+                );
+                // return parseInt($d.value) * Math.cos(x) * Math.cos(x);
+              },
+              "blue",
+              3
+            );
+          }
+        } else if ($type1.value === "1") {
+          if ($type.value === "sin") {
+            myGraph.drawEquation(
+              function (x) {
+                return parseInt($d.value) * Math.sin(x) + parseInt($d2.value);
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "cos") {
+            myGraph.drawEquation(
+              function (x) {
+                return parseInt($d.value) * Math.cos(x) + parseInt($d2.value);
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "tan") {
+            myGraph.drawEquation(
+              function (x) {
+                return parseInt($d.value) * Math.tan(x) + parseInt($d2.value);
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "x") {
+            myGraph.drawEquation(
+              function (x) {
+                return parseInt($d.value) * x + parseInt($d2.value);
+              },
+              "blue",
+              3
+            );
+          }
+        }
+        //nemegdene!@#$%^&
+        //console.log(a, b, c);
+        // myGraph.drawEquation(
+        //     (x) => {
+        //         return (
+        //             parseInt($a.value) * x * x +
+        //             parseInt($b.value) * x +
+        //             parseInt($c.value)
+        //         );
+        //     },
+        //     "green",
+        //     3
+        // );
+
+        // myGraph.drawEquation(
+        //   function (x) {
+
+        //     return 2 * x;
+        //   },
+        //   "red",
+        //   3
+        // );
+      };
+      const dra = (drawBtn = () => {
+        if ($type1.value === "1") {
+          console.log("lol");
+          if ($type.value === "sin") {
+            const canva = document.getElementById("myCanvas");
+            const context = canva.getContext("2d");
+            context.clearRect(0, 0, canva.width, canva.height);
+            myGraph.drawXAxis();
+            myGraph.drawYAxis();
+            myGraph.drawEquation(
+              function (x) {
+                return parseInt($d.value) * Math.sin(x) + parseInt($d2.value);
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "cos") {
+            const canva = document.getElementById("myCanvas");
+            const context = canva.getContext("2d");
+            context.clearRect(0, 0, canva.width, canva.height);
+            myGraph.drawXAxis();
+            myGraph.drawYAxis();
+            myGraph.drawEquation(
+              function (x) {
+                return parseInt($d.value) * Math.cos(x) + parseInt($d2.value);
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "tan") {
+            const canva = document.getElementById("myCanvas");
+            const context = canva.getContext("2d");
+            context.clearRect(0, 0, canva.width, canva.height);
+            myGraph.drawXAxis();
+            myGraph.drawYAxis();
+            myGraph.drawEquation(
+              function (x) {
+                return parseInt($d.value) * Math.tan(x) + parseInt($d2.value);
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "x") {
+            const canva = document.getElementById("myCanvas");
+            const context = canva.getContext("2d");
+            context.clearRect(0, 0, canva.width, canva.height);
+            myGraph.drawXAxis();
+            myGraph.drawYAxis();
+            myGraph.drawEquation(
+              function (x) {
+                return parseInt($d.value) * x + parseInt($d2.value);
+              },
+              "blue",
+              3
+            );
+          }
+        } else if ($type1.value === "2") {
+          if ($type.value === "x" && $type2.value === "x") {
+            const canva = document.getElementById("myCanvas");
+            const context = canva.getContext("2d");
+            context.clearRect(0, 0, canva.width, canva.height);
+            myGraph.drawXAxis();
+            myGraph.drawYAxis();
+            console.log(a, b, c);
+            myGraph.drawEquation(
+              function (x) {
+                // console.log($d.value, $d1.value, $d2.value);
+                return (
+                  parseInt($d.value) * x * x +
+                  parseInt($d1.value) * x +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "sin" && $type2.value === "cos") {
+            const canva = document.getElementById("myCanvas");
+            const context = canva.getContext("2d");
+            context.clearRect(0, 0, canva.width, canva.height);
+            myGraph.drawXAxis();
+            myGraph.drawYAxis();
+            console.log(a, b, c);
+            myGraph.drawEquation(
+              function (x) {
+                // console.log($d.value, $d1.value, $d2.value);
+                return (
+                  parseInt($d.value) * Math.sin(x) * Math.sin(x) +
+                  parseInt($d1.value) * Math.cos(x) +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "sin" && $type2.value === "sin") {
+            console.log($d.value, $d1.value, $d2.value);
+            const canva = document.getElementById("myCanvas");
+            const context = canva.getContext("2d");
+            context.clearRect(0, 0, canva.width, canva.height);
+            myGraph.drawXAxis();
+            myGraph.drawYAxis();
+            myGraph.drawEquation(
+              function (x) {
+                // console.log($d.value, $d1.value, $d2.value);
+                return (
+                  parseInt($d.value) * Math.sin(x) * Math.sin(x) +
+                  parseInt($d1.value) * Math.sin(x) +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "sin" && $type2.value === "tan") {
+            console.log($d.value, $d1.value, $d2.value);
+            const canva = document.getElementById("myCanvas");
+            const context = canva.getContext("2d");
+            context.clearRect(0, 0, canva.width, canva.height);
+            myGraph.drawXAxis();
+            myGraph.drawYAxis();
+            myGraph.drawEquation(
+              function (x) {
+                // console.log($d.value, $d1.value, $d2.value);
+                return (
+                  parseInt($d.value) * Math.sin(x) * Math.sin(x) +
+                  parseInt($d1.value) * Math.tan(x) +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "sin" && $type2.value === "cot") {
+            console.log($d.value, $d1.value, $d2.value);
+            const canva = document.getElementById("myCanvas");
+            const context = canva.getContext("2d");
+            context.clearRect(0, 0, canva.width, canva.height);
+            myGraph.drawXAxis();
+            myGraph.drawYAxis();
+            myGraph.drawEquation(
+              function (x) {
+                // console.log($d.value, $d1.value, $d2.value);
+                return (
+                  parseInt($d.value) * Math.sin(x) * Math.sin(x) +
+                  (parseInt($d1.value) * Math.cos(x)) / Math.sin(x) +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "sin" && $type2.value === "x") {
+            console.log($d.value, $d1.value, $d2.value);
+            const canva = document.getElementById("myCanvas");
+            const context = canva.getContext("2d");
+            context.clearRect(0, 0, canva.width, canva.height);
+            myGraph.drawXAxis();
+            myGraph.drawYAxis();
+            myGraph.drawEquation(
+              function (x) {
+                // console.log($d.value, $d1.value, $d2.value);
+                return (
+                  parseInt($d.value) * Math.sin(x) * Math.sin(x) +
+                  parseInt($d1.value) * x +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+          } //cos
+          else if ($type.value === "cos" && $type2.value === "cos") {
+            console.log($d.value, $d1.value, $d2.value);
+            const canva = document.getElementById("myCanvas");
+            const context = canva.getContext("2d");
+            context.clearRect(0, 0, canva.width, canva.height);
+            myGraph.drawXAxis();
+            myGraph.drawYAxis();
+            myGraph.drawEquation(
+              function (x) {
+                // console.log($d.value, $d1.value, $d2.value);
+                return (
+                  parseInt($d.value) * Math.cos(x) * Math.cos(x) +
+                  parseInt($d1.value) * Math.cos(x) +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+            //nemegdej bn
+          } else if ($type.value === "cos" && $type2.value === "x") {
+            console.log($d.value, $d1.value, $d2.value);
+            const canva = document.getElementById("myCanvas");
+            const context = canva.getContext("2d");
+            context.clearRect(0, 0, canva.width, canva.height);
+            myGraph.drawXAxis();
+            myGraph.drawYAxis();
+            myGraph.drawEquation(
+              function (x) {
+                // console.log($d.value, $d1.value, $d2.value);
+                return (
+                  parseInt($d.value) * Math.cos(x) * Math.cos(x) +
+                  parseInt($d1.value) * x +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "cos" && $type2.value === "sin") {
+            console.log($d.value, $d1.value, $d2.value);
+            const canva = document.getElementById("myCanvas");
+            const context = canva.getContext("2d");
+            context.clearRect(0, 0, canva.width, canva.height);
+            myGraph.drawXAxis();
+            myGraph.drawYAxis();
+            myGraph.drawEquation(
+              function (x) {
+                // console.log($d.value, $d1.value, $d2.value);
+                return (
+                  parseInt($d.value) * Math.cos(x) * Math.cos(x) +
+                  parseInt($d1.value) * Math.sin(x) +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "cos" && $type2.value === "tan") {
+            console.log($d.value, $d1.value, $d2.value);
+            const canva = document.getElementById("myCanvas");
+            const context = canva.getContext("2d");
+            context.clearRect(0, 0, canva.width, canva.height);
+            myGraph.drawXAxis();
+            myGraph.drawYAxis();
+            myGraph.drawEquation(
+              function (x) {
+                // console.log($d.value, $d1.value, $d2.value);
+                return (
+                  parseInt($d.value) * Math.cos(x) * Math.cos(x) +
+                  parseInt($d1.value) * Math.tan(x) +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "cos" && $type2.value === "cot") {
+            console.log($d.value, $d1.value, $d2.value);
+            const canva = document.getElementById("myCanvas");
+            const context = canva.getContext("2d");
+            context.clearRect(0, 0, canva.width, canva.height);
+            myGraph.drawXAxis();
+            myGraph.drawYAxis();
+            myGraph.drawEquation(
+              function (x) {
+                // console.log($d.value, $d1.value, $d2.value);
+                return (
+                  parseInt($d.value) * Math.cos(x) * Math.cos(x) +
+                  (parseInt($d1.value) * Math.cos(x)) / Math.sin(x) +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+          }
+          //tan
+          else if ($type.value === "tan" && $type2.value === "sin") {
+            console.log($d.value, $d1.value, $d2.value);
+            const canva = document.getElementById("myCanvas");
+            const context = canva.getContext("2d");
+            context.clearRect(0, 0, canva.width, canva.height);
+            myGraph.drawXAxis();
+            myGraph.drawYAxis();
+            myGraph.drawEquation(
+              function (x) {
+                // console.log($d.value, $d1.value, $d2.value);
+                return (
+                  parseInt($d.value) * Math.tan(x) * Math.tan(x) +
+                  parseInt($d1.value) * Math.sin(x) +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "tan" && $type2.value === "x") {
+            console.log($d.value, $d1.value, $d2.value);
+            const canva = document.getElementById("myCanvas");
+            const context = canva.getContext("2d");
+            context.clearRect(0, 0, canva.width, canva.height);
+            myGraph.drawXAxis();
+            myGraph.drawYAxis();
+            myGraph.drawEquation(
+              function (x) {
+                // console.log($d.value, $d1.value, $d2.value);
+                return (
+                  parseInt($d.value) * Math.tan(x) * Math.tan(x) +
+                  parseInt($d1.value) * x +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "tan" && $type2.value === "cos") {
+            console.log($d.value, $d1.value, $d2.value);
+            const canva = document.getElementById("myCanvas");
+            const context = canva.getContext("2d");
+            context.clearRect(0, 0, canva.width, canva.height);
+            myGraph.drawXAxis();
+            myGraph.drawYAxis();
+            myGraph.drawEquation(
+              function (x) {
+                // console.log($d.value, $d1.value, $d2.value);
+                return (
+                  parseInt($d.value) * Math.tan(x) * Math.tan(x) +
+                  parseInt($d1.value) * Math.cos(x) +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "tan" && $type2.value === "tan") {
+            console.log($d.value, $d1.value, $d2.value);
+            const canva = document.getElementById("myCanvas");
+            const context = canva.getContext("2d");
+            context.clearRect(0, 0, canva.width, canva.height);
+            myGraph.drawXAxis();
+            myGraph.drawYAxis();
+            myGraph.drawEquation(
+              function (x) {
+                // console.log($d.value, $d1.value, $d2.value);
+                return (
+                  parseInt($d.value) * Math.tan(x) * Math.tan(x) +
+                  parseInt($d1.value) * Math.tan(x) +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "tan" && $type2.value === "cot") {
+            console.log($d.value, $d1.value, $d2.value);
+            const canva = document.getElementById("myCanvas");
+            const context = canva.getContext("2d");
+            context.clearRect(0, 0, canva.width, canva.height);
+            myGraph.drawXAxis();
+            myGraph.drawYAxis();
+            myGraph.drawEquation(
+              function (x) {
+                // console.log($d.value, $d1.value, $d2.value);
+                return (
+                  parseInt($d.value) * Math.tan(x) * Math.tan(x) +
+                  (parseInt($d1.value) * Math.cos(x)) / Math.sin(x) +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "x" && $type2.value === "cot") {
+            console.log($d.value, $d1.value, $d2.value);
+            const canva = document.getElementById("myCanvas");
+            const context = canva.getContext("2d");
+            context.clearRect(0, 0, canva.width, canva.height);
+            myGraph.drawXAxis();
+            myGraph.drawYAxis();
+            myGraph.drawEquation(
+              function (x) {
+                return (
+                  parseInt($d.value) * x * x +
+                  (parseInt($d1.value) * Math.cos(x)) / Math.sin(x) +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "x" && $type2.value === "sin") {
+            console.log($d.value, $d1.value, $d2.value);
+            const canva = document.getElementById("myCanvas");
+            const context = canva.getContext("2d");
+            context.clearRect(0, 0, canva.width, canva.height);
+            myGraph.drawXAxis();
+            myGraph.drawYAxis();
+            myGraph.drawEquation(
+              function (x) {
+                // console.log($d.value, $d1.value, $d2.value);
+                return (
+                  parseInt($d.value) * x * x +
+                  parseInt($d1.value) * Math.sin(x) +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "x" && $type2.value === "cos") {
+            console.log($d.value, $d1.value, $d2.value);
+            const canva = document.getElementById("myCanvas");
+            const context = canva.getContext("2d");
+            context.clearRect(0, 0, canva.width, canva.height);
+            myGraph.drawXAxis();
+            myGraph.drawYAxis();
+            myGraph.drawEquation(
+              function (x) {
+                // console.log($d.value, $d1.value, $d2.value);
+                return (
+                  parseInt($d.value) * x * x +
+                  parseInt($d1.value) * Math.cos(x) +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+          } else if ($type.value === "x" && $type2.value === "tan") {
+            console.log($d.value, $d1.value, $d2.value);
+            const canva = document.getElementById("myCanvas");
+            const context = canva.getContext("2d");
+            context.clearRect(0, 0, canva.width, canva.height);
+            myGraph.drawXAxis();
+            myGraph.drawYAxis();
+            myGraph.drawEquation(
+              function (x) {
+                // console.log($d.value, $d1.value, $d2.value);
+                return (
+                  parseInt($d.value) * x * x +
+                  parseInt($d1.value) * Math.tan(x) +
+                  parseInt($d2.value)
+                );
+              },
+              "blue",
+              3
+            );
+          }
+        }
+      });
+    </script>
+    <script>
+      "use strict";
+      let wprRemoveCPCSS = function wprRemoveCPCSS() {
+        let elem;
+        document.querySelector('link[data-rocket-async="style"][rel="preload"]')
+          ? setTimeout(wprRemoveCPCSS, 200)
+          : (elem = document.getElementById("rocket-critical-css")) &&
+            "remove" in elem &&
+            elem.remove();
+      };
+      window.addEventListener
+        ? window.addEventListener("load", wprRemoveCPCSS)
+        : window.attachEvent && window.attachEvent("onload", wprRemoveCPCSS);
+    </script>
+    <script type="text/javascript">
+      window._taboola = window._taboola || [];
+      _taboola.push({
+        article: "auto",
+      });
+      !(function (e, f, u, i) {
+        if (!document.getElementById(i)) {
+          e.async = 1;
+          e.src = u;
+          e.id = i;
+          f.parentNode.insertBefore(e, f);
+        }
+      })(
+        document.createElement("script"),
+        document.getElementsByTagName("script")[0],
+        "https://cdn.taboola.com/libtrc/pythoncentral/loader.js",
+        "tb_loader_script"
+      );
+      if (window.performance && typeof window.performance.mark == "function") {
+        window.performance.mark("tbl_ic");
+      }
+    </script>
+    <script type="text/javascript">
+      window._taboola = window._taboola || [];
+      _taboola.push({
+        mode: "thumbnails-b",
+        container: "taboola-below-article-thumbnails",
+        placement: "Below Article Thumbnails",
+        target_type: "mix",
+      });
+    </script>
+    <script type="text/javascript">
+      window._taboola = window._taboola || [];
+      _taboola.push({
+        flush: true,
+      });
+    </script>
+    <noscript
+      ><link
+        data-avlabs-exclude-css="1"
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=PT%20Sans%7CLato%3A400%2C700%2C400italic%2C700italic%7COswald%3A400%2C700&display=swap" /><link
+        data-avlabs-exclude-css="1"
+        rel="stylesheet"
+        href="https://www.html5canvastutorials.com/wp-content/cache/min/1/fa413723b02e39d2a577bc52daa608cb.css"
+        media="all"
+        data-minify="1" /><link
+        data-avlabs-exclude-css="1"
+        rel="stylesheet"
+        href="/libraries/codeMirror/lib/codemirror.css"
+    /></noscript>
+    <script>
+      const paintCanvas = document.querySelector(".js-paint");
+      const context = paintCanvas.getContext("2d");
+      context.lineCap = "round";
+      const colorPicker = document.querySelector(".js-color-picker");
+
+      colorPicker.addEventListener("change", (event) => {
+        context.strokeStyle = event.target.value;
+      });
+
+      const lineWidthRange = document.querySelector(".js-line-range");
+      const lineWidthLabel = document.querySelector(".js-range-value");
+
+      lineWidthRange.addEventListener("input", (event) => {
+        const width = event.target.value;
+        lineWidthLabel.innerHTML = width;
+        context.lineWidth = width;
+      });
+
+      let x = 0,
+        y = 0;
+      let isMouseDown = false;
+
+      const stopDrawing = () => {
+        isMouseDown = false;
+      };
+
+      const getMousePositionOnCanvas = (event) => {
+        const clientX = event.clientX || event.touches[0].clientX;
+        const clientY = event.clientY || event.touches[0].clientY;
+        const { offsetLeft, offsetTop } = event.target;
+
+        const viewportOffset = event.target.getBoundingClientRect();
+        const top = viewportOffset.top;
+        const left = viewportOffset.left;
+
+        const canvasX = clientX - left;
+        const canvasY = clientY - top;
+
+        return {
+          x: canvasX,
+          y: canvasY,
+        };
+      };
+
+      const startDrawing = (event) => {
+        isMouseDown = true;
+        const pos = getMousePositionOnCanvas(event);
+        x = pos.x;
+        y = pos.y;
+        // [(x, y)] = [event.offsetX, event.offsetY];
+      };
+      const drawLine = (event) => {
+        event.preventDefault();
+        if (isMouseDown) {
+          const pos = getMousePositionOnCanvas(event);
+
+          const newX = pos.x;
+          const newY = pos.y;
+
+          context.beginPath();
+          context.moveTo(x, y);
+          context.lineTo(newX, newY);
+          context.stroke();
+          // //[x, y] = [newX, newY];
+          x = newX;
+          y = newY;
+        }
+      };
+
+      paintCanvas.addEventListener("mousedown", startDrawing);
+      paintCanvas.addEventListener("mousemove", drawLine);
+      paintCanvas.addEventListener("mouseup", stopDrawing);
+      paintCanvas.addEventListener("mouseout", stopDrawing);
+
+      paintCanvas.addEventListener("touchstart", startDrawing);
+      paintCanvas.addEventListener("touchmove", drawLine);
+      paintCanvas.addEventListener("touchend", stopDrawing);
+      paintCanvas.addEventListener("touchcancel", stopDrawing);
+      const clr = (clearBtn = () => {
+        const $canva = document.getElementById("paint-canvas");
+        const context = $canva.getContext("2d");
+        context.clearRect(0, 0, $canva.width, $canva.height);
+      });
+    </script>
+  </body>
+</html>
