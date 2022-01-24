@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="./login.css">
+</head>
+<body>
+    <!-- Sign-in login -->
+    <div class="login-body flex just-center align-center">
+        <div class="login login-container flex column just-center align-center">
+            <h2>Нэвтрэх</h2>
+            <div class="top">
+                <form id="login-form" action="/" method="GET" >
+                    <div>
+                        <label for="e-mail">Enter your email</label> <br>
+                        <input type="text" id="login-email" name="email" placeholder="phone number email username" required>
+                    </div>
+                    <div>
+                        <label for="password">Enter your password:</label><br>
+                        <input type="password" placeholder = "password" id="login-password" required>
+                    </div>
+                    <div>
+                        <input type="submit" value="Нэвтрэх" class="input-btn">
+                    </div> 
+                </form>
+            </div>
+            <div class="middle flex">
+                <div class="facebook"></div>
+                <div class="google"></div>
+                <div class="phone"></div>
+            </div>
+            <br>
+            <hr>
+            <div class="bottom">
+                <input type="button" value="Бүртгүүлэх" id="regist-btn" class="input-btn" >
+            </div>
+        </div>
+        <!-- SignUp Page -->
+        <div class="sign-up login-container flex column just-center align-center">
+            <h2>Бүртгүүлэх</h2>
+            <div class="top">
+                <form action="login.js">
+                    <div>
+                        <label for="e-mail">И-мейл</label><br>
+                        <input type="email" placeholder = "e-mail" id="register-email" aria-required="true" name="e-mail">
+                    </div>
+                    <div class="verication-code-container">
+                        <label for="Verication">Enter your verication code:</label> <br>
+                        <input type="number" id="verication-code" name="gmail" placeholder="gmail">
+                    </div>    
+                    
+                </form>
+            </div>
+
+            <div class="bottom">
+                <div>
+                    <input type="submit" value="Бүртгүүлэх" id="register-regist-btn" class="input-btn">
+                </div>
+                
+                <div>
+                    <button id="vercation-submit-btn" class="input-btn">Login</button>
+                </div>  
+            </div> 
+        </div>
+
+        <!-- Google sign-in page -->
+        <div class="google-sign-in login-container flex column just-center align-center">
+            <h2>Verication Code</h2>
+            <div class="top">          
+                <div>
+                    <label for="Verication">Enter your verication code:</label> <br>
+                    <input type="number" id="verication-code" name="gmail" placeholder="gmail">
+                </div>    
+                <div>
+                    <button id="google-login-btn" class="input-btn">Login</button>
+                </div>  
+            </div>
+        </div>
+        <!-- //////////////////////////////////////////////////////////////// -->
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script>
+        firebase.initializeApp({
+            apiKey: "AIzaSyCFcmVCuv88VCnm-2ksXRng90c5g_9eVT8",
+            authDomain: "team1-math-login.firebaseapp.com",
+            projectId: "team1-math-login",
+            storageBucket: "team1-math-login.appspot.com",
+            messagingSenderId: "372419094094",
+            appId: "1:372419094094:web:2c5d6f0bc8a876316b051f"
+        });
+        const storage = firebase.storage();
+        const storageRef = storage.ref();
+        const db = firebase.firestore();
+    </script>
+    <script src="./login.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div class="nav flex space-between">
+      <div class="logo"></div>
+      <div class="flex margin-right">
+        <div class="margin-right">Courses</div>
+        <div class="margin-right">Login</div>
+        <div class="margin-right">Sign up</div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="flex center">
+        <div class="bluebg">
+            <div class="loginmar">Login</div>
+        </div>
+        <div class="login">
+          <div class="flex column center1">
+            <button class="google">
+              <img class="btnlogo size1 " src="../images/Google__G__Logo 1.svg">
+              Continue with Google</button>
+            <button class="phone">
+                <img class="btnlogo size2" src="../images/52b7afa0c08f86658fb92d3d7d0d009c-removebg-preview 1.svg">
+                Phone number</button>
+            <button class="facebook">
+                <img class="btnlogo size3" src="../images/Facebook-f_Logo-Blue-Logo.wine 1.svg">
+                Continue with Facebook</button>
+          </div>
+
+          <div class="flex column align-center center2">
+            <form id="login-form" class="flex column center" action="/" method="GET">
+              <div class="text margin-top">Email or username</div>
+              <input type="text" id="login-email" required/>
+              <div class="text margin-top">Password</div>
+              <input type="password" id="login-password" required/>
+              <input class="margin-top" type="submit" value="Log In"  />
+            </form>
+            <div class="create" id="regist-btn">Create an account</div>
+          </div>
+
+          <div class="flex column align-center center3">
+            <form class="flex column center" id="verication-form" action="/" method="GET">
+              <div class="text">Email</div>
+              <input class="margin-top" type="text" id="verication-email" required/>
+              <input class="margin-top send" type="submit" value="Send verication/"/>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script>
+        firebase.initializeApp({
+            apiKey: "AIzaSyCFcmVCuv88VCnm-2ksXRng90c5g_9eVT8",
+            authDomain: "team1-math-login.firebaseapp.com",
+            projectId: "team1-math-login",
+            storageBucket: "team1-math-login.appspot.com",
+            messagingSenderId: "372419094094",
+            appId: "1:372419094094:web:2c5d6f0bc8a876316b051f"
+        });
+        const storage = firebase.storage();
+        const storageRef = storage.ref();
+        const db = firebase.firestore();
+    </script>
+    <script src="./login.js"></script>
+  </body>
+</html>

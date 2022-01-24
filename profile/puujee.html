@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puujee</title>
+</head>
+<body>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script> -->
+    <script>
+      firebase.initializeApp({
+          apiKey: "AIzaSyCFcmVCuv88VCnm-2ksXRng90c5g_9eVT8",
+          authDomain: "team1-math-login.firebaseapp.com",
+          projectId: "team1-math-login",
+          storageBucket: "team1-math-login.appspot.com",
+          messagingSenderId: "372419094094",
+          appId: "1:372419094094:web:2c5d6f0bc8a876316b051f"
+      });
+    //   const storage = firebase.storage();
+    //   const storageRef = storage.ref();
+    //   const db = firebase.firestore();
+    </script>
+    <script>
+        if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
+        // Additional state parameters can also be passed via URL.
+        // This can be used to continue the user's intended action before triggering
+        // the sign-in operation.
+        // Get the email if available. This should be available if the user completes
+        // the flow on the same device where they started it.
+        var email = window.localStorage.getItem('emailForSignIn');
+        if (!email) {
+            // User opened the link on a different device. To prevent session fixation
+            // attacks, ask the user to provide the associated email again. For example:
+            email = window.prompt('Please provide your email for confirmation');
+        }
+        // The client SDK will parse the code from the link for you.
+        firebase.auth().signInWithEmailLink(email, window.location.href)
+            .then((result) => {
+            // Clear email from storage.
+            window.localStorage.removeItem('emailForSignIn');
+            // You can access the new user via result.user
+            // Additional user info profile not available via:
+            // result.additionalUserInfo.profile == null
+            // You can check if the user is new or existing:
+            // result.additionalUserInfo.isNewUser
+            console.log(result);
+            result.emailVerified
+            })
+            .catch((error) => {
+            // Some error occurred, you can inspect the code: error.code
+            // Common errors could be invalid email and invalid or expired OTPs.
+            console.log(error);
+            });
+        }
+            //     userData.updateEmail($changeDataInput.value).then(() => {
+            //       db.collection('users').doc(userData.uid).set({
+            //         email: $changeDataInput.value
+            //       },{merge: true});
+            //       console.log('Update data...');
+            //       location.replace('./index.html');
+            //   }).catch((err) => {
+            //       console.log(`Error:${err}`);
+            //   });
+    </script>
+</body>
+</html>
