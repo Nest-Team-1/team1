@@ -26,6 +26,20 @@ updateProfileData = () => {
       if(user.photoURL){
         $profilePhoto.style.backgroundImage = `url(${user.photoURL})`;
       }
+      // Check the verified Email
+      if(userData.emailVerified === true){
+        db.collection("users").doc(userData.uid).update({
+          oldEmail: firebase.firestore.FieldValue.delete()
+        });
+      }
+      else{
+        db.collection('users').doc(userData.uid).get().then((doc)=>{
+          const data = doc.data();
+          if(data.oldEmail){
+            alert('Имейл хаягаа баталгаажуулна уу ?');
+          }
+        })
+      }
       // ...
     } else {
       // User is signed out
@@ -118,26 +132,55 @@ function saveChanges(labelText){
   const $changeDataInput = document.getElementById('changeDataInput');
   if($changeDataInput.value){
     if(labelText === 'New Username'){
-      userData.updateProfile({
-        displayName: $changeDataInput.value
-      }).then(() => {
-        console.log('auth save successful');
-          db.collection('users').doc(userData.uid).set({
-            name: $changeDataInput.value
-          },{merge: true});
-          console.log('Update data...');
-          updateProfileData();
+      db.collection('users').where('name', '==', $changeDataInput.value).get().then((querySnapshot) =>{
+        const data = querySnapshot.docs[0].data();
+        console.log(data);
+        alert(`${$changeDataInput.value} нэвтрэх нэртэй хэрэглэгч бүртгэлтэй байна. Та өөр  нэр оруулна уу ?`);
       }).catch((err) => {
-          console.log(`Error:${err}`);
-      });
+        console.log(err);
+        userData.updateProfile({
+          displayName: $changeDataInput.value
+        }).then(() => {
+          console.log('auth save successful');
+            db.collection('users').doc(userData.uid).set({
+              name: $changeDataInput.value
+            },{merge: true});
+            console.log('Update data...');
+            updateProfileData();
+        }).catch((err) => {
+            console.log(`Error:${err}`);
+        });
+      })
+      
     }
     else if(labelText === 'New Email'){
-      vericationEmail($changeDataInput.value);
-      // userData.sendEmailVerification().then(() => {
-      //   alert("Шинэ и-мейл хаяг руу баталгаажуулах линк илгээлээ.");
-      // }).catch((err) => {
-      //   console.log(err);
-      // });
+      db.collection('users').where('email', '==', $changeDataInput.value).get().then((querySnapshot) =>{
+        const data = querySnapshot.docs[0].data();
+        console.log(data);
+        alert(`${$changeDataInput.value} и-мейлтэй хэрэглэгч бүртгэлтэй байна. Та өөр и-мейл оруулна уу ?`);
+      }).catch((err) => {
+        console.log(err);
+        const oldEmail = userData.email;
+      userData.updateEmail($changeDataInput.value).then(() => {
+        // Update successful
+        userData.sendEmailVerification().then(() => {
+          window.localStorage.setItem('emailForSignIn', $changeDataInput.value);
+          db.collection('users').doc(userData.uid).set({
+            oldEmail,
+            email: $changeDataInput.value
+          },{merge: true}).catch((err) => {
+            console.log(`Error:${err}`);
+          });
+          alert("Шинэ и-мейл хаяг руу баталгаажуулах линк илгээлээ.");
+        }).catch((err) => {
+          console.log(err);
+        });      
+      }).catch((error) => {
+        console.log(error);
+        // An error occurred
+        // ...
+      });
+      });
     }
     else if(labelText === 'New Password'){
       userData.updatePassword($changeDataInput.value).then(() => {
@@ -230,21 +273,3 @@ var actionCodeSettings = {
   // This must be true.
   handleCodeInApp: true,
 };
-
-const vericationEmail = (email) =>{
-  firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
-  .then(() => {
-    // The link was successfully sent. Inform the user.
-    // Save the email locally so you don't need to ask the user for it again
-    // if they open the link on the same device.
-    window.localStorage.setItem('emailForSignIn', email);
-    alert('Шинэ и-мейл хаяг руу баталгаажуулах линкийг илгээлээ.');
-    // Confirm the link is a sign-in with email link.
-  })
-  .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    console.log(errorCode, errorMessage);
-    // ...
-  });
-}

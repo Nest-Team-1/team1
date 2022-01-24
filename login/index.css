@@ -29,8 +29,11 @@ body {
 .column {
   flex-direction: column;
 }
-.align-center{
+.align-center {
   align-items: center;
+}
+.just-center {
+  justify-content: center;
 }
 .logo {
   background-image: url(../images/960d5ad1f54145d5856ebfcc51c44b38\ 1.svg);
@@ -124,6 +127,23 @@ input {
   align-items: center;
   margin-top: 117px;
 }
+
+.center4 {
+  display: none;
+  width: 534px;
+  height: 687px;
+  background-color: white;
+  align-items: center;
+}
+
+.center5 {
+  display: none;
+  width: 534px;
+  height: 687px;
+  background-color: white;
+  align-items: center;
+}
+
 .text {
   width: 368px;
   color: #2c2122;

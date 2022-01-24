@@ -31,7 +31,7 @@
               Continue with Google</button>
             <button class="phone">
                 <img class="btnlogo size2" src="../images/52b7afa0c08f86658fb92d3d7d0d009c-removebg-preview 1.svg">
-                Phone number</button>
+                Register by Phone number</button>
             <button class="facebook">
                 <img class="btnlogo size3" src="../images/Facebook-f_Logo-Blue-Logo.wine 1.svg">
                 Continue with Facebook</button>
@@ -48,15 +48,35 @@
             <div class="create" id="regist-btn">Create an account</div>
           </div>
 
-          <div class="flex column align-center center3">
+          <div class="flex column align-center just-center center3">
             <form class="flex column center" id="verication-form" action="/" method="GET">
               <div class="text">Email</div>
               <input class="margin-top" type="text" id="verication-email" required/>
               <input class="margin-top send" type="submit" value="Send verication/"/>
             </form>
+            <button class="cancel-email-btn">Cancel</button>
           </div>
 
         </div>
+
+        <div class="flex column just-center align-center center4 ">
+          <form class="flex column just-center align-center" id="phone-form" action="/" method="GET">
+            <div class="text">Phone Number: </div>
+            <input class="margin-top" type="number" id="phone-number" required/>
+            <input class="margin-top send" type="submit" value="Send verication code" id="recaption"/>
+          </form>
+          <button class="cancel-phone-btn">Cancel</button>
+        </div>
+
+        <div class="flex column just-center align-center center5 ">
+          <form class="flex column" id="phone-verication-form" action="/" method="GET">
+            <div class="text">Verication Code: </div>
+            <input class="margin-top" type="number" id="phone-verication-code" required/>
+            <input class="margin-top send" type="submit" value="Send verication code"/>
+          </form>
+          <button class="cancel-phone-verication-btn">Cancel</button>
+        </div>
+
       </div>
     </div>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
@@ -65,12 +85,12 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script>
         firebase.initializeApp({
-            apiKey: "AIzaSyCFcmVCuv88VCnm-2ksXRng90c5g_9eVT8",
-            authDomain: "team1-math-login.firebaseapp.com",
-            projectId: "team1-math-login",
-            storageBucket: "team1-math-login.appspot.com",
-            messagingSenderId: "372419094094",
-            appId: "1:372419094094:web:2c5d6f0bc8a876316b051f"
+          apiKey: "AIzaSyD7imnntY4Rpz8fBvBW7uJm_3-pwiJJTvk",
+    authDomain: "team2-math-login.firebaseapp.com",
+    projectId: "team2-math-login",
+    storageBucket: "team2-math-login.appspot.com",
+    messagingSenderId: "14947320952",
+    appId: "1:14947320952:web:9113110ece0bbf5c48198d"
         });
         const storage = firebase.storage();
         const storageRef = storage.ref();
