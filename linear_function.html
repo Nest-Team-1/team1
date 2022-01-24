@@ -471,14 +471,14 @@
 <body>
     <div class="exam">
         <div class="close" onclick="closeBtn()">x</div>
-        <div class="item webhtml col-sm-6 col-md-4 col-lg-4 mb-4" style="height: 80vh; overflow-y: scroll; ">
+        <div class="item webhtml col-sm-6 col-md-4 col-lg-4 mb-4" style="height: 80vh; ">
             <a href="https://docs.google.com/forms/d/e/1FAIpQLScGcNQMdKjO4jzqmKZ_IfIG0GA93Iw7z26KnXz4bShVfUQCcA/viewform?usp=sf_link" class="item-wrap fancybox" style="height: 80vh">
                 <div class="work-info">
                     <h3>Exam</h3>
                     <span>Exam for begginers</span>
                 </div>
                 <iframe class="img-fluid" src="https://docs.google.com/forms/d/e/1FAIpQLScGcNQMdKjO4jzqmKZ_IfIG0GA93Iw7z26KnXz4bShVfUQCcA/viewform?usp=sf_link" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen scrolling="yes" style="width: 50vw; height: 80vh; overflow-y: scroll; border: 1px aqua solid"></iframe>
+                    allowfullscreen scrolling="yes" style="width: 50vw; height: 80vh; border: 1px aqua solid"></iframe>
             </a>
         </div>
 
@@ -561,7 +561,7 @@
 <script>
     let $a = document.querySelector("#a");
     let $b = document.getElementById("b");
-    // let $c = document.getElementById("c");
+    let $con = document.querySelector(".container");
     let $d = document.querySelector("#a1");
     let $d1 = document.querySelector("#a2");
     // let $d2 = document.querySelector("#a3");
@@ -600,11 +600,12 @@
 
 
     const exam = examBtn = () => {
-        console.log('hello');
         $exam.style.display = "flex";
+        $con.style.opacity = "0.1"
     }
     const clo = closeBtn = () => {
         $exam.style.display = "none";
+        $con.style.opacity = "1"
     }
 
     function Graph(config) {
