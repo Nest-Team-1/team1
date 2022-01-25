@@ -1,7 +1,7 @@
 const $profileForm = document.getElementById("profile-form");
 const $profileEmail = document.querySelector('.profile-email');
 const $profileUsername = document.querySelector('.profile-username');
-const $profilePhone = document.querySelector('.profile-password');
+const $profilePhone = document.querySelector('.profile-phone-number');
 const $profilePassword = document.querySelector('.profile-password');
 const $profileImg = document.getElementById('profile-img'); 
 const $profilePhoto = document.querySelector('.profilep'); 
@@ -198,6 +198,34 @@ function saveChanges(labelText){
   }
 }
 
+function sendPhoneNumber(){
+  const phoneNumber = document.getElementById('changeDataInput').value;
+  if(phoneNumber.length === 8){
+    console.log(phoneNumber.length);
+    db.collection('users').where('phone', '==', phoneNumber).get().then((querySnapshot) =>{
+      const data = querySnapshot.docs[0].data();
+      console.log(data);
+      alert(`${phoneNumber} дугаартай хэрэглэгч бүртгэлтэй байна. Та өөр утасны дугаар оруулна уу ?`);
+    }).catch((err) => {
+      console.log(err.message);
+      const child = document.querySelector('.big-text');
+      $contentContainer.removeChild(child);
+      createHTMLElementPhone2();
+      const appVerifier = window.recaptchaVerifier;
+      firebase.auth().signInWithPhoneNumber(`+976${ phoneNumber}`, appVerifier).then((result) => {
+          confirmationResult = result;
+          console.log('result');
+          alert('Таны утасруу баталгаажуулах код илгээлээ.');
+        }).catch((error) => {
+          console.log(error);
+        });
+    });
+  }
+  else{
+    alert('Таны оруулсан утасны дугаар алдаатай байна. Дугаараа шалгаад дахин оролдоно уу ?');
+  }
+}
+
 createHTMLElement = (labelTitle, text, type) => {
   console.log('clicked...');
   const div = document.createElement('div');
@@ -213,7 +241,7 @@ createHTMLElement = (labelTitle, text, type) => {
   div.innerHTML = html;
   $contentContainer.append(div);
 }
-createHTMLElementPhone = () => {
+createHTMLElementPhone1 = () => {
   const div = document.createElement('div');
   div.classList.add('changed-field-phone', 'column', 'flex', 'just-center', 'align-center');
   
@@ -222,25 +250,32 @@ createHTMLElementPhone = () => {
     <input type="number" name="usernamechange" id="changeDataInput">
   </div>
   <div>
-    <button class="changeBtn" id="changeDataSave">Send Code</button>
-  </div>
-  <div class="big-text">
-    <label for="verication-code">Verication code</label>
-    <input type="number" name="verication-code" id="changeDataInput">
-  </div>
-  <div>
-    <button onclick='sendVerication()' class="changeBtn" id="vericationSubmit">Submit</button>
-    <button onclick="cancelBtn()" class="changeBtn" id="cancel">Cancel</button>
-  </div>`;
+    <button class="changeBtn"onclick='sendPhoneNumber' id="phone-number-send">Send Code</button>
+    <button onclick="cancelBtnVer()" class="changeBtn" id="cancel">Cancel</button>
+  </div>`;  
 
   div.innerHTML = html;  
   $contentContainer.append(div);
 }
-// function changeUsername() {
-//   // 1.garaas utga avah 
-//   // 2. Authentication deer hadgalah
-//   // 3. Firestore deer hadgalah
-// }
+
+createHTMLElementPhone2 = () => {
+  const div = document.createElement('div');
+  div.classList.add('changed-field-phone', 'column', 'flex', 'just-center', 'align-center');
+  
+  const html = `<div class="big-text">
+    <label for="usernamechange">Verication Code:</label>
+    <input type="number" name="usernamechange" id="vericaiton-code-number">
+  </div>
+  <div>
+    <button class="changeBtn"onclick='submit-verication-code' id="phone-number-send">Send Code</button>
+    <button onclick="cancelBtn()" class="changeBtn" id="cancel">Cancel</button>
+  </div>`;  
+
+  div.innerHTML = html;  
+  $contentContainer.append(div);
+}
+
+ 
 // Change profile information
 $ulTag.addEventListener("click", (e) => {
   const edit = e.target;
@@ -255,7 +290,16 @@ $ulTag.addEventListener("click", (e) => {
         createHTMLElement('New Email', 'Send', 'email');
         break;
       case 'li3':
-        createHTMLElementPhone();
+        // Phone verication code submit 
+        createHTMLElementPhone1();
+        // window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('phone-number-send', {
+        //   'size': 'invisible',
+        //   'callback': (response) => {
+        //     // reCAPTCHA solved, allow signInWithPhoneNumber.
+        //     console.log("recaptcha/...");
+        //     onSignInSubmit();
+        //   }
+        // });
         break;
       case 'li4':
         createHTMLElement('New Password', 'Save', 'password');

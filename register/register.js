@@ -47,7 +47,15 @@ $registerForm.addEventListener('submit', (e) => {
   const userName = $registUsername.value;
   const password = $registPassword.value;
   const email = $registEmail.value;
-  createEmail(email, password, userName);
+  
+  db.collection('users').where('name', '==', userName).get().then((querySnapshot) =>{
+    const data = querySnapshot.docs[0].data();
+    console.log(data);
+    alert(`${userName} нэртэй хэрэглэгч бүртгэлтэй байна. Та өөр нэр     оруулна уу ?`);
+  }).catch((err) => {
+    console.log(err);
+    createEmail(email, password, userName);
+  });
 })
 // Create Email
   createEmail = (email, password, uName) => {

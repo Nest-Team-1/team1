@@ -28,6 +28,7 @@ const $phoneVericationCode = document.getElementById('phone-verication-code');
 const $vericationEmail = document.getElementById('verication-email');
 const $vericationForm = document.getElementById('verication-form');
 
+const $recaption = document.getElementById('recaption');
 
 
 // Profile page
@@ -131,13 +132,19 @@ $vericationForm.addEventListener('submit', (e)=> {
   e.preventDefault();
   const email = $vericationEmail.value;
   if(email){
-    vericationEmail(email);
+    db.collection('users').where('email', '==', email).get().then((querySnapshot) =>{
+      const data = querySnapshot.docs[0].data();
+      console.log(data);
+      alert(`${email} и-мейлтэй хэрэглэгч бүртгэлтэй байна. Та өөр и-мейл оруулна уу ?`);
+    }).catch((err) => {
+      console.log(err);
+      vericationEmail(email);
+    });
   }
   else{
     alert('Email zaaval oruulna uu ');
   }
 });
-
 //////////////////////////////////////////////////////////////////////////
 // Sign in email account
 signInEmail = (email, password) =>{
@@ -162,18 +169,24 @@ signInEmail = (email, password) =>{
 $phone.addEventListener('click', () => {
   $login.style.display = 'none';
   $center4.style.display = 'flex';
+  $center5.style.display = 'none';
 });
 
 // Phone cancel button
 $phoneCancelBtn.addEventListener('click', () => {
   $center4.style.display = 'none';
   $login.style.display = 'block';
+  $center5.style.display = 'none';
 });
 // Phone verication cancel button
 $phoneCancelVericationBtn.addEventListener('click', () => {
   $center5.style.display = 'none';
   $center4.style.display = 'flex';
+  $login.style.display = 'none';
 });
+
+firebase.auth().languageCode = 'mn';
+let confirmationResult;
 // Phone number submit button
 $phoneForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -184,15 +197,24 @@ $phoneForm.addEventListener('submit', (e) => {
       const data = querySnapshot.docs[0].data();
       console.log(data);
       alert(`${phoneNumber} дугаартай хэрэглэгч бүртгэлтэй байна. Та өөр утасны дугаар оруулна уу ?`);
-  }).catch((err) => {
-    console.log(err);
-    $center4.style.display = 'none';
-    $center5.style.display = 'flex';
-  });
+    }).catch((err) => {
+      console.log(err);
+      $login.style.display = 'none';
+      $center4.style.display = 'none';
+      $center5.style.display = 'flex';
+      const appVerifier = window.recaptchaVerifier;
+      firebase.auth().signInWithPhoneNumber(`+976${ phoneNumber}`, appVerifier).then((result) => {
+          confirmationResult = result;
+          console.log('result');
+          alert('Таны утасруу баталгаажуулах код илгээлээ.');
+        }).catch((error) => {
+          console.log(error);
+        });
+    });
   }
   else{
-  alert('Таны оруулсан утасны дугаар алдаатай байна. Дугаараа шалгаад дахин оролдоно уу ?');
-}
+    alert('Таны оруулсан утасны дугаар алдаатай байна. Дугаараа шалгаад дахин оролдоно уу ?');
+  }
 });
 
 // Phone verication code submit 
@@ -208,19 +230,28 @@ window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaption', {
 // submit phone verication code
 $phoneVericationForm.addEventListener('submit', (e) => {
   e.preventDefault(); 
+  const code = $phoneVericationCode.value;
+confirmationResult.confirm(code).then((result) => {
+  // User signed in successfully.
+  const user = result.user;
+  console.log(user);
+  db.collection('users').doc(user.uid).set({
+    phone: user.phoneNumber
+  }).then(() => {
+      console.log('successfull save data in firestore');
+      location.replace('../profile/index.html');
+  }).catch((err) => {
+      console.log('failed save data error:', err);
+  })
+  // ...
+}).catch((error) => {
+  // User couldn't sign in (bad verification code?)
+  // ...
+  console.log(error);
+});
   // console.log(phone)
-  const appVerifier = window.recaptchaVerifier;
-  let confirmationResult;
-  firebase.auth().signInWithPhoneNumber(`+976${ $phoneVericationCode.value}`, appVerifier).then((result) => {
-      confirmationResult = result;
-      console.log('result');
-  }).catch((error) => {
-      console.log(error);
-  });
+  
 })
-
-
-
 
 // Google-eer newtreh
 let googleProvider = new firebase.auth.GoogleAuthProvider();
