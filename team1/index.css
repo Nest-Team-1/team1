@@ -20,7 +20,7 @@ h4 {
 .regbtn {
   width: 113px;
   height: 38px;
-  background-color: #f48023;
+  background-color: #1865F1;
   border-radius: 5px;
   border: none;
   cursor: pointer;
@@ -114,7 +114,8 @@ h4 {
   justify-content: center;
   align-items: center;
   display: none;
-  margin-top: -20px;
+  z-index: 2;
+  top: 0;
 }
 .bg {
   position: absolute;
@@ -155,7 +156,7 @@ h4 {
   width: 106px;
   height: 38px;
   margin-right: 60px;
-  background-color: #f48023;
+  background-color: #1865F1;
   border: none;
   color: white;
   border-radius: 5px;
@@ -294,6 +295,7 @@ h4 {
   border-bottom: 1px solid #eaeaea;
   position: fixed;
   top: 0;
+  z-index: 1;
 }
 .logo {
   flex: 1;

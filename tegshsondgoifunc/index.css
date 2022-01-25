@@ -10,20 +10,19 @@ body {
   font-weight: bold;
   font-size: 16px;
 }
-.problem{
+.problem {
   position: absolute;
   width: 100vw;
   height: 100vh;
   opacity: 0.5;
   background-color: black;
   top: 0;
-display: none;
+  display: none;
 }
-.img-fluid{
+.img-fluid {
   width: 60vw;
   height: 80vh;
-   margin: 0 auto;
-
+  margin: 0 auto;
 }
 button {
   display: flex;
@@ -45,12 +44,9 @@ button {
   width: 100%;
   height: 50px;
 }
-p {
-  /* font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 21px; */
+.center{
+    width: 35vw;
+    margin: 0 auto;
 }
 .ellipse {
   background: #6bb6ff;
@@ -88,7 +84,7 @@ line-height: 21px; */
   border-bottom: 1px solid black;
 }
 .qwe {
-  border-left: 3px solid #e5e5e5;
+  /* border-left: 3px solid #e5e5e5; */
   width: 90%;
 }
 .logo {
@@ -130,11 +126,30 @@ line-height: 21px; */
   width: 90%;
   margin: 0 auto;
 }
-.red{
+.red {
   color: red;
 }
+.txt{
+    width: 35vw;
+    padding: 30px;
+}
 .margin-left {
-  margin-left: 10px;
+  /* margin-left: 10px; */
+}
+.blckbtn {
+  width: 244px;
+  height: 50px;
+  border-radius: 12px;
+  border: 1px solid #777777;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  background: #777777;
 }
 .border {
   border: 1px solid black;
@@ -143,6 +158,7 @@ line-height: 21px; */
   box-sizing: border-box;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin: 0 auto;
+  border-radius: 15px;
 }
 .theory {
   width: 42.5vw;
