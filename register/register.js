@@ -4,7 +4,7 @@ const $registPassword = document.getElementById('register-password');
 const $registUsername = document.getElementById('register-username');
 const $registRegisterBtn = document.getElementById('registRegisterBtn');
 const $registerForm = document.getElementById('register-form');
-
+let userData;
 //////////////////////////////////////////////////////////////////////////
 
 if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
@@ -34,6 +34,7 @@ if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
       // You can check if the user is new or existing:
       // result.additionalUserInfo.isNewUser
       console.log(result);
+      userData = result.user;
     })
     .catch((error) => {
       // Some error occurred, you can inspect the code: error.code
@@ -54,40 +55,55 @@ $registerForm.addEventListener('submit', (e) => {
     alert(`${userName} нэртэй хэрэглэгч бүртгэлтэй байна. Та өөр нэр     оруулна уу ?`);
   }).catch((err) => {
     console.log(err);
-    createEmail(email, password, userName);
+    signIn(password, userName);
   });
 })
-// Create Email
-  createEmail = (email, password, uName) => {
-    console.log(email, password, uName);
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-  .then((userCredential) => {
-    const user = userCredential.user;
-    console.log(user);
-    // Signed in 
-        user.updateProfile({
-          displayName: uName
-        }).then(() => {
-            console.log('Update data...');
-            createUserFireStore(user, password);
-        }).catch((err) => {
-            console.log(`Error:${err}`);
-        })
+
+// signIn
+signIn = (password, uName) => {
+  // Signed in 
+  userData.updateProfile({
+    displayName: uName,
+    password
+  }).then(() => {
+      console.log('Update data...');
+      createUserFireStore(password);
+  }).catch((err) => {
+      console.log(`Error:${err}`);
   })
-  .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    console.log(errorMessage, errorCode );
-    // ..
-  });
-  }
+}
+
+// Create Email
+  // createEmail = (email, password, uName) => {
+  //   console.log(email, password, uName);
+  //   firebase.auth().createUserWithEmailAndPassword(email, password)
+  // .then((userCredential) => {
+  //   const user = userCredential.user;
+  //   console.log(user);
+  //   // Signed in 
+  //       user.updateProfile({
+  //         displayName: uName
+  //       }).then(() => {
+  //           console.log('Update data...');
+  //           createUserFireStore(user, password);
+  //       }).catch((err) => {
+  //           console.log(`Error:${err}`);
+  //       })
+  // })
+  // .catch((error) => {
+  //   var errorCode = error.code;
+  //   var errorMessage = error.message;
+  //   console.log(errorMessage, errorCode );
+  //   // ..
+  // });
+  // }
 
 // write user information to firestore
-createUserFireStore = (user, password) => {
-    db.collection('users').doc(user.uid).set({
-        name: user.displayName,
+createUserFireStore = (password) => {
+    db.collection('users').doc(userData.uid).set({
+        name: userData.displayName,
         password,
-        email: user.email
+        email: userData.email
     }).then(() => {
         console.log('successfull save data in firestore');
         location.replace('../profile/index.html');

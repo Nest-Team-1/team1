@@ -8,7 +8,7 @@ const $profilePhoto = document.querySelector('.profilep');
 const $ulTag = document.querySelector('.ul-tag');
 const $contentContainer = document.querySelector('.content-container');
 const $cancelBtn = document.getElementById('cancel');
-let userData;
+let userData, phone, confirmationResult, uid;
 
 updateProfileData = () => {
   console.log(`Update profile Data`);
@@ -16,7 +16,7 @@ updateProfileData = () => {
     if (user) {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
-      // var uid = user.uid;
+      uid = user.uid;
       userData = user;
       $profileEmail.innerText = user.email;
       $profileUsername.innerText = user.displayName;
@@ -35,16 +35,27 @@ updateProfileData = () => {
       else{
         db.collection('users').doc(userData.uid).get().then((doc)=>{
           const data = doc.data();
+          console.log(data);
           if(data.oldEmail){
             alert('Имейл хаягаа баталгаажуулна уу ?');
           }
         })
       }
-      // ...
     } else {
-      // User is signed out
-      alert('Sign-out...');
-      // ...
+      if(uid){
+        db.collection('users').doc(uid).get().then((doc) => {
+          const data = doc.data();
+          signInEmail(data.email, data.password);
+        }).catch((err) => {
+          console.log(err);
+        })
+        uid = null;
+      }
+      else{
+        // User is signed out
+        alert('Sign-out...');
+        location.replace('../login/index.html');
+      }
     }
   });
 }
@@ -198,7 +209,7 @@ function saveChanges(labelText){
   }
 }
 
-function sendPhoneNumber(){
+function updateProfilePhoneNumber() {
   const phoneNumber = document.getElementById('changeDataInput').value;
   if(phoneNumber.length === 8){
     console.log(phoneNumber.length);
@@ -208,14 +219,24 @@ function sendPhoneNumber(){
       alert(`${phoneNumber} дугаартай хэрэглэгч бүртгэлтэй байна. Та өөр утасны дугаар оруулна уу ?`);
     }).catch((err) => {
       console.log(err.message);
-      const child = document.querySelector('.big-text');
-      $contentContainer.removeChild(child);
-      createHTMLElementPhone2();
+      // This will render a fake reCAPTCHA as appVerificationDisabledForTesting is true.
+      // This will resolve after rendering without app verification.
+      // Phone verication code submit 
+      window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('phone-number-send', {
+        'size': 'invisible',
+        'callback': (response) => {
+          // reCAPTCHA solved, allow signInWithPhoneNumber.
+          console.log("recaptcha/...");
+          onSignInSubmit();
+        }
+      });
       const appVerifier = window.recaptchaVerifier;
-      firebase.auth().signInWithPhoneNumber(`+976${ phoneNumber}`, appVerifier).then((result) => {
+      firebase.auth().signInWithPhoneNumber(`+976${phoneNumber}`, appVerifier).then((result) => {
           confirmationResult = result;
-          console.log('result');
+          phone = phoneNumber;
           alert('Таны утасруу баталгаажуулах код илгээлээ.');
+          cancelBtn(); 
+          createHTMLElementPhone2();
         }).catch((error) => {
           console.log(error);
         });
@@ -225,6 +246,57 @@ function sendPhoneNumber(){
     alert('Таны оруулсан утасны дугаар алдаатай байна. Дугаараа шалгаад дахин оролдоно уу ?');
   }
 }
+
+// Sign in email account
+signInEmail = (email, password) =>{
+  console.log("sign in function......", email);
+  firebase.auth().signInWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+    // Signed in
+    var user = userCredential.user;
+    // ...
+    user.updateProfile({
+      phoneNumber: `${phone}`
+    }).then(()=>{
+      console.log('phone successful');
+      db.collection('users').doc(userData.uid).set({
+        phone
+      },{merge: true});
+      console.log('Update data...');
+      updateProfileData();
+    }).catch((err)=>{
+      console.log(err);
+    })
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorCode, errorMessage);
+  });
+}
+
+function verifyCode(){
+  const $vericationCodeNumber = document.getElementById('verication-code-number'); 
+  code = $vericationCodeNumber.value;
+  if(code){
+    confirmationResult.confirm(code).then((result) => {
+      // User signed in successfully.
+      const user = result.user;
+      console.log(user);
+      user.delete().then(() => {
+        // User deleted.
+        console.log('Delete User success');
+      }).catch((error) => {
+        // An error ocurred
+        console.log(error);
+      });
+    }).catch((error) => {
+      // User couldn't sign in (bad verification code?)
+      console.log(error);
+    });
+  }
+}
+
 
 createHTMLElement = (labelTitle, text, type) => {
   console.log('clicked...');
@@ -250,8 +322,8 @@ createHTMLElementPhone1 = () => {
     <input type="number" name="usernamechange" id="changeDataInput">
   </div>
   <div>
-    <button class="changeBtn"onclick='sendPhoneNumber' id="phone-number-send">Send Code</button>
-    <button onclick="cancelBtnVer()" class="changeBtn" id="cancel">Cancel</button>
+    <button class="changeBtn"onclick='updateProfilePhoneNumber()' id="phone-number-send">Send Code</button>
+    <button onclick="cancelBtn()" class="changeBtn" id="cancel">Cancel</button>
   </div>`;  
 
   div.innerHTML = html;  
@@ -264,10 +336,10 @@ createHTMLElementPhone2 = () => {
   
   const html = `<div class="big-text">
     <label for="usernamechange">Verication Code:</label>
-    <input type="number" name="usernamechange" id="vericaiton-code-number">
+    <input type="number" name="usernamechange" id="verication-code-number">
   </div>
   <div>
-    <button class="changeBtn"onclick='submit-verication-code' id="phone-number-send">Send Code</button>
+    <button class="changeBtn"onclick='verifyCode()' id="verify-code-send">Send Code</button>
     <button onclick="cancelBtn()" class="changeBtn" id="cancel">Cancel</button>
   </div>`;  
 
@@ -292,14 +364,6 @@ $ulTag.addEventListener("click", (e) => {
       case 'li3':
         // Phone verication code submit 
         createHTMLElementPhone1();
-        // window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('phone-number-send', {
-        //   'size': 'invisible',
-        //   'callback': (response) => {
-        //     // reCAPTCHA solved, allow signInWithPhoneNumber.
-        //     console.log("recaptcha/...");
-        //     onSignInSubmit();
-        //   }
-        // });
         break;
       case 'li4':
         createHTMLElement('New Password', 'Save', 'password');
