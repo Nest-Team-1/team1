@@ -238,7 +238,7 @@ showFunc = () => {
 }
 
 const calcMaxMin= () => {
-    ox = -b/2*a;
+    ox = -b/(2*a);
     maxVal = parseInt($max.value);
     minVal = parseInt($min.value);
     
@@ -253,7 +253,7 @@ const calcMaxMin= () => {
             min = max1;
         }
         if(minVal < ox < maxVal){
-            min = a*(-b/2*a)*(-b/2*a) + b*(-b/2*a)+c;
+            min = a*(-b/(2*a))*(-b/(2*a)) + b*(-b/(2*a))+c;
         }
     }
     if(a<0){
@@ -267,11 +267,12 @@ const calcMaxMin= () => {
             max = min1;
         }
         if(minVal < ox < maxVal){
-            max = a*(-b/2*a)*(-b/2*a) + b*(-b/2*a)+c;
+            max = a*(-b/(2*a))*(-b/(2*a)) + b*(-b/(2*a))+c;
         }
     }
-    return max;
+    return [max, min];
 }
+
 
 
    
