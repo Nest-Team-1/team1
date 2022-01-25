@@ -9,45 +9,51 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-.top-navigation{
+.top-navigation {
     height: 60px;
     border-bottom: #E0E0E0 1px solid;
     align-items: center;
     display: flex;
     justify-content: center;
     background-color: white;
-  }
-  .top-navigation-left{
-      width: 50%;
-  }
-  .logo{
-     height: 59px;
-     width: 84px;
-     background-image: url(./logo1.svg);
-  }
-  .nav{
-      margin: 0 30px;
-      color: #1865F2;
-      font-size: 16px;
-      font-weight: bold;
-      font-family: 'Roboto', sans-serif;
-      display: flex;
-      align-items: center;
-  }
-  .top-navigation-left-left{
-      transform: translateX(-100px);
-  }
-  .top-navigation-left-left > .nav{
-      margin: 0 60px; 
-      height: 60px;
-      display: flex;
-      align-items: center;
-  }
-  .width-all{
-      width: 80vw;
-      display: flex;
-      justify-content: space-between;
-  }
+}
+
+.top-navigation-left {
+    width: 50%;
+}
+
+.logo {
+    height: 59px;
+    width: 84px;
+    background-image: url(./logo1.svg);
+}
+
+.nav {
+    margin: 0 30px;
+    color: #1865F2;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+}
+
+.top-navigation-left-left {
+    transform: translateX(-100px);
+}
+
+.top-navigation-left-left>.nav {
+    margin: 0 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.width-all {
+    width: 80vw;
+    display: flex;
+    justify-content: space-between;
+}
 
 button {
     display: flex;
@@ -227,7 +233,6 @@ button {
     width: 50vw;
     z-index: 99;
     position: absolute;
-    background-color: #1865f1;
     top: 50%;
     left: 25%;
     display: flex;
@@ -443,16 +448,19 @@ button {
 .b:focus::-ms-fill-upper {
     background: green;
 }
-.item{
+
+.item {
     height: 80vh;
 }
-.item-wrap{
+
+.item-wrap {
     height: 80vh;
 }
-.img-fluid{
+
+.img-fluid {
     width: 50vw;
     height: 80vh;
-    border:1px aqua solid;
+    border: 1px aqua solid;
     left: 0;
 }
 
@@ -480,15 +488,15 @@ button {
         top: 30px;
         width: 90vw;
     }
-    .exam{
+    .exam {
         width: 100vw;
         left: 0;
     }
-    .img-fluid{
-    width: 100vw;
-    height: 80vh;
-    border:1px aqua solid;
-    left: 0;
+    .img-fluid {
+        width: 100vw;
+        height: 80vh;
+        border: 1px aqua solid;
+        left: 0;
     }
 }
 

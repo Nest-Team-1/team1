@@ -7,45 +7,51 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-.top-navigation{
+.top-navigation {
     height: 60px;
     border-bottom: #E0E0E0 1px solid;
     align-items: center;
     display: flex;
     justify-content: center;
     background-color: white;
-  }
-  .top-navigation-left{
-      width: 50%;
-  }
-  .logo{
-     height: 59px;
-     width: 84px;
-     background-image: url(./logo1.svg);
-  }
-  .nav{
-      margin: 0 30px;
-      color: #1865F2;
-      font-size: 16px;
-      font-weight: bold;
-      font-family: 'Roboto', sans-serif;
-      display: flex;
-      align-items: center;
-  }
-  .top-navigation-left-left{
-      transform: translateX(-100px);
-  }
-  .top-navigation-left-left > .nav{
-      margin: 0 60px; 
-      height: 60px;
-      display: flex;
-      align-items: center;
-  }
-  .width-all{
-      width: 80vw;
-      display: flex;
-      justify-content: space-between;
-  }
+}
+
+.top-navigation-left {
+    width: 50%;
+}
+
+.logo {
+    height: 59px;
+    width: 84px;
+    background-image: url(./logo1.svg);
+}
+
+.nav {
+    margin: 0 30px;
+    color: #1865F2;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+}
+
+.top-navigation-left-left {
+    transform: translateX(-100px);
+}
+
+.top-navigation-left-left>.nav {
+    margin: 0 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.width-all {
+    width: 80vw;
+    display: flex;
+    justify-content: space-between;
+}
 
 button {
     display: flex;
@@ -67,6 +73,37 @@ button {
 .btn {
     width: 100%;
     height: 50px;
+}
+
+.exam {
+    height: 80vh;
+    width: 50vw;
+    z-index: 99;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    display: flex;
+    flex-direction: column;
+}
+
+.close {
+    position: sticky;
+    margin-left: 95%;
+    font-size: 20px;
+}
+
+.item {
+    height: 80vh;
+}
+
+.item-wrap {
+    height: 80vh;
+}
+
+.img-fluid {
+    width: 50vw;
+    height: 80vh;
+    left: 0;
 }
 
 .ellipse {
@@ -113,7 +150,6 @@ button {
     border-left: 3px solid #e5e5e5;
     width: 90%;
 }
-
 
 .margin-right {
     margin-right: 50px;
