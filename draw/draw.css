@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.js-paint {
+    background-image: url(https://library.kissclipart.com/20180904/zq/kissclipart-picture-frame-clipart-document-dry-erase-boards-in-3a8a6bd08e3dd544.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.paint-canvas {
+    border: 1px black solid;
+    display: block;
+    margin: 1rem;
+    cursor: url("./Batman\ Pen.cur"), auto;
+}

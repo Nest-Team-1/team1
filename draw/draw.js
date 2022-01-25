@@ -1,53 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-    }
-    
-    .container {
-        height: 100vh;
-        width: 100vw;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .js-paint {
-        background-image: url(https://library.kissclipart.com/20180904/zq/kissclipart-picture-frame-clipart-document-dry-erase-boards-in-3a8a6bd08e3dd544.png);
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-    }
-    
-    .paint-canvas {
-        border: 1px black solid;
-        display: block;
-        margin: 1rem;
-        cursor: url("./Batman\ Pen.cur"), auto;
-    }
-</style>
-
-<body>
-    <div class="container">
-        <div class="minibrd">
-            <input type="color" class="js-color-picker color-picker" />
-            <input type="range" class="js-line-range" min="1" max="72" value="1" />
-            <label class="js-range-value">1</label>Px
-            <button onclick="clearBtn()">clear</button>
-            <button class="rub" onclick="rubberBtn()">rubber</button>
-            <canvas id="paint-canvas" class="js-paint paint-canvas" width="1200" height="600"></canvas>
-        </div>
-    </div>
-</body>
-<script>
-    let board = document.querySelector("#paint-canvas");
+let board = document.querySelector("#paint-canvas");
     board.width = document.querySelector(".container").offsetWidth - 30;
     board.height = document.querySelector(".container").offsetHeight - 65;
     const paintCanvas = document.querySelector(".js-paint");
@@ -152,6 +103,3 @@
     paintCanvas.addEventListener("touchmove", drawLine);
     paintCanvas.addEventListener("touchend", stopDrawing);
     paintCanvas.addEventListener("touchcancel", stopDrawing);
-</script>
-
-</html>

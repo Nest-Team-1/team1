@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Квадрат функц</title>
+    <link rel="shortcut icon" href="./logo.png">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <link rel="stylesheet" href="./kwadrat_function.css">
+</head>
+
+<body>
+    <div class="top-navigation">
+        <div class="width-all">
+            <div class="logo"></div>
+            <div class="top-navigation-left flex space-around">
+                <div class="top-navigation-left-left flex">
+                    <div class="nav">Хичээл</div> 
+                    <div class="nav">Самбар</div> 
+                    <div class="nav">Томъёо</div> 
+                    <div class="nav">Форум</div> 
+                </div>
+                <div class="top-navigation-left-right flex">
+                        <div class="nav">Бүртгүүлэх</div> 
+                        <div class="nav">Нэвтрэх</div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="title flex">
+        <div class="flex">
+            <img src="./right_arrow_copy.svg">
+            <div>Өмнөх сэдэв</div>
+        </div>
+        <div class="flex">
+            <img src="./Frame.svg">
+            <h1> Квадрат функц</h1>
+        </div>
+
+        <div class="flex">
+            <div>Дараах бодлого</div>
+            <img src="./right_arrow.svg">
+        </div>
+    </div>
+    <div class="container flex space-around">
+        <div class="graphsec">
+            <div class="explanation design">
+                <p>
+                    ・Функц \(ax^2 + bx + c = 0\)-н хувьд \(a , b , c\)-ийн утгыг солино. &nbsp &nbsp &nbsp
+                </p>
+                <p>・Утга бүр дээрхи өөрчлөлтийг сайтар ажиглаж тунгаагаарай.</p>
+            </div>
+            <div class="showfunc design margin-top">
+                <span id="a1"></span>\(x^2+\)<span id="a2"></span>\(x\)+<span id="a3"></span>\(=0\)
+            </div>
+            <!-- width="640" height="480" -->
+            <div class="graphic margin-top"><canvas id="myCanvas" style="margin-top: 0px"></canvas></div>
+            <div class="graphset margin-top">
+                <input class="a" id="a" type="range" min="-10" max="10" style="color: red;" />
+                <input class="b" id="b" type="range" min="-10" max="10" />
+                <input class="c" id="c" type="range" min="-10" max="10" />
+            </div>
+        </div>
+        <div>
+            <div class="theory design">
+                <div class="width">
+                    <div style="width: 90%; margin: auto;">
+                        <p>
+                            <b>
+                                 Квадрат функц нь \(f(x)=ax^2+bx+c\) хэлбэрээр илэрхийлэгдэх функц болно. Үүний графикийг \(xy\)-координатын хавтгайд дүрсэлбэл парабол хэлбэртэй байна.
+                   </b>
+                        </p>
+                        <div class="bord">
+                            <p>
+                                1. \(x^2\)-ийн өмнөх бодит тоо болох \(а\) нь параболийг дээш эсвэл доошоо харах чиглэлийг тодорхойлно. \(a
+                                < 0\) үед , дээш \(a> 0\) үед , доош харсан байрлалтай байна. Мөн \(a\) -ийн утга ихсэх тусам график тэлж, багасгахад график агшина. / улаан хэсэг / </p>
+                        </div>
+                        <div class="bord">
+                            <p>2. Параболын оройн цэгийн \(х\) координатыг олоход \(-b\over 2a\) гэж олдог. Үүнээс үзвэл а нь тогтмол үед , \(b\)-гийн утгаас хамааран парабол \(х\) тэнхлэгийн хувьд шилжиж байна. Өөрөөр хэлбэл , \(а\)-гийн утгыг өөрчлөлгүйгээр
+                                \(b\)-гийн утга-ийг 2 дахин ихэсгэхэд, парабол \(х\) тэнхлэгийн дагуу 2 дахин зөөгдөнө. / ногоон хэсэг /</p>
+                        </div>
+                        <div class="bord">
+                            <p>
+                                3. Бодит тоо болох \(с\) нь ямар нэгэн хувьсагчаас хамааралгүй ба математикт сул гишүүн гэж нэрлэгддэг. Харин одоо \(х\)-ийн оронд 0-ийг орлуулж үзвэл \(f(0) = c\) гарж байна. Үүнээс үзвэл, сул гишүүн нь парабол \(у\) тэнхлэгийг огтлох цэгийг тодорхойлно.
+                                / цэнхэр хэсэг /
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="btnborder">
+                <button>Бодлого бодъёо</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script src="./kwadrat_function.js"></script>
+
+</html>

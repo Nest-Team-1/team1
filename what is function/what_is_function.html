@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Функц гэж юу вэ ?</title>
+    <link rel="shortcut icon" href="./logo.png" />
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="./what_is_function.css">
+  </head>
+  
+  <head>
+</head>
+
+<body>
+  <div class="top-navigation">
+    <div class="width-all">
+        <div class="logo"></div>
+        <div class="top-navigation-left flex space-around">
+            <div class="top-navigation-left-left flex">
+                <div class="nav">Хичээл</div> 
+                <div class="nav">Самбар</div> 
+                <div class="nav">Томъёо</div> 
+                <div class="nav">Форум</div> 
+            </div>
+            <div class="top-navigation-left-right flex">
+                    <div class="nav">Бүртгүүлэх</div> 
+                    <div class="nav">Нэвтрэх</div> 
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="title flex">
+        <div class="flex">
+            <img src="./right_arrow_copy.svg" />
+            <div>Өмнөх сэдэв</div>
+        </div>
+        <div class="flex">
+            <img src="./Frame.svg" />
+            <h1>Функц гэж юу вэ ?</h1>
+        </div>
+
+        <div class="flex">
+            <div>Дараах бодлого</div>
+            <img src="./right_arrow.svg" />
+        </div>
+    </div>
+    <div class="container flex space-around">
+        <div class="graphsec">
+
+            <div class="showfunc design">
+                <form class="hand" onsubmit="drawBtn();return false">
+                    <input id="a1" type="number" required />
+                    <select id="types">
+              <option value="x">x</option>
+              <option value="sin">sin</option>
+              <option value="cos">cos</option>
+              <option value="tan">tan</option>
+            </select> x^
+                    <select id="types1">
+              <option value="1">1</option>
+              <option value="2">2</option></select
+            ><span class="span0">+</span>
+            <input id="a2" type="number" />
+            <select id="types2">
+              <option value="x">x</option>
+              <option value="sin">sin</option>
+              <option value="cos">cos</option>
+              <option value="tan">tan</option>
+              <option value="cot">cot</option></select
+            >+
+            <input id="a3" type="number" required />
+            <button id="btn" type="submit">draw</button>
+          </form>
+        </div>
+        <div class="showfunc design margin-top">
+          \(y=\)<span id="a1"></span>\(x+\)<span id="a2"></span>
+      </div>
+        <div class="graphic margin-top">
+          <canvas
+            id="myCanvas"
+            width="600"
+            height="600"
+            style="margin-top: 0px"
+          ></canvas>
+        </div>
+        <div class="graphset margin-top">
+          <input class="a" id="a" type="range" min="-10" max="10" />
+          <input class="b" id="b" type="range" min="-10" max="10" />
+          <input class="c" id="c" type="range" min="-10" max="10" />
+        </div>
+      </div>
+      <div>
+        <div class="theory design">
+          <div class="width">
+            <div>
+                <p>
+                    <b>
+                      Математик дээр хамгийн их өргөн хэрэглэгддэг үгнүүдийн нэг бол функц мөн.
+                      Тэгвэл функц гэж яг юу юм бэ ?
+           </b>
+
+                </p>
+            </div>
+
+            <div class="border">
+                <p class="bordertxt" >
+                  Функц гэдэг нь 2 тооны харилцах хоорондын хамаарал юм.
+                </p>
+            </div>
+            <div class="margin-top">
+                <p>Гэсэн тайлбар байдаг ч үүнийг арай илүү энгийнээр ярилцая.</p>
+                <b style="color:#FF0000">Функц гэдэг нь өөрөөр хэлэх юм бол автомат ундааны машинтай ижил юм.</b>
+            </div>
+            <div class="border1">
+                <p style="font-size: 50px;">Функц</p><h2>=</h2><div class="colas"><img src="./colas.png" height="100%" width="40%"></div>
+            </div>
+        </div>
+        <div class="width">
+            <div>
+              
+                <p>Функц гэдэг бол ундааны машин ?</p>
+
+                  <p>За тэгвэл ундааны машинаас ундаа авахдаа хамгийн түрүүнд юу хийх бол ?</p>
+                  
+                  <p>Тийм ээ , эхлээд бид мөнгө өө хийнэ.</p>
+            </div>
+            <div class="border1">
+              <img src="./money 1.png" height="10%" width="20%"></img><img src="./baruun.png" height="10%" width="10%"><img src="./colas.png" height="100%" width="20%">
+              
+          </div>
+          <div>
+                
+            <p>Харин мөнгө өө хиисэний дараа ямар үйлдэл явагдах вэ ?</p>
+  
+              <p>Оруулсан мөнгөн дүнгээс хамаарч ундаа гарч ирнэ.</p>
+              
+              <p>Өөрөөр хэлвэл , ундааны машины дотор болж буй процесс нь мөнгийг ундаа болгож сольж байна.</p>
+        </div>
+          <div class="border1">
+            <img src="./cola.png" height="10%" width="20%"></img><img src="./zuun.png" height="10%" width="10%"><img src="./colas.png" height="100%" width="20%">
+            
+        </div>
+
+          <div>
+              
+            <p>Үүнээс үзэхэд , ундааны машинд функцийн нэг шинж чанар агуулагдаж байна</p>
+
+              <b style="color: #FF0000;">Энэ нь оруулсан мөнгөн дүнгээс хамаарч гарж ирэх зүйл нь ялгаатай байна.</b>
+              
+              <p>Жишээлбэл , 1500 төгрөгий жүржийн жүүс авлаа гэж бодоход жүржийн жүүс л гарж ирнэ. Харин 2000 төгрөгний үнэтэй хийжүүлсэн ундаа авахад хийжүүлсэн ундаа л гарж ирнэ.</p>
+        </div>
+        <div class="border1">
+          <img src="./money 1.png" height="10%" width="20%"></img><img src="./baruun.png" height="10%" width="10%"><img src="./colas.png" height="100%" width="20%"><img src="./baruun.png" height="10%" width="10%"><img src="./cola.png" height="10%" width="20%"> 
+          
+      </div>
+      <div>
+              
+        <p>Функц нь үүнтэй яг л адилхан юм.</p>
+
+          <b style="color: #FF0000;">Аливаа функцид А гэсэн утга оруулахад В гэсэн утга гарна.
+            Функцид юу оруулахаас хамаарж юу гарж ирэх нь шийдэгдэнэ гэсэн үг.
+            </b>
+          
+          <br>Харин бид функцид оруулж байгаа зүйл болон гарж ирэх зүйлийг <b style="color: #FF0000;">хувьсагч</b> гэж нэрлэдэг.</p>
+          <p>Мөн функцид оруулж байгаа утагийг х-ээр , харин гарж ирэх утагийг у-ээр тэмдэглэдэг байна.</p>
+          <p>За одоо жишээн дээр харж үзье.</p>
+    </div>
+    <div class="border2">
+      <div class="border1">
+        <h1 style="font-size: 60px;">2</h1> <img src="./baruun.png" height="10%" width="5%"><h2 style="font-size: 40px;">y=2x</h2><img src="./baruun.png" height="10%" width="5%"><h1 style="font-size: 60px;">4</h1>
+      </div>
+      <div class="border1">
+        <h1 style="font-size: 60px;">4</h1> <img src="./baruun.png" height="10%" width="5%"><h2 style="font-size: 40px;">y=2x</h2><img src="./baruun.png" height="10%" width="5%"><h1 style="font-size: 60px;">8</h1>  
+      </div>
+        <p>Харин одоо баруун талын график дээр хүссэн функцээ зурж үзээрэй.</p>
+    </div>
+        </div>
+      </div>
+    </div>
+    <script src="./what_is_function.js">
+      <noscript><link
+        data-avlabs-exclude-css="1"
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=PT%20Sans%7CLato%3A400%2C700%2C400italic%2C700italic%7COswald%3A400%2C700&display=swap" /><link
+        data-avlabs-exclude-css="1"
+        rel="stylesheet"
+        href="https://www.html5canvastutorials.com/wp-content/cache/min/1/fa413723b02e39d2a577bc52daa608cb.css"
+        media="all"
+        data-minify="1" /><link
+        data-avlabs-exclude-css="1"
+        rel="stylesheet"
+        href="/libraries/codeMirror/lib/codemirror.css"
+    /></noscript>
+      </script>
+  </body>
+</html>
