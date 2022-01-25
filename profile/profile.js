@@ -42,9 +42,11 @@ updateProfileData = () => {
         })
       }
     } else {
+      console.log(uid);
       if(uid){
         db.collection('users').doc(uid).get().then((doc) => {
           const data = doc.data();
+          console.log(data);
           signInEmail(data.email, data.password);
         }).catch((err) => {
           console.log(err);
@@ -211,7 +213,7 @@ function saveChanges(labelText){
 
 function updateProfilePhoneNumber() {
   const phoneNumber = document.getElementById('changeDataInput').value;
-  if(phoneNumber.length === 8){
+  if(phoneNumber.length > 8){
     console.log(phoneNumber.length);
     db.collection('users').where('phone', '==', phoneNumber).get().then((querySnapshot) =>{
       const data = querySnapshot.docs[0].data();
@@ -231,7 +233,7 @@ function updateProfilePhoneNumber() {
         }
       });
       const appVerifier = window.recaptchaVerifier;
-      firebase.auth().signInWithPhoneNumber(`+976${phoneNumber}`, appVerifier).then((result) => {
+      firebase.auth().signInWithPhoneNumber(`+1${phoneNumber}`, appVerifier).then((result) => {
           confirmationResult = result;
           phone = phoneNumber;
           alert('Таны утасруу баталгаажуулах код илгээлээ.');

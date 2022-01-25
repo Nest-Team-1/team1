@@ -64,10 +64,14 @@ signIn = (password, uName) => {
   // Signed in 
   userData.updateProfile({
     displayName: uName,
-    password
   }).then(() => {
       console.log('Update data...');
-      createUserFireStore(password);
+      userData.updatePassword(password).then(()=>{
+        console.log('update successful');
+        createUserFireStore(password);
+      }).catch((err) => {
+        console.log(err);
+      })
   }).catch((err) => {
       console.log(`Error:${err}`);
   })
