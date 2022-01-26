@@ -219,7 +219,7 @@ showFunc = () => {
     //show function calc
     const $showFunc = document.querySelector('.showfunc');
 
-<<<<<<< HEAD
+
     if (b > 0 && c > 0) {
         $showFunc.innerHTML = `y = ${a}x^2 +${b}x + ${c}`;
     }
@@ -247,7 +247,7 @@ showFunc = () => {
     if (b === 0 & c === 0) {
         $showFunc.innerHTML = `y = ${a}x^2`;
     }
-=======
+
 // calculate function y = x^2 from x = -3 to x = 3
 
 for (i=0;i<=width+1;i++)
@@ -255,7 +255,7 @@ for (i=0;i<=width+1;i++)
 x[i] =xCenter - i;
 xx=x[i]/xScale;
 y[i] = -yScale*Math.pow(xx,2); 
->>>>>>> mweh
+
 }
 
 const calcMaxMin= () => {
@@ -296,11 +296,4 @@ const calcMaxMin= () => {
 
 
 
-   
-    
-
-
-
-
-
-
+}
