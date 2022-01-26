@@ -61,16 +61,45 @@ window.onscroll = (e) => {
     }
     if(window.scrollY > $study.offsetHeight*2 + $nav.offsetHeight + $usage.offsetHeight + $purpose.offsetHeight/3){
         r = window.scrollY - ($study.offsetHeight*2 + $nav.offsetHeight + $usage.offsetHeight + $purpose.offsetHeight/3);
-<<<<<<< HEAD
+
         console.log(parseInt(r/12 + 10));
         $bulb.style.opacity = `0.${parseInt(r/12 + 10)}`;
-=======
+
         console.log(r/8);
         $bulb.style.opacity = `0.${r/12 + 10}`;
->>>>>>> mweh
+
         if($bulb.style.opacity > 0.9){
             console.log(`bye`);
         }
     }
 
+}
+
+
+//window location change
+const $sambar = document.getElementById('sambar'); 
+const $formulas = document.getElementById('formulas');
+const $forum = document.getElementById('forum');
+const $start = document.getElementById('start');
+const $negdeh = document.getElementById('negdeh');
+const $harah = document.getElementById('harah');
+const $hicheel = document.getElementById('hicheel');
+
+$sambar.onclick = () => {
+    window.location = "../sambar/draw.html";
+}
+$formulas.onclick = () => {
+    window.location = '../formulas/index.html';
+}
+$forum.onclick = () => {
+    window.location = '../forum/index.html';
+}
+$start.onclick = () => {
+    window.location = '../whatIsFunction/what_is_function.html';
+}
+$negdeh.onclick = () => {
+    window.location = '../forum/index.html';
+}
+$harah.onclick = () => {
+    window.location = '../formulas/index.html';
 }

@@ -44,6 +44,9 @@ body{
     display: flex;
     align-items: center;
 }
+.nav:hover{
+    cursor: pointer;
+}
 .top-navigation-left-left{
     transform: translateX(-100px);
 }
@@ -497,4 +500,7 @@ body{
     font-size: 25px;
     color: white;
     margin: 30px;
+}
+.study{
+    position: relative;
 }
