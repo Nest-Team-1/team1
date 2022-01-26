@@ -1,41 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&family=Mea+Culpa&family=Roboto&display=swap');
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-.flex{display: flex}
-.space-around{justify-content: space-around}
-.space-between{justify-content: space-between}
-.width-all{
+
+.flex {
+    display: flex;
+}
+
+.space-around {
+    justify-content: space-around
+}
+
+.space-between {
+    justify-content: space-between
+}
+
+.width-all {
     width: 80vw;
     display: flex;
     justify-content: space-between;
 }
-body{
+
+body {
     display: flex;
     justify-content: center;
+    overflow-x: hidden;
 }
-.container{
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.container {
     width: 100vw;
 }
-.top-navigation{
+
+.top-navigation {
     height: 60px;
     border-bottom: #E0E0E0 1px solid;
     align-items: center;
     display: flex;
     justify-content: center;
 }
-.top-navigation-left{
+
+.top-navigation-left {
     width: 50%;
 }
-.logo{
+
+.logo {
     height: 59px;
     width: 84px;
     background-image: url(../pictures/logo.svg);
-   
 }
-.nav{
+
+.nav {
     margin: 0 30px;
     color: #1865F2;
     font-size: 16px;
@@ -44,25 +64,30 @@ body{
     display: flex;
     align-items: center;
 }
-.nav:hover{
+
+.nav:hover {
     cursor: pointer;
 }
-.top-navigation-left-left{
+
+.top-navigation-left-left {
     transform: translateX(-100px);
 }
-.top-navigation-left-left > .nav{
-    margin: 0 60px; 
+
+.top-navigation-left-left>.nav {
+    margin: 0 60px;
     height: 60px;
     display: flex;
     align-items: center;
 }
-.study{
+
+.study {
     height: 70vh;
     width: 100%;
     display: flex;
     justify-content: center;
 }
-.study-left{
+
+.study-left {
     width: 40%;
     height: 100%;
     display: flex;
@@ -71,19 +96,22 @@ body{
     align-items: start;
     transform: translateY(-10px);
 }
-.study-left-top{
+
+.study-left-top {
     font-size: 48px;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
     transform: translateX(60px);
 }
-.study-left-bottom{
+
+.study-left-bottom {
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
     margin: 30px 0px;
     transform: translateX(60px);
 }
-.study-right{
+
+.study-right {
     width: 60%;
     height: 100%;
     background-image: url(../pictures/top.png);
@@ -93,7 +121,8 @@ body{
     position: relative;
     background-size: contain;
 }
-.pen{
+
+.pen {
     width: 120px;
     height: 150px;
     background-image: url(../pictures/pen@2x.png);
@@ -104,7 +133,8 @@ body{
     left: 23%;
     z-index: -1;
 }
-.lamp{
+
+.lamp {
     width: 140px;
     height: 180px;
     background-image: url(../pictures/lamp.png);
@@ -115,7 +145,8 @@ body{
     left: 40%;
     z-index: -2;
 }
-.book{
+
+.book {
     width: 300px;
     height: 200px;
     background-image: url(../pictures/book.png);
@@ -126,7 +157,8 @@ body{
     left: 10%;
     z-index: 10;
 }
-.ball{
+
+.ball {
     width: 300px;
     height: 200px;
     background-image: url(../pictures/Ball.png);
@@ -137,7 +169,8 @@ body{
     left: 70%;
     z-index: -3;
 }
-.start{
+
+.start {
     color: white;
     background-color: #1865F1;
     width: 133px;
@@ -148,48 +181,55 @@ body{
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
 }
-.start:hover{
+
+.start:hover {
     cursor: pointer;
 }
-.width-all-2{
+
+.width-all-2 {
     width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.usage{
+
+.usage {
     width: 100%;
     background-color: #f0f4fb;
     display: flex;
     justify-content: center;
 }
-.line{
+
+.line {
     height: 10px;
     width: 80px;
     background-color: #1865F2;
     border-radius: 10px;
     margin: 40px 0;
-    
 }
-.usage-title{
+
+.usage-title {
     font-size: 36px;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
 }
-.usage-inner{
+
+.usage-inner {
     width: 100%;
     margin: 80px 0px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
-.usage-inner-inner{
+
+.usage-inner-inner {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.border{
+
+.border {
     height: 150px;
     width: 150px;
     border: 2px black dashed;
@@ -199,21 +239,24 @@ body{
     align-items: center;
     margin: 30px 0px;
 }
-.file-picture{
+
+.file-picture {
     background-size: center;
     height: 84px;
     width: 72px;
     background-image: url(../pictures/file.png);
     background-repeat: no-repeat;
 }
-.usage-inner-inner-bottom{
+
+.usage-inner-inner-bottom {
     font-size: 18px;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
     width: 70%;
     text-align: center;
 }
-.study-right-2{
+
+.study-right-2 {
     width: 60%;
     height: 100%;
     background-image: url(../pictures/new/Startup\ life-pana\ \(1\)\ 1.png);
@@ -222,7 +265,8 @@ body{
     background-size: contain;
     position: relative;
 }
-.spin1{
+
+.spin1 {
     width: 5%;
     height: 15%;
     background-image: url(../pictures/new/spin1.png);
@@ -233,7 +277,8 @@ body{
     top: 48%;
     left: 35%;
 }
-.spin2{
+
+.spin2 {
     width: 3%;
     height: 5%;
     background-image: url(../pictures/new/spin2.png);
@@ -244,7 +289,8 @@ body{
     top: 57%;
     left: 32%;
 }
-.spin3{
+
+.spin3 {
     width: 5%;
     height: 7%;
     background-image: url(../pictures/new/spin3.png);
@@ -256,7 +302,8 @@ body{
     left: 36%;
     z-index: -1;
 }
-.spin4{
+
+.spin4 {
     width: 9%;
     height: 8%;
     background-image: url(../pictures/new/spin4.png);
@@ -267,8 +314,9 @@ body{
     top: 23.5%;
     left: 72%;
     z-index: 2;
-} 
-.file1{
+}
+
+.file1 {
     width: 20%;
     height: 10%;
     background-image: url(../pictures/new/file1.png);
@@ -280,7 +328,8 @@ body{
     left: 20%;
     z-index: -2;
 }
-.file2{
+
+.file2 {
     width: 30%;
     height: 18%;
     background-image: url(../pictures/new/file2.png);
@@ -292,7 +341,8 @@ body{
     left: 60%;
     z-index: -1;
 }
-.vector1{
+
+.vector1 {
     width: 3%;
     height: 5%;
     background-image: url(../pictures/new/Vector.png);
@@ -302,8 +352,9 @@ body{
     position: absolute;
     top: 59.3%;
     left: 71%;
-} 
-.vector2{
+}
+
+.vector2 {
     width: 3%;
     height: 6%;
     background-image: url(../pictures/new/Vector1.png);
@@ -313,8 +364,9 @@ body{
     position: absolute;
     top: 58.3%;
     left: 73%;
-} 
-.vector3{
+}
+
+.vector3 {
     width: 3%;
     height: 7%;
     background-image: url(../pictures/new/Vector2.png);
@@ -324,8 +376,9 @@ body{
     position: absolute;
     top: 56.9%;
     left: 75%;
-} 
-.vector4{
+}
+
+.vector4 {
     width: 3%;
     height: 8%;
     background-image: url(../pictures/new/Vector3.png);
@@ -335,53 +388,59 @@ body{
     position: absolute;
     top: 55.5%;
     left: 77%;
-} 
+}
 
-.purpose{
+.purpose {
     width: 100%;
     background-color: #f0f4fb;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.line-green{
+
+.line-green {
     height: 10px;
     width: 80px;
     background-color: #92E3A9;
     border-radius: 10px;
     margin: 60px 0;
 }
-.purpose-title{
+
+.purpose-title {
     font-size: 50px;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
 }
-.purpose-grid{
+
+.purpose-grid {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-columns: 1fr 1fr 1fr;
     margin: 60px 0px;
 }
 
-.image{
+.image {
     height: 176px;
     background-image: url(../pictures/Exams-bro\ 1.png);
     background-position: center;
     background-repeat: no-repeat;
 }
-.image2{
+
+.image2 {
     height: 176px;
     background-image: url(../pictures/Mathematics-bro\ 1.png);
     background-position: center;
     background-repeat: no-repeat;
 }
-.image3{
+
+.image3 {
     height: 176px;
     background-image: url(../pictures/Education-bro\ 1.png);
     background-position: center;
     background-repeat: no-repeat;
 }
-.purpose-inner-title{
+
+.purpose-inner-title {
     color: #646464;
     font-size: 32px;
     text-align: center;
@@ -389,7 +448,8 @@ body{
     font-weight: bold;
     margin: 30px;
 }
-.purpose-inner-text{
+
+.purpose-inner-text {
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     font-weight: bold;
@@ -397,13 +457,15 @@ body{
     width: 50%;
     margin: 10px auto;
 }
-.formulas{
+
+.formulas {
     height: 80vh;
     width: 100%;
     display: flex;
     justify-content: center;
 }
-.formulas-left{
+
+.formulas-left {
     width: 40%;
     background-image: url(../pictures/Creative\ team-bro\ 1.png);
     background-repeat: no-repeat;
@@ -411,7 +473,8 @@ body{
     background-size: contain;
     position: relative;
 }
-.yellow-bulb{
+
+.yellow-bulb {
     width: 33%;
     height: 33%;
     background-image: url(../pictures/bulb.png);
@@ -423,27 +486,31 @@ body{
     top: 25%;
     opacity: 0;
 }
-.formulas-right{
+
+.formulas-right {
     width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.formulas-right-top{
+
+.formulas-right-top {
     color: #646464;
     font-size: 50px;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
     margin: 30px 0px;
 }
-.formulas-right-bottom{
+
+.formulas-right-bottom {
     font-family: 'Roboto', sans-serif;
     font-size: 25px;
     font-weight: bold;
     margin: 30px 0px;
 }
-.aphorizm{
+
+.aphorizm {
     height: 80vh;
     width: 100%;
     display: flex;
@@ -455,26 +522,29 @@ body{
     text-align: center;
     background-color: #f0f4fb;
 }
-.footer{
+
+.footer {
     background-color: #808080;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.width{
+
+.width {
     display: flex;
     align-items: center;
 }
-.border2{
+
+.border2 {
     height: 180px;
     width: 180px;
     border: 1px solid black;
     border-radius: 50%;
     background-color: white;
     overflow: hidden;
-    
 }
-.logo2{
+
+.logo2 {
     height: 180px;
     width: 180px;
     border-radius: 100%;
@@ -483,24 +553,28 @@ body{
     background-position: center;
     background-size: 150px 150px;
 }
-.about-us{
+
+.about-us {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     transform: translateX(50px);
 }
-.about-us-title{
+
+.about-us-title {
     font-size: 50px;
     color: white;
     font-family: 'Roboto', sans-serif;
     margin: 30px;
 }
-.about-us-text{
+
+.about-us-text {
     font-family: 'Roboto', sans-serif;
     font-size: 25px;
     color: white;
     margin: 30px;
 }
-.study{
+
+.study {
     position: relative;
 }
