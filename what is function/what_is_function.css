@@ -13,6 +13,7 @@ body::-webkit-scrollbar {
 
 .top-navigation {
     height: 60px;
+    width: 100%;
     border-bottom: #E0E0E0 1px solid;
     align-items: center;
     display: flex;
@@ -21,7 +22,7 @@ body::-webkit-scrollbar {
 }
 
 .top-navigation-left {
-    width: 50%;
+    width: 70%;
 }
 
 .logo {
@@ -41,7 +42,7 @@ body::-webkit-scrollbar {
 }
 
 .top-navigation-left-left {
-    transform: translateX(-100px);
+    
 }
 
 .top-navigation-left-left>.nav {
@@ -52,11 +53,10 @@ body::-webkit-scrollbar {
 }
 
 .width-all {
-    width: 80vw;
+    width: 80%;
     display: flex;
     justify-content: space-between;
 }
-
 .ellipse {
     background: #6bb6ff;
     width: 12px;

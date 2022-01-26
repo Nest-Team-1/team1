@@ -11,6 +11,7 @@ body::-webkit-scrollbar {
 
 .top-navigation {
     height: 60px;
+    width: 100%;
     border-bottom: #E0E0E0 1px solid;
     align-items: center;
     display: flex;
@@ -19,7 +20,7 @@ body::-webkit-scrollbar {
 }
 
 .top-navigation-left {
-    width: 50%;
+    width: 70%;
 }
 
 .logo {
@@ -39,7 +40,7 @@ body::-webkit-scrollbar {
 }
 
 .top-navigation-left-left {
-    transform: translateX(-100px);
+    
 }
 
 .top-navigation-left-left>.nav {
@@ -50,7 +51,7 @@ body::-webkit-scrollbar {
 }
 
 .width-all {
-    width: 80vw;
+    width: 80%;
     display: flex;
     justify-content: space-between;
 }
@@ -196,7 +197,8 @@ button {
 }
 
 .space-around {
-    justify-content: space-between;
+    justify-content: space-around;
+    width: 100%;
 }
 
 .container {
@@ -497,6 +499,18 @@ button {
         height: 80vh;
         border: 1px aqua solid;
         left: 0;
+    }
+    .top-navigation{
+        width: 100vw;
+    }
+    .top-navigation-left {
+        width: 80%;
+    }
+    .top-navigation-left {
+        width: 80%;
+    }
+    .top-navigation-left-left{
+        display: none;
     }
 }
 
