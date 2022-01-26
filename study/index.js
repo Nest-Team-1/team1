@@ -42,7 +42,7 @@ drawAxis = () => {
     for (i = 1; i <= 30; i++) {
         ctx.moveTo(xCenter - i * xScale, yCenter + 5);
         ctx.lineTo(xCenter - i * xScale, yCenter - 5);
-        ctx.fillText(-i ,xCenter - i  * xScale - 6, yCenter - 8 )
+        ctx.fillText(-i ,xCenter - i  * xScale - 6, yCenter - 8 );
     }
     ctx.stroke();
 
@@ -77,6 +77,9 @@ const $min = document.getElementById('min');
 let a;
 let b;
 let c;
+let maxMin;
+let maxValue;
+let minValue;
 
 
 // graph function
@@ -100,10 +103,12 @@ $range2.onchange = (e) => {
 $range3.onchange = (e) => {
     a = parseInt($range1.value);
     b = parseInt($range2.value);
-    c = parseInt(e.target.value);
+    c = parseInt(e.target.value)
     return rangeChange();
 }
 
+$maxValue = document.querySelector('.max');
+$minValue = document.querySelector('.min');
 rangeChange = () => {
 
     // calculate function y = x^2 from x = -3 to x = 3
@@ -133,7 +138,13 @@ rangeChange = () => {
     ctx.stroke();
     showFunc();
     // MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
-    console.log(calcMaxMin());
+    
+    maxMin = calcMaxMin();
+    maxValue = maxMin[0];
+    minValue = maxMin[1];
+
+    $maxValue.innerText = `ХИУ = ${Math.floor(maxValue)}`
+    $minValue.innerText = `ХБУ = ${Math.floor(minValue)}`
 }
 
 
