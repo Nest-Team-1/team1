@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.null{
+    height: 100vh;
+    background-color:  black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+}
+.container{
+    height: 1000px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transition: 1s;
+}
+.box1{
+    height: 300px;
+    width: 300px;
+    background-color: grey;
+    transition-duration: 300;
+}
+.box2{
+    height: 300px;
+    width: 300px;
+    background-color: gray;
+    transition-duration: 300;
+}
+
+.fixed{
+    position: fixed;
+}
+#box-container{
+    display: flex;
+}
