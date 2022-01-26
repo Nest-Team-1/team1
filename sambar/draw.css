@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&family=Mea+Culpa&family=Roboto&display=swap%27');
+body {
+    margin: 0px;
+    padding: 0px;
+    /* overflow-x: hidden; */
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.top-navigation {
+    height: 60px;
+    width: 100%;
+    border-bottom: #E0E0E0 1px solid;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+.top-navigation-left {
+    width: 70%;
+}
+.flex {
+    display: flex;
+}
+
+.logo {
+    height: 59px;
+    width: 84px;
+    background-image: url(./logo1.svg);
+}
+.space-around {
+    justify-content: space-around;
+    width: 100%;
+}
+
+.nav {
+    margin: 0 30px;
+    color: #1865F2;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+}
+
+.top-navigation-left-left {
+    
+}
+
+.top-navigation-left-left>.nav {
+    margin: 0 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.width-all {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.js-color-picker {
+    margin-left: 30px;
+}
+
+.minibrd>button {
+    border-radius: 10px;
+    background-color: #1865f1;
+    outline: none;
+    border: none;
+    color: white;
+}
+
+.js-paint {
+    background-image: url(https://library.kissclipart.com/20180904/zq/kissclipart-picture-frame-clipart-document-dry-erase-boards-in-3a8a6bd08e3dd544.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.paint-canvas {
+    border: 1px black solid;
+    display: block;
+    margin: 1rem;
+    cursor: url("./Batman\ Pen.cur"), auto;
+}

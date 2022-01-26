@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulas</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+<script src="https://imath.mn/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="nav flex space-between">
+        <div class="logo"></div>
+        <div class="flex margin-right">
+          <div class="margin-right">Courses</div>
+          <div class="margin-right">Login</div>
+          <div class="margin-right">Sign up</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="box"> 
+            <p style="text-align: center;">&nbsp;</p>
+            <h1>ОЛОН ГИШҮҮНТ</h1>
+            <p style="text-align: center;">&nbsp;</p>
+            <p><strong>Хураангуй үржүүлэхийн 7 томьёо.</strong></p>
+            <p>$$a^2-b^2=(a-b)(a+b)$$ $$(a\pm b)^2=a^2\pm2ab+b^2$$ $$(a\pm b)^3=a^3\pm3a^2b+3ab^2\pm b^3$$ $$a^3\pm b^3=(a\pm b)(a^2\mp ab+b^2)$$</p>
+            <p style="text-align: center;">&nbsp;</p>
+        </div>
+        <div class="box">
+            <p style="text-align: center;">&nbsp;</p>
+            <h1>ЗЭРЭГ, ИЛТГЭГЧ</h1>
+            <p style="text-align: center;">&nbsp;</p>
+            <p><strong>Зэргийн чанар.</strong> $$a^0=1$$ $$a^m\cdot a^n=a^{m+n}$$ $$a^m:a^n=a^{m-n}$$ $$(a^m)^n=a^{mn}$$ $$a^nb^n=(ab)^n$$ $$\dfrac{a^n}{b^n}=\left(\dfrac ab\right)^n,\ b\neq0$$ $$a^{-n}=\dfrac1{a^n}$$ $$a^{\frac1n}=\sqrt[n]a$$</p>
+            <p style="text-align: center;">&nbsp;</p>
+        </div>
+        <div class="box">
+            <p style="text-align: center;">&nbsp;</p>
+            <h1>ЯЗГУУР</h1>
+            <p style="text-align: center;">&nbsp;</p>
+            <p><strong>Язгуурын чанар.</strong> $\sqrt{a^2}=|a|$ $a,b\ge0$ байхад $$\sqrt[n]{ab}=\sqrt[n]a\sqrt[n]b$$ $a\ge0,\ b&gt;0$ байхад $$\sqrt[n]{\dfrac ab}=\dfrac{\sqrt[n]a}{\sqrt[n]b}$$ $$\sqrt[n]{\sqrt[k]a}=\sqrt[nk]a$$</p>
+            <p style="text-align: center;">&nbsp;</p>
+        </div>
+        <div class="box">
+            <p style="text-align: center;">&nbsp;</p>
+            <h1>ЛОГАРИФМ</h1>
+            <p style="text-align: center;">&nbsp;</p>
+            <p><strong>Логарифмын чанарууд.</strong>&nbsp;$$\log_a1=0$$ $$\log_aa=1$$ $$a^{\log_ab}=b$$ $$\log_a(a^x)=x$$ $$\log_a(x\cdot y)=\log_ax+\log_ay$$ $$\log_a\dfrac xy=\log_ax-\log_ay$$ $$\log_ab^k=k\log_ab$$ $$\log_{a^k}b=\dfrac1k\log_ab$$ $$\log_ab=\dfrac1{\log_ba}$$ $$\log_ab=\dfrac{\log_kb}{\log_ka}$$ $$\log_a\dfrac1b=-\log_ab$$ $$\log_{10}x=\lg x$$ $$\log_ex=\ln x$$ $$e=2.71828...$$</p>
+            <p style="text-align: center;">&nbsp;</p>
+        </div>
+        <div class="box">
+            <p style="text-align: center;">&nbsp;</p>
+            <h1>КВАДРАТ ТЭГШИТГЭЛ</h1>
+            <p style="text-align: center;">&nbsp;</p>
+            <p><strong>Ерөнхий хэлбэр нь:</strong> $ax^2+bx+c=0$. дискриминант: $D=b^2-4ac$; шийдүүд нь: $$x_{1,2}=\dfrac{-b\pm\sqrt{b^2-4ac}}{2a}=\dfrac{-b\pm\sqrt D}{2a}$$ Хэрэв $D &gt; 0$ байвал тэгшитгэл 2 бодит шийдтэй, $D=0$ байвал тэгшитгэл 1 бодит шийдтэй, $D &lt; 0$ байвал тэгшитгэл бодит шийдгүй.</p>
+            <p style="text-align: center;">&nbsp;</p>
+        </div>
+        <div class="box">
+            <p style="text-align: center;">&nbsp;</p>
+            <h1>ДАРААЛАЛ, ПРОГРЕСС</h1>
+            <p style="text-align: center;">&nbsp;</p>
+            <p><strong>Арифметик прогресс.</strong> $\{a_n\}$ арифметик прогрессийн ялгавар $d$ бол $n$-р гишүүн $$a_n=a_1+d(n-1)$$ эхний $n$ гишүүний нийлбэр $$S_n=\dfrac{a_1+a_n}2\cdot n=\dfrac{2a_1+d(n-1)}2\cdot n$$ Арифметик прогрессийн хувьд $$a_n=\dfrac{a_{n-k}+a_{n+k}}2$$ чанар байдаг.</p>
+            <p style="text-align: center;">&nbsp;</p>
+        </div>
+        <div class="box">
+            <p style="text-align: center;">&nbsp;</p>
+            <h1>КОМБИНАТОРИК</h1>
+            <p style="text-align: center;">&nbsp;</p>
+            <p><strong>Сэлгэмэл.&nbsp;</strong>$P_n=n!=1\cdot2\cdot3\cdot...\cdot n$;</p>
+            <p><strong>Гүйлгэмэл.</strong> $A_n^m=\dfrac{n!}{(n-m)!}$;</p>
+            <p><strong>Хэсэглэл.&nbsp;</strong>$C_n^m=\dfrac{n!}{m!(n-m)!}$;</p>
+            <p><strong>Чанарууд.&nbsp;</strong>$$C_n^m=C_n^{n-m}$$ $$C_{n+1}^{m+1}=C_n^m+C_n^{m+1}$$ $$C_n^0+C_n^1+...+C_n^n=2^n$$</p>
+            <p><strong>Ньютоны бином.</strong>&nbsp;$(a+b)^n=$$$=a^n+C_n^1a^{n-1}b+C_n^2a^{n-2}b^2+...$$$$...+C_n^{n-1}ab^{n-1}+b^n.$$&nbsp;</p>
+            <p>&nbsp;</p>
+        </div>
+        <div class="box">
+            <p style="text-align: center;">&nbsp;</p>
+            <h1>ТРИГОНОМЕТР</h1>
+            <p style="text-align: center;">&nbsp;</p>
+            <p>Тэгш өнцөгт гурвалжны катетууд $a,b$ ба гипотенуз $c$ бол $$\sin\alpha=\dfrac ac,\ \cos\alpha=\dfrac bc$$ $$\mbox{tg}\alpha=\dfrac ab,\ \mbox{ctg}\alpha=\dfrac ba$$</p>
+            <p><strong>Үндсэн адилтгалууд.</strong> $$\cos^2\alpha+\sin^2\alpha=1$$ $$\mbox{tg}\alpha=\dfrac{\sin\alpha}{\cos\alpha}$$ $$\mbox{ctg}\alpha=\dfrac{\cos\alpha}{\sin\alpha}$$ $$\mbox{tg}\alpha\cdot\mbox{ctg}\alpha=1$$ $$\mbox{tg}\alpha=\dfrac1{\mbox{ctg}\alpha}$$ $$\mbox{ctg}\alpha=\dfrac1{\mbox{tg}\alpha}$$ $$1+\mbox{ctg}^2\alpha=\dfrac1{\sin^2\alpha}$$ $$1+\mbox{tg}^2\alpha=\dfrac1{\cos^2\alpha}$$</p>
+            <p><strong>Нийлбэр өнцгийн томьёонууд.</strong> $$\sin(\alpha\pm\beta)=\sin\alpha\cos\beta\pm\cos\alpha\sin\beta$$ $$\cos(\alpha\pm\beta)=\cos\alpha\cos\beta\mp\sin\alpha\sin\beta$$ $$\mbox{tg}(\alpha\pm\beta)=\dfrac{\mbox{tg}\alpha\pm\mbox{tg}\beta}{1\mp\mbox{tg}\alpha\mbox{tg}\beta}$$ $$\mbox{ctg}(\alpha\pm\beta)=\dfrac{\mbox{ctg}\alpha\mbox{ctg}\beta\mp1}{\mbox{ctg}\beta\pm\mbox{ctg}\alpha}$$</p>
+            <p><strong>Давхар өнцгийн томьёонууд.</strong> $$\sin2\alpha=2\sin\alpha\cos\alpha$$ $$\cos2\alpha=1-2\sin^2\alpha=$$$$=2\cos^2\alpha-1=\cos^2\alpha-\sin^2\alpha$$ $$\mbox{tg}2\alpha=\dfrac{2\mbox{tg}\alpha}{1-\mbox{tg}^2\alpha}$$ $$\mbox{ctg}2\alpha=\dfrac{\mbox{ctg}^2\alpha-1}{2\mbox{ctg}\alpha}$$ $$\cos2\alpha=\dfrac{1-\mbox{tg}^2\alpha}{1+\mbox{tg}^2\alpha}$$ $$\sin2\alpha=\dfrac{2\mbox{tg}\alpha}{1+\mbox{tg}^2\alpha},\ \alpha\neq\pi+2\pi k, k\in\mathbb Z$$</p>
+            <p><strong>Тригонометр функцийн нийлбэр.&nbsp;</strong>$$\sin\alpha\pm\sin\beta=2\sin\dfrac{\alpha\pm\beta}2\cos\dfrac{\alpha\mp\beta}2$$ $$\cos\alpha+\cos\beta=2\cos\dfrac{\alpha+\beta}2\cos\dfrac{\alpha-\beta}2$$ $$\cos\alpha-\cos\beta=-2\sin\dfrac{\alpha+\beta}2\sin\dfrac{\alpha-\beta}2$$ $$\mbox{tg}\alpha\pm\mbox{tg}\beta=\dfrac{\sin(\alpha\pm\beta)}{\cos\alpha\cos\beta}$$ $$\mbox{ctg}\alpha\pm\mbox{ctg}\beta=\pm\dfrac{\sin(\alpha\pm\beta)}{\sin\alpha\sin\beta}$$</p>
+            <p><strong>Тригонометр функцийн үржвэр.</strong> $$\cos\alpha\cdot\cos\beta=\dfrac12(\cos(x-y)+\cos(x+y))$$ $$\sin\alpha\cdot\sin\beta=\dfrac12(\cos(\alpha-\beta)-\cos(\alpha+\beta))$$ $$\sin\alpha\cdot\cos\beta=\dfrac12(\sin(\alpha+\beta)+\sin(\alpha-\beta))$$</p>
+            
+            <p><strong>Тригонометрийн урвуу фунцк</strong>. $-1\le a\le1$ үед $$-\dfrac\pi2\le\arcsin a\le\dfrac\pi2\qquad 0\le\arccos a\le\pi$$ $$-\dfrac\pi2&lt;\mbox{arctg}a&lt;\dfrac\pi2\qquad0&lt;\mbox{arcctg}a&lt;\pi$$ $$\arccos a=\pi-\arccos(-a)=$$$$=\dfrac\pi2-\arcsin a=\mbox{arctg}\dfrac a{\sqrt{1-a^2}}$$ $$\mbox{arctg}a=-\mbox{arctg}(-a)=$$$$=\dfrac\pi2-\mbox{arcctg}a=\arcsin\dfrac{a}{\sqrt{1+a^2}}$$</p>
+            <p style="text-align: center;">&nbsp;</p>
+        </div>
+        <div class="box">
+            <p style="text-align: center;">&nbsp;</p>
+            <h1>УЛАМЖЛАЛ</h1>
+            <p style="text-align: center;">&nbsp;</p>
+            <p>$f(x)$ функцийн $x_0$ цэг дээрх уламжлал $$f&#39;(x_0)=\lim\limits_{x\to x_0}=\dfrac{f(x)-f(x_0)}{x-x_0}$$</p>
+            <p><strong>Уламжлал бодох дүрмүүд.</strong> $f,g$ - дифференциалчлагдах функцүүд бол $$(f\pm g)&#39;=f&#39;\pm g&#39;$$ $$(f\cdot g)&#39;=f&#39;g+fg&#39;$$ $$\left(\dfrac fg\right)&#39;=\dfrac{f&#39;g-fg&#39;}{g^2}$$</p>
+            <p><strong>Давхар функцийн уламжлал.</strong> $$(f(g(x)))&#39;=f&#39;(g(x))\cdot g&#39;(x)$$</p>
+            <p><strong>Элементар функцүүдийн уламжлал.</strong></p>
+            <p>$$\begin{array}{c|c} \qquad f(x)\qquad&amp;\qquad f&#39;(x)\qquad \\ \hline c&amp;0\\ x&amp;1\\ x^n&amp;nx^{n-1}\\ a^x&amp;a^x\ln a\\ e^x&amp;e^x\\ \sqrt x&amp;\dfrac1{2\sqrt x}\\ \log_ax&amp;\dfrac1{x\ln a}\\ \lg x&amp;\dfrac1x\lg e\\ \sin x&amp;\cos x\\ \cos x&amp;-\sin x\\ \mbox{tg} x&amp;\dfrac1{\cos^2x}\\ \mbox{ctg} x&amp;-\dfrac1{\sin^2x}\\ \arcsin x&amp;\dfrac1{\sqrt{1-x^2}}\\ \arccos x&amp;-\dfrac1{\sqrt{1-x^2}}\\ \mbox{arctg} x&amp;\dfrac1{1+x^2}\\ \mbox{arcctg} x&amp;-\dfrac1{1+x^2}\\ \ln x&amp;\dfrac1x\\ \sec x&amp;\sec x\mbox{tg} x\\ \mbox{cosec}x&amp;-\mbox{cosec}x\cdot\mbox{ctg} x\\ \hline \end{array} $$</p>
+            <p><strong>Шүргэгчийн тэгшитгэл.</strong> $f(x)$ функцийн $(x_0,y_0)$ координаттай цэгт татсан шүргэгч шулууны тэгшитгэл $$y=f&#39;(x_0)(x-x_0)+f(x_0)$$</p>
+            <p style="text-align: center;">&nbsp;</p>
+        </div>
+        <div class="box">
+            <p style="text-align: center;">&nbsp;</p>
+            <h1>ТОДОРХОЙ БУС ИНТЕГРАЛ</h1>
+            <p style="text-align: center;">&nbsp;</p>
+            <p>Хэрэв $F&#39;(x)=f(x)$ бол $F(x)$ нь $f(x)$-ийн эх функц байна.</p>
+            <p><strong>Тодорхой бус интегралын чанарууд.</strong> $$\int f(x)dx=\int f(x)dx+c$$ $$a\int f(x)dx=\int a f(x)dx=\int f(x)d(ax)$$ $$\int (f(x)\pm g(x))dx=\int f(x)dx\pm\int g(x)dx$$ $$\int f(x)g&#39;(x)dx=\int f(x)dg(x)$$</p>
+            <p><strong>Үндсэн интегралууд.</strong></p>
+            <ol>
+                <li>$\int x^ndx=\dfrac{x^{n+1}}{n+1}+c,\ n\neq-1$;</li>
+                <li>$\int\dfrac1xdx=\ln|x|+c$;</li>
+                <li>$\int\sin xdx=-\cos x+c$;</li>
+                <li>$\int\cos xdx=\sin x+c$;</li>
+                <li>$\int\mbox{tg} xdx=-\ln|\cos x|+c$;</li>
+                <li>$\int\mbox{ctg} xdx=\ln|\sin x|+c$;</li>
+                <li>$\int\dfrac{dx}{\cos^2x}=\mbox{tg} x+c$;</li>
+                <li>$\int\dfrac{dx}{\sin^2x}=-\mbox{ctg} x+c$;</li>
+                <li>$\int\dfrac{dx}{a^2+x^2}=\dfrac1a\mbox{arctg}\dfrac xa+c$;</li>
+                <li>$\int e^x=e^x+c$; $\int a^xdx=\dfrac{a^x}{\ln a}+c$;</li>
+                <li>$\int\dfrac{dx}{\sqrt{a^2-x^2}}=\arcsin\dfrac xa+c$</li>
+            </ol>
+            <p><strong>Орлуулах арга</strong>. $$\int f(g(x))g&#39;(x)dx=\int f(g(x))d g(x)$$&nbsp;</p>
+            <p><strong>Хэсэгчлэх арга.</strong> $$\int\limits f&#39;(x)g(x)dx=f(x)g(x)-\int f(x)g&#39;(x)dx$$</p>
+            <p>&nbsp;</p>
+            <p style="text-align: center;"><strong><a id="ТОДОРХОЙ ИНТЕГРАЛ" name="ТОДОРХОЙ ИНТЕГРАЛ"></a>ТОДОРХОЙ ИНТЕГРАЛ</strong></p>
+            <p><strong>Тодорхой интегралын чанарууд.</strong>$$\int\limits_a^b(f(x)+g(x))dx=\int\limits_a^bf(x)dx+\int\limits_a^bg(x)dx;$$ $$\int\limits_a^bkf(x)dx=k\int\limits_a^bf(x)dx$$ $$\int\limits_a^af(x)dx=0$$ $$\int\limits_a^bf(x)dx=-\int\limits_b^af(x)dx$$ $$\int\limits_a^bf(x)dx=\int\limits_a^cf(x)dx+\int\limits_c^bf(x)dx$$</p>
+            <p><strong>Ньютон Лейбницын томьёо.</strong>&nbsp;$$\int\limits_a^bf(x)=F(b)-F(a)$$</p>
+            <p><strong>Эргэлтийн биеийн гадаргуугийн талбай.</strong> $f(x)$ функцийн $[a,b]$ завсар дахь график $Ox$ тэнхлэгийг тойрон эргэхэд үүсэх биетийн гадаргуугийн талбай $$S=2\pi\int\limits_a^bf(x)\sqrt{(1+f&#39;(x))^2}dx$$</p>
+            <p><strong>Эргэлтийн биеийн эзлэхүүн.</strong> $f(x)$ функцийн $[a,b]$ завсар дахь график $Ox$ тэнхлэгийг тойрон эргэхэд үүсэх биетийн эзлэхүүн $$V=\pi\int\limits_a^bf^2(x)dx$$</p>
+            <p style="text-align: center;">&nbsp;</p>
+        </div>
+        <div class="box">
+            <p style="text-align: center;">&nbsp;</p>
+            <h1>МАТРИЦ</h1>
+            <p style="text-align: center;">&nbsp;</p>
+            <p><strong>Хоёр хэмжээст матрицын тодорхойлогч.</strong> $$\begin{array}{|cc|} a_1&amp; b_1\\ a_2&amp;b_2\end{array}=a_1b_2-a_2b_1$$</p>
+            <p><strong>Гурав хэмжээст матрицын тодорхойлогч.</strong><br />
+            $\begin{array}{|ccc|}a_{11}&amp;a_{12}&amp;a_{13}\\a_{21}&amp;a_{22}&amp;a_{23}\\a_{31}&amp;a_{32}&amp;a_{33}\end{array}=$$$=a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}-$$<br />
+            $$-a_{11}a_{23}a_{32}-a_{12}a_{21}a_{33}-a_{13}a_{22}a_{31}$$</p>
+            <p>&nbsp;</p>
+            <p>$n$ хэмжээст матрицын $i$-р мөр ба $j$-р баганы бүх элементүүд дарахад үүсэх $n-1$ хэмжээст матрицын тодорхойлогчийг $a_{ij}$ элементийн минор гээд $M_{ij}$ гэж тэмдэглэнэ.</p>
+            <p>$n$--хэмжээст матрицын тодорхойлогч.$$\det A=\sum\limits_{i,j=1}^na_{ij}(-1)^{i+j}M_{ij}$$<br />
+            Энэ томьёог ашиглан матрицыг хэмжээсийг бууруулах зарчмаар тодорхойлогчийг олно.</p>
+            <p><strong>Хоёр хэмжээст матрицын тодорхойлогчийн чанарууд.</strong><br />
+            $$\begin{array}{|cc|} a_1&amp; b_1\\ a_2&amp;b_2\end{array}=\begin{array}{|cc|} a_1&amp; a_2\\ b_1&amp;b_2\end{array}\qquad\begin{array}{|cc|} a_1&amp; b_1\\ a_2&amp;b_2\end{array}=-\begin{array}{|cc|} a_2&amp; b_2\\ a_1&amp;b_1\end{array}$$<br />
+            $$\begin{array}{|cc|} a_1&amp; a_1\\ a_2&amp;a_2\end{array}=0\qquad \begin{array}{|cc|} ka_1&amp; kb_1\\ a_2&amp;b_2\end{array}=k\begin{array}{|cc|} a_1&amp; b_1\\ a_2&amp;b_2\end{array}$$<br />
+            $$\begin{array}{|cc|} a_1+kb_1&amp; b_1\\ a_2+kb_2&amp;b_2\end{array}=\begin{array}{|cc|} a_1&amp; b_1\\ a_2&amp;b_2\end{array}$$</p>
+            <p><strong>Матрицуудын нэмэх үйлдэл.</strong></p>
+            <p>$A=\left(\begin{array}{ccc} a_{11}&amp;a_{12}&amp;a_{13}\\a_{21}&amp;a_{22}&amp;a_{23}\\ a_{31}&amp;a_{32}&amp;a_{33}\end{array}\right)\qquad B=\left(\begin{array}{ccc} b_{11}&amp;b_{12}&amp;b_{13}\\b_{21}&amp;b_{22}&amp;b_{23}\\b_{31}&amp;b_{32}&amp;b_{33}\end{array}\right)$</p>
+            <p>$$A+B=\left(\begin{array}{ccc} a_{11}+b_{11}&amp;a_{12}+b_{12}&amp;a_{13}+b_{13}\\<br />
+            a_{21}+b_{21}&amp;a_{22}+b_{22}&amp;a_{23}+b_{23}\\ a_{31}+b_{31}&amp;a_{32}+b_{32}&amp;a_{33}+b_{33}\end{array}\right)$$</p>
+            <p><br />
+            <strong>Матрицуудын үржих үйлдэл.</strong></p>
+            <p>$A=\left(\begin{array}{ccc} a_{11}&amp;a_{12}&amp;a_{13}\\a_{21}&amp;a_{22}&amp;a_{23}\end{array}\right)\qquad B=\left(\begin{array}{cc} b_{11}&amp;b_{12}\\b_{21}&amp;b_{22}\\b_{31}&amp;b_{32}\end{array}\right)$</p>
+            <p>$$AB=C=\left(\begin{array}{cc}c_{11}&amp;c_{12}\\c_{21}&amp;c_{22}\end{array}\right),\ c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+a_{i3}b_{3j}$$</p>
+            <p>$A\cdot A^{T}=1$ байх $A^{T}$ матрицыг урвуу матриц гэнэ.</p>
+            <p style="text-align: center;">&nbsp;</p>
+        </div>
+        <div class="box">
+            <p style="text-align: center;">&nbsp;</p>
+            <h1>КОМПЛЕКС ТОО</h1>
+            <p style="text-align: center;">&nbsp;</p>
+            <p><strong>Ерөнхий хэлбэр.</strong> $z=a+bi,\ a,b\in\mathbb R$.</p>
+            <p>$z_1=a_1+b_1i,\ z_2=a_2+b_2i$ тоонуудын хувьд<br />
+            $$z_1+z_2=(a_1+a_2)+(b_1+b_2)i$$<br />
+            $$z_1z_2=(a_1a_2-b_1b_2)+(a_1b_2+a_2b_1)i$$</p>
+            <p><strong>Комплекс тооны модуль.</strong> $|z|=\sqrt{a^2+b^2}$</p>
+            <p><strong>Комплекс тооны тригонометр хэлбэр.</strong> $$z=r(\cos\varphi+i\sin\varphi)$$</p>
+            <p><strong>Эйлерын томьёо.</strong> $$e^{i\varphi}=\cos\varphi+i\sin\varphi$$</p>
+            <p><strong>Комплекс тоог зэрэг дэвшүүлэх.</strong><br />
+            $$z^n=r^n(\cos n\varphi+i\sin n\varphi)$$</p>
+            <p style="text-align: center;">&nbsp;</p>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
