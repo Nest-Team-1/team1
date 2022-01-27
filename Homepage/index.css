@@ -578,3 +578,27 @@ body::-webkit-scrollbar {
 .study {
     position: relative;
 }
+.see{
+    display: flex;
+}
+.user{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    width: 200px;
+    justify-content: space-around;
+    display: none;
+}
+.profile{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: #1865f1;
+}
+.username{
+    display: flex;
+    color:#1865f2;
+    justify-content: center;
+    align-items: center;
+}
