@@ -91,13 +91,13 @@ const $kwadrat=document.getElementById('kwadrat')
 const $maxmin=document.getElementById('maxmin')
 const $oddeven=document.getElementById('oddeven')
 const $inserse=document.getElementById('inverse')
-const $register=document.getElementById('signup')
-const $login=document.getElementById('login')
+const $signUp=document.getElementById('signup')
+const $log=document.getElementById('login')
 
-$login.onclick=()=>{
+$log.onclick=()=>{
     window.location='../login/index.html'
 }
-$register.onclick=()=>{
+$signUp.onclick=()=>{
     window.location='../register/index.html'
 }
 $inserse.onclick=()=>{
@@ -116,10 +116,6 @@ $linear.onclick=()=>{
     window.location= '../linearfunction/linear_function.html'
 }
 const $hicheel = document.getElementById('hicheel');
-const $myDivRight = document.querySelector('.mydiv-right');
-const $register = document.querySelector('.register');
-const $login = document.querySelector('.login');
-
 
 
 $sambar.onclick = () => {
@@ -147,8 +143,9 @@ $harah.onclick = () => {
     window.location = '../formulas/index.html';
 }
 
+// Navigation Login
+const $myDivRight = document.querySelector('.mydiv-right');
 seeDiv = () => {
-    console.log('doen...');
     if(flag){
         flag = false;
         const $settingContainer = document.querySelector('.setting-container');
@@ -162,10 +159,23 @@ seeDiv = () => {
         div.classList.add('setting-container', 'flex', 'column' );
         $navImg.append(div);
         const $settingContainer = document.querySelector('.setting-container'); 
-        const html = `<div class="profile-setting flex-1 nav-set-link">Profile Settings</div>
-        <div class="logout flex-1 nav-set-link"> Log Out</div>`;
+        const html = `<div class="profile-setting flex-1 nav-set-link" onclick=profilePage()> Profile Settings </div>
+        <div class="logout flex-1 nav-set-link" onclick = signOut()> Log Out</div>`;
         $settingContainer.innerHTML = html;
     }
+}
+
+profilePage = ()=>{
+    window.location = '../profile/index.html';
+}
+
+signOut = () => {
+    firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        window.location = '../login/index.html';
+      }).catch((error) => {
+        // An error happened.
+      });
 }
 
 firebase.auth().onAuthStateChanged((user) => {
@@ -177,8 +187,8 @@ firebase.auth().onAuthStateChanged((user) => {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
       var uid = user.uid;
-    $myDivRight.removeChild($register);
-    $myDivRight.removeChild($login);
+    $myDivRight.removeChild($signUp);
+    $myDivRight.removeChild($log);
     
     const htmlnavImg = `<div class="margin-left nav-img" onclick="seeDiv()"></div>`;
     // const divnavImg = document.createElement('div');
@@ -196,7 +206,7 @@ firebase.auth().onAuthStateChanged((user) => {
     
       // ...
     } else {
-        if($myDivRight.querySelector('.login')){
+        if($myDivRight.getElementById('login')){
             console.log('login');
         }
         else{
@@ -220,4 +230,3 @@ firebase.auth().onAuthStateChanged((user) => {
       // ...
     }
   });
-

@@ -1063,3 +1063,56 @@ $formulas.onclick = () => {
 $forum.onclick = () => {
     window.location = '../forum/index.html';
 }
+// Login username image
+firebase.auth().onAuthStateChanged((user) => {
+    const divImg = document.createElement('div');
+    const divUsername = document.createElement('div');
+    const divReg = document.createElement('div');
+    const divLogin = document.createElement('div');
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      var uid = user.uid;
+    $myDivRight.removeChild($signUp);
+    $myDivRight.removeChild($log);
+    
+    const htmlnavImg = `<div class="margin-left nav-img" onclick="seeDiv()"></div>`;
+    // const divnavImg = document.createElement('div');
+    // divImg.classList.add('nav-img'); 
+    $myDivRight.innerHTML = htmlnavImg;
+    const $navImg = $myDivRight.querySelector('.nav-img');
+    // $navImg.innerHTML = htmlnavImg; 
+    $navImg.style.backgroundImage = `url('${user.photoURL}')`;
+    
+    // const divUsername = document.createElement('div');
+    divUsername.classList.add('flex', 'just-center', 'align-center', 'margin-left', 'nav-username');
+    $myDivRight.append(divUsername);
+    const $navUsername = $myDivRight.querySelector('.nav-username');
+    $navUsername.innerText = user.displayName;
+    
+      // ...
+    } else {
+        if($myDivRight.getElementById('login')){
+            console.log('login');
+        }
+        else{
+            const $navImg = $myDivRight.querySelector('.nav-img');
+            $myDivRight.removeChild($navImg);
+            const $navUsername = $myDivRight.querySelector('.nav-username');
+            $myDivRight.removeChild($navUsername);
+            
+
+            divReg.classList.add('margin-left', 'register');
+            divReg.innerHTML = 'Бүртгүүлэх';
+            $myDivRight.append(divReg);
+            
+            
+            divLogin.classList.add('margin-left', 'login');
+            divLogin.innerHTML = 'Нэвтрэх';
+            $myDivRight.append(divLogin);
+            location.replace('./index.html');
+        }
+      // User is signed out
+      // ...
+    }
+  });
