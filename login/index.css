@@ -103,6 +103,7 @@ button {
   background-color: white;
   border: 1px solid;
   border-radius: 4px;
+  cursor: pointer;
 }
 input {
   width: 368px;

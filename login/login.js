@@ -269,7 +269,7 @@ $google.addEventListener('click', () => {
     var user = result.user;
     // ...
     console.log(user);
-    location.replace('./home.html');
+    location.replace('../Homepage/index.html');
   }).catch((error) => {
     // Handle Errors here.
     var errorCode = error.code;
@@ -297,7 +297,7 @@ $facebook.addEventListener('click', () => {
     // The signed-in user info.
     var user = result.user;
     // ...
-    location.replace('./home.html');
+    location.replace('../Homepage/index.html');
     console.log(user);
   }).catch((error) => {
     // Handle Errors here.
