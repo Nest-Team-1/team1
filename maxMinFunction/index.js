@@ -297,6 +297,8 @@ showFunc = () => {
 }
 
 //window.location
+const $signUp = document.getElementById('signup')
+const $log = document.getElementById('login')
 const $hicheel = document.getElementById('hicheel');
 const $sambar = document.getElementById('sambar');
 const $formulas = document.getElementById('formulas');
@@ -306,15 +308,48 @@ const $next = document.getElementById('next');
 const $problems = document.getElementById('problems');
 const $exam = document.querySelector('.exam');
 const $container = document.querySelector('.container');
+const $logo = document.querySelector('.logo');
 $exam.style.display = 'none';
+
+const $linear = document.getElementById('linear')
+const $kwadrat = document.getElementById('kwadrat')
+const $maxmin = document.getElementById('maxmin')
+const $oddeven = document.getElementById('oddeven')
+const $inserse = document.getElementById('inverse')
+const $register = document.getElementById('signup')
+const $login = document.getElementById('login')
+$login.onclick = () => {
+    window.location = '../login/index.html'
+}
+$register.onclick = () => {
+    window.location = '../register/index.html'
+}
+$inserse.onclick = () => {
+    window.location = '../inversefunction/reverse-function.html'
+}
+$oddeven.onclick = () => {
+    window.location = '../oddevenfunction/index.html'
+}
+$maxmin.onclick = () => {
+    window.location = '../maxminfunction/index.html'
+}
+$kwadrat.onclick = () => {
+    window.location = '../kwadratfunction/kwadrat_function.html'
+}
+$linear.onclick = () => {
+    window.location = '../linearfunction/linear_function.html'
+}
+
+
+$logo.onclick = () => {
+    window.location = '../Homepage/index.html'
+}
 
 $problems.onclick = () => {
     examBtn();
 }
 
-$hicheel.onchange = () => {
-    
-}
+
 $sambar.onclick = () => {
     window.location = '../sambar/draw.html';
 }
@@ -340,3 +375,93 @@ const con = closeBtn = () => {
     $exam.style.display = "none";
     $container.style.opacity = "1"
 }
+
+
+//login
+const $myDivRight = document.querySelector('.mydiv-right');
+let flag;
+seeDiv = () => {
+    if(flag){
+        flag = false;
+        const $settingContainer = document.querySelector('.setting-container');
+        const $navImg = $myDivRight.querySelector('.nav-img');
+        $navImg.removeChild($settingContainer);
+    }
+    else{
+        flag = true;
+        const $navImg = $myDivRight.querySelector('.nav-img');
+        const div = document.createElement('div');
+        div.classList.add('setting-container', 'flex', 'column' );
+        $navImg.append(div);
+        const $settingContainer = document.querySelector('.setting-container'); 
+        const html = `<div class="profile-setting flex-1 nav-set-link" onclick=profilePage()> Profile Settings </div>
+        <div class="logout flex-1 nav-set-link" onclick = signOut()> Log Out</div>`;
+        $settingContainer.innerHTML = html;
+    }
+}
+
+profilePage = ()=>{
+    window.location = '../profile/index.html';
+}
+
+signOut = () => {
+    firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        window.location = '../login/index.html';
+      }).catch((error) => {
+        // An error happened.
+      });
+}
+
+firebase.auth().onAuthStateChanged((user) => {
+    const divImg = document.createElement('div');
+    const divUsername = document.createElement('div');
+    const divReg = document.createElement('div');
+    const divLogin = document.createElement('div');
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      var uid = user.uid;
+    $myDivRight.removeChild($signUp);
+    $myDivRight.removeChild($log);
+    
+    const htmlnavImg = `<div class="margin-left nav-img" onclick="seeDiv()"></div>`;
+    // const divnavImg = document.createElement('div');
+    // divImg.classList.add('nav-img'); 
+    $myDivRight.innerHTML = htmlnavImg;
+    const $navImg = $myDivRight.querySelector('.nav-img');
+    // $navImg.innerHTML = htmlnavImg; 
+    $navImg.style.backgroundImage = `url('${user.photoURL}')`;
+    
+    // const divUsername = document.createElement('div');
+    divUsername.classList.add('flex', 'just-center', 'align-center', 'margin-left', 'nav-username');
+    $myDivRight.append(divUsername);
+    const $navUsername = $myDivRight.querySelector('.nav-username');
+    $navUsername.innerText = user.displayName;
+    
+      // ...
+    } else {
+        if($myDivRight.getElementById('login')){
+            console.log('login');
+        }
+        else{
+            const $navImg = $myDivRight.querySelector('.nav-img');
+            $myDivRight.removeChild($navImg);
+            const $navUsername = $myDivRight.querySelector('.nav-username');
+            $myDivRight.removeChild($navUsername);
+            
+
+            divReg.classList.add('margin-left', 'register');
+            divReg.innerHTML = 'Бүртгүүлэх';
+            $myDivRight.append(divReg);
+            
+            
+            divLogin.classList.add('margin-left', 'login');
+            divLogin.innerHTML = 'Нэвтрэх';
+            $myDivRight.append(divLogin);
+            location.replace('./index.html');
+        }
+      // User is signed out
+      // ...
+    }
+  });
