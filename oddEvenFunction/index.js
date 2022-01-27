@@ -71,10 +71,33 @@ const $range1 = document.getElementById('range1');
 const $range2 = document.getElementById('range2');
 const $range3 = document.getElementById('range3');
 const $a = document.querySelector('.a');
+const $hicheel = document.getElementById('hicheel');
+const $sambar = document.getElementById('sambar');
+const $formulas = document.getElementById('formulas');
+const $forum = document.getElementById('forum');
+const $previous = document.getElementById('previous');
+const $next = document.getElementById('next');
 const $exam = document.querySelector('.exam');
 const $container = document.querySelector('.container');
 const $problems = document.getElementById('problems')
 $exam.style.display = 'none';
+
+
+$sambar.onclick = () => {
+    window.location = '../sambar/draw.html';
+}
+$formulas.onclick = () => {
+    window.location = '../formulas/index.html';
+}
+$forum.onclick = () => {
+    window.location = '../forum/index.html';
+}
+$next.onclick = () => {
+    window.location = '../inverseFunction/reverse-function.html';
+}
+$previous.onclick = () => {
+    window.location = '../maxMinFunction/index.html';
+}
 
 let a;
 let b;
