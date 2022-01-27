@@ -10,26 +10,26 @@
 </head>
 
 <body>
-    <div class="top-navigation flex" >
+    <div class="top-navigation flex">
         <div class="logo"></div>
         <div class="flex color mydiv">
-           <div class="dropdown">
+            <div class="dropdown">
                 <button class="dropbtn color">Хичээл</button>
                 <div class="dropdown-content">
-                  <a href="#" class="" id="start">Функц</a>
-                  <a href="#" id=linear>Шугаман функц</a>
-                  <a href="#" id="kwadrat">Квадрат функц</a>
-                  <a href="#" id="maxmin">Функцийн ХИУ ХБУ</a>
-                  <a href="#" id="oddeven">Тэгш сондгой функц</a>
-                  <a href="#" id="inverse">Урвуу функц</a>
+                    <a href="#" class="" id="start">Функц</a>
+                    <a href="#" id=linear>Шугаман функц</a>
+                    <a href="#" id="kwadrat">Квадрат функц</a>
+                    <a href="#" id="maxmin">Функцийн ХИУ ХБУ</a>
+                    <a href="#" id="oddeven">Тэгш сондгой функц</a>
+                    <a href="#" id="inverse">Урвуу функц</a>
                 </div>
             </div>
             <div class="color" id="sambar">Самбар</div>
             <div class="color" id="formulas">Томъёо</div>
-            <div  class="color" id="forum">Форум</div>
+            <div class="color" id="forum">Форум</div>
 
         </div>
-        <div class="flex color">
+        <div class="flex color mydiv-right">
             <div class="margin-left" id=signup>Бүртгүүлэх</div>
             <div class="margin-left" id="login">Нэвтрэх</div>
         </div>
@@ -45,6 +45,23 @@
         </div>
     </div>
 </body>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script>
+    firebase.initializeApp({
+        apiKey: "AIzaSyCFcmVCuv88VCnm-2ksXRng90c5g_9eVT8",
+        authDomain: "team1-math-login.firebaseapp.com",
+        projectId: "team1-math-login",
+        storageBucket: "team1-math-login.appspot.com",
+        messagingSenderId: "372419094094",
+        appId: "1:372419094094:web:2c5d6f0bc8a876316b051f"
+    });
+    const storage = firebase.storage();
+    const storageRef = storage.ref();
+    const db = firebase.firestore();
+</script>
 <script src="./draw.js"></script>
 
 </html>
