@@ -1,5 +1,5 @@
-const $signUp=document.getElementById('signup')
-const $log=document.getElementById('login')
+const $signUp = document.getElementById('signup')
+const $log = document.getElementById('login')
 
 let $a = document.querySelector("#a");
 let $b = document.getElementById("b");
@@ -250,6 +250,8 @@ const $forum = document.getElementById('forum');
 const $start = document.getElementById('start');
 const $before = document.getElementById('before');
 const $after = document.getElementById('after');
+const $logo = document.querySelector('.logo');
+
 
 
 const $linear = document.getElementById('linear')
@@ -290,6 +292,10 @@ $before.onclick = () => {
 $after.onclick = () => {
     window.location = '../kwadratFunction/kwadrat_function.html'
 }
+$logo.onclick = () => {
+    window.location = '../Homepage/index.html'
+}
+
 
 
 
@@ -308,19 +314,18 @@ const $myDivRight = document.querySelector('.mydiv-right');
 let flag;
 seeDiv = () => {
     console.log('doen...');
-    if(flag){
+    if (flag) {
         flag = false;
         const $settingContainer = document.querySelector('.setting-container');
         const $navImg = $myDivRight.querySelector('.nav-img');
         $navImg.removeChild($settingContainer);
-    }
-    else{
+    } else {
         flag = true;
         const $navImg = $myDivRight.querySelector('.nav-img');
         const div = document.createElement('div');
-        div.classList.add('setting-container', 'flex', 'column' );
+        div.classList.add('setting-container', 'flex', 'column');
         $navImg.append(div);
-        const $settingContainer = document.querySelector('.setting-container'); 
+        const $settingContainer = document.querySelector('.setting-container');
         const html = `<div class="profile-setting flex-1 nav-set-link">Profile Settings</div>
         <div class="logout flex-1 nav-set-link"> Log Out</div>`;
         $settingContainer.innerHTML = html;
@@ -333,32 +338,31 @@ firebase.auth().onAuthStateChanged((user) => {
     const divReg = document.createElement('div');
     const divLogin = document.createElement('div');
     if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-      var uid = user.uid;
-    $myDivRight.removeChild($signUp);
-    $myDivRight.removeChild($log);
-    
-    const htmlnavImg = `<div class="margin-left nav-img" onclick="seeDiv()"></div>`;
-    // const divnavImg = document.createElement('div');
-    // divImg.classList.add('nav-img'); 
-    $myDivRight.innerHTML = htmlnavImg;
-    const $navImg = $myDivRight.querySelector('.nav-img');
-    // $navImg.innerHTML = htmlnavImg; 
-    $navImg.style.backgroundImage = `url('${user.photoURL}')`;
-    
-    // const divUsername = document.createElement('div');
-    divUsername.classList.add('flex', 'just-center', 'align-center', 'margin-left', 'nav-username');
-    $myDivRight.append(divUsername);
-    const $navUsername = $myDivRight.querySelector('.nav-username');
-    $navUsername.innerText = user.displayName;
-    
-      // ...
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        var uid = user.uid;
+        $myDivRight.removeChild($signUp);
+        $myDivRight.removeChild($log);
+
+        const htmlnavImg = `<div class="margin-left nav-img" onclick="seeDiv()"></div>`;
+        // const divnavImg = document.createElement('div');
+        // divImg.classList.add('nav-img'); 
+        $myDivRight.innerHTML = htmlnavImg;
+        const $navImg = $myDivRight.querySelector('.nav-img');
+        // $navImg.innerHTML = htmlnavImg; 
+        $navImg.style.backgroundImage = `url('${user.photoURL}')`;
+
+        // const divUsername = document.createElement('div');
+        divUsername.classList.add('flex', 'just-center', 'align-center', 'margin-left', 'nav-username');
+        $myDivRight.append(divUsername);
+        const $navUsername = $myDivRight.querySelector('.nav-username');
+        $navUsername.innerText = user.displayName;
+
+        // ...
     } else {
-        if($myDivRight.getElementById('login')){
+        if ($myDivRight.getElementById('login')) {
             console.log('login');
-        }
-        else{
+        } else {
             const $navImg = $myDivRight.querySelector('.nav-img');
             $myDivRight.removeChild($navImg);
             const $navUsername = $myDivRight.querySelector('.nav-username');
@@ -367,13 +371,13 @@ firebase.auth().onAuthStateChanged((user) => {
             divReg.classList.add('margin-left', 'register');
             divReg.innerHTML = 'Бүртгүүлэх';
             $myDivRight.append(divReg);
-        
+
             divLogin.classList.add('margin-left', 'login');
             divLogin.innerHTML = 'Нэвтрэх';
             $myDivRight.append(divLogin);
             location.replace('./index.html');
         }
-      // User is signed out
-      // ...
+        // User is signed out
+        // ...
     }
-  });
+});
