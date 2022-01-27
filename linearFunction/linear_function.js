@@ -303,10 +303,9 @@ $forum.onclick = () => {
     window.location = '../forum/index.html';
 }
 
+// Navigation Login
 const $myDivRight = document.querySelector('.mydiv-right');
-
 let flag;
-
 seeDiv = () => {
     console.log('doen...');
     if(flag){

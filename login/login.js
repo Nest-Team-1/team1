@@ -155,7 +155,7 @@ signInEmail = (email, password) =>{
     var user = userCredential.user;
     // ...
     console.log(user);
-    location.replace('../Homepage/index.html');
+    location.replace('../profile/index.html')
   })
   .catch((error) => {
     var errorCode = error.code;
@@ -269,7 +269,7 @@ $google.addEventListener('click', () => {
     var user = result.user;
     // ...
     console.log(user);
-    location.replace('../Homepage/index.html');
+    location.replace('./home.html');
   }).catch((error) => {
     // Handle Errors here.
     var errorCode = error.code;
@@ -297,7 +297,7 @@ $facebook.addEventListener('click', () => {
     // The signed-in user info.
     var user = result.user;
     // ...
-    location.replace('../Homepage/index.html');
+    location.replace('./home.html');
     console.log(user);
   }).catch((error) => {
     // Handle Errors here.

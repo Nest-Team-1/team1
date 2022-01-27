@@ -19,7 +19,6 @@ const $vector4 = document.querySelector('.vector4');
 const $bulb = document.querySelector('.yellow-bulb');
 
 const gap = 250;
-let flag;
 window.onscroll = (e) => {
     if(window.scrollY > $nav.offsetHeight  && window.scrollY < $usage.offsetHeight + gap){
         x = window.scrollY - $nav.offsetHeight;
@@ -145,6 +144,7 @@ $harah.onclick = () => {
 
 // Navigation Login
 const $myDivRight = document.querySelector('.mydiv-right');
+let flag;
 seeDiv = () => {
     if(flag){
         flag = false;

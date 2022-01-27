@@ -8,7 +8,7 @@ const $profilePhoto = document.querySelector('.profilep');
 const $ulTag = document.querySelector('.ul-tag');
 const $contentContainer = document.querySelector('.content-container');
 const $cancelBtn = document.getElementById('cancel');
-let userData, phone, confirmationResult, uid;
+let userData, phone, confirmationResult;
 
 updateProfileData = () => {
   console.log(`Update profile Data`);
@@ -16,8 +16,6 @@ updateProfileData = () => {
     if (user) {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
-      uid = user.uid;
-      userData = user;
       $profileEmail.innerText = user.email;
       $profileUsername.innerText = user.displayName;
       $profilePhone.innerText = user.phoneNumber;
@@ -27,13 +25,13 @@ updateProfileData = () => {
         $profilePhoto.style.backgroundImage = `url(${user.photoURL})`;
       }
       // Check the verified Email
-      if(userData.emailVerified === true){
-        db.collection("users").doc(userData.uid).update({
+      if(user.emailVerified === true){
+        db.collection("users").doc(user.uid).update({
           oldEmail: firebase.firestore.FieldValue.delete()
         });
       }
       else{
-        db.collection('users').doc(userData.uid).get().then((doc)=>{
+        db.collection('users').doc(user.uid).get().then((doc)=>{
           const data = doc.data();
           console.log(data);
           if(data.oldEmail){
@@ -42,22 +40,22 @@ updateProfileData = () => {
         })
       }
     } else {
-      console.log(uid);
-      if(uid){
-        db.collection('users').doc(uid).get().then((doc) => {
-          const data = doc.data();
-          console.log(data);
-          signInEmail(data.email, data.password);
-        }).catch((err) => {
-          console.log(err);
-        })
-        uid = null;
-      }
-      else{
+      // console.log(uid);
+      // if(uid){
+      //   db.collection('users').doc(uid).get().then((doc) => {
+      //     const data = doc.data();
+      //     console.log(data);
+      //     signInEmail(data.email, data.password);
+      //   }).catch((err) => {
+      //     console.log(err);
+      //   })
+      //   uid = null;
+      // }
+      // else{
         // User is signed out
         alert('Sign-out...');
         location.replace('../login/index.html');
-      }
+      // }
     }
   });
 }
@@ -213,7 +211,7 @@ function saveChanges(labelText){
 
 function updateProfilePhoneNumber() {
   const phoneNumber = document.getElementById('changeDataInput').value;
-  if(phoneNumber.length > 8){
+  if(phoneNumber.length === 8){
     console.log(phoneNumber.length);
     db.collection('users').where('phone', '==', phoneNumber).get().then((querySnapshot) =>{
       const data = querySnapshot.docs[0].data();
@@ -224,24 +222,25 @@ function updateProfilePhoneNumber() {
       // This will render a fake reCAPTCHA as appVerificationDisabledForTesting is true.
       // This will resolve after rendering without app verification.
       // Phone verication code submit 
+      console.log(userData.phoneNumber);
       window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('phone-number-send', {
-        'size': 'invisible',
-        'callback': (response) => {
-          // reCAPTCHA solved, allow signInWithPhoneNumber.
-          console.log("recaptcha/...");
-          onSignInSubmit();
-        }
+        size: 'invisible',
       });
-      const appVerifier = window.recaptchaVerifier;
-      firebase.auth().signInWithPhoneNumber(`+1${phoneNumber}`, appVerifier).then((result) => {
-          confirmationResult = result;
-          phone = phoneNumber;
+      const appVerifier = window.recaptchaVerifier
+        firebase.auth().currentUser.linkWithPhoneNumber(`+976${phoneNumber}`, appVerifier)
+        .then((confirmationResult) => {
+          phone = phoneNumber
+          window.confirmationResult = confirmationResult
           alert('Таны утасруу баталгаажуулах код илгээлээ.');
           cancelBtn(); 
           createHTMLElementPhone2();
-        }).catch((error) => {
-          console.log(error);
-        });
+          // prompt user to entre code 
+        })
+        .catch((error) => {
+          // reset rechatcha and try again 
+          appVerifier.reset('phone-number-send')
+          alert(error.message)
+        })
     });
   }
   else{
@@ -249,55 +248,59 @@ function updateProfilePhoneNumber() {
   }
 }
 
-// Sign in email account
-signInEmail = (email, password) =>{
-  console.log("sign in function......", email);
-  firebase.auth().signInWithEmailAndPassword(email, password)
-  .then((userCredential) => {
-    // Signed in
-    var user = userCredential.user;
-    // ...
-    user.updateProfile({
-      phoneNumber: `${phone}`
-    }).then(()=>{
-      console.log('phone successful');
-      db.collection('users').doc(userData.uid).set({
-        phone
-      },{merge: true});
-      console.log('Update data...');
-      updateProfileData();
-    }).catch((err)=>{
-      console.log(err);
-    })
-  })
-  .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    console.log(errorCode, errorMessage);
-  });
-}
-
 function verifyCode(){
   const $vericationCodeNumber = document.getElementById('verication-code-number'); 
   code = $vericationCodeNumber.value;
   if(code){
-    confirmationResult.confirm(code).then((result) => {
-      // User signed in successfully.
-      const user = result.user;
-      console.log(user);
-      user.delete().then(() => {
-        // User deleted.
-        console.log('Delete User success');
-      }).catch((error) => {
-        // An error ocurred
-        console.log(error);
-      });
-    }).catch((error) => {
-      // User couldn't sign in (bad verification code?)
-      console.log(error);
-    });
+    window.confirmationResult.confirm(code).then((result) => {
+      console.log(result);
+      const credential = firebase.auth.PhoneAuthProvider.credential(window.confirmationResult.verificationId, code)
+      firebase.auth().currentUser.linkWithCredential(credential)
+    })
+      .then(() => {
+        // done 
+        db.collection('users').doc(userData.uid).set({
+          phone
+        },{merge: true});
+        console.log('then...');
+        cancelBtn();
+        updateProfileData();
+      })
+      .catch((error) => {
+        alert(error.message)
+      // try again
+      })
   }
 }
+
+// Sign in email account
+// signInEmail = (email, password) =>{
+//   console.log("sign in function......", email);
+//   firebase.auth().signInWithEmailAndPassword(email, password)
+//   .then((userCredential) => {
+//     // Signed in
+//     var user = userCredential.user;
+//     // ...
+//     console.log(phone);
+//     user.updateProfile({
+//       phoneNumber: `${phone}`
+//     }).then(()=>{
+//       console.log('phone successful');
+//       db.collection('users').doc(userData.uid).set({
+//         phone
+//       },{merge: true});
+//       console.log('Update data...');
+//       updateProfileData();
+//     }).catch((err)=>{
+//       console.log(err);
+//     })
+//   })
+//   .catch((error) => {
+//     var errorCode = error.code;
+//     var errorMessage = error.message;
+//     console.log(errorCode, errorMessage);
+//   });
+// }
 
 
 createHTMLElement = (labelTitle, text, type) => {
@@ -355,6 +358,10 @@ $ulTag.addEventListener("click", (e) => {
   const edit = e.target;
   if(edit.classList.value === 'edit'){
     const li =  edit.parentElement.classList[0];
+    userData = firebase.auth().currentUser;
+    // if(userData){
+    //   uid = userData.uid;
+    // }
     console.log(li);
     switch(li) {
       case 'li1':
