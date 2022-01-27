@@ -93,10 +93,7 @@ const $oddeven=document.getElementById('oddeven')
 const $inserse=document.getElementById('inverse')
 const $register=document.getElementById('signup')
 const $login=document.getElementById('login')
-$start1.onclick=()=>{
-    console.log('hi')
-    window.location='../whatIsFunction/what_is_function.html';
-}
+
 $login.onclick=()=>{
     window.location='../login/index.html'
 }
@@ -133,6 +130,10 @@ $forum.onclick = () => {
 $start.onclick = () => {
     console.log('dsd');
     window.location = '../whatIsFunction/what_is_function.html';
+}
+$start1.onclick=()=>{
+    console.log('hi')
+    window.location='../whatIsFunction/what_is_function.html';
 }
 $negdeh.onclick = () => {
     console.log('j');
