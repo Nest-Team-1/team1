@@ -192,25 +192,17 @@ $phoneForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const phoneNumber = $phoneNumber.value;
   if(phoneNumber.length === 8){
-    console.log(phoneNumber.length);
-    db.collection('users').where('phone', '==', phoneNumber).get().then((querySnapshot) =>{
-      const data = querySnapshot.docs[0].data();
-      console.log(data);
-      alert(`${phoneNumber} дугаартай хэрэглэгч бүртгэлтэй байна. Та өөр утасны дугаар оруулна уу ?`);
-    }).catch((err) => {
-      console.log(err);
-      $login.style.display = 'none';
-      $center4.style.display = 'none';
-      $center5.style.display = 'flex';
       const appVerifier = window.recaptchaVerifier;
       firebase.auth().signInWithPhoneNumber(`+976${ phoneNumber}`, appVerifier).then((result) => {
           confirmationResult = result;
           console.log('result');
           alert('Таны утасруу баталгаажуулах код илгээлээ.');
+          $login.style.display = 'none';
+          $center4.style.display = 'none';
+          $center5.style.display = 'flex';
         }).catch((error) => {
           console.log(error);
         });
-    });
   }
   else{
     alert('Таны оруулсан утасны дугаар алдаатай байна. Дугаараа шалгаад дахин оролдоно уу ?');
@@ -235,8 +227,9 @@ confirmationResult.confirm(code).then((result) => {
   // User signed in successfully.
   const user = result.user;
   console.log(user);
+  const mPhone = user.phoneNumber.substring(4);
   db.collection('users').doc(user.uid).set({
-    phone: user.phoneNumber
+    phone: mPhone
   }).then(() => {
       console.log('successfull save data in firestore');
       location.replace('../profile/index.html');
@@ -311,3 +304,19 @@ $facebook.addEventListener('click', () => {
     console.log(errorCode, errorMessage, email, credential);
   });
 });
+
+const $home = document.getElementById('home');
+const $formula = document.getElementById('formula');
+const $board = document.getElementById('board');
+
+$home.onclick=()=>{
+  window.location='../Homepage/index.html';
+}
+
+$formula.onclick=()=>{
+  window.location='../formulas/index.html';
+}
+
+$board.onclick=()=>{
+  window.location='../sambar/draw.html';
+}

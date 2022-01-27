@@ -115,3 +115,19 @@ createUserFireStore = (password) => {
         console.log('failed save data error:', err);
     })
 }
+
+const $home = document.getElementById('home');
+const $formula = document.getElementById('formula');
+const $board = document.getElementById('board');
+
+$home.onclick=()=>{
+  window.location='../Homepage/index.html';
+}
+
+$formula.onclick=()=>{
+  window.location='../formulas/index.html';
+}
+
+$board.onclick=()=>{
+  window.location='../sambar/draw.html';
+}

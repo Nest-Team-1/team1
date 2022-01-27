@@ -134,3 +134,11 @@ input:disabled {
 .margin-top {
   margin-top: 15px;
 }
+
+.color {
+  color: #1865f2;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  cursor: grab;
+}
