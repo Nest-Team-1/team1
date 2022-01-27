@@ -9,6 +9,7 @@ body {
 }
 .container{
   width: 100vw;
+  position: sticky;
 }
 .top-navigation{
   height: 60px;
@@ -240,5 +241,32 @@ body {
     background-size: contain;
     background-position: center;
     margin: 0 auto;
+  }
+  .item {
+    height: 80vh;
+    position: relative;
+  }
+
+  .item-wrap {
+    height: 80vh;
+  }
+
+  .img-fluid {
+    width: 50vw;
+    height: 80vh;
+    border: 1px aqua solid;
+    left: 0;
+    top:0;
+  }
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.exam{
+  position: absolute;
+  z-index: 3;
+  top: 8%;
+  left: 25%;
 }
   

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Шугаман функц</title> 
+    <link rel="shortcut icon" href="./logo.png">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <link rel="stylesheet" href="./linear_function.css">
+</head>
+
+<body>
+    <div class="exam">
+        <div class="close" style="width: 30px; height: 30px; border-radius: 50%; background-color: #6bb6ff; text-align: center;" onclick="closeBtn()">x</div>
+        <div class="item webhtml col-sm-6 col-md-4 col-lg-4 mb-4">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdESy6Jn9W91fjoAwtifmz9QwraLAu-Ax6dvueDj0zube6wKA/viewform?usp=sf_link" class="item-wrap fancybox">
+                <iframe class="img-fluid" src="https://docs.google.com/forms/d/e/1FAIpQLSdESy6Jn9W91fjoAwtifmz9QwraLAu-Ax6dvueDj0zube6wKA/viewform?usp=sf_link" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="yes"></iframe>
+            </a>
+        </div>
+    </div>
+    <div class="top-navigation">
+            <div class="space-around flex">
+                <div class="logo"></div>
+                <div class="top-navigation-left-left flex">
+                        <div class="nav">Хичээл</div>
+                        <div class="nav">Самбар</div>
+                        <div class="nav">Томъёо</div>
+                        <div class="nav">Форум</div>
+                </div>
+                <div class="top-navigation-left-right flex">
+                        <div class="nav">Бүртгүүлэх</div>
+                        <div class="nav">Нэвтрэх</div>
+                </div>
+            </div>
+         
+        </div>
+    </div>
+    <div class="title flex">
+        <div class="flex">
+            <img src="./right_arrow_copy.svg">
+            <div>Өмнөх сэдэв</div>
+        </div>
+        <div class="flex">
+            <img src="./Frame.svg">
+            <h1> Шугаман функц</h1>
+        </div>
+
+        <div class="flex">
+            <div>Дараах бодлого</div>
+            <img src="./right_arrow.svg">
+        </div>
+    </div>
+    <div class="container flex space-around">
+        <div class="graphsec">
+            <div class="explanation design">
+                <p>
+                    ・ Шугаман функц нь \(y = kx + b\) гэж илэрхийлэгдэнэ.&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                </p>
+                <p>・Утга бүр дээрхи өөрчлөлтийг сайтар ажиглаж тунгаагаарай.</p>
+            </div>
+            <div class="showfunc design margin-top">
+                \(y=\)<span id="a1"></span>\(x+\)<span id="a2"></span>
+            </div>
+            <!-- width="640" height="480" -->
+            <div class="graphic margin-top"><canvas id="myCanvas" style="margin-top: 0px"></canvas></div>
+            <div class="graphset margin-top">
+                <input class="a" id="a" type="range" min="-10" max="10" style="color: red;" />
+                <input class="b" id="b" type="range" min="-10" max="10" />
+            </div>
+        </div>
+        <div>
+            <div class="theory design">
+                <div class="width">
+                    <div style="width: 90%; margin: auto;">
+                        <p>
+                            <b>
+                                 Шулуун функц \(y = kx + b\) -н графикийг \(ху\)-координатын хавтгайд дүрсэлбэл шулуун хэлбэртэй байна.
+                   </b>
+                        </p>
+                        <div class="bord">
+                            <p>1. Бодит тоо болох \(b\) нь ямар нэгэн хувьсагчаас хамааралгүй ба математикт сул гишүүн гэж нэрлэгддэг. Харин одоо \(х\)-ийн оронд 0-ийг орлуулж үзвэл \(y = c\) гарж байна. Үүнээс үзвэл, сул гишүүн нь парабол \(у\) тэнхлэгийг
+                                огтлох цэгийг тодорхойлно. / ногоон хэсэг /</p>
+                        </div>
+                        <div class="bord">
+                            <p>
+                                2. \(y = kx + b\) функцийн \(k\)-г налуугийн коеффицент гэж нэрлэдэг. \(ху\)-координатын хавтгайд үүсэх шулуун ба \(х\) тэнхлэгийн хоорон дахь өнцөг нь налуугийн коеффицент \(к\)-тай шууд хамааралтай байна. \(k\) нь ихсэх үед өнцөг нь ихсэнэ \(k\) багасах
+                                үед өнцөг нь багасна \(k
+                                < 0\) үед өнцөг нь мөн адил сөрөг утгатай байна / улаан хэсэг / </p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="btnborder">
+                <button onclick="examBtn()">Бодлого бодъёо</button>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+<script src="./linear_function.js">
+</script>
+
+</html>
