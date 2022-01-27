@@ -1064,7 +1064,11 @@ const $maxmin = document.getElementById('maxmin')
 const $oddeven = document.getElementById('oddeven')
 const $inserse = document.getElementById('inverse')
 const $register = document.getElementById('signup')
-const $login = document.getElementById('login')
+const $login = document.getElementById('login');
+const $logo = document.querySelector('.logo');
+$logo.onclick = () => {
+    window.location = '../Homepage/index.html'
+}
 $login.onclick = () => {
     window.location = '../login/index.html'
 }
