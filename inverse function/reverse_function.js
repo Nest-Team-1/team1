@@ -1,18 +1,14 @@
 let $a = document.querySelector("#a");
 let $b = document.getElementById("b");
-// let $c = document.getElementById("c");
 let $d = document.querySelector("#a1");
 let $d1 = document.querySelector("#a2");
-// let $d2 = document.querySelector("#a3");
 let $btn = document.getElementById("btn");
 let canva = document.querySelector('#myCanvas');
 let $exam = document.querySelector('.exam');
 $d.innerText = "1";
 $d1.innerText = "1";
-// $d2.value = 1;
 $a.value = 1;
 $b.value = 1;
-// $c.value = 1;
 canva.width = document.querySelector('.graphic').offsetWidth;
 canva.height = document.querySelector('.graphic').offsetHeight;
 
@@ -22,13 +18,11 @@ $exam.style.display = "none"
 document.querySelector("#a").onchange = (e) => {
     a = e.target.value;
     $d.innerText = e.target.value;
-    // $range.innerText = $a.value;
     rangenChange();
 };
 document.querySelector("#b").onchange = (e) => {
     b = e.target.value;
     $d1.innerText = e.target.value;
-    // $range1.innerText = $b.value;
     rangenChange();
 };
 const exam = examBtn = () => {
@@ -263,3 +257,26 @@ const dra = (sawBtn = () => {
         );
     }
 });
+//window location change
+const $sambar = document.getElementById('sambar'); 
+const $formulas = document.getElementById('formulas');
+const $forum = document.getElementById('forum');
+const $hicheel = document.getElementById('hicheel');
+const $before = document.getElementById('before');
+
+$hicheel.onclick = () => {
+    console.log('hello');
+}
+$before.onclick = () => {
+    window.location = "../sambar/draw.html";
+}
+
+$sambar.onclick = () => {
+    window.location = "../sambar/draw.html";
+}
+$formulas.onclick = () => {
+    window.location = '../formulas/index.html';
+}
+$forum.onclick = () => {
+    window.location = '../forum/index.html';
+}

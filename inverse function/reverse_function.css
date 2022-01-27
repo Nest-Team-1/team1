@@ -9,12 +9,21 @@ body::-webkit-scrollbar {
 
 .top-navigation {
     height: 60px;
-    width: 100%;
+    width: 100vw;
     border-bottom: #E0E0E0 1px solid;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    background-color: white;
+    justify-content: space-around;
+}
+.mydiv{
+    width: 40vw;
+    justify-content: space-between;
+}
+.color{
+    color: #1865F2;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    margin: auto 0;
+   
 }
 
 .top-navigation-left {
@@ -35,10 +44,6 @@ body::-webkit-scrollbar {
     font-family: 'Roboto', sans-serif;
     display: flex;
     align-items: center;
-}
-
-.top-navigation-left-left {
-    
 }
 
 .top-navigation-left-left>.nav {

@@ -85,6 +85,10 @@ const $negdeh = document.getElementById('negdeh');
 const $harah = document.getElementById('harah');
 const $hicheel = document.getElementById('hicheel');
 
+$hicheel.onclick = () => {
+    console.log('hello');
+}
+
 $sambar.onclick = () => {
     window.location = "../sambar/draw.html";
 }
@@ -98,6 +102,7 @@ $start.onclick = () => {
     window.location = '../whatIsFunction/what_is_function.html';
 }
 $negdeh.onclick = () => {
+    console.log('j');
     window.location = '../forum/index.html';
 }
 $harah.onclick = () => {
