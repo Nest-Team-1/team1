@@ -7,6 +7,7 @@ let $d2 = document.querySelector("#a3");
 let $btn = document.getElementById("btn");
 let $exam = document.querySelector('.exam');
 let canva = document.querySelector('#myCanvas');
+let $con = document.querySelector(".container");
 canva.width = document.querySelector('.graphic').offsetWidth;
 canva.height = document.querySelector('.graphic').offsetHeight;
 $d.innerText = "1";
@@ -37,7 +38,6 @@ document.querySelector("#b").onchange = (e) => {
 document.querySelector("#c").onchange = (e) => {
     c = e.target.value;
     $d2.innerText = e.target.value;
-    // $range2.innerText = $c.value;
     rangenChange();
 };
 const exam = examBtn = () => {
@@ -245,7 +245,7 @@ const rangenChange = (value) => {
 
 };
 //window location change
-const $sambar = document.getElementById('sambar'); 
+const $sambar = document.getElementById('sambar');
 const $formulas = document.getElementById('formulas');
 const $forum = document.getElementById('forum');
 const $start = document.getElementById('start');
@@ -253,48 +253,48 @@ const $before = document.getElementById('before');
 const $after = document.getElementById('after');
 
 
-const $linear=document.getElementById('linear')
-const $kwadrat=document.getElementById('kwadrat')
-const $maxmin=document.getElementById('maxmin')
-const $oddeven=document.getElementById('oddeven')
-const $inserse=document.getElementById('inverse')
-const $register=document.getElementById('signup')
-const $login=document.getElementById('login');
-$login.onclick=()=>{
-    window.location='../login/index.html'
+const $linear = document.getElementById('linear')
+const $kwadrat = document.getElementById('kwadrat')
+const $maxmin = document.getElementById('maxmin')
+const $oddeven = document.getElementById('oddeven')
+const $inserse = document.getElementById('inverse')
+const $register = document.getElementById('signup')
+const $login = document.getElementById('login');
+$login.onclick = () => {
+    window.location = '../login/index.html'
 }
-$register.onclick=()=>{
-    window.location='../register/index.html'
+$register.onclick = () => {
+    window.location = '../register/index.html'
 }
-$inserse.onclick=()=>{
-    window.location='../inversefunction/reverse-function.html'
+$inserse.onclick = () => {
+    window.location = '../inversefunction/reverse-function.html'
 }
-$oddeven.onclick=()=>{
-    window.location='../oddevenfunction/index.html'
+$oddeven.onclick = () => {
+    window.location = '../oddevenfunction/index.html'
 }
-$maxmin.onclick=()=>{
-    window.location='../maxminfunction/index.html'
+$maxmin.onclick = () => {
+    window.location = '../maxminfunction/index.html'
 }
-$kwadrat.onclick=()=>{
-    window.location='../kwadratfunction/kwadrat_function.html'
+$kwadrat.onclick = () => {
+    window.location = '../kwadratfunction/kwadrat_function.html'
 }
-$linear.onclick=()=>{
-    window.location= '../linearfunction/linear_function.html'
+$linear.onclick = () => {
+    window.location = '../linearfunction/linear_function.html'
 }
 $start.onclick = () => {
     console.log('dsd');
     window.location = '../whatIsFunction/what_is_function.html';
 }
 $after.onclick = () => {
-    window.location='../maxMinFunction/index.html'
+    window.location = '../maxMinFunction/index.html'
 }
 $before.onclick = () => {
-    window.location='../linearfunction/linear_function.html'
+    window.location = '../linearfunction/linear_function.html'
 }
 
 
 $sambar.onclick = () => {
-    window.location = "../sambar/draw.html"; 
+    window.location = "../sambar/draw.html";
 }
 $formulas.onclick = () => {
     window.location = '../formulas/index.html';
