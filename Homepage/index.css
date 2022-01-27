@@ -24,6 +24,9 @@
     display: inline-block;
 
   }
+.margin-left{
+    margin-left: 30px;
+}
   
   .dropdown-content {
     display: none;
@@ -48,7 +51,14 @@
 .flex {
     display: flex;
 }
-
+.color{
+    color: #1865F2;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    margin: auto 0;
+   
+}
 .space-around {
     justify-content: space-around
 }
@@ -76,13 +86,17 @@ body::-webkit-scrollbar {
 .container {
     width: 100vw;
 }
+.mydiv{
+    width: 40vw;
+    justify-content: space-between;
+}
+
 
 .top-navigation {
     height: 60px;
+    width: 100vw;
     border-bottom: #E0E0E0 1px solid;
-    align-items: center;
-    display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .top-navigation-left {
@@ -294,6 +308,7 @@ body::-webkit-scrollbar {
     font-family: 'Roboto', sans-serif;
     width: 70%;
     text-align: center;
+    height: 50px;
 }
 
 .study-right-2 {
