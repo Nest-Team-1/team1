@@ -13,6 +13,41 @@ var height = canvas.height;
 // coordinates of center of canvas in pixels
 var xCenter = width / 2;
 var yCenter = height / 2;
+const calcMaxMin = () => {
+    ox = -b / (2 * a);
+    maxVal = parseInt($max.value);
+    minVal = parseInt($min.value);
+
+    if (a > 0) {
+        max1 = a * maxVal * maxVal + b * maxVal + c;
+        max2 = a * minVal * minVal + b * minVal + c;
+        if (max1 > max2) {
+            max = max1;
+            min = max2;
+        } else {
+            max = max2;
+            min = max1;
+        }
+        if (minVal < ox < maxVal) {
+            min = a * (-b / (2 * a)) * (-b / (2 * a)) + b * (-b / (2 * a)) + c;
+        }
+    }
+    if (a < 0) {
+        min1 = a * maxVal * maxVal + b * maxVal + c;
+        min2 = a * minVal * minVal + b * minVal + c;
+        if (min1 < min2) {
+            min = min1;
+            max = min2;
+        } else {
+            min = min2;
+            max = min1;
+        }
+        if (minVal < ox < maxVal) {
+            max = a * (-b / (2 * a)) * (-b / (2 * a)) + b * (-b / (2 * a)) + c;
+        }
+    }
+    return [max, min];
+}
 
 drawAxis = () => {
 
@@ -36,13 +71,13 @@ drawAxis = () => {
     ctx.lineWidth = 2;
     for (i = 1; i <= 30; i++) {
         ctx.moveTo(xCenter + i * xScale, yCenter + 5);
-        ctx.lineTo(xCenter + i * xScale , yCenter - 5);
-        ctx.fillText(i ,xCenter + i  * xScale - 3, yCenter - 8 )
+        ctx.lineTo(xCenter + i * xScale, yCenter - 5);
+        ctx.fillText(i, xCenter + i * xScale - 3, yCenter - 8)
     }
     for (i = 1; i <= 30; i++) {
         ctx.moveTo(xCenter - i * xScale, yCenter + 5);
         ctx.lineTo(xCenter - i * xScale, yCenter - 5);
-        ctx.fillText(-i ,xCenter - i  * xScale - 6, yCenter - 8 );
+        ctx.fillText(-i, xCenter - i * xScale - 6, yCenter - 8);
     }
     ctx.stroke();
 
@@ -54,13 +89,13 @@ drawAxis = () => {
     for (i = 0; i <= 200; i = i + 10) {
         ctx.moveTo(xCenter - 5, yCenter + i * yScale);
         ctx.lineTo(xCenter + 5, yCenter + i * yScale);
-        ctx.fillText(-i , xCenter + 5 + 5, yCenter + i * yScale + 3);
-        
+        ctx.fillText(-i, xCenter + 5 + 5, yCenter + i * yScale + 3);
+
     }
     for (i = 0; i <= 200; i = i + 10) {
         ctx.moveTo(xCenter - 5, yCenter - i * yScale);
         ctx.lineTo(xCenter + 5, yCenter - i * yScale);
-        ctx.fillText(i , xCenter + 5 + 5, yCenter - i * yScale + 3)
+        ctx.fillText(i, xCenter + 5 + 5, yCenter - i * yScale + 3)
 
     }
     ctx.stroke();
@@ -120,7 +155,7 @@ rangeChange = () => {
     ctx.restore();
     drawMax();
     drawMin();
-   
+
 
     for (i = 0; i <= width + 1; i++) {
         x[i] = a * (xCenter - i);
@@ -138,13 +173,14 @@ rangeChange = () => {
     ctx.stroke();
     showFunc();
     // MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
-    
+
     maxMin = calcMaxMin();
     maxValue = maxMin[0];
     minValue = maxMin[1];
+    console.log(maxValue , minValue);
 
-    $maxValue.innerText = `ХИУ = ${Math.floor(maxValue)}`
-    $minValue.innerText = `ХБУ = ${Math.floor(minValue)}`
+    $maxValue.innerText = `ХИУ = ${Math.round(maxValue)}`
+    $minValue.innerText = `ХБУ = ${Math.round(minValue)}`
 }
 
 
@@ -209,7 +245,7 @@ $min.onchange = (e) => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     drawAxis();
     ctx.restore();
-    
+
     drawMin();
     drawMax();
     rangeChange();
@@ -248,52 +284,59 @@ showFunc = () => {
         $showFunc.innerHTML = `y = ${a}x^2`;
     }
 
-// calculate function y = x^2 from x = -3 to x = 3
+    // calculate function y = x^2 from x = -3 to x = 3
 
-for (i=0;i<=width+1;i++)
-{
-x[i] =xCenter - i;
-xx=x[i]/xScale;
-y[i] = -yScale*Math.pow(xx,2); 
+    for (i = 0; i <= width + 1; i++) {
+        x[i] = xCenter - i;
+        xx = x[i] / xScale;
+        y[i] = -yScale * Math.pow(xx, 2);
+
+    }
+
 
 }
 
-const calcMaxMin= () => {
-    ox = -b/(2*a);
-    maxVal = parseInt($max.value);
-    minVal = parseInt($min.value);
+//window.location
+const $hicheel = document.getElementById('hicheel');
+const $sambar = document.getElementById('sambar');
+const $formulas = document.getElementById('formulas');
+const $forum = document.getElementById('forum');
+const $previous = document.getElementById('previous');
+const $next = document.getElementById('next');
+const $problems = document.getElementById('problems');
+const $exam = document.querySelector('.exam');
+const $container = document.querySelector('.container');
+$exam.style.display = 'none';
+
+$problems.onclick = () => {
+    examBtn();
+}
+
+$hicheel.onchange = () => {
     
-    if(a>0){
-        max1 = a*maxVal*maxVal + b*maxVal + c;
-        max2 = a*minVal*minVal + b*minVal + c;
-        if(max1 > max2){
-            max = max1;
-            min = max2;
-        } else {
-            max = max2;
-            min = max1;
-        }
-        if(minVal < ox < maxVal){
-            min = a*(-b/(2*a))*(-b/(2*a)) + b*(-b/(2*a))+c;
-        }
-    }
-    if(a<0){
-        min1 = a*maxVal*maxVal + b*maxVal + c;
-        min2 = a*minVal*minVal + b*minVal + c;
-        if(min1 < min2){
-            min = min1;
-            max = min2;
-        }else {
-            min = min2;
-            max = min1;
-        }
-        if(minVal < ox < maxVal){
-            max = a*(-b/(2*a))*(-b/(2*a)) + b*(-b/(2*a))+c;
-        }
-    }
-    return [max, min];
+}
+$sambar.onclick = () => {
+    window.location = '../sambar/draw.html';
+}
+$formulas.onclick = () => {
+    window.location = '../formulas/index.html';
+}
+$forum.onclick = () => {
+    window.location = '../forum/index.html';
+}
+$next.onclick = () => {
+    window.location = '../oddEvenFunction/index.html';
+}
+$previous.onclick = () => {
+    window.location = '../kwadratFunction/kwadrat_function.html';
 }
 
-
-
+const examBtn = () => {
+    console.log('hh');
+    $exam.style.display = "flex";
+    $container.style.opacity = '0.1';
+}
+const con = closeBtn = () => {
+    $exam.style.display = "none";
+    $container.style.opacity = "1"
 }

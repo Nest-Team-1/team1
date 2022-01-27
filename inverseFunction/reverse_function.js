@@ -268,7 +268,7 @@ $hicheel.onclick = () => {
     console.log('hello');
 }
 $before.onclick = () => {
-    window.location = "../sambar/draw.html";
+    window.location = "../oddEvenFunction/index.html";
 }
 
 $sambar.onclick = () => {
