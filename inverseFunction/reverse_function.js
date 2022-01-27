@@ -262,6 +262,7 @@ const $sambar = document.getElementById('sambar');
 const $formulas = document.getElementById('formulas');
 const $forum = document.getElementById('forum');
 const $start = document.getElementById('start');
+const $before = document.getElementById('before')
 
 
 const $linear=document.getElementById('linear')
@@ -295,6 +296,9 @@ $linear.onclick=()=>{
 $start.onclick = () => {
     console.log('dsd');
     window.location = '../whatIsFunction/what_is_function.html';
+}
+$before.onclick = () => {
+    window.location='../oddevenfunction/index.html'
 }
 
 
