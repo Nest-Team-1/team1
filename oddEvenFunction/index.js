@@ -71,6 +71,10 @@ const $range1 = document.getElementById('range1');
 const $range2 = document.getElementById('range2');
 const $range3 = document.getElementById('range3');
 const $a = document.querySelector('.a');
+const $exam = document.querySelector('.exam');
+const $container = document.querySelector('.container');
+const $problems = document.getElementById('problems')
+$exam.style.display = 'none';
 
 let a;
 let b;
@@ -79,23 +83,22 @@ let c;
 $range1.onchange = (e) => {
     a = parseInt(e.target.value);
     $a.innerText = a;
-    // b = parseInt($range2.value);
-    // c = parseInt($range3.value);
+
     return drawGraphic();
 }
-// $range2.onchange = (e) => {
-//     a = parseInt($range1.value);
-//     b = parseInt(e.target.value);
-//     c = parseInt($range3.value);
-//     return drawGraphic();
-// }
-// $range3.onchange = (e) => {
-//     a = parseInt($range1.value);
-//     b = parseInt($range2.value);
-//     c = parseInt(e.target.value);
-//     return drawGraphic();
-// }
 
+const examBtn = () => {
+    console.log('hh');
+    $exam.style.display = "flex";
+    $container.style.opacity = '0.1';
+}
+const con = closeBtn = () => {
+    $exam.style.display = "none";
+    $container.style.opacity = "1"
+}
+$problems.onclick = () => {
+    examBtn();
+}
 // graph function
 
 ctx.translate(xCenter, yCenter);
