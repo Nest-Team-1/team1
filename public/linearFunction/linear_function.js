@@ -1,33 +1,46 @@
 const $signUp = document.getElementById('signup')
 const $log = document.getElementById('login')
+
 let $a = document.querySelector("#a");
 let $b = document.getElementById("b");
+let $con = document.querySelector(".container");
 let $d = document.querySelector("#a1");
 let $d1 = document.querySelector("#a2");
+// let $d2 = document.querySelector("#a3");
 let $btn = document.getElementById("btn");
 let canva = document.querySelector('#myCanvas');
-let $con = document.querySelector(".container");
 let $exam = document.querySelector('.exam');
-$d.innerText = "1";
-$d1.innerText = "1";
-$a.value = 1;
-$b.value = 1;
 canva.width = document.querySelector('.graphic').offsetWidth;
 canva.height = document.querySelector('.graphic').offsetHeight;
+$d.innerText = "1";
+$d1.innerText = "1";
+// $d2.value = 1;
+$a.value = 1;
+$b.value = 1;
+// $c.value = 1;
 
 let a = 1;
 let b = 1;
 $exam.style.display = "none"
+    // let c = 1;
 document.querySelector("#a").onchange = (e) => {
     a = e.target.value;
     $d.innerText = e.target.value;
+    // $range.innerText = $a.value;
     rangenChange();
 };
+
+
+
 document.querySelector("#b").onchange = (e) => {
     b = e.target.value;
     $d1.innerText = e.target.value;
+    // $range1.innerText = $b.value;
     rangenChange();
 };
+
+
+
 const exam = examBtn = () => {
     $exam.style.display = "flex";
     $con.style.opacity = "0.1"
@@ -230,42 +243,15 @@ const rangenChange = (value) => {
     );
 
 };
-//btn darahad zurna
-const dra = (sawBtn = () => {
-    console.log($a.value, $b.value);
-    const canva = document.getElementById("myCanvas");
-    const context = canva.getContext("2d");
-    // context.clearRect(0, 0, canva.width, canva.height);
-    myGraph.drawXAxis();
-    myGraph.drawYAxis();
-    if ($b.value >= 0) {
-        myGraph.drawEquation(
-            (x) => {
-                return (
-                    (x - parseInt($b.value)) / parseInt($a.value)
-                );
-            },
-            "blue",
-            3
-        );
-    } else {
-        myGraph.drawEquation(
-            (x) => {
-                return (
-                    (x + (-1) * parseInt($b.value)) / parseInt($a.value)
-                );
-            },
-            "blue",
-            3
-        );
-    }
-});
 //window location change
 const $sambar = document.getElementById('sambar');
 const $formulas = document.getElementById('formulas');
 const $forum = document.getElementById('forum');
 const $start = document.getElementById('start');
-const $before = document.getElementById('before')
+const $before = document.getElementById('before');
+const $after = document.getElementById('after');
+const $logo = document.querySelector('.logo');
+
 
 
 const $linear = document.getElementById('linear')
@@ -275,10 +261,6 @@ const $oddeven = document.getElementById('oddeven')
 const $inserse = document.getElementById('inverse')
 const $register = document.getElementById('signup')
 const $login = document.getElementById('login')
-const $logo = document.querySelector('.logo');
-$logo.onclick = () => {
-    window.location = '../Homepage/index.html'
-}
 $login.onclick = () => {
     window.location = '../login/index.html'
 }
@@ -286,27 +268,34 @@ $register.onclick = () => {
     window.location = '../register/index.html'
 }
 $inserse.onclick = () => {
-    window.location = '../inversefunction/reverse-function.html'
+    window.location = '../inverseFunction/reverse-function.html'
 }
 $oddeven.onclick = () => {
-    window.location = '../oddevenfunction/index.html'
+    window.location = '../oddEvenFunction/index.html'
 }
 $maxmin.onclick = () => {
-    window.location = '../maxminfunction/index.html'
+    window.location = '../maxMinFunction/index.html'
 }
 $kwadrat.onclick = () => {
-    window.location = '../kwadratfunction/kwadrat_function.html'
+    window.location = '../kwadratFunction/kwadrat_function.html'
 }
 $linear.onclick = () => {
-    window.location = '../linearfunction/linear_function.html'
+    window.location = '../linearFunction/linear_function.html'
 }
 $start.onclick = () => {
     console.log('dsd');
     window.location = '../whatIsFunction/what_is_function.html';
 }
 $before.onclick = () => {
-    window.location = '../oddevenfunction/index.html'
+    window.location = '../whatIsFunction/what_is_function.html'
 }
+$after.onclick = () => {
+    window.location = '../kwadratFunction/kwadrat_function.html'
+}
+$logo.onclick = () => {
+    window.location = '../Homepage/index.html'
+}
+
 
 
 
@@ -319,26 +308,41 @@ $formulas.onclick = () => {
 $forum.onclick = () => {
     window.location = '../forum/index.html';
 }
+
+// Navigation Login
 const $myDivRight = document.querySelector('.mydiv-right');
 let flag;
 seeDiv = () => {
-    console.log('doen...');
-    if (flag) {
+    if(flag){
         flag = false;
         const $settingContainer = document.querySelector('.setting-container');
         const $navImg = $myDivRight.querySelector('.nav-img');
         $navImg.removeChild($settingContainer);
-    } else {
+    }
+    else{
         flag = true;
         const $navImg = $myDivRight.querySelector('.nav-img');
         const div = document.createElement('div');
-        div.classList.add('setting-container', 'flex', 'column');
+        div.classList.add('setting-container', 'flex', 'column' );
         $navImg.append(div);
-        const $settingContainer = document.querySelector('.setting-container');
-        const html = `<div class="profile-setting flex-1 nav-set-link">Profile Settings</div>
-        <div class="logout flex-1 nav-set-link"> Log Out</div>`;
+        const $settingContainer = document.querySelector('.setting-container'); 
+        const html = `<div class="profile-setting flex-1 nav-set-link" onclick=profilePage()> Profile Settings </div>
+        <div class="logout flex-1 nav-set-link" onclick = signOut()> Log Out</div>`;
         $settingContainer.innerHTML = html;
     }
+}
+
+profilePage = ()=>{
+    window.location = '../profile/index.html';
+}
+
+signOut = () => {
+    firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        window.location = '../login/index.html';
+      }).catch((error) => {
+        // An error happened.
+      });
 }
 
 firebase.auth().onAuthStateChanged((user) => {
@@ -347,46 +351,49 @@ firebase.auth().onAuthStateChanged((user) => {
     const divReg = document.createElement('div');
     const divLogin = document.createElement('div');
     if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-        var uid = user.uid;
-        $myDivRight.removeChild($signUp);
-        $myDivRight.removeChild($log);
-
-        const htmlnavImg = `<div class="margin-left nav-img" onclick="seeDiv()"></div>`;
-        // const divnavImg = document.createElement('div');
-        // divImg.classList.add('nav-img'); 
-        $myDivRight.innerHTML = htmlnavImg;
-        const $navImg = $myDivRight.querySelector('.nav-img');
-        // $navImg.innerHTML = htmlnavImg; 
-        $navImg.style.backgroundImage = `url('${user.photoURL}')`;
-
-        // const divUsername = document.createElement('div');
-        divUsername.classList.add('flex', 'just-center', 'align-center', 'margin-left', 'nav-username');
-        $myDivRight.append(divUsername);
-        const $navUsername = $myDivRight.querySelector('.nav-username');
-        $navUsername.innerText = user.displayName;
-
-        // ...
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      var uid = user.uid;
+    $myDivRight.removeChild($signUp);
+    $myDivRight.removeChild($log);
+    
+    const htmlnavImg = `<div class="margin-left nav-img" onclick="seeDiv()"></div>`;
+    // const divnavImg = document.createElement('div');
+    // divImg.classList.add('nav-img'); 
+    $myDivRight.innerHTML = htmlnavImg;
+    const $navImg = $myDivRight.querySelector('.nav-img');
+    // $navImg.innerHTML = htmlnavImg; 
+    $navImg.style.backgroundImage = `url('${user.photoURL}')`;
+    
+    // const divUsername = document.createElement('div');
+    divUsername.classList.add('flex', 'just-center', 'align-center', 'margin-left', 'nav-username');
+    $myDivRight.append(divUsername);
+    const $navUsername = $myDivRight.querySelector('.nav-username');
+    $navUsername.innerText = user.displayName;
+    
+      // ...
     } else {
-        if ($myDivRight.getElementById('login')) {
+        if(document.getElementById('login')){
             console.log('login');
-        } else {
-            const $navImg = $myDivRight.querySelector('.nav-img');
+        }
+        else{
+            const $navImg = document.querySelector('.nav-img');
             $myDivRight.removeChild($navImg);
-            const $navUsername = $myDivRight.querySelector('.nav-username');
+            const $navUsername = document.querySelector('.nav-username');
             $myDivRight.removeChild($navUsername);
+            
 
             divReg.classList.add('margin-left', 'register');
             divReg.innerHTML = 'Бүртгүүлэх';
             $myDivRight.append(divReg);
-
+            
+            
             divLogin.classList.add('margin-left', 'login');
             divLogin.innerHTML = 'Нэвтрэх';
             $myDivRight.append(divLogin);
             location.replace('./index.html');
         }
-        // User is signed out
-        // ...
+      // User is signed out
+      // ...
     }
-});
+  });

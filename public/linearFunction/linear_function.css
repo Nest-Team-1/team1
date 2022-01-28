@@ -566,6 +566,9 @@ button {
 }
 
 /* Nav Login */
+.column{
+  flex-direction: column;
+}
 .nav-img {
   width: 30px;
   height: 30px;

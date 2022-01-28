@@ -561,6 +561,10 @@ button {
     position: relative;
 }
 
+.column{
+    flex-direction: column;
+}
+
 .setting-container {
     /* display: none; */
     position: absolute;

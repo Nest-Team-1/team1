@@ -79,8 +79,8 @@ window.onscroll = (e) => {
 const $sambar = document.getElementById('sambar'); 
 const $formulas = document.getElementById('formulas');
 const $forum = document.getElementById('forum');
-const $start = document.getElementById('start');
-var $start1=document.querySelector('.start')
+const $start = document.getElementById('start1');
+const $start1=document.querySelector('#start')
 const $negdeh = document.getElementById('negdeh');
 const $harah = document.getElementById('harah');
 
@@ -100,24 +100,19 @@ $signUp.onclick=()=>{
     window.location='../login/index.html'
 }
 $inserse.onclick=()=>{
-    checkUser();
-    window.location='../inversefunction/reverse-function.html'
+    checkUser('../inverseFunction/reverse-function.html');
 }
 $oddeven.onclick=()=>{
-    checkUser();
-    window.location='../oddevenfunction/index.html'
+    checkUser('../oddEvenFunction/index.html');
 }
 $maxmin.onclick=()=>{
-    checkUser();
-    window.location='../maxminfunction/index.html'
+    checkUser('../maxMinFunction/index.html');
 }
 $kwadrat.onclick=()=>{
-    checkUser();
-    window.location='../kwadratfunction/kwadrat_function.html'
+    checkUser('../kwadratFunction/kwadrat_function.html');
 }
 $linear.onclick=()=>{
-    checkUser();
-    window.location= '../linearfunction/linear_function.html'
+    checkUser('../linearFunction/linear_function.html');
 }
 const $hicheel = document.getElementById('hicheel');
 
@@ -130,13 +125,11 @@ $formulas.onclick = () => {
     window.location = '../formulas/index.html';
 }
 $forum.onclick = () => {
-    checkUser();
-    window.location = '../forum/index.html';
+    checkUser('../forum/index.html');
 }
 $start.onclick = () => {
     console.log('dsd');
-    checkUser();
-    window.location = '../whatIsFunction/what_is_function.html';
+    checkUser('../whatIsFunction/what_is_function.html');
 }
 $start1.onclick=()=>{
     console.log('hi')
@@ -144,12 +137,25 @@ $start1.onclick=()=>{
 }
 $negdeh.onclick = () => {
     console.log('j');
-    checkUser();
-    window.location = '../forum/index.html';
+    checkUser('../forum/index.html');
 }
 $harah.onclick = () => {
     window.location = '../formulas/index.html';
 }
+
+checkUser = (url) => {
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            window.location.href = url;
+        }
+        else{
+          // User is signed out
+          alert('Энэ холбоос руу Нэвтэрсэн хэрэглэгчид орох боломжтой. Та эхлээд бүртгүүлнэ үү?');
+          window.location = '../login/index.html';
+          var uid = user.uid;
+        }
+      });
+  }
 
 // Navigation Login
 const $myDivRight = document.querySelector('.mydiv-right');
@@ -240,13 +246,4 @@ firebase.auth().onAuthStateChanged((user) => {
     }
   });
 
-  checkUser = () => {
-    firebase.auth().onAuthStateChanged((user) => {
-        if (!user) {
-          // User is signed out
-          alert('Энэ холбоос руу Нэвтэрсэн хэрэглэгчид орох боломжтой. Та эхлээд бүртгүүлнэ үү?');
-          window.location = '../login/index.html';
-          var uid = user.uid;
-        }
-      });
-  }
+

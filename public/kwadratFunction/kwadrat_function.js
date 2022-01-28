@@ -1,36 +1,34 @@
 const $signUp = document.getElementById('signup')
 const $log = document.getElementById('login')
-
 let $a = document.querySelector("#a");
 let $b = document.getElementById("b");
-let $con = document.querySelector(".container");
+let $c = document.getElementById("c");
 let $d = document.querySelector("#a1");
 let $d1 = document.querySelector("#a2");
-// let $d2 = document.querySelector("#a3");
+let $d2 = document.querySelector("#a3");
 let $btn = document.getElementById("btn");
-let canva = document.querySelector('#myCanvas');
 let $exam = document.querySelector('.exam');
+let canva = document.querySelector('#myCanvas');
+let $con = document.querySelector(".container");
 canva.width = document.querySelector('.graphic').offsetWidth;
 canva.height = document.querySelector('.graphic').offsetHeight;
 $d.innerText = "1";
 $d1.innerText = "1";
-// $d2.value = 1;
+$d2.innerText = "1";
 $a.value = 1;
 $b.value = 1;
-// $c.value = 1;
+$c.value = 1;
 
 let a = 1;
 let b = 1;
+let c = 1;
 $exam.style.display = "none"
-    // let c = 1;
 document.querySelector("#a").onchange = (e) => {
     a = e.target.value;
     $d.innerText = e.target.value;
     // $range.innerText = $a.value;
     rangenChange();
 };
-
-
 
 document.querySelector("#b").onchange = (e) => {
     b = e.target.value;
@@ -39,8 +37,11 @@ document.querySelector("#b").onchange = (e) => {
     rangenChange();
 };
 
-
-
+document.querySelector("#c").onchange = (e) => {
+    c = e.target.value;
+    $d2.innerText = e.target.value;
+    rangenChange();
+};
 const exam = examBtn = () => {
     $exam.style.display = "flex";
     $con.style.opacity = "0.1"
@@ -219,8 +220,10 @@ const myGraph = new Graph({
 });
 myGraph.drawEquation(
     function(x) {
-        return parseInt($a.value) * x + parseInt($b.value);
-        // (parseInt($a.value) * x + 1)/3; 
+        return (
+            parseInt($a.value) * x * x + parseInt($b.value) * x + parseInt($c.value)
+            // (parseInt($a.value) * x + 1)/3; 
+        );
     },
     "black",
     3
@@ -235,7 +238,7 @@ const rangenChange = (value) => {
     myGraph.drawEquation(
         (x) => {
             return (
-                parseInt($a.value) * x + parseInt($b.value)
+                parseInt($a.value) * x * x + parseInt($b.value) * x + parseInt($c.value)
             );
         },
         "black",
@@ -250,8 +253,6 @@ const $forum = document.getElementById('forum');
 const $start = document.getElementById('start');
 const $before = document.getElementById('before');
 const $after = document.getElementById('after');
-const $logo = document.querySelector('.logo');
-
 
 
 const $linear = document.getElementById('linear')
@@ -260,7 +261,11 @@ const $maxmin = document.getElementById('maxmin')
 const $oddeven = document.getElementById('oddeven')
 const $inserse = document.getElementById('inverse')
 const $register = document.getElementById('signup')
-const $login = document.getElementById('login')
+const $login = document.getElementById('login');
+const $logo = document.querySelector('.logo');
+$logo.onclick = () => {
+    window.location = '../Homepage/index.html'
+}
 $login.onclick = () => {
     window.location = '../login/index.html'
 }
@@ -268,35 +273,30 @@ $register.onclick = () => {
     window.location = '../register/index.html'
 }
 $inserse.onclick = () => {
-    window.location = '../inversefunction/reverse-function.html'
+    window.location = '../inverseFunction/reverse-function.html'
 }
 $oddeven.onclick = () => {
-    window.location = '../oddevenfunction/index.html'
+    window.location = '../oddevenFunction/index.html'
 }
 $maxmin.onclick = () => {
-    window.location = '../maxminfunction/index.html'
+    window.location = '../maxMinFunction/index.html'
 }
 $kwadrat.onclick = () => {
-    window.location = '../kwadratfunction/kwadrat_function.html'
+    window.location = '../kwadratFunction/kwadrat_function.html'
 }
 $linear.onclick = () => {
-    window.location = '../linearfunction/linear_function.html'
+    window.location = '../linearFunction/linear_function.html'
 }
 $start.onclick = () => {
     console.log('dsd');
     window.location = '../whatIsFunction/what_is_function.html';
 }
-$before.onclick = () => {
-    window.location = '../whatIsFunction/what_is_function.html'
-}
 $after.onclick = () => {
-    window.location = '../kwadratFunction/kwadrat_function.html'
+    window.location = '../maxMinFunction/index.html'
 }
-$logo.onclick = () => {
-    window.location = '../Homepage/index.html'
+$before.onclick = () => {
+    window.location = '../linearFunction/linear_function.html'
 }
-
-
 
 
 $sambar.onclick = () => {
@@ -308,8 +308,6 @@ $formulas.onclick = () => {
 $forum.onclick = () => {
     window.location = '../forum/index.html';
 }
-
-// Navigation Login
 const $myDivRight = document.querySelector('.mydiv-right');
 let flag;
 seeDiv = () => {

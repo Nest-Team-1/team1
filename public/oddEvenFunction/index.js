@@ -105,19 +105,19 @@ $register.onclick = () => {
     window.location = '../register/index.html'
 }
 $inserse.onclick = () => {
-    window.location = '../inversefunction/reverse-function.html'
+    window.location = '../inverseFunction/reverse-function.html'
 }
 $oddeven.onclick = () => {
-    window.location = '../oddevenfunction/index.html'
+    window.location = '../oddEvenFunction/index.html'
 }
 $maxmin.onclick = () => {
-    window.location = '../maxminfunction/index.html'
+    window.location = '../maxminFunction/index.html'
 }
 $kwadrat.onclick = () => {
-    window.location = '../kwadratfunction/kwadrat_function.html'
+    window.location = '../kwadratFunction/kwadrat_function.html'
 }
 $linear.onclick = () => {
-    window.location = '../linearfunction/linear_function.html'
+    window.location = '../linearFunction/linear_function.html'
 }
 $sambar.onclick = () => {
     window.location = '../sambar/draw.html';
