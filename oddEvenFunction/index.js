@@ -86,9 +86,18 @@ const $maxmin = document.getElementById('maxmin')
 const $oddeven = document.getElementById('oddeven')
 const $inserse = document.getElementById('inverse')
 const $register = document.getElementById('signup')
-const $login = document.getElementById('login')
+const $login = document.getElementById('login');
+const $start = document.getElementById('start')
+const $logo = document.querySelector('.logo');
 $exam.style.display = 'none';
+$logo.onclick = () => {
+    window.location = '../Homepage/index.html'
+}
 
+
+$start.onclick = () => {
+    window.location = '../whatIsFunction/what_is_function.html'
+}
 $login.onclick = () => {
     window.location = '../login/index.html'
 }
