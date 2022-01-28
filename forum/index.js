@@ -68,16 +68,33 @@ function draw(doc) {
     $div1.classList.add("space-between");
     let $div2 = document.createElement("div");
     $div2.classList.add("userphoto");
+    $div2.style.background=  `url(${user.photoURL})`;
+  $div2.style.backgroundSize='cover'
+
     // $div2.innerText = "photo"; //user.photo
     let $div3 = document.createElement("div");
     $div3.classList.add("username");
+      $div3.innerText = user.displayName; 
     let set = document.createElement("div");
     set.classList.add("del");
     set.textContent = "x";
     set.onclick = () => {
-      db.collection("forum").doc(doc.id).delete();
+      if(user.displayName===$div3.innerText){
+        if(confirm("Та итгэлтэй байна уу? Дахиж сэргээх боломжгүйг анхаарна уу!")){
+           db.collection("forum").doc(doc.id).delete();
+        }
+
+      
+      }
+     
     };
-    $div3.innerText = "name"; //user.DisplayName
+    console.log(user)
+   
+    
+      console.log($div3.innerText)
+      console.log(user.displayName)
+ 
+   //user.DisplayName
     $userContainer.append($div2, $div3);
     $div1.append($userContainer, set);
     let $posttxtdiv = document.createElement("div");
@@ -95,13 +112,13 @@ function draw(doc) {
           let $comments = document.createElement("div");
           let $compic = document.createElement("div");
           let containerdiv = document.createElement("div");
-         
+
           let comname = document.createElement("div");
           comname.classList.add("comname");
-          comname.innerText = "name1"; //user.name
+          comname.innerText = user.displayName; //user.name
           let $apart = document.createElement("div");
           $apart.classList.add("apart");
-        
+
           containerdiv.classList.add("flex");
           containerdiv.classList.add("comclass");
           $apart.append($comments,);
@@ -252,4 +269,4 @@ db.collection("forum")
     snapshot.forEach((doc) => {
       draw(doc);
     });
-  });
+  })
