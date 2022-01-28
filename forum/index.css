@@ -36,8 +36,6 @@ h4 {
   width: 25vw;
   height: 50vh;
 }
-.compp {
-}
 .coms {
   width: 25vw;
   height: 50vh;
@@ -134,7 +132,7 @@ h4 {
   border-radius: 5px;
   background: #ffffff;
   margin: 0 auto;
-  margin-top: 70px;
+  margin-top: 95px;
 }
 .myinput {
   width: 92%;
@@ -213,14 +211,12 @@ h4 {
   outline: none;
   margin-left: 20px;
 }
-.userphoto {
+/* .userphoto {
   width: 40px;
   height: 40px;
   border-radius: 100px;
   border: 1px solid black;
-}
-.combtn {
-}
+} */
 .combtnsend {
   /* width: 106px; */
   height: 38px;
@@ -237,9 +233,6 @@ h4 {
   font-size: 13px;
   margin-top: 10px;
   margin-left: 10px;
-}
-.cont {
-  /* box-sizing: border-box; */
 }
 .margin-left {
   margin-left: 10px;
@@ -290,7 +283,7 @@ h4 {
 }
 .header {
   width: 100vw;
-  height: 54px;
+  /* height: 54px; */
   background-color: white;
   border-bottom: 1px solid #eaeaea;
   position: fixed;
@@ -428,4 +421,34 @@ body {
   }
 
   
+}
+
+/* Nav Login */
+.nav-img {
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center, center;
+  border: 1px solid black;
+  border-radius: 50%;
+  position: relative;
+}
+.setting-container {
+  /* display: none; */
+  position: absolute;
+  background-color: #f1f1f1;
+  /* height: 70px; */
+  width: 160px;
+  top: 40px;
+  z-index: 3;
+  /* display: block; */
+}
+.nav-set-link:hover {
+  background-color: #ddd;
+}
+.nav-set-link {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
 }
