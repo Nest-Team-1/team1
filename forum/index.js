@@ -1,3 +1,9 @@
+let userCurrent;
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    userCurrent= user;
+  }
+});
 let $fileinput = document.querySelector(".fileinput");
 let $myinput = document.querySelector(".myinput");
 let $postbtn = document.querySelector(".postbtn");
@@ -24,11 +30,13 @@ $postbtn.onclick = function () {
   console.log($myinput.value);
   const docRef = db.collection("forum").doc();
   document.getElementById("loader").style.display = "block";
+  console.log(userCurrent)
   if (!$fileinput.files[0] && $myinput.value) {
     docRef
       .set({
         text: $myinput.value,
         date: new Date(),
+        user: userCurrent ? userCurrent.displayName? userCurrent.displayName : userCurrent.phoneNumber : 'guest'
       })
       .then(() => {
         document.getElementById("loader").style.display = "none";
@@ -74,7 +82,7 @@ function draw(doc) {
     // $div2.innerText = "photo"; //user.photo
     let $div3 = document.createElement("div");
     $div3.classList.add("username");
-      $div3.innerText = user.displayName; 
+      $div3.innerText = doc.data().user;
     let set = document.createElement("div");
     set.classList.add("del");
     set.textContent = "x";
@@ -115,7 +123,8 @@ function draw(doc) {
 
           let comname = document.createElement("div");
           comname.classList.add("comname");
-          comname.innerText = user.displayName; //user.name
+          comname.innerText = comDoc.data().usercomment;
+          // console.log(doc.data().)
           let $apart = document.createElement("div");
           $apart.classList.add("apart");
 
@@ -169,6 +178,7 @@ function draw(doc) {
             date: new Date(),
             like: 0,
             tf: false,
+            usercomment: userCurrent ? userCurrent.displayName? userCurrent.displayName : userCurrent.phoneNumber : 'guest',
           })
           .then(
             ($input.value = ""),
